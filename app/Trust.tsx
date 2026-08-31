@@ -5,7 +5,7 @@ const rows:[string,string][]=[
 ];
 
 export default function Trust(){return (
-  <section className="trust-sec" id="trust-2">
+  <section className="trust-sec" id="trust">
     <div className="trust-img">
       <img src="/trust-woman-evening.jpg" alt="A woman walking home in the evening light"/>
       <div className="trust-signals" aria-hidden="true">

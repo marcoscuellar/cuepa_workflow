@@ -1,17 +1,22 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {motion} from "motion/react";
 import Logo from "./Logo";
 
 const items=[
   {key:"room",label:"Making Room",href:"#top",sections:["top","reality"]},
   {key:"how",label:"How it works",href:"#find",sections:["find","flow","prove","grow"]},
-  {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]}
+  {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]},
+  {key:"trust",label:"Trust",href:"#trust",sections:["trust","conversation"]}
 ];
 
 export default function Nav(){
   const [active,setActive]=useState("room");
+  // While a click-scroll is in flight the scroll-spy would briefly re-report the
+  // section we're leaving, snapping the pill backwards mid-slide. Ignore the spy
+  // until it agrees with the clicked tab (or the scroll has had time to land).
+  const clickLock=useRef<{key:string;until:number}|null>(null);
 
   useEffect(()=>{
     const sectionToKey:Record<string,string>={};
@@ -25,7 +30,15 @@ export default function Nav(){
       entries.forEach(e=>{ratios.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0);});
       let bestId="";let bestRatio=0;
       ratios.forEach((r,id)=>{if(r>bestRatio){bestRatio=r;bestId=id;}});
-      if(bestId && sectionToKey[bestId]) setActive(sectionToKey[bestId]);
+      const nextKey=bestId?sectionToKey[bestId]:"";
+      if(!nextKey) return;
+
+      const lock=clickLock.current;
+      if(lock){
+        if(nextKey===lock.key||performance.now()>lock.until) clickLock.current=null;
+        else return;
+      }
+      setActive(nextKey);
     },{threshold:[0,.15,.3,.5,.75,1],rootMargin:"-92px 0px -40% 0px"});
 
     els.forEach(el=>observer.observe(el));
@@ -37,7 +50,7 @@ export default function Nav(){
       <a className="brand" href="#top"><Logo/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
-          <a key={it.key} href={it.href} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>setActive(it.key)}>
+          <a key={it.key} href={it.href} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>
             {active===it.key && (
               <motion.span
                 layoutId="navpill"
