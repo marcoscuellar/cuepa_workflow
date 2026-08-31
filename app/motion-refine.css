@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@1,600&display=swap');
+body{font-family:'Archivo',Arial,sans-serif}
+h1,h2,h3,h4,.scramble,.plantop h3,.conversation h2{font-family:'Archivo Black','Archivo',Arial,sans-serif;font-weight:400}
+.brand{font-family:'Archivo Black','Archivo',Arial,sans-serif;font-weight:400;letter-spacing:-.025em}
+.eyebrow,.navlinks a,.nav>a:last-child,.signal small,.storysignal small,.storynum,.chaosview>small,.dayplan small,.prioritylabel,.schedule time,.schedule span,.replay,.demoPrinciple strong{font-family:'JetBrains Mono',monospace}
+.navlinks a{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);transition:color .2s}
+.navlinks a:hover{color:#fff}
+.nav>a:last-child{padding:10px 18px;border-radius:999px;background:#08786f;color:#fff;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,transform .2s}
+.nav>a:last-child:hover{background:#0a9186;transform:translateY(-1px)}
+.scramble{font-variant-numeric:tabular-nums;word-break:normal}
+.resolving .scramble{color:#8da8ff}
+.resolving .chaosview button{opacity:.55;cursor:wait}
+.dayplan{background:#f4f2ec;color:#11151a}
+.dayplan small,.dayplan .prioritylabel{color:#336bd3}
+.plantop{border-color:#d6d9dc}
+.plantop>p{color:#6e7780}
+.plantop b{color:#11151a}
+.priorities article{background:#fff;border-color:#d5d9df;box-shadow:0 8px 24px rgba(16,23,33,.04)}
+.priorities h4{color:#11151a}
+.priorities p{color:#66707a}
+.schedule{border-color:#d5d9df}
+.schedule p{color:#343b43;border-color:#d5d9df}
+.schedule p:nth-child(odd){background:#edf9f7;border-left:2px solid var(--teal);padding-left:12px}
+.schedule time{color:#647384;font-weight:700}
+.schedule span{color:#145bb7;border-color:#9cbbe6;background:#fff}
+.replay{background:#fff;color:#586470;border-color:#c8cfd7}
+@media(max-width:560px){.scramble{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.chaosview,.dayplan{transition-duration:.01ms!important}}
