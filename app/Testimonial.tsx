@@ -18,18 +18,44 @@ const quotes=[
   }
 ];
 
+// Long quotes hold longer. Roughly reading speed, floored so the short quote
+// doesn't flash past and capped so the longest doesn't stall the section.
+const dwellFor=(text:string)=>Math.min(12000,Math.max(6000,text.length*55));
+
 export default function Testimonial(){
   const [index,setIndex]=useState(0);
+  const [inView,setInView]=useState(false);
+  const [hovered,setHovered]=useState(false);
+  // Once the reader drives it themselves, autoplay stops for good rather than
+  // yanking the slide out from under them mid-read.
+  const [tookOver,setTookOver]=useState(false);
   const reduce=useReducedMotion();
+  const sectionRef=useRef<HTMLElement>(null);
   const drag=useRef<{x:number;y:number}|null>(null);
 
   const go=useCallback((next:number)=>{
     setIndex((next%quotes.length+quotes.length)%quotes.length);
   },[]);
+  const userGo=useCallback((next:number)=>{setTookOver(true);go(next);},[go]);
+
+  // Only run while the section is actually on screen.
+  useEffect(()=>{
+    const node=sectionRef.current;
+    if(!node) return;
+    const io=new IntersectionObserver(([e])=>setInView(e.isIntersecting),{threshold:.35});
+    io.observe(node);
+    return ()=>io.disconnect();
+  },[]);
+
+  useEffect(()=>{
+    if(reduce||tookOver||hovered||!inView) return;
+    const id=window.setTimeout(()=>go(index+1),dwellFor(quotes[index].text));
+    return ()=>window.clearTimeout(id);
+  },[index,reduce,tookOver,hovered,inView,go]);
 
   const onKeyDown=(e:React.KeyboardEvent)=>{
-    if(e.key==="ArrowLeft"){e.preventDefault();go(index-1);}
-    if(e.key==="ArrowRight"){e.preventDefault();go(index+1);}
+    if(e.key==="ArrowLeft"){e.preventDefault();userGo(index-1);}
+    if(e.key==="ArrowRight"){e.preventDefault();userGo(index+1);}
   };
 
   // Horizontal swipe. Ignore gestures that are mostly vertical so the page can
@@ -40,16 +66,11 @@ export default function Testimonial(){
     if(!start) return;
     const dx=e.clientX-start.x, dy=e.clientY-start.y;
     if(Math.abs(dx)<45||Math.abs(dx)<Math.abs(dy)) return;
-    go(index+(dx<0?1:-1));
+    userGo(index+(dx<0?1:-1));
   };
 
-  useEffect(()=>{
-    const el=document.getElementById("testimonial-live");
-    if(el) el.textContent=`Quote ${index+1} of ${quotes.length}`;
-  },[index]);
-
   return (
-    <section className="testimonial-sec">
+    <section className="testimonial-sec" ref={sectionRef}>
       <p className="rm-eyebrow">FROM ROOM CONVERSATIONS, THIS WEEK</p>
 
       <div
@@ -61,9 +82,13 @@ export default function Testimonial(){
         onKeyDown={onKeyDown}
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
+        onMouseEnter={()=>setHovered(true)}
+        onMouseLeave={()=>setHovered(false)}
+        onFocus={()=>setHovered(true)}
+        onBlur={()=>setHovered(false)}
       >
         {/* Every slide stays in one grid cell, so the frame is as tall as the
-            longest quote and nothing below it shifts when the slide changes. */}
+            longest quote and the controls never move between slides. */}
         <div className="tcar-track">
           {quotes.map((q,i)=>{
             const offset=i-index;
@@ -95,22 +120,25 @@ export default function Testimonial(){
                 key={i}
                 type="button"
                 className={`tcar-dot ${i===index?"is-on":""}`}
-                onClick={()=>go(i)}
+                onClick={()=>userGo(i)}
                 aria-label={`Go to quote ${i+1}`}
                 aria-current={i===index}
               />
             ))}
           </div>
-          <button type="button" className="tcar-arrow" onClick={()=>go(index-1)} aria-label="Previous quote">
+          <button type="button" className="tcar-arrow" onClick={()=>userGo(index-1)} aria-label="Previous quote">
             <span aria-hidden>&#8592;</span>
           </button>
-          <button type="button" className="tcar-arrow" onClick={()=>go(index+1)} aria-label="Next quote">
+          <button type="button" className="tcar-arrow" onClick={()=>userGo(index+1)} aria-label="Next quote">
             <span aria-hidden>&#8594;</span>
           </button>
         </div>
       </div>
 
-      <p id="testimonial-live" className="tcar-live" aria-live="polite"/>
+      {/* Silent while it's cycling on its own; announces once the reader is driving. */}
+      <p className="tcar-live" aria-live={tookOver?"polite":"off"}>
+        {tookOver?`Quote ${index+1} of ${quotes.length}`:""}
+      </p>
     </section>
   );
 }
