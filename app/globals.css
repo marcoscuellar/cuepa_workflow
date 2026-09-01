@@ -1,11 +1,11 @@
 @import "tailwindcss";@import "tw-animate-css";@import "../vendor/shadcn-tailwind-4.13.0.css";
-:root{--ink:#080b0f;--paper:#f1efe9;--blue:#08786f;--teal:#08786f;--teal-bright:#43cdbc;--line:#ffffff20}
+:root{--gutter:72px;--shell-max:1440px;--ink:#080b0f;--paper:#f1efe9;--blue:#08786f;--teal:#08786f;--teal-bright:#43cdbc;--line:#ffffff20}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--paper);font-family:Arial,sans-serif}
 a{color:inherit;text-decoration:none}
 svg{width:1em;fill:none;stroke:currentColor;stroke-width:2}
-.shell{width:min(1440px,calc(100% - 64px));margin:auto}
+.shell{width:min(var(--shell-max),calc(100% - var(--gutter)*2));margin:auto}
 .nav{height:92px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:14px}
 .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.13em}
 .brand b{width:34px;height:34px;border:1px solid;border-radius:50%;display:grid;place-items:center}
@@ -120,7 +120,7 @@ summary{cursor:pointer;list-style:none;display:flex;justify-content:space-betwee
 .lifecaption strong{font-size:28px;line-height:1.08;letter-spacing:-.03em}
 .storycopy blockquote{margin:52px 0 0;padding:22px 0;border-block:1px solid var(--line);font-family:Georgia,serif;font-size:25px;color:#d8dbdb}
 
-@media(max-width:900px){.shell{width:calc(100% - 32px)}
+@media(max-width:900px){:root{--gutter:24px}
 .navlinks{display:none}
 .hero{grid-template-columns:1fr}
 .room{height:600px}
