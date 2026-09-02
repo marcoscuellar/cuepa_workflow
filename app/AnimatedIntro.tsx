@@ -25,10 +25,7 @@ const stats=[
 // life it handed back. Alternating the two is the point of the statement above.
 const pills=[
   {spot:"p1",text:"Rescheduled your 3pm"},
-  {spot:"p2",text:"Don't forget Dad's birthday Sunday"},
-  {spot:"p3",text:"Invoice sent to Brightline"},
-  {spot:"p4",text:"Practice starts at 5:30"},
-  {spot:"p5",text:"Drafted your reply to Robert"}
+  {spot:"p4",text:"Don't forget Dad's birthday Sunday"}
 ];
 
 const heroContainer={
