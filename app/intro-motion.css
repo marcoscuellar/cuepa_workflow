@@ -16,25 +16,27 @@
 .intro-caption{animation-delay:1.3s}
 
 @keyframes intro-arrive{to{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}}
+/* Pills drift out of phase so the group never pulses in lockstep. */
+@keyframes rn-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes rn-pulse{0%{box-shadow:0 0 0 0 #2dd4bf70}70%{box-shadow:0 0 0 10px #2dd4bf00}100%{box-shadow:0 0 0 0 #2dd4bf00}}
 @keyframes intro-image{to{transform:scale(1)}}
 
 .reality{overflow:hidden}
-.reality-grid{align-items:stretch}
+.rn-pill{animation:rn-float 6s ease-in-out infinite;animation-delay:calc(var(--pill-order) * -1.15s)}
+.rn-dot::after{content:"";position:absolute;inset:0;border-radius:50%;animation:rn-pulse 2.6s ease-out infinite;animation-delay:calc(var(--pill-order) * -.45s)}
 .reality-intro{display:flex;flex-direction:column;justify-content:flex-end;padding-right:28px}
 .reality-reveal{opacity:0;filter:blur(10px);transform:translateY(34px);transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1),filter .72s ease;transition-delay:calc(var(--stat-order,0) * 120ms)}
 .reality.is-visible .reality-reveal{opacity:1;filter:blur(0);transform:translateY(0)}
-.stat-card{position:relative;display:flex;flex-direction:column;border-top:0!important;border-left:1px solid #3d4b47;padding:4px 0 2px 28px!important}
-.stat-card::before{content:"";position:absolute;left:-1px;top:0;width:1px;height:0;background:var(--blue);transition:height .8s cubic-bezier(.22,1,.36,1);transition-delay:calc(180ms + var(--stat-order) * 120ms)}
-.reality.is-visible .stat-card::before{height:100%}
+.stat-card{position:relative;display:flex;flex-direction:column;align-items:center;border-left:0;border-top:1px solid #3d4b47!important;padding:26px 0 2px!important}
+.stat-card::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--blue);transition:width .8s cubic-bezier(.22,1,.36,1);transition-delay:calc(180ms + var(--stat-order) * 120ms)}
+.reality.is-visible .stat-card::before{width:100%}
 .reality .stat-card strong{font-size:clamp(64px,6.3vw,96px);line-height:.86}
-.stat-card blockquote{margin:28px 0 24px;color:#d3d5d7;font-size:15px;line-height:1.58;max-width:34ch;font-weight:700}
+.stat-card blockquote{margin:22px auto 24px;color:#d3d5d7;font-size:15px;line-height:1.58;max-width:32ch;font-weight:700}
 .stat-card cite{display:block;margin-top:auto;color:#81888f;font-family:'JetBrains Mono',monospace;font-size:9px;font-style:normal;line-height:1.55;letter-spacing:.1em;text-transform:uppercase}
 
 @media(max-width:900px){
   .reality-intro{padding-right:0}
-  .stat-card{border-left:0;padding:25px 0 0!important;border-top:1px solid #3d4b47!important}
-  .stat-card::before{left:0;top:-1px;width:0;height:1px}
-  .reality.is-visible .stat-card::before{width:100%;height:1px}
+  .stat-card{padding:25px 0 0!important}
 }
 @media(max-width:560px){
   .stat-card blockquote{font-size:14px;margin-top:20px;max-width:none}
@@ -42,5 +44,6 @@
 }
 @media(prefers-reduced-motion:reduce){
   .intro-step,.intro-signal,.intro-caption,.intro-room img,.reality-reveal{opacity:1;filter:none;transform:none;animation:none;transition:none}
+  .rn-pill,.rn-dot::after{animation:none}
   .stat-card::before{height:100%;transition:none}
 }

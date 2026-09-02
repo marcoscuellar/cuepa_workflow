@@ -3,8 +3,6 @@
 import {useEffect, useRef, useState} from "react";
 import {motion} from "motion/react";
 
-const Check=()=> <svg viewBox="0 0 24 24" aria-hidden><path d="m5 12.5 4.2 4.2L19 7"/></svg>;
-
 const stats=[
   {
     value:"50–60%",
@@ -21,6 +19,16 @@ const stats=[
     quote:"Respond to a new lead in 5 minutes instead of 30 and you're up to 21× more likely to qualify it.",
     source:"MIT / Lead Response Management Study"
   }
+];
+
+// Act 2 shows the promise rather than asserting it: work CUEPA handled, and the
+// life it handed back. Alternating the two is the point of the statement above.
+const pills=[
+  {spot:"p1",text:"Rescheduled your 3pm"},
+  {spot:"p2",text:"Don't forget Dad's birthday Sunday"},
+  {spot:"p3",text:"Invoice sent to Brightline"},
+  {spot:"p4",text:"Practice starts at 5:30"},
+  {spot:"p5",text:"Drafted your reply to Robert"}
 ];
 
 const heroContainer={
@@ -70,13 +78,22 @@ export default function AnimatedIntro(){
       <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
     </section>
     <section ref={realityRef} id="reality" className={`reality ${statsVisible?"is-visible":""}`}>
-      <div className="shell reality-grid">
-        <div className="reality-photo reality-reveal">
-          <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
-          <div className="signal intro-signal reality-note"><i><Check/></i><span><small>6:47 PM</small>Customer-service chat is installed and already answering. Full transcripts from the product launch will be in your inbox by morning.</span></div>
+      <div className="shell reality-shell">
+        <h2 className="reality-statement reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
+          CUEPA manages the work around you, so you can make room for <em>those around you</em>.
+        </h2>
+        <div className="reality-stage reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
+          <div className="reality-photo">
+            <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
+          </div>
+          <ul className="reality-pills">
+            {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>
+              <span className="rn-dot" aria-hidden/>{pill.text}
+            </li>)}
+          </ul>
         </div>
         <div className="reality-quotes">
-          {stats.map((stat,index)=><article className="stat-card reality-reveal" key={stat.value} style={{"--stat-order":index+1} as React.CSSProperties}>
+          {stats.map((stat,index)=><article className="stat-card reality-reveal" key={stat.value} style={{"--stat-order":index+2} as React.CSSProperties}>
             <strong>{stat.value}</strong>
             <blockquote>{stat.quote}</blockquote>
             <cite>— {stat.source}</cite>
