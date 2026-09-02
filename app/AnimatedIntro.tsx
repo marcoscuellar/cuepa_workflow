@@ -88,7 +88,10 @@ export default function AnimatedIntro(){
             </ul>
           </div>
           <h2 className="reality-statement reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
-            CUEPA manages the work around you, so you can make room for <em>those around you</em>.
+            <span>CUEPA manages</span>
+            <span>the work around you.</span>
+            <span>So you can make room for</span>
+            <span><em>those around you</em>.</span>
           </h2>
         </div>
         <div className="reality-quotes">

@@ -1,5 +1,5 @@
 @import "tailwindcss";@import "tw-animate-css";@import "../vendor/shadcn-tailwind-4.13.0.css";
-:root{--gutter:72px;--shell-max:1440px;--ink:#080b0f;--paper:#f1efe9;--blue:#08786f;--teal:#08786f;--teal-bright:#43cdbc;--line:#ffffff20}
+:root{--gutter:112px;--shell-max:1440px;--ink:#080b0f;--paper:#f1efe9;--blue:#08786f;--teal:#08786f;--teal-bright:#43cdbc;--line:#ffffff20}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--paper);font-family:Arial,sans-serif}
@@ -120,7 +120,7 @@ summary{cursor:pointer;list-style:none;display:flex;justify-content:space-betwee
 .lifecaption strong{font-size:28px;line-height:1.08;letter-spacing:-.03em}
 .storycopy blockquote{margin:52px 0 0;padding:22px 0;border-block:1px solid var(--line);font-family:Georgia,serif;font-size:25px;color:#d8dbdb}
 
-@media(max-width:900px){:root{--gutter:24px}
+@media(max-width:900px){:root{--gutter:28px}
 .navlinks{display:none}
 .hero{grid-template-columns:1fr}
 .room{height:600px}
@@ -162,7 +162,10 @@ summary{cursor:pointer;list-style:none;display:flex;justify-content:space-betwee
 .reality{background:#0e1218;border-block:1px solid var(--line);padding:105px 0;text-align:center}.reality-shell{display:flex;flex-direction:column;align-items:center;gap:clamp(46px,5vw,70px)}.reality article{border-top:1px solid #3d4b47;padding-top:22px}.reality article strong{display:block;color:var(--teal-bright);font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(42px,4vw,62px);letter-spacing:-.05em}.reality article p{color:#a5aaaf;font-size:14px;line-height:1.55;margin:14px 0 0}
 /* Photo and statement sit as a pair, vertically centred against each other. */
 .reality-lead{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,4.4vw,66px);align-items:center;width:100%}
-.reality-statement{margin:0;font-size:clamp(22px,2.4vw,36px);line-height:1.1;letter-spacing:-.04em;text-align:left}
+.reality-statement{margin:0;font-size:clamp(22px,2.4vw,36px);line-height:1.16;letter-spacing:-.04em;text-align:left}
+/* Breaks are authored, not left to the wrap. A line too long for its column
+   still wraps inside its own span rather than overflowing. */
+.reality-statement span{display:block}
 .reality-stage{position:relative;width:100%}
 .reality-photo{position:relative;border-radius:6px;overflow:hidden;min-height:420px}
 .reality-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
