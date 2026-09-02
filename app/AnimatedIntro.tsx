@@ -79,18 +79,20 @@ export default function AnimatedIntro(){
     </section>
     <section ref={realityRef} id="reality" className={`reality ${statsVisible?"is-visible":""}`}>
       <div className="shell reality-shell">
-        <h2 className="reality-statement reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
-          CUEPA manages the work around you, so you can make room for <em>those around you</em>.
-        </h2>
-        <div className="reality-stage reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
-          <div className="reality-photo">
-            <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
+        <div className="reality-lead">
+          <div className="reality-stage reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
+            <div className="reality-photo">
+              <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
+            </div>
+            <ul className="reality-pills">
+              {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>
+                <span className="rn-dot" aria-hidden/>{pill.text}
+              </li>)}
+            </ul>
           </div>
-          <ul className="reality-pills">
-            {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>
-              <span className="rn-dot" aria-hidden/>{pill.text}
-            </li>)}
-          </ul>
+          <h2 className="reality-statement reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
+            CUEPA manages the work around you, so you can make room for <em>those around you</em>.
+          </h2>
         </div>
         <div className="reality-quotes">
           {stats.map((stat,index)=><article className="stat-card reality-reveal" key={stat.value} style={{"--stat-order":index+2} as React.CSSProperties}>
