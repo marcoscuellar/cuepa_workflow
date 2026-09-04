@@ -90,8 +90,8 @@ export default function AnimatedIntro(){
           <h2 className="reality-statement reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
             <span>CUEPA manages</span>
             <span>the work around you.</span>
-            <span>So you can make room for</span>
-            <span><em>those around you</em>.</span>
+            <span>So you can make room</span>
+            <span>for <em>those around you</em>.</span>
           </h2>
         </div>
         <div className="reality-quotes">
