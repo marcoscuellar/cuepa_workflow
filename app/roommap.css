@@ -222,9 +222,10 @@
 .convo-note{margin-top:14px;font-size:11px;color:rgba(255,255,255,.55)}
 @media(max-width:820px){.convo-sec{grid-template-columns:1fr}.convo-media{position:static}}
 .site-footer{background:#030303;color:#fff;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:end;padding:60px 5vw 35px}
+.footer-ollin{grid-column:1/-1;margin:38px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 .site-footer p:nth-child(2){text-align:center;font-size:10px;letter-spacing:.18em}
-.site-footer p:last-child{text-align:right;font-size:10px;letter-spacing:.15em}
-@media(max-width:800px){.site-footer{grid-template-columns:1fr;gap:15px}.site-footer p:nth-child(2),.site-footer p:last-child{text-align:left}}
+.site-footer p:nth-child(3){text-align:right;font-size:10px;letter-spacing:.15em}
+@media(max-width:800px){.site-footer{grid-template-columns:1fr;gap:15px}.site-footer p:nth-child(2),.site-footer p:nth-child(3){text-align:left}}
 
 /* Persistent nav — fixed, translucent, animated tab-select indicator */
 #top,#reality,#find,#flow,#prove,#grow,#product,#trust,#conversation{scroll-margin-top:92px}
@@ -239,7 +240,7 @@
 @media(max-width:900px){.navlinks-tabs{display:none}.nav-fixed{padding:0 22px}}
 
 /* Hero v2 — full-bleed photo, glass note, vertical scroll label */
-.hero2{min-height:92vh;position:relative;display:flex;align-items:flex-end;padding:130px 5vw 7vh;color:#fff;background:#171717;overflow:hidden}
+.hero2{min-height:max(92vh,880px);position:relative;display:flex;align-items:flex-end;padding:130px 5vw 7vh;color:#fff;background:#171717;overflow:hidden}
 .hero2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero2 .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.08) 76%);z-index:1}
 .hero2-copy{position:relative;z-index:2;width:min(920px,90vw)}
@@ -247,7 +248,7 @@
 .hero2-copy h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(52px,7.6vw,124px);margin:14px 0 0;line-height:.92;letter-spacing:-.02em}
 .hero2-copy p.lede2{width:min(580px,90%);font-size:17px;line-height:1.55;margin:30px 0 25px;color:#fff;font-weight:700}
 .hero2-copy .cta2{display:inline-flex;gap:20px;align-items:center;border-bottom:1px solid #fff;padding:8px 0;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:800;color:#fff}
-.hero2-note{position:absolute;z-index:3;left:5vw;top:14%;max-width:280px;background:rgba(18,18,18,.4);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:15px 16px;box-shadow:0 22px 55px -24px rgba(0,0,0,.85);color:#fff}
+.hero2-note{position:absolute;z-index:3;right:5vw;top:16%;max-width:280px;background:rgba(18,18,18,.4);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:15px 16px;box-shadow:0 22px 55px -24px rgba(0,0,0,.85);color:#fff}
 .hero2-note-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .hero2-note-top .av2{width:23px;height:23px;border-radius:50%;background:#4a4f52;flex:none}
 .hero2-note-top b{font-family:'Anton',sans-serif;font-weight:400;font-size:11.5px}
@@ -255,7 +256,8 @@
 .hero2-note-top em{margin-left:auto;font-style:normal;font-size:8px;letter-spacing:.16em;color:#2DD4BF}
 .hero2-note p{margin:0;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.96)}
 .hero2-scroll{position:absolute;z-index:3;right:34px;bottom:30px;writing-mode:vertical-rl;font:700 10px 'Inter',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff}
-@media(max-width:900px){.hero2-note{display:none}.hero2-scroll{display:none}}
+@media(max-width:1024px){.hero2-note{display:none}}
+@media(max-width:900px){.hero2-scroll{display:none}}
 .rm-map-chrome{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #E5E7EB}
 .rm-dots{display:flex;gap:5px}
 .rm-dots i{width:8px;height:8px;border-radius:50%;background:#D1D5DB;display:block}

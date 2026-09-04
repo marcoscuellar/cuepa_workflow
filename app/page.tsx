@@ -39,5 +39,6 @@ export default function Home(){return <main>
     <p className="wordmark"><Logo/></p>
     <p>MAKING ROOM FOR WHAT MATTERS.</p>
     <p>© 2026 CUEPA</p>
+    <p className="footer-ollin">CUEPA — an Ollin company</p>
   </footer>
 </main>}
