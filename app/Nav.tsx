@@ -13,22 +13,10 @@ const items=[
 
 export default function Nav(){
   const [active,setActive]=useState("room");
-  // The translucent bar is designed against the dark hero photo. Over the light
-  // sections below it turns into a grey slab with content showing through, so it
-  // goes solid once the hero has passed under it.
-  const [solid,setSolid]=useState(false);
   // While a click-scroll is in flight the scroll-spy would briefly re-report the
   // section we're leaving, snapping the pill backwards mid-slide. Ignore the spy
   // until it agrees with the clicked tab (or the scroll has had time to land).
   const clickLock=useRef<{key:string;until:number}|null>(null);
-
-  useEffect(()=>{
-    const hero=document.getElementById("top");
-    if(!hero) return;
-    const io=new IntersectionObserver(([e])=>setSolid(!e.isIntersecting),{rootMargin:"-92px 0px 0px 0px",threshold:0});
-    io.observe(hero);
-    return ()=>io.disconnect();
-  },[]);
 
   useEffect(()=>{
     const sectionToKey:Record<string,string>={};
@@ -58,7 +46,7 @@ export default function Nav(){
   },[]);
 
   return (
-    <nav className={`nav-fixed ${solid?"is-solid":""}`}>
+    <nav className="nav-fixed">
       <a className="brand" href="#top"><Logo/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
