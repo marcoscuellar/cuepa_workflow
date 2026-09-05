@@ -17,10 +17,22 @@ export default function Nav(){
   // it becomes a grey slab with content showing through, so it goes solid once
   // the hero has passed under it.
   const [solid,setSolid]=useState(false);
+  // Below 900px the tabs are hidden, so without this there is no way to reach
+  // any section from a phone.
+  const [open,setOpen]=useState(false);
   // While a click-scroll is in flight the scroll-spy would briefly re-report the
   // section we're leaving, snapping the pill backwards mid-slide. Ignore the spy
   // until it agrees with the clicked tab (or the scroll has had time to land).
   const clickLock=useRef<{key:string;until:number}|null>(null);
+
+  useEffect(()=>{
+    if(!open) return;
+    const onKey=(e:KeyboardEvent)=>{if(e.key==="Escape") setOpen(false);};
+    const prev=document.body.style.overflow;
+    document.body.style.overflow="hidden";
+    window.addEventListener("keydown",onKey);
+    return ()=>{document.body.style.overflow=prev;window.removeEventListener("keydown",onKey);};
+  },[open]);
 
   useEffect(()=>{
     const hero=document.getElementById("top");
@@ -58,7 +70,7 @@ export default function Nav(){
   },[]);
 
   return (
-    <nav className={`nav-fixed ${solid?"is-solid":""}`}>
+    <><nav className={`nav-fixed ${solid?"is-solid":""}`}>
       <a className="brand" href="#top"><Logo/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
@@ -75,6 +87,23 @@ export default function Nav(){
         ))}
       </div>
       <a href="#conversation" className="nav-cta">Let&rsquo;s make room <span aria-hidden>↗</span></a>
+      <button
+        type="button"
+        className={`nav-burger ${open?"is-open":""}`}
+        aria-label={open?"Close menu":"Open menu"}
+        aria-expanded={open}
+        aria-controls="nav-drawer"
+        onClick={()=>setOpen(v=>!v)}
+      ><span/><span/></button>
     </nav>
+    <div id="nav-drawer" className={`nav-drawer ${open?"is-open":""}`} hidden={!open}>
+      {items.map(it=>(
+        <a key={it.key} href={it.href} className={`nav-drawer-link ${active===it.key?"is-active":""}`}
+           onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);setOpen(false);}}>
+          {it.label}
+        </a>
+      ))}
+      <a href="#conversation" className="nav-drawer-cta" onClick={()=>setOpen(false)}>Let&rsquo;s make room <span aria-hidden>↗</span></a>
+    </div></>
   );
 }
