@@ -16,8 +16,8 @@ export default function ContactPage(){
       <div className="shell contact-grid">
         <div className="contact-intro">
           <p className="rm-eyebrow">Start here</p>
-          <h1>LET&rsquo;S MAKE<br/>ROOM.</h1>
-          <p className="contact-lead">Tell us what feels heavier than it should. A real person reads every one and comes back to you — usually within a day.</p>
+          <h1>SEE HOW WE CAN<br/>MAKE TIME FOR WHAT<br/>MATTERS TO YOU.</h1>
+          <p className="contact-lead">Leave your email. A real person reads every one and comes back to you — usually within a day.</p>
           <dl className="contact-meta">
             <div><dt>Email</dt><dd><a href="mailto:marcos@ollinos.com">marcos@ollinos.com</a></dd></div>
             <div><dt>What happens next</dt><dd>We read it, then reply with a question or two. No deck, no sequence.</dd></div>

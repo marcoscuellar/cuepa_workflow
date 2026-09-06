@@ -23,9 +23,7 @@ export async function POST(req: Request) {
   const note = (body.note ?? "").trim().slice(0, 5000);
   const chips = Array.isArray(body.chips) ? body.chips.slice(0, 12).map(c => String(c).slice(0, 120)) : [];
 
-  if (!name) return Response.json({error: "Please add your name."}, {status: 400});
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return Response.json({error: "Please add a valid email."}, {status: 400});
-  if (!note && !chips.length) return Response.json({error: "Tell us a little about what you want to make room for."}, {status: 400});
 
   const key = process.env.RESEND_API_KEY;
   if (!key) {
@@ -34,7 +32,7 @@ export async function POST(req: Request) {
   }
 
   const html = [
-    `<p><strong>${esc(name)}</strong> &lt;${esc(email)}&gt;</p>`,
+    name ? `<p><strong>${esc(name)}</strong> &lt;${esc(email)}&gt;</p>` : `<p>&lt;${esc(email)}&gt;</p>`,
     chips.length ? `<p><strong>Making room for:</strong> ${esc(chips.join(", "))}</p>` : "",
     note ? `<p><strong>What feels heavier than it should:</strong><br>${esc(note).replace(/\n/g, "<br>")}</p>` : ""
   ].filter(Boolean).join("\n");
@@ -42,7 +40,7 @@ export async function POST(req: Request) {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {Authorization: `Bearer ${key}`, "Content-Type": "application/json"},
-    body: JSON.stringify({from: FROM, to: [TO], reply_to: email, subject: `Room Conversation — ${name}`, html})
+    body: JSON.stringify({from: FROM, to: [TO], reply_to: email, subject: `Room Conversation — ${name || email}`, html})
   });
 
   if (!res.ok) {

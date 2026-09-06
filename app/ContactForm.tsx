@@ -1,18 +1,11 @@
 "use client";
 import {useState} from "react";
 
-const chipOptions=["One more customer","The next location","Dinner at home","The idea","More time, period","Not sure yet — that's fine"];
-
-export default function ContactForm({lead}:{lead?:string}){
-  const [chips,setChips]=useState<string[]>([]);
-  const [name,setName]=useState("");
+export default function ContactForm({hint="No deck, no sales call. A real person replies."}:{hint?:string}){
   const [email,setEmail]=useState("");
-  const [note,setNote]=useState("");
   const [company,setCompany]=useState(""); // honeypot
   const [state,setState]=useState<"idle"|"sending"|"sent">("idle");
   const [error,setError]=useState("");
-
-  const toggle=(c:string)=>setChips(prev=>prev.includes(c)?prev.filter(x=>x!==c):[...prev,c]);
 
   const submit=async(e:React.FormEvent)=>{
     e.preventDefault();
@@ -22,7 +15,7 @@ export default function ContactForm({lead}:{lead?:string}){
       const res=await fetch("/api/contact",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({name,email,note,chips,company})
+        body:JSON.stringify({email,company})
       });
       const data=await res.json().catch(()=>({}));
       if(!res.ok) throw new Error(data.error||"Something went wrong. Please try again.");
@@ -34,39 +27,29 @@ export default function ContactForm({lead}:{lead?:string}){
   };
 
   if(state==="sent") return (
-    <div className="convo-sent" role="status">
-      <p className="convo-sent-h">Thank you — that&rsquo;s with us.</p>
-      <p>A real person reads every one. We&rsquo;ll come back to you at <strong>{email}</strong>, usually within a day.</p>
+    <div className="capture-sent" role="status">
+      <p className="capture-sent-h">Got it.</p>
+      <p>We&rsquo;ll come back to you at <strong>{email}</strong>, usually within a day.</p>
     </div>
   );
 
   return (
-    <form onSubmit={submit} noValidate>
-      {lead && <p className="convo-lead">{lead}</p>}
-      <div className="convo-chips">
-        {chipOptions.map(c=>(
-          <button key={c} type="button" aria-pressed={chips.includes(c)} className={`convo-chip ${chips.includes(c)?"on":""}`} onClick={()=>toggle(c)}>{c}</button>
-        ))}
+    <form className="capture" onSubmit={submit} noValidate>
+      <div className="capture-pill">
+        <input
+          type="email" name="email" required
+          autoComplete="email" placeholder="you@company.com"
+          aria-label="Your email address"
+          value={email} onChange={e=>setEmail(e.target.value)}
+        />
+        <button type="submit" disabled={state==="sending"}>
+          <span aria-hidden>→</span> {state==="sending"?"Sending…":"Start here"}
+        </button>
       </div>
-      <div className="convo-fields">
-        <label><span>Name</span>
-          <input type="text" name="name" autoComplete="name" required value={name} onChange={e=>setName(e.target.value)}/>
-        </label>
-        <label><span>Email</span>
-          <input type="email" name="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)}/>
-        </label>
-        <label className="wide"><span>What feels heavier than it should?</span>
-          <textarea rows={4} name="note" value={note} onChange={e=>setNote(e.target.value)}/>
-        </label>
-      </div>
-      <div className="convo-hp" aria-hidden>
+      <div className="capture-hp" aria-hidden>
         <label>Company<input type="text" tabIndex={-1} autoComplete="off" value={company} onChange={e=>setCompany(e.target.value)}/></label>
       </div>
-      {error && <p className="convo-error" role="alert">{error}</p>}
-      <button type="submit" className="convo-cta" disabled={state==="sending"}>
-        {state==="sending"?"Sending…":"Start a Room Conversation"} <span aria-hidden>↗</span>
-      </button>
-      <p className="convo-note">We&rsquo;ll only use this to reply. No lists, no automated sequences.</p>
+      {error ? <p className="capture-error" role="alert">{error}</p> : <p className="capture-hint">{hint}</p>}
     </form>
   );
 }
