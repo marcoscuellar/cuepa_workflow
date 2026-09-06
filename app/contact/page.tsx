@@ -5,7 +5,7 @@ import ContactForm from "../ContactForm";
 
 export const metadata:Metadata={
   title:"Contact — CUEPA",
-  description:"Start a Room Conversation. Tell us what feels heavier than it should, and a real person will come back to you.",
+  description:"See how we can make room for you. Leave your email and a real person comes back to you.",
   alternates:{canonical:"/contact"}
 };
 
@@ -14,21 +14,17 @@ export default function ContactPage(){
     <Nav/>
     <section className="contact-page">
       <div className="shell contact-grid">
-        <div className="contact-intro">
-          <p className="rm-eyebrow">Start here</p>
-          <h1>WHAT ARE YOU<br/>MAKING ROOM<br/>FOR?</h1>
-          <p className="contact-lead">Leave your email. A real person reads every one and comes back to you — usually within a day.</p>
-          <dl className="contact-meta">
-            <div><dt>Email</dt><dd><a href="mailto:marcos@ollinos.com">marcos@ollinos.com</a></dd></div>
-            <div><dt>What happens next</dt><dd>We read it, then reply with a question or two. No deck, no sequence.</dd></div>
-            <div><dt>Who you get</dt><dd>A person, not a queue.</dd></div>
-          </dl>
-        </div>
-        <div className="contact-form">
+        {/* FPO — swap for the tall portrait when it lands. Replace this whole
+            block with: <img src="/contact-photo.jpg" alt="..."/> */}
+        <figure className="contact-photo is-fpo" aria-hidden>
+          <div className="fpo">
+            <span className="fpo-tag">FPO</span>
+            <p className="fpo-spec">TALL PORTRAIT<br/>4:5 &middot; 1200&times;1500 MIN</p>
+          </div>
+        </figure>
+        <div className="contact-copy">
+          <h1>SEE HOW WE<br/>CAN MAKE<br/>ROOM FOR<br/>YOU</h1>
           <ContactForm/>
-          <figure className="contact-photo">
-            <img src="/contact-arrival.jpg" alt="A woman coming through the front door at dusk, greeted by her daughter and their dog"/>
-          </figure>
         </div>
       </div>
     </section>

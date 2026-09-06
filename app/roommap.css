@@ -222,20 +222,20 @@
 .capture-sent strong{color:#2DD4BF}
 @media(max-width:520px){.capture-pill{flex-direction:column;align-items:stretch;border-radius:22px;padding:10px}.capture-pill button{justify-content:center}}
 
-/* Contact page */
-.contact-photo{margin:clamp(38px,4vw,60px) 0 0;border-radius:6px;overflow:hidden;aspect-ratio:4/3}
-.contact-photo img{width:100%;height:100%;object-fit:cover;display:block}
-
-.contact-page{background:#030303;color:#fff;padding:calc(92px + clamp(70px,7vw,120px)) 0 clamp(80px,8vw,130px);min-height:100vh}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:start}
-.contact-intro h1{margin:16px 0 0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.04em}
-.contact-lead{margin:26px 0 0;max-width:460px;font-size:18px;line-height:1.6;color:rgba(255,255,255,.78);font-weight:700}
-.contact-meta{margin:44px 0 0;display:grid;gap:22px}
-.contact-meta div{padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
-.contact-meta dt{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#2DD4BF}
-.contact-meta dd{margin:8px 0 0;font-size:15px;line-height:1.55;color:rgba(255,255,255,.8);font-weight:700}
-.contact-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:44px}}
+/* Contact page — photo left, headline and email capture right */
+.contact-page{background:#030303;color:#fff;padding:calc(92px + clamp(60px,6vw,100px)) 0 clamp(80px,8vw,130px);min-height:100vh}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:stretch}
+/* The frame takes the height of the copy column, so a tall portrait sits flush
+   with the headline and the capture rather than floating short beside them. */
+.contact-photo{position:relative;margin:0;border-radius:6px;overflow:hidden;min-height:clamp(430px,44vw,660px)}
+.contact-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.contact-copy{display:flex;flex-direction:column;justify-content:center}
+.contact-photo.is-fpo{border:1px dashed rgba(45,212,191,.5);border-radius:6px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 12px,transparent 12px 24px)}
+.fpo{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+.fpo-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.3em;color:#2DD4BF}
+.fpo-spec{margin:0;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.9;letter-spacing:.16em;color:rgba(255,255,255,.4)}
+.contact-copy h1{margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(44px,5.4vw,86px);line-height:.94;letter-spacing:-.04em}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:36px}.contact-photo{min-height:0;aspect-ratio:4/5}}
 
 /* Ending — conversation + footer */
 .convo-sec{padding:10vw 5vw 7vw;background:#4a4f52;color:#fff;display:grid;grid-template-columns:.85fr 1.15fr;gap:4vw;align-items:start}
