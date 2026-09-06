@@ -223,6 +223,9 @@
 @media(max-width:520px){.capture-pill{flex-direction:column;align-items:stretch;border-radius:22px;padding:10px}.capture-pill button{justify-content:center}}
 
 /* Contact page */
+.contact-photo{margin:clamp(38px,4vw,60px) 0 0;border-radius:6px;overflow:hidden;aspect-ratio:4/3}
+.contact-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
 .contact-page{background:#030303;color:#fff;padding:calc(92px + clamp(70px,7vw,120px)) 0 clamp(80px,8vw,130px);min-height:100vh}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:start}
 .contact-intro h1{margin:16px 0 0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.04em}

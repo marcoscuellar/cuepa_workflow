@@ -32,7 +32,7 @@ export default function Grow(){return (
           </svg>
 
           <div className="rm-photo" style={{width:340,height:560}}>
-            <img src="/grow-dog-walk.jpg" alt="A woman walking her dog"/>
+            <img src="/grow-dog-walk.jpg" alt="A woman waving to a neighbour while walking her dog on a tree-lined sidewalk"/>
           </div>
 
           <div className="rm-found" style={{left:390,top:110}}>

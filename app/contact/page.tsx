@@ -16,7 +16,7 @@ export default function ContactPage(){
       <div className="shell contact-grid">
         <div className="contact-intro">
           <p className="rm-eyebrow">Start here</p>
-          <h1>SEE HOW WE CAN<br/>MAKE TIME FOR WHAT<br/>MATTERS TO YOU.</h1>
+          <h1>WHAT ARE YOU<br/>MAKING ROOM<br/>FOR?</h1>
           <p className="contact-lead">Leave your email. A real person reads every one and comes back to you — usually within a day.</p>
           <dl className="contact-meta">
             <div><dt>Email</dt><dd><a href="mailto:marcos@ollinos.com">marcos@ollinos.com</a></dd></div>
@@ -26,6 +26,9 @@ export default function ContactPage(){
         </div>
         <div className="contact-form">
           <ContactForm/>
+          <figure className="contact-photo">
+            <img src="/contact-arrival.jpg" alt="A woman coming through the front door at dusk, greeted by her daughter and their dog"/>
+          </figure>
         </div>
       </div>
     </section>
