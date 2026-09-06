@@ -86,7 +86,7 @@ export default function Nav(){
           </a>
         ))}
       </div>
-      <a href="#conversation" className="nav-cta">Let&rsquo;s make room <span aria-hidden>↗</span></a>
+      <a href="/contact" className="nav-cta">Let&rsquo;s make room <span aria-hidden>↗</span></a>
       <button
         type="button"
         className={`nav-burger ${open?"is-open":""}`}
@@ -103,7 +103,7 @@ export default function Nav(){
           {it.label}
         </a>
       ))}
-      <a href="#conversation" className="nav-drawer-cta" onClick={()=>setOpen(false)}>Let&rsquo;s make room <span aria-hidden>↗</span></a>
+      <a href="/contact" className="nav-drawer-cta" onClick={()=>setOpen(false)}>Let&rsquo;s make room <span aria-hidden>↗</span></a>
     </div></>
   );
 }

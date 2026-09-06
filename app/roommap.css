@@ -205,6 +205,18 @@
 .rrNote{margin:75px 0 0;font-size:12px;color:#8a8a8a}
 @media(max-width:1000px){.report-intro{grid-template-columns:1fr;gap:22px;align-items:start}.report-intro p.lbl,.report-intro h3,.report-intro p:last-child{grid-column:1;grid-row:auto}.rrStats{grid-template-columns:1fr 1fr}.rrMain{grid-template-columns:1fr}.rrApprove{flex-direction:column;align-items:flex-start;margin-right:0}.rrMini{position:static;width:100%;margin-top:14px}.rrNote{margin-top:30px}}
 
+/* Contact page */
+.contact-page{background:#030303;color:#fff;padding:calc(92px + clamp(70px,7vw,120px)) 0 clamp(80px,8vw,130px);min-height:100vh}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:start}
+.contact-intro h1{margin:16px 0 0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(46px,6vw,96px);line-height:.92;letter-spacing:-.04em}
+.contact-lead{margin:26px 0 0;max-width:460px;font-size:18px;line-height:1.6;color:rgba(255,255,255,.78);font-weight:700}
+.contact-meta{margin:44px 0 0;display:grid;gap:22px}
+.contact-meta div{padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.contact-meta dt{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#2DD4BF}
+.contact-meta dd{margin:8px 0 0;font-size:15px;line-height:1.55;color:rgba(255,255,255,.8);font-weight:700}
+.contact-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:44px}}
+
 /* Ending — conversation + footer */
 .convo-sec{padding:10vw 5vw 7vw;background:#4a4f52;color:#fff;display:grid;grid-template-columns:.85fr 1.15fr;gap:4vw;align-items:start}
 .convo-media{position:sticky;top:116px;border-radius:12px;overflow:hidden;min-height:42vh;background:#111}
