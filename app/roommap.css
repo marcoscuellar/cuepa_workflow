@@ -228,12 +228,9 @@
 /* The frame takes the height of the copy column, so a tall portrait sits flush
    with the headline and the capture rather than floating short beside them. */
 .contact-photo{position:relative;margin:0;border-radius:6px;overflow:hidden;min-height:clamp(430px,44vw,660px)}
-.contact-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.contact-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block}
 .contact-copy{display:flex;flex-direction:column;justify-content:center}
-.contact-photo.is-fpo{border:1px dashed rgba(45,212,191,.5);border-radius:6px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 12px,transparent 12px 24px)}
-.fpo{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
-.fpo-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.3em;color:#2DD4BF}
-.fpo-spec{margin:0;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.9;letter-spacing:.16em;color:rgba(255,255,255,.4)}
+
 .contact-copy h1{margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(44px,5.4vw,86px);line-height:.94;letter-spacing:-.04em}
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:36px}.contact-photo{min-height:0;aspect-ratio:4/5}}
 

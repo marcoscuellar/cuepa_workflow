@@ -14,13 +14,8 @@ export default function ContactPage(){
     <Nav/>
     <section className="contact-page">
       <div className="shell contact-grid">
-        {/* FPO — swap for the tall portrait when it lands. Replace this whole
-            block with: <img src="/contact-photo.jpg" alt="..."/> */}
-        <figure className="contact-photo is-fpo" aria-hidden>
-          <div className="fpo">
-            <span className="fpo-tag">FPO</span>
-            <p className="fpo-spec">TALL PORTRAIT<br/>4:5 &middot; 1200&times;1500 MIN</p>
-          </div>
+        <figure className="contact-photo">
+          <img src="/contact-team.jpg" alt="Three people working together over pattern pieces and drawings at a studio worktable"/>
         </figure>
         <div className="contact-copy">
           <h1>SEE HOW WE<br/>CAN MAKE<br/>ROOM FOR<br/>YOU</h1>
