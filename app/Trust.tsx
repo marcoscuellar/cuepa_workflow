@@ -7,7 +7,7 @@ const rows:[string,string][]=[
 export default function Trust(){return (
   <section className="trust-sec" id="trust">
     <div className="trust-img">
-      <img src="/trust-woman-evening.jpg" alt="A woman walking home in the evening light"/>
+      <img src="/trust-dinner.jpg" alt="Five friends laughing around a candlelit dinner table"/>
       <div className="trust-signals" aria-hidden="true">
         <span>FLOW / COMPLETE</span>
         <span>EXCEPTIONS / 0</span>
