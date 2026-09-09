@@ -5,6 +5,11 @@ import SignForm from "./SignForm";
 import {TITLE, TERMS, VERSION} from "./agreement";
 import "../cirques.css";
 
+/* Pre-filled into the signature block. The field stays editable, so
+   anyone else with authority to sign can replace it — their address is
+   what the signed copy is sent to, not this one. */
+const SIGNER_EMAIL = "christian@cirquesexperience.org";
+
 export const metadata: Metadata = {
   title: "Approve Phase One — Cirques Experience × CUEPA",
   description: "Review and electronically sign Phase One of the Cirques Experience Operations Hub.",
@@ -57,7 +62,7 @@ export default function ApprovedPage() {
             </p>
           </div>
 
-          <SignForm />
+          <SignForm defaultEmail={SIGNER_EMAIL} />
 
           <div className="cx-approve-next">
             <p className="cx-eyebrow">What happens next</p>

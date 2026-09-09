@@ -22,10 +22,10 @@ const FALLBACK = encodeURIComponent("Approving Phase One — Cirques Experience"
 
 type Stage = {kind: "form"} | {kind: "signed"; at: string} | {kind: "failed"; message?: string};
 
-export default function SignForm() {
+export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(defaultEmail);
   const [signature, setSignature] = useState("");
   const [consent, setConsent] = useState(false);
   const [busy, setBusy] = useState(false);
