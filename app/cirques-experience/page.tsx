@@ -82,6 +82,9 @@ const phaseOne = [
   ["Basic Access Controls", "Keep operational and financial information visible only to the appropriate people."]
 ];
 
+/* 01 leads as a feature band; 02–10 fall into an even 3x3 grid. */
+const [leadFeature, ...restFeatures] = phaseOne;
+
 const steps = [
   ["Discover", "Review the current systems, calendars, reports, and recurring workflows."],
   ["Design", "Organize the most important information into one clear dashboard experience."],
@@ -216,16 +219,30 @@ export default function CirquesExperiencePage() {
       {/* 3 — PHASE ONE */}
       <section className="cx-sec cx-sec-alt" id="plan">
         <div className="shell">
-          <p className="cx-eyebrow">Phase One</p>
-          <h2 className="cx-h2">What we’re building first.</h2>
-          <p className="cx-intro">
-            Phase One focuses on the workflows that can create the most immediate visibility and save
-            the most time.
-          </p>
-          <ul className="cx-cards cx-cards-2">
-            {phaseOne.map(([t, d], i) => (
+          <div className="cx-head">
+            <div>
+              <p className="cx-eyebrow">Phase One</p>
+              <h2 className="cx-h2">What we’re building first.</h2>
+            </div>
+            <p className="cx-intro cx-head-intro">
+              Phase One focuses on the workflows that can create the most immediate visibility and save
+              the most time.
+            </p>
+          </div>
+
+          <div className="cx-feature">
+            <span className="cx-feature-n" aria-hidden>01</span>
+            <div className="cx-feature-body">
+              <h3 className="cx-feature-h">{leadFeature[0]}</h3>
+              <p>{leadFeature[1]}</p>
+            </div>
+            <span className="cx-feature-rule" aria-hidden />
+          </div>
+
+          <ul className="cx-cards cx-grid-9">
+            {restFeatures.map(([t, d], i) => (
               <li key={t} className="cx-card cx-card-num">
-                <span className="cx-num" aria-hidden>{String(i + 1).padStart(2, "0")}</span>
+                <span className="cx-num" aria-hidden>{String(i + 2).padStart(2, "0")}</span>
                 <h3 className="cx-card-h">{t}</h3>
                 <p>{d}</p>
               </li>
