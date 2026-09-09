@@ -1,12 +1,13 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import Logo from "../../Logo";
-import ApproveForm from "./ApproveForm";
+import SignForm from "./SignForm";
+import {TITLE, TERMS, VERSION} from "./agreement";
 import "../cirques.css";
 
 export const metadata: Metadata = {
-  title: "Phase One approved — Cirques Experience × CUEPA",
-  description: "Confirming approval of Phase One of the Cirques Experience Operations Hub.",
+  title: "Approve Phase One — Cirques Experience × CUEPA",
+  description: "Review and electronically sign Phase One of the Cirques Experience Operations Hub.",
   alternates: {canonical: "/cirques-experience/approved"},
   robots: {index: false, follow: false}
 };
@@ -29,9 +30,34 @@ export default function ApprovedPage() {
 
       <section className="cx-sec cx-approve">
         <div className="shell cx-approve-in">
-          <p className="cx-eyebrow">Phase One</p>
-          <h1 className="cx-h1 cx-approve-h">Thank you.</h1>
-          <ApproveForm />
+          <p className="cx-eyebrow">Approve Phase One</p>
+          <h1 className="cx-h1 cx-approve-h">Ready when you are.</h1>
+          <p className="cx-lead">
+            Here are the terms in full. Sign below and CUEPA will start getting ready.
+          </p>
+
+          {/* The terms travel into the signed record; keep the two in step. */}
+          <div className="cx-terms">
+            <div className="cx-terms-head">
+              <h2 className="cx-terms-h">{TITLE}</h2>
+              <span className="cx-terms-v">{VERSION}</span>
+            </div>
+            <dl className="cx-terms-list">
+              {TERMS.map(([k, v]) => (
+                <div key={k}>
+                  <dt>{k}</dt>
+                  <dd>{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="cx-terms-ref">
+              These terms summarise the full proposal.{" "}
+              <Link href="/cirques-experience">Re-read it here</Link> before signing if anything is
+              unclear.
+            </p>
+          </div>
+
+          <SignForm />
 
           <div className="cx-approve-next">
             <p className="cx-eyebrow">What happens next</p>
