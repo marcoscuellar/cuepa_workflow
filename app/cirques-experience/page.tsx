@@ -140,7 +140,7 @@ export default function CirquesExperiencePage() {
       <header className="cx-top">
         <div className="shell cx-top-in">
           <Link href="/" className="cx-brand" aria-label="CUEPA home"><Logo dark/></Link>
-          <span className="cx-top-note">Prepared for Christian and the Cirques Experience team</span>
+          <span className="cx-top-note">Prepared for Christian Ochsner and the Cirques Experience team</span>
         </div>
       </header>
 
