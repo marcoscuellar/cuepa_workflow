@@ -23,7 +23,7 @@ import "./cirques.css";
    it always exists. Leave it as is.
    ───────────────────────────────────────────────────────────── */
 const APPROVE_URL = "";
-const CONTACT_EMAIL = "";
+const CONTACT_EMAIL = "marcos@ollinos.com";
 const HUB_URL = "/cirques-experience/operations-hub";
 
 export const metadata: Metadata = {
@@ -167,18 +167,23 @@ export default function CirquesExperiencePage() {
             {!APPROVE_URL && <p className="cx-pending cx-pending-hero">Approval link coming shortly.</p>}
           </div>
 
-          {/* Decorative. Conveys no information the copy does not. */}
-          <div className="cx-scene" aria-hidden>
-            <span className="cx-ring cx-ring-1" />
-            <span className="cx-ring cx-ring-2" />
-            <div className="cx-scene-cap">
-              <p className="cx-scene-k">Phase One Concept</p>
-              <p className="cx-scene-v">
-                One view for the calendars, deadlines, and follow-ups that are spread across
-                systems today.
-              </p>
-            </div>
-          </div>
+          {/* A real render of /cirques-experience/operations-hub, captured at
+              700x875 so the interface reads at panel size. Regenerate it from
+              the live route if the hub's layout changes. */}
+          <Link className="cx-scene" href={HUB_URL}>
+            <span className="cx-scene-frame">
+              <img
+                src="/cirques-hub-preview.png"
+                width={1240}
+                height={1550}
+                alt="The Cirques Experience Operations Hub concept: a Phase One Concept — Illustrative Data label, the heading Here’s what needs you, and a unified calendar listing an operations check-in, a timecard submission deadline, a program event, and a vendor call."
+              />
+            </span>
+            <span className="cx-scene-label">
+              <span className="cx-scene-k">Explore the Phase One concept</span>
+              <span className="cx-scene-go" aria-hidden>→</span>
+            </span>
+          </Link>
         </div>
       </section>
 

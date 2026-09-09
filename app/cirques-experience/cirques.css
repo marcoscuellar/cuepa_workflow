@@ -83,15 +83,18 @@
 .cx-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(32px,4.5vw,64px);align-items:center}
 @media(max-width:900px){.cx-hero-grid{grid-template-columns:1fr}}
 
-/* dark scene panel, from the supplied hero treatment */
-.cx-scene{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:linear-gradient(165deg,#141414 0%,#0a0a0a 60%,#030303 100%)}
-.cx-scene svg{position:absolute;inset:0;width:100%;height:100%}
-.cx-ring{position:absolute;border:10px solid #ffffff0f;border-radius:50%}
-.cx-ring-1{width:230px;height:230px;left:-40px;top:58%}
-.cx-ring-2{width:150px;height:150px;right:-30px;top:8%;border-color:#2dd4bf2e}
-.cx-scene-cap{position:absolute;left:22px;right:22px;bottom:22px;color:#f3f1ee}
+/* Dark panel as a frame around a real render of the Operations Hub.
+   No rings, no floating cards: the interface is the subject. Straight-on
+   rather than in perspective, so the UI stays crisp at every size. */
+.cx-scene{display:block;padding:14px 14px 4px;border-radius:20px;background:linear-gradient(165deg,#141414 0%,#0a0a0a 60%,#030303 100%);text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.cx-scene:hover,.cx-scene:focus-visible{transform:translateY(-3px);box-shadow:0 26px 60px -28px #000000cc}
+.cx-scene-frame{display:block;border-radius:12px;overflow:hidden;border:1px solid #ffffff1f;box-shadow:0 18px 44px -20px #000000b3;transition:border-color .25s ease}
+.cx-scene:hover .cx-scene-frame,.cx-scene:focus-visible .cx-scene-frame{border-color:#ffffff3d}
+.cx-scene-frame img{display:block;width:100%;height:auto}
+.cx-scene-label{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 6px 12px}
 .cx-scene-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cx-turq);font-weight:700}
-.cx-scene-v{margin-top:8px;font-size:15px;line-height:1.45;font-weight:700}
+.cx-scene-go{color:var(--cx-turq);font-size:15px;line-height:1;transition:transform .25s ease}
+.cx-scene:hover .cx-scene-go,.cx-scene:focus-visible .cx-scene-go{transform:translateX(4px)}
 
 /* ── sections ───────────────────────────────────────────── */
 .cx-sec{padding:clamp(64px,7vw,104px) 0;border-top:1px solid var(--cx-hair)}
