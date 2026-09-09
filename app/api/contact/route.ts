@@ -7,7 +7,7 @@ const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 export async function POST(req: Request) {
-  let body: {name?: string; email?: string; note?: string; chips?: string[]; company?: string};
+  let body: {name?: string; email?: string; note?: string; chips?: string[]; company?: string; subject?: string};
   try {
     body = await req.json();
   } catch {
@@ -31,16 +31,22 @@ export async function POST(req: Request) {
     return Response.json({error: "The form isn't connected yet. Please email us directly."}, {status: 503});
   }
 
+  // Callers may name their own subject; the Room Conversation form does not.
+  const custom = (body.subject ?? "").trim().slice(0, 200);
+  const subject = custom || `Room Conversation — ${name || email}`;
+  // That form's prompt only makes sense for that form.
+  const noteLabel = custom ? "Details" : "What feels heavier than it should";
+
   const html = [
     name ? `<p><strong>${esc(name)}</strong> &lt;${esc(email)}&gt;</p>` : `<p>&lt;${esc(email)}&gt;</p>`,
     chips.length ? `<p><strong>Making room for:</strong> ${esc(chips.join(", "))}</p>` : "",
-    note ? `<p><strong>What feels heavier than it should:</strong><br>${esc(note).replace(/\n/g, "<br>")}</p>` : ""
+    note ? `<p><strong>${noteLabel}:</strong><br>${esc(note).replace(/\n/g, "<br>")}</p>` : ""
   ].filter(Boolean).join("\n");
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {Authorization: `Bearer ${key}`, "Content-Type": "application/json"},
-    body: JSON.stringify({from: FROM, to: [TO], reply_to: email, subject: `Room Conversation — ${name || email}`, html})
+    body: JSON.stringify({from: FROM, to: [TO], reply_to: email, subject, html})
   });
 
   if (!res.ok) {

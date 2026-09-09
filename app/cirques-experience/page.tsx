@@ -12,7 +12,9 @@ import "./cirques.css";
    still coming, so the client is never invited to click something
    that cannot respond.
 
-   APPROVE_URL    e-signature, approval form, or scheduling link.
+   APPROVE_URL    where "Approve Phase One" goes. Currently the in-project
+                  confirmation page, which notifies CUEPA by email. Swap it
+                  for an e-signature or scheduling link when one exists.
                   Empty → "Approval link coming shortly."
    CONTACT_EMAIL  the address questions should go to, address only
                   (no "mailto:"). Empty → "Contact details coming
@@ -22,7 +24,7 @@ import "./cirques.css";
    HUB_URL is the in-project prototype route, not a placeholder —
    it always exists. Leave it as is.
    ───────────────────────────────────────────────────────────── */
-const APPROVE_URL = "";
+const APPROVE_URL = "/cirques-experience/approved";
 const CONTACT_EMAIL = "marcos@ollinos.com";
 const HUB_URL = "/cirques-experience/operations-hub";
 
