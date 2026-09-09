@@ -3,7 +3,9 @@
    Every rule is scoped under .cx so nothing here can reach the
    marketing site. Visual direction adapted from the supplied
    index (2).html, rebuilt on the live site's own type system
-   (Anton / Archivo / JetBrains Mono) and turquoise tones.
+   (Archivo Black for display, Archivo for everything else,
+   JetBrains Mono for the small uppercase kickers) and turquoise
+   tones.
    ───────────────────────────────────────────────────────────── */
 .cx{
   --cx-ink:#030303;
@@ -19,17 +21,22 @@
   font-family:'Archivo',Arial,sans-serif;
 }
 .cx *{box-sizing:border-box}
-.cx p{margin:0}
-.cx h1,.cx h2,.cx h3{margin:0;text-wrap:balance}
+:where(.cx) :where(p){margin:0}
+:where(.cx) :where(h1,h2,h3){margin:0}
+.cx h1,.cx h2,.cx h3{text-wrap:balance}
 
 /* ── header ─────────────────────────────────────────────── */
 .cx-top{position:sticky;top:0;z-index:40;background:#F4F5F5f2;backdrop-filter:blur(10px);border-bottom:1px solid var(--cx-hair)}
 .cx-top-in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;flex-wrap:wrap;padding:12px 0}
-.cx-brand{display:inline-flex;text-decoration:none}
+.cx-brand{display:inline-flex;align-items:center;min-height:44px;padding:4px 2px;text-decoration:none}
 .cx-top-note{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cx-soft)}
 
 /* ── in-page nav ────────────────────────────────────────── */
-.cx-jump{border-bottom:1px solid var(--cx-hair);background:var(--cx-white)}
+.cx-jump{position:relative;border-bottom:1px solid var(--cx-hair);background:var(--cx-white)}
+/* Only three of six items fit at 390px. This fade marks the row as
+   scrollable; it is hidden once every item is on screen. */
+.cx-jump::after{content:"";position:absolute;top:0;right:0;bottom:0;width:44px;pointer-events:none;background:linear-gradient(90deg,#ffffff00,var(--cx-white))}
+@media(min-width:920px){.cx-jump::after{display:none}}
 .cx-jump-in{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
 .cx-jump-in::-webkit-scrollbar{display:none}
 .cx-jump a{flex:none;padding:9px 14px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cx-soft);text-decoration:none;transition:background .2s,color .2s}
@@ -37,13 +44,17 @@
 
 /* ── shared type ────────────────────────────────────────── */
 .cx-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cx-teal);margin:0 0 18px}
-.cx-h1{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.4vw,76px);line-height:.98;letter-spacing:-.02em;max-width:16ch}
-.cx-h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(28px,3.6vw,50px);line-height:1.02;letter-spacing:-.02em;max-width:22ch}
+.cx-h1{font-family:'Archivo Black',Arial,sans-serif;font-weight:400;font-size:clamp(34px,4.3vw,62px);line-height:1.04;letter-spacing:-.035em;max-width:16ch}
+.cx-h2{font-family:'Archivo Black',Arial,sans-serif;font-weight:400;font-size:clamp(25px,2.9vw,41px);line-height:1.08;letter-spacing:-.035em;max-width:21ch}
 .cx-h2-center{max-width:24ch;margin-inline:auto;text-align:center}
-.cx-card-h{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0 0 9px}
-.cx-lead{margin-top:22px;font-size:18px;line-height:1.55;font-weight:700;color:var(--cx-soft);max-width:52ch}
+/* Archivo, not Archivo Black: these are card and label headings, and
+   globals' `h1,h2,h3,h4 {font-family:'Archivo Black'}` in
+   motion-refine.css outranks .cx's inherited family, so it has to be
+   declared here. Display type (.cx-h1/.cx-h2/.cx-price) keeps Black. */
+.cx-card-h{font-family:'Archivo',Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0 0 9px}
+.cx-lead{margin-top:26px;font-size:18px;line-height:1.55;font-weight:700;color:var(--cx-soft);max-width:52ch}
 .cx-lead-2{margin-top:14px;color:var(--cx-ink)}
-.cx-intro{margin-top:18px;font-size:16px;line-height:1.6;font-weight:700;color:var(--cx-soft);max-width:62ch}
+.cx-intro{margin-top:22px;font-size:16px;line-height:1.6;font-weight:700;color:var(--cx-soft);max-width:62ch}
 .cx-intro-center{margin-inline:auto;text-align:center}
 .cx-prose{margin-top:22px;display:grid;gap:16px;max-width:66ch}
 .cx-prose p{font-size:16px;line-height:1.65;font-weight:700;color:var(--cx-soft)}
@@ -59,6 +70,13 @@
 .cx :focus-visible{outline:2px solid var(--cx-teal);outline-offset:3px}
 .cx-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 .cx-actions-center{justify-content:center}
+
+/* Stands in for a call to action whose destination does not exist
+   yet. Deliberately not a button and not focusable: no border, no
+   background, default cursor — nothing here invites a click. */
+.cx-pending{display:inline-flex;align-items:center;gap:9px;align-self:center;font-size:14px;font-weight:700;color:var(--cx-soft);cursor:default}
+.cx-pending::before{content:"";width:8px;height:8px;flex:none;border-radius:2px;border:2px solid var(--cx-turq)}
+.cx-pending-hero{margin-top:16px}
 
 /* ── hero ───────────────────────────────────────────────── */
 .cx-hero{padding:clamp(56px,7vw,96px) 0 clamp(48px,6vw,76px)}
@@ -109,8 +127,8 @@
 /* ── investment ─────────────────────────────────────────── */
 .cx-invest-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,4.5vw,64px);align-items:start}
 @media(max-width:900px){.cx-invest-grid{grid-template-columns:1fr}}
-.cx-price{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(56px,7.5vw,104px);line-height:1;letter-spacing:-.03em;margin:22px 0 0;color:var(--cx-ink)}
-.cx-price-sm{font-size:clamp(40px,5vw,64px)}
+.cx-price{font-family:'Archivo Black',Arial,sans-serif;font-weight:400;font-size:clamp(44px,5.5vw,78px);line-height:1.02;letter-spacing:-.04em;margin:18px 0 6px;color:var(--cx-ink)}
+.cx-price-sm{font-size:clamp(34px,4vw,52px)}
 .cx-per{font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;color:var(--cx-soft);letter-spacing:0}
 .cx-pay{background:var(--cx-white);border:1px solid var(--cx-hair);border-radius:18px;padding:28px 26px}
 .cx-pay-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:2px}

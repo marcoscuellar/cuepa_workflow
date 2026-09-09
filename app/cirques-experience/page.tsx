@@ -6,18 +6,24 @@ import "./cirques.css";
 /* ─────────────────────────────────────────────────────────────
    CONFIGURATION — set these when the destinations exist.
 
-   Leave a value as an empty string and its button renders as a
-   focusable, non-navigating button instead of a dead link, so the
-   page never shows a placeholder URL to the client.
+   Nothing here ever renders as a clickable control that does
+   nothing. While a value is empty its call to action is replaced
+   by a plain, non-interactive line of text saying the link is
+   still coming, so the client is never invited to click something
+   that cannot respond.
 
-   APPROVE_URL   e-signature, form, scheduling link or mailto:
-   QUESTION_URL  mailto: or scheduling link for questions
+   APPROVE_URL    e-signature, approval form, or scheduling link.
+                  Empty → "Approval link coming shortly."
+   CONTACT_EMAIL  the address questions should go to, address only
+                  (no "mailto:"). Empty → "Contact details coming
+                  shortly." Set it and "Ask a Question" becomes a
+                  real mail link with the subject pre-filled.
 
-   HUB_URL is the in-project prototype route and is not a placeholder
-   — it always exists. Leave it as is.
+   HUB_URL is the in-project prototype route, not a placeholder —
+   it always exists. Leave it as is.
    ───────────────────────────────────────────────────────────── */
 const APPROVE_URL = "";
-const QUESTION_URL = "";
+const CONTACT_EMAIL = "";
 const HUB_URL = "/cirques-experience/operations-hub";
 
 export const metadata: Metadata = {
@@ -29,11 +35,23 @@ export const metadata: Metadata = {
   robots: {index: false, follow: false}
 };
 
-/* Renders a real link when configured, a focusable button when not. */
-function Action({href, children, variant = "primary"}:{href:string;children:React.ReactNode;variant?:"primary"|"ghost"}) {
-  const cls = variant === "primary" ? "cx-btn cx-btn-primary" : "cx-btn cx-btn-ghost";
-  if (href) return <a className={cls} href={href}>{children}</a>;
-  return <button type="button" className={cls} data-cx-unconfigured>{children}</button>;
+/* A real link once APPROVE_URL is set; a plain notice until then. */
+function ApproveAction({children}:{children:React.ReactNode}) {
+  if (APPROVE_URL) return <a className="cx-btn cx-btn-primary" href={APPROVE_URL}>{children}</a>;
+  return <p className="cx-pending">Approval link coming shortly.</p>;
+}
+
+/* A real mail link once CONTACT_EMAIL is set; a plain notice until then. */
+function QuestionAction() {
+  if (CONTACT_EMAIL) {
+    const subject = encodeURIComponent("Question about the Cirques Experience Phase One proposal");
+    return (
+      <a className="cx-btn cx-btn-ghost" href={`mailto:${CONTACT_EMAIL}?subject=${subject}`}>
+        Ask a Question
+      </a>
+    );
+  }
+  return <p className="cx-pending">Contact details coming shortly.</p>;
 }
 
 const jump = [
@@ -141,9 +159,12 @@ export default function CirquesExperiencePage() {
               Less searching. Less following up. More time for the work that actually needs you.
             </p>
             <div className="cx-actions">
-              <Action href={APPROVE_URL}>Start Phase One</Action>
-              <a className="cx-btn cx-btn-ghost" href="#plan">View the Plan</a>
+              {APPROVE_URL
+                ? <a className="cx-btn cx-btn-primary" href={APPROVE_URL}>Start Phase One</a>
+                : <a className="cx-btn cx-btn-primary" href="#plan">View the Plan</a>}
+              <a className="cx-btn cx-btn-ghost" href="#timeline">See the Timeline</a>
             </div>
+            {!APPROVE_URL && <p className="cx-pending cx-pending-hero">Approval link coming shortly.</p>}
           </div>
 
           {/* Decorative. Conveys no information the copy does not. */}
@@ -364,8 +385,8 @@ export default function CirquesExperiencePage() {
             begin building the Cirques Experience Operations Hub.
           </p>
           <div className="cx-actions cx-actions-center">
-            <Action href={APPROVE_URL}>Approve Phase One</Action>
-            <Action href={QUESTION_URL} variant="ghost">Ask a Question</Action>
+            <ApproveAction>Approve Phase One</ApproveAction>
+            <QuestionAction />
           </div>
         </div>
       </section>
