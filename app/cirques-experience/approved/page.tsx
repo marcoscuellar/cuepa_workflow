@@ -1,23 +1,26 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import Logo from "../../Logo";
-import SignForm from "./SignForm";
 import {TITLE, TERMS, VERSION} from "./agreement";
 import "../cirques.css";
 
-/* Pre-filled into the signature block. The field stays editable, so
-   anyone else with authority to sign can replace it — their address is
-   what the signed copy is sent to, not this one. */
-const SIGNER_EMAIL = "christian@cirquesexperience.org";
+/* Phase One was approved by email, so the sign form is retired here.
+   The email thread is the signed record. */
+const APPROVAL = {
+  by: "Christian Ochsner, Chief Operating Officer",
+  via: "email",
+  copied: "Wolfgang Bientzle, Owner"
+};
 
 export const metadata: Metadata = {
-  title: "Approve Phase One — Cirques Experience × CUEPA",
-  description: "Review and electronically sign Phase One of the Cirques Experience Operations Hub.",
+  title: "Phase One Approved — Cirques Experience × CUEPA",
+  description: "Phase One of the Cirques Experience Operations Hub is approved. Next: sign the Mutual NDA.",
   alternates: {canonical: "/cirques-experience/approved"},
   robots: {index: false, follow: false}
 };
 
-const next = [
+const next: [string, string, string?][] = [
+  ["Next: sign the NDA", "Before kickoff, Wolfgang and Christian sign the Mutual NDA that protects your families’ information and CUEPA’s methods.", "/cirques-experience/nda"],
   ["Kickoff", "We schedule a short call to confirm scope, access, and the primary decision-maker."],
   ["Week 1", "Workflow discovery: current tools, calendars, reports, and recurring processes."],
   ["From there", "Dashboard and calendar build, then the Phase One workflows, on the 4–5 week timeline."]
@@ -35,10 +38,10 @@ export default function ApprovedPage() {
 
       <section className="cx-sec cx-approve">
         <div className="shell cx-approve-in">
-          <p className="cx-eyebrow">Approve Phase One</p>
-          <h1 className="cx-h1 cx-approve-h">Ready when you are.</h1>
+          <p className="cx-eyebrow">Phase One · Approved</p>
+          <h1 className="cx-h1 cx-approve-h">Approved. Thank you.</h1>
           <p className="cx-lead">
-            Here are the terms in full. Sign below and CUEPA will start getting ready.
+            Phase One is approved. The terms below are what was agreed. Next step: sign the NDA.
           </p>
 
           {/* The terms travel into the signed record; keep the two in step. */}
@@ -57,19 +60,24 @@ export default function ApprovedPage() {
             </dl>
             <p className="cx-terms-ref">
               These terms summarise the full proposal.{" "}
-              <Link href="/cirques-experience">Re-read it here</Link> before signing if anything is
-              unclear.
+              <Link href="/cirques-experience">Re-read it here</Link>.
             </p>
           </div>
 
-          <SignForm defaultEmail={SIGNER_EMAIL} />
+          <div className="cx-ok" role="status">
+            <p className="cx-ok-h">Approved via email.</p>
+            <p>Approved by {APPROVAL.by}, via {APPROVAL.via}, with {APPROVAL.copied} copied.</p>
+            <p className="cx-ok-act">
+              <Link href="/cirques-experience/nda">Next: sign the Mutual NDA →</Link>
+            </p>
+          </div>
 
           <div className="cx-approve-next">
             <p className="cx-eyebrow">What happens next</p>
             <ol className="cx-approve-steps">
-              {next.map(([t, d]) => (
+              {next.map(([t, d, href]) => (
                 <li key={t}>
-                  <b>{t}</b>
+                  <b>{href ? <Link href={href}>{t}</Link> : t}</b>
                   <span>{d}</span>
                 </li>
               ))}

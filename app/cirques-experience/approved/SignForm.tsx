@@ -18,13 +18,36 @@ import {useState} from "react";
 import {VERSION, TITLE, termsText} from "./agreement";
 
 const CONTACT_EMAIL = "marcos@ollinos.com";
-const FALLBACK = encodeURIComponent("Approving Phase One — Cirques Experience");
+
+/* What is being signed. Defaults to Phase One; the NDA page passes its own. */
+export type SignDoc = {
+  title: string;
+  version: string;
+  text: () => string;
+  button: string;
+  fine: string;
+  done: string;
+  fallbackSubject: string;
+};
+
+const PHASE_ONE: SignDoc = {
+  title: TITLE,
+  version: VERSION,
+  text: termsText,
+  button: "Sign and approve Phase One",
+  fine: "Signing sends a dated copy of these terms to you and to CUEPA. Nothing is charged here — the first invoice follows the kickoff call.",
+  done: "CUEPA is getting ready. Marcos will be in touch within one business day to schedule the kickoff and confirm what we’ll need to get started.",
+  fallbackSubject: "Approving Phase One — Cirques Experience"
+};
 
 type Stage = {kind: "form"} | {kind: "signed"; at: string} | {kind: "failed"; message?: string};
 
-export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
+export default function SignForm({defaultEmail = "", defaultName = "", defaultRole = "", idPrefix = "sig", doc = PHASE_ONE}: {
+  defaultEmail?: string; defaultName?: string; defaultRole?: string; idPrefix?: string; doc?: SignDoc;
+}) {
+  const FALLBACK = encodeURIComponent(doc.fallbackSubject);
+  const [name, setName] = useState(defaultName);
+  const [role, setRole] = useState(defaultRole);
   const [email, setEmail] = useState(defaultEmail);
   const [signature, setSignature] = useState("");
   const [consent, setConsent] = useState(false);
@@ -50,8 +73,8 @@ export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
     const readable = at.toLocaleString("en-US", {dateStyle: "full", timeStyle: "long"});
 
     const record = [
-      `${TITLE}`,
-      `Agreement version: ${VERSION}`,
+      `${doc.title}`,
+      `Agreement version: ${doc.version}`,
       "",
       "SIGNED BY",
       `Name: ${name.trim()}`,
@@ -68,7 +91,7 @@ export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
       "agreement on behalf of Cirques Experience.",
       "",
       "TERMS AGREED",
-      termsText()
+      doc.text()
     ].filter(Boolean).join("\n");
 
     try {
@@ -78,7 +101,7 @@ export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
-          subject: `Signed — ${TITLE}`,
+          subject: `Signed — ${doc.title}`,
           note: record,
           copyTo: email.trim()
         })
@@ -99,10 +122,7 @@ export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
     return (
       <div className="cx-ok" role="status">
         <p className="cx-ok-h">Signed. Thank you.</p>
-        <p>
-          CUEPA is getting ready. Marcos will be in touch within one business day to schedule the
-          kickoff and confirm what we’ll need to get started.
-        </p>
+        <p>{doc.done}</p>
         <p className="cx-ok-meta">
           A copy of what you signed has been sent to {email.trim()} — signed {stage.at}.
         </p>
@@ -129,30 +149,30 @@ export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
     <form className="cx-sign" onSubmit={submit} noValidate={false}>
       <div className="cx-sign-grid">
         <p className="cx-field">
-          <label htmlFor="sig-name">Full name</label>
-          <input id="sig-name" required autoComplete="name" value={name}
+          <label htmlFor={`${idPrefix}-name`}>Full name</label>
+          <input id={`${idPrefix}-name`} required autoComplete="name" value={name}
                  onChange={e => setName(e.target.value)} />
         </p>
         <p className="cx-field">
-          <label htmlFor="sig-role">Title <span>(optional)</span></label>
-          <input id="sig-role" autoComplete="organization-title" value={role}
+          <label htmlFor={`${idPrefix}-role`}>Title <span>(optional)</span></label>
+          <input id={`${idPrefix}-role`} autoComplete="organization-title" value={role}
                  onChange={e => setRole(e.target.value)} />
         </p>
       </div>
 
       <p className="cx-field">
-        <label htmlFor="sig-email">Email — your copy of the signed agreement goes here</label>
-        <input id="sig-email" type="email" required autoComplete="email" value={email}
+        <label htmlFor={`${idPrefix}-email`}>Email — your copy of the signed agreement goes here</label>
+        <input id={`${idPrefix}-email`} type="email" required autoComplete="email" value={email}
                onChange={e => setEmail(e.target.value)} />
       </p>
 
       <p className="cx-field cx-field-sig">
-        <label htmlFor="sig-sign">Signature — type your full name to sign</label>
-        <input id="sig-sign" required autoComplete="off" spellCheck={false}
-               aria-describedby="sig-help" value={signature}
+        <label htmlFor={`${idPrefix}-sign`}>Signature — type your full name to sign</label>
+        <input id={`${idPrefix}-sign`} required autoComplete="off" spellCheck={false}
+               aria-describedby={`${idPrefix}-help`} value={signature}
                onChange={e => {setSignature(e.target.value); if (err) setErr("");}} />
         <span className="cx-sign-rule" aria-hidden />
-        <span id="sig-help" className="cx-sign-help">
+        <span id={`${idPrefix}-help`} className="cx-sign-help">
           {name.trim() ? `Type “${name.trim()}” exactly as above.` : "Enter your full name first."}
         </span>
       </p>
@@ -170,13 +190,10 @@ export default function SignForm({defaultEmail = ""}: {defaultEmail?: string}) {
       {err && <p className="cx-sign-err" role="alert">{err}</p>}
 
       <button className="cx-btn cx-btn-primary cx-sign-go" type="submit" disabled={busy}>
-        {busy ? "Signing…" : "Sign and approve Phase One"}
+        {busy ? "Signing…" : doc.button}
       </button>
 
-      <p className="cx-approve-fine">
-        Signing sends a dated copy of these terms to you and to CUEPA. Nothing is charged here — the
-        first invoice follows the kickoff call.
-      </p>
+      <p className="cx-approve-fine">{doc.fine}</p>
     </form>
   );
 }
