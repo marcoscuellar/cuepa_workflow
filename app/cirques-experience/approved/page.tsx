@@ -7,9 +7,9 @@ import "../cirques.css";
 /* Phase One was approved by email, so the sign form is retired here.
    The email thread is the signed record. */
 const APPROVAL = {
-  by: "Christian Ochsner, Chief Operating Officer",
+  by: "Christian Ochsner",
   via: "email",
-  copied: "Wolfgang Bientzle, Owner"
+  copied: "Wolfgang Bientzle"
 };
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   robots: {index: false, follow: false}
 };
 
-const next: [string, string, string?][] = [
-  ["Next: sign the NDA", "Before kickoff, Wolfgang and Christian sign the Mutual NDA that protects your families’ information and CUEPA’s methods.", "/cirques-experience/nda"],
+const next: [string, string][] = [
+  ["Next: sign the NDA", "Before kickoff, Wolfgang and Christian sign the Mutual NDA that protects your families’ information and CUEPA’s methods. It arrives by email through DocuSign."],
   ["Kickoff", "We schedule a short call to confirm scope, access, and the primary decision-maker."],
   ["Week 1", "Workflow discovery: current tools, calendars, reports, and recurring processes."],
   ["From there", "Dashboard and calendar build, then the Phase One workflows, on the 4–5 week timeline."]
@@ -67,17 +67,15 @@ export default function ApprovedPage() {
           <div className="cx-ok" role="status">
             <p className="cx-ok-h">Approved via email.</p>
             <p>Approved by {APPROVAL.by}, via {APPROVAL.via}, with {APPROVAL.copied} copied.</p>
-            <p className="cx-ok-act">
-              <Link href="/cirques-experience/nda">Next: sign the Mutual NDA →</Link>
-            </p>
+            <p className="cx-ok-meta">Next step: the Mutual NDA, sent by email through DocuSign.</p>
           </div>
 
           <div className="cx-approve-next">
             <p className="cx-eyebrow">What happens next</p>
             <ol className="cx-approve-steps">
-              {next.map(([t, d, href]) => (
+              {next.map(([t, d]) => (
                 <li key={t}>
-                  <b>{href ? <Link href={href}>{t}</Link> : t}</b>
+                  <b>{t}</b>
                   <span>{d}</span>
                 </li>
               ))}

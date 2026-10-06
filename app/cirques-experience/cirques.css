@@ -273,16 +273,3 @@
   .cx-card:hover{transform:none}
   .cx-card::before{transform:scaleX(1)}
 }
-
-/* Mutual NDA page */
-.cx-nda{padding:6px 26px 10px;max-height:560px;overflow:auto;font-size:14px;line-height:1.65;font-weight:500;color:var(--cx-ink)}
-.cx-nda p{margin:10px 0}
-.cx-nda h3{font-family:'Archivo',Arial,sans-serif;font-size:15px;font-weight:700;margin:24px 0 6px;padding-top:16px;border-top:1px solid var(--cx-hair)}
-.cx-nda h3 em{font-style:normal;color:var(--cx-teal);margin-right:10px}
-.cx-nda-item{padding-left:22px;text-indent:-18px}
-.cx-nda-item em{font-style:normal;font-weight:700;margin-right:6px}
-.cx-nda-parties{padding:0;margin:8px 0}
-.cx-nda-parties dd span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cx-teal);margin-top:6px}
-.cx-nda-parties dd span:first-child{margin-top:0}
-.cx-nda-signer{margin-top:44px}
-.cx-approve-steps b a{color:var(--cx-teal);border-bottom:1px solid currentColor}

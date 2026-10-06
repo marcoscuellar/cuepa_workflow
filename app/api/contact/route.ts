@@ -20,8 +20,7 @@ export async function POST(req: Request) {
 
   const name = (body.name ?? "").trim().slice(0, 200);
   const email = (body.email ?? "").trim().slice(0, 320);
-  // Signed records carry the full agreement text, which can run long.
-  const note = (body.note ?? "").trim().slice(0, 40000);
+  const note = (body.note ?? "").trim().slice(0, 5000);
   const chips = Array.isArray(body.chips) ? body.chips.slice(0, 12).map(c => String(c).slice(0, 120)) : [];
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return Response.json({error: "Please add a valid email."}, {status: 400});
