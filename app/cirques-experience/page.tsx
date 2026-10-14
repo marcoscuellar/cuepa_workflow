@@ -12,9 +12,8 @@ import "./cirques.css";
    still coming, so the client is never invited to click something
    that cannot respond.
 
-   APPROVE_URL    where "Approve Phase One" goes. Currently the in-project
-                  confirmation page, which notifies CUEPA by email. Swap it
-                  for an e-signature or scheduling link when one exists.
+   APPROVE_URL    where the main button goes. Phase One is signed (Oct 2026),
+                  so it now opens the live client hub on app.makingcuepa.com.
                   Empty → "Approval link coming shortly."
    CONTACT_EMAIL  the address questions should go to, address only
                   (no "mailto:"). Empty → "Contact details coming
@@ -24,8 +23,8 @@ import "./cirques.css";
    HUB_URL is the in-project prototype route, not a placeholder —
    it always exists. Leave it as is.
    ───────────────────────────────────────────────────────────── */
-const APPROVE_URL = "/cirques-experience/approved";
-const CONTACT_EMAIL = "marcos@ollinos.com";
+const APPROVE_URL = "https://app.makingcuepa.com/cirques-experience";
+const CONTACT_EMAIL = "marcoscuellar@elipangroup.com";
 const HUB_URL = "/cirques-experience/operations-hub";
 
 export const metadata: Metadata = {
@@ -165,7 +164,7 @@ export default function CirquesExperiencePage() {
             </p>
             <div className="cx-actions">
               {APPROVE_URL
-                ? <a className="cx-btn cx-btn-primary" href={APPROVE_URL}>Start Phase One</a>
+                ? <a className="cx-btn cx-btn-primary" href={APPROVE_URL}>Open your hub</a>
                 : <a className="cx-btn cx-btn-primary" href="#plan">View the Plan</a>}
               <a className="cx-btn cx-btn-ghost" href="#timeline">See the Timeline</a>
             </div>
@@ -409,7 +408,7 @@ export default function CirquesExperiencePage() {
             begin building the Cirques Experience Operations Hub.
           </p>
           <div className="cx-actions cx-actions-center">
-            <ApproveAction>Approve Phase One</ApproveAction>
+            <ApproveAction>Open your hub</ApproveAction>
             <QuestionAction />
           </div>
         </div>

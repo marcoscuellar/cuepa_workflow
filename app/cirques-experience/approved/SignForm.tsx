@@ -17,7 +17,7 @@
 import {useState} from "react";
 import {VERSION, TITLE, termsText} from "./agreement";
 
-const CONTACT_EMAIL = "marcos@ollinos.com";
+const CONTACT_EMAIL = "marcoscuellar@elipangroup.com";
 const FALLBACK = encodeURIComponent("Approving Phase One — Cirques Experience");
 
 type Stage = {kind: "form"} | {kind: "signed"; at: string} | {kind: "failed"; message?: string};

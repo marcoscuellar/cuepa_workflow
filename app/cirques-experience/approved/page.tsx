@@ -1,18 +1,16 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import Logo from "../../Logo";
-import SignForm from "./SignForm";
 import {TITLE, TERMS, VERSION} from "./agreement";
 import "../cirques.css";
 
-/* Pre-filled into the signature block. The field stays editable, so
-   anyone else with authority to sign can replace it — their address is
-   what the signed copy is sent to, not this one. */
-const SIGNER_EMAIL = "christian@cirquesexperience.org";
+/* Phase One is signed. The e-sign form is retired; this page now just
+   confirms the approved terms and sends the client to the live hub. */
+const HUB_URL = "https://app.makingcuepa.com/cirques-experience";
 
 export const metadata: Metadata = {
-  title: "Approve Phase One — Cirques Experience × CUEPA",
-  description: "Review and electronically sign Phase One of the Cirques Experience Operations Hub.",
+  title: "Phase One approved — Cirques Experience × CUEPA",
+  description: "Phase One of the Cirques Experience Operations Hub is approved.",
   alternates: {canonical: "/cirques-experience/approved"},
   robots: {index: false, follow: false}
 };
@@ -35,10 +33,10 @@ export default function ApprovedPage() {
 
       <section className="cx-sec cx-approve">
         <div className="shell cx-approve-in">
-          <p className="cx-eyebrow">Approve Phase One</p>
-          <h1 className="cx-h1 cx-approve-h">Ready when you are.</h1>
+          <p className="cx-eyebrow">Phase One approved ✓</p>
+          <h1 className="cx-h1 cx-approve-h">You’re all set.</h1>
           <p className="cx-lead">
-            Here are the terms in full. Sign below and CUEPA will start getting ready.
+            Phase One is signed. These are the approved terms, for your records.
           </p>
 
           {/* The terms travel into the signed record; keep the two in step. */}
@@ -57,12 +55,13 @@ export default function ApprovedPage() {
             </dl>
             <p className="cx-terms-ref">
               These terms summarise the full proposal.{" "}
-              <Link href="/cirques-experience">Re-read it here</Link> before signing if anything is
-              unclear.
+              <Link href="/cirques-experience">Re-read it here</Link> any time.
             </p>
           </div>
 
-          <SignForm defaultEmail={SIGNER_EMAIL} />
+          <div className="cx-actions">
+            <a className="cx-btn cx-btn-primary" href={HUB_URL}>Open your hub</a>
+          </div>
 
           <div className="cx-approve-next">
             <p className="cx-eyebrow">What happens next</p>
