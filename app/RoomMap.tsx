@@ -22,7 +22,7 @@ export default function RoomMap(){return (
           <p className="rm-eyebrow">01 — FIND</p>
           <h2>WE LEARN THE WAY<br/>YOU MAKE ROOM.</h2>
         </div>
-        <p>You keep meeting your clients. <b>We embed, listen, and map how work actually moves.</b> Nothing changes yet — the Room Map is drafted, and every call on it is yours.</p>
+        <p>Making room for dinner at home. <b>We sit with your team and map how work really moves.</b> Nothing changes yet. You approve every call on the Room Map.</p>
       </div>
 
       <div className="rm-beats">

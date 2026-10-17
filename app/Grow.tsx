@@ -12,7 +12,7 @@ export default function Grow(){return (
           <p className="rm-eyebrow">04 — GROW</p>
           <h2>THE ROOM BECOMES<br/>WHAT&rsquo;S NEXT.</h2>
         </div>
-        <p>She&rsquo;s on a walk. The room she got back is why. <b>The line keeps looking</b> — surfacing what a busy human can&rsquo;t see, then asking. And then it curls back to FIND. ↻</p>
+        <p>Making room for nothing at all. <b>We keep looking for what a busy owner can&rsquo;t see.</b> You get it as a draft, never an action. Then we start again at FIND. ↻</p>
       </div>
 
       <div className="rm-beats">

@@ -12,7 +12,7 @@ export default function Flow(){return (
           <p className="rm-eyebrow">02 — FLOW</p>
           <h2>THE NOISE RESOLVES.<br/>THE DAY GETS A SHAPE.</h2>
         </div>
-        <p>A Tuesday, already sorted. <b>The day starts with what matters</b> — while he&rsquo;s in the stands with his son. The line does the sorting. He keeps the say.</p>
+        <p>Making room for the ballgame. <b>We build the system that sorts your day before you open it.</b> Replies drafted, meetings confirmed. You keep the final say.</p>
       </div>
 
       <div className="rm-beats">

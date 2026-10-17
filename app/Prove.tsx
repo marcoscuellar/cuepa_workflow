@@ -12,7 +12,7 @@ export default function Prove(){return (
           <p className="rm-eyebrow">03 — PROVE</p>
           <h2>WE DON&rsquo;T SAY IT WORKED.<br/>WE SHOW YOU.</h2>
         </div>
-        <p>He&rsquo;s back at the bench — the room he got back went into the work he loves. <b>The Room Report holds the proof:</b> baseline before, evidence after, in his numbers.</p>
+        <p>Making room for the work you love. <b>We measure before we build and after it runs.</b> The Room Report shows the proof in your numbers.</p>
       </div>
 
       <div className="rm-beats">
