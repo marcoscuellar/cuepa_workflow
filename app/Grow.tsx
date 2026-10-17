@@ -1,7 +1,7 @@
 const beats:[string,string][]=[
-  ["01 · WATCH","The running system keeps looking for what a busy human can't see."],
-  ["02 · SURFACE","Opportunities arrive as drafts — found money, quiet customers, patterns. Never actions."],
-  ["03 · RETURN","What we learn feeds back into FIND, and the line turns again. ↻"]
+  ["01 · WATCH","The system keeps looking for what a busy owner can’t see."],
+  ["02 · SURFACE","Found money, quiet customers, patterns. They arrive as drafts, never actions."],
+  ["03 · RETURN","What we learn feeds back into FIND, and the loop turns again. ↻"]
 ];
 
 export default function Grow(){return (
@@ -10,9 +10,9 @@ export default function Grow(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">04 — GROW</p>
-          <h2>THE ROOM BECOMES<br/>WHAT&rsquo;S NEXT.</h2>
+          <h2>WE FIND WHAT&rsquo;S NEXT.<br/>YOU DECIDE.</h2>
         </div>
-        <p>She&rsquo;s on a walk. The room she got back is why. <b>The line keeps looking</b> — surfacing what a busy human can&rsquo;t see, then asking. And then it curls back to FIND. ↻</p>
+        <p>Making room for nothing at all. <b>We keep looking for what a busy owner can&rsquo;t see.</b> <span className="rm-more">You get it as a draft, never an action. Then we start again at FIND. ↻</span></p>
       </div>
 
       <div className="rm-beats">

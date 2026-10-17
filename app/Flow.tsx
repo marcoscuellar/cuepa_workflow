@@ -1,6 +1,6 @@
 const beats:[string,string][]=[
-  ["01 · BUILD","The system is built around how you already operate — nothing new for your team to learn."],
-  ["02 · CONNECT","Information gathered, actions prepared, decisions routed to the right person."],
+  ["01 · BUILD","Built around how you already work. Nothing new for your team to learn."],
+  ["02 · CONNECT","Information gathered, next steps prepared, decisions sent to the right person."],
   ["03 · HAND OFF","Every flow stops at a human. Your sign-off is the last step, always."]
 ];
 
@@ -10,9 +10,9 @@ export default function Flow(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">02 — FLOW</p>
-          <h2>THE NOISE RESOLVES.<br/>THE DAY GETS A SHAPE.</h2>
+          <h2>WE SORT THE NOISE.<br/>YOU KEEP THE SAY.</h2>
         </div>
-        <p>A Tuesday, already sorted. <b>The day starts with what matters</b> — while he&rsquo;s in the stands with his son. The line does the sorting. He keeps the say.</p>
+        <p>Making room for the ballgame. <b>We build the system that sorts your day before you open it.</b> <span className="rm-more">Replies drafted, meetings confirmed. You keep the final say.</span></p>
       </div>
 
       <div className="rm-beats">
@@ -53,7 +53,7 @@ export default function Flow(){return (
             <span className="rm-pstatus"><b>7:58</b><em>▪▪▪</em></span>
             <div className="rm-fplan">
               <p className="rm-fkick">YOUR DAY · OPERATING PLAN</p>
-              <h4>Good morning, Marcos<span>.</span></h4>
+              <h4>Good morning, Dana<span>.</span></h4>
               <p className="rm-fdate"><b>Tuesday · Aug 25</b> · First meeting in 48 minutes</p>
               <div className="rm-fprio">
                 <article><i>01 · DECISION</i><b>Approve the Lakeshore estimate</b><p>2 minutes. Keeps Thursday&rsquo;s install on schedule.</p></article>

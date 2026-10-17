@@ -9,7 +9,9 @@ import OwnerControl from "./OwnerControl";
 import Testimonial from "./Testimonial";
 import Trust from "./Trust";
 import Conversation from "./Conversation";
-import Logo from "./Logo";
+import SiteFooter from "./SiteFooter";
+import MobileCta from "./MobileCta";
+import ContactModal from "./ContactModal";
 
 export default function Home(){return <main>
   <Nav/>
@@ -35,10 +37,7 @@ export default function Home(){return <main>
 
   {/* Act 6 — Ending: conversation + footer */}
   <Conversation/>
-  <footer className="site-footer">
-    <p className="wordmark"><Logo/></p>
-    <p>MAKING ROOM FOR WHAT MATTERS.</p>
-    <p>© 2026 CUEPA</p>
-    <p className="footer-ollin">CUEPA — an Ollin company</p>
-  </footer>
+  <SiteFooter/>
+  <MobileCta/>
+  <ContactModal/>
 </main>}

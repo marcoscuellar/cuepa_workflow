@@ -6,7 +6,7 @@ export default function PracticeHeader(){return (
     </div>
     <div className="practice-intro">
       <p>THE CUEPA PRACTICE</p>
-      <h2>ONE LINE.<br/>FOUR TURNS. <span>↻</span></h2>
+      <h2>ONE METHOD.<br/>FOUR TURNS. <span>↻</span></h2>
     </div>
   </>
 )}

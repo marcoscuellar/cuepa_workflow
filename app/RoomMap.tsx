@@ -1,7 +1,7 @@
 const beats:[string,string][]=[
   ["01 · LISTEN","We sit with the people doing the work — and write it down in their words."],
-  ["02 · OBSERVE","We watch how work actually moves: tools, handoffs, decisions, friction."],
-  ["03 · MARK","Every workflow gets a call: automate, stays human, or protected."]
+  ["02 · OBSERVE","We watch how work really moves: tools, handoffs, decisions, friction."],
+  ["03 · MARK","Every task gets a call: automate it, keep it human, or protect it."]
 ];
 
 const rows:[string,string,"auto"|"stay"|"prot"][]=[
@@ -20,9 +20,9 @@ export default function RoomMap(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">01 — FIND</p>
-          <h2>WE LEARN THE WAY<br/>YOU MAKE ROOM.</h2>
+          <h2>WE MAP YOUR WEEK.<br/>YOU MAKE THE CALLS.</h2>
         </div>
-        <p>You keep meeting your clients. <b>We embed, listen, and map how work actually moves.</b> Nothing changes yet — the Room Map is drafted, and every call on it is yours.</p>
+        <p>Making room for dinner at home. <b>We sit with your team and map how work really moves.</b> <span className="rm-more">Nothing changes yet. You approve every call on the Room Map.</span></p>
       </div>
 
       <div className="rm-beats">
@@ -63,7 +63,7 @@ export default function RoomMap(){return (
             </div>
             <div className="rm-map-body">
               <h3>How work moves — mapped.</h3>
-              <p>11 workflows observed · 6 people heard</p>
+              <p>Representative map · 11 workflows observed · 6 people heard</p>
               {rows.map(([name,sub,type])=>(
                 <div className="rm-row" key={name}>
                   <span className="nm"><b>{name}</b><span>{sub}</span></span>

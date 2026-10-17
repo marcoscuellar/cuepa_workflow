@@ -56,7 +56,7 @@ export default function AnimatedIntro(){
 
   return <>
     <section className="hero2" id="top">
-      <img src="/hero-recital.jpg" alt="A father walking onto the field toward his son at an evening football game"/>
+      <img src="/hero-recital.jpg" alt="A father walking onto the practice field as his son waves to him"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.p className="eyebrow2" variants={heroChild}>HUMAN-CENTERED INTELLIGENCE</motion.p>
@@ -65,8 +65,11 @@ export default function AnimatedIntro(){
           <motion.span style={{display:"block"}} variants={heroChild}>FOR WHAT</motion.span>
           <motion.span style={{display:"block"}} variants={heroChild}>MATTERS.</motion.span>
         </h1>
-        <motion.p className="lede2" variants={heroChild}>CUEPA transforms how work moves—returning time, revealing opportunities, and creating capacity for people and businesses to grow.</motion.p>
-        <motion.a href="#reality" className="cta2" variants={heroChild}>See how we create room <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
+        <motion.p className="lede2" variants={heroChild}>We take the work AI should be doing off your plate. You keep every decision.</motion.p>
+        <motion.div className="hero2-ctas" variants={heroChild}>
+          <a href="/contact" data-contact className="cta-primary">Let&rsquo;s make room <span aria-hidden>→</span></a>
+          <a href="#find" className="cta2">See how it works <span aria-hidden>↓</span></a>
+        </motion.div>
       </motion.div>
       <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
         <div className="hero2-note-top"><span className="av2"/><b>CUEPA</b><i>6:15 PM</i><em>DONE</em></div>

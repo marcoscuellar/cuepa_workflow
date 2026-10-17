@@ -14,7 +14,7 @@ svg{width:1em;fill:none;stroke:currentColor;stroke-width:2}
 .eyebrow{margin:0 0 24px;color:#979c9f;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
 .hero h1,h2{margin:0;font-weight:500;letter-spacing:-.055em;line-height:.94}
 .hero h1{font-size:clamp(62px,7.5vw,116px)}
-em{color:var(--teal-bright);font-family:'Playfair Display',Georgia,serif;font-weight:600}
+em{color:var(--teal-bright);font-family:'Inter',sans-serif;font-style:italic;font-weight:600}
 .lede{color:#b8bcbe;font-size:19px;line-height:1.55;max-width:570px;margin:34px 0 38px}
 .actions{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .button{min-height:54px;padding:0 23px;border-radius:999px;background:var(--paper);color:var(--ink);display:inline-flex;align-items:center;gap:26px;font-size:14px;font-weight:700}
@@ -89,7 +89,7 @@ summary{cursor:pointer;list-style:none;display:flex;justify-content:space-betwee
 .conversation form{min-height:560px;background:var(--teal);color:#fff;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(38px,6vw,88px)}
 .conversation .eyebrow{color:#c9f2ed;margin-bottom:28px}
 .conversation label{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(48px,7vw,102px);line-height:.9;letter-spacing:-.06em;max-width:900px}
-.conversation textarea{width:100%;margin:44px 0 22px;padding:20px 0 14px;background:transparent;color:#fff;border:0;border-bottom:2px solid #ffffffb8;border-radius:0;resize:vertical;font:500 20px/1.5 'Archivo',sans-serif;outline:none}
+.conversation textarea{width:100%;margin:44px 0 22px;padding:20px 0 14px;background:transparent;color:#fff;border:0;border-bottom:2px solid #ffffffb8;border-radius:0;resize:vertical;font:500 20px/1.5 'Inter',sans-serif;outline:none}
 .conversation textarea::placeholder{color:#d3eee9}
 .conversation textarea:focus{border-color:#fff}
 .conversation .dark{background:#080b0f;color:#fff;border:0;cursor:pointer}
