@@ -87,12 +87,12 @@ export default function OwnerControl(){return (
           </div>
           <div className="rrDays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
         </aside>
-        <p className="rrNote">Representative Room Report. Yours starts with your baseline and ends with your numbers.</p>
+        <p className="rrNote">Representative CUEPAreport. Yours starts with your baseline and ends with your numbers.</p>
       </div>
 
     <div className="report-cta">
-      <p>Want your own Room Report? It starts with a Room Map of how your week really moves.</p>
-      <a href="/contact" data-contact className="cta-primary">Start with your Room Map <span aria-hidden>→</span></a>
+      <p>Want your own CUEPAreport? It starts with a map of how your week really moves and how much time we can give back.</p>
+      <a href="/contact" data-contact className="cta-primary">Start with your capacity map <span aria-hidden>→</span></a>
     </div>
 
     <div className="doorway"><p>THE PROCESS IS CONSISTENT. <span>THE SOLUTION IS YOURS.</span></p></div>

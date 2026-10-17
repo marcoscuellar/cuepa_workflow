@@ -24,7 +24,7 @@ export default function RoomMap(){return (
         </div>
         <div className="rm-how">
           <p>We sit with you and your team and map how work really moves.</p>
-          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A PERSONALIZED ROOM MAP</b></div>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A PERSONALIZED WORKFLOW &amp; CAPACITY MAP</b></div>
           <p className="rm-making">Making room for dinner at home.</p>
         </div>
       </div>
@@ -55,13 +55,13 @@ export default function RoomMap(){return (
           </div>
           <div className="rm-note n3">
             <div className="rm-note-top"><span className="av"/><b>CUEPA</b><i>Day 5</i><em>MAPPED</em></div>
-            <p>Your Room Map is drafted — 3 builds recommended, 2 things stay human, 1 protected.</p>
+            <p>Your workflow &amp; capacity map is drafted — 3 builds recommended, 2 things stay human, 1 protected.</p>
           </div>
 
           <div className="rm-map">
             <div className="rm-map-chrome">
               <span className="rm-dots"><i/><i/><i/></span>
-              <span className="rm-pill">cuepa · room map</span>
+              <span className="rm-pill">cuepa · capacity map</span>
               <span className="rm-draft">DRAFT — FOR YOUR OK</span>
             </div>
             <div className="rm-map-body">

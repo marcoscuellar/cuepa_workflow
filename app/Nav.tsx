@@ -7,8 +7,8 @@ import Logo from "./Logo";
 const items=[
   {key:"room",label:"Making Room",href:"/#top",sections:["top","reality"]},
   {key:"how",label:"How it works",href:"/#find",sections:["find","flow","prove","grow"]},
-  {key:"dashboard",label:"Room Report",href:"/#product",sections:["product"]},
-  {key:"stories",label:"Stories",href:"/#stories",sections:["stories"]},
+  {key:"dashboard",label:"CUEPAreport",href:"/#product",sections:["product"]},
+  {key:"stories",label:"Clients",href:"/#stories",sections:["stories"]},
   {key:"trust",label:"Human in the Middle",href:"/#trust",sections:["trust","conversation"]}
 ];
 
@@ -83,7 +83,7 @@ export default function Nav(){
                 transition={{type:"spring",stiffness:420,damping:34}}
               />
             )}
-            <span className="navtab-label">{it.label}</span>
+            <span className={`navtab-label ${it.label.startsWith("CUEPA")?"nocase":""}`}>{it.label}</span>
           </a>
         ))}
       </div>
@@ -101,7 +101,7 @@ export default function Nav(){
       {items.map(it=>(
         <a key={it.key} href={it.href} className={`nav-drawer-link ${active===it.key?"is-active":""}`}
            onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);setOpen(false);}}>
-          {it.label}
+          <span className={it.label.startsWith("CUEPA")?"nocase":""}>{it.label}</span>
         </a>
       ))}
       <a href="/contact" data-contact className="nav-drawer-cta" onClick={()=>setOpen(false)}>Let&rsquo;s make room <span aria-hidden>→</span></a>

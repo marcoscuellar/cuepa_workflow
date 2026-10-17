@@ -155,3 +155,6 @@ dialog.cm[open]{animation:cmIn .22s ease both}
 .rm-deliver b{display:block;font:800 20px/1.2 'Inter',sans-serif;letter-spacing:-.01em;color:#030303}
 .rm-head p.rm-making{font:italic 600 19px/1.4 'Inter',sans-serif;color:#0F766E}
 @media(max-width:760px){.rm-beats{display:none}.rm-head{padding-bottom:28px}}
+
+/* Brand names keep their casing inside ALL-CAPS labels (CUEPAflow, CUEPAreport). */
+.nocase{text-transform:none}

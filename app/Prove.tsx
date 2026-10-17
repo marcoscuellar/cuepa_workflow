@@ -14,7 +14,7 @@ export default function Prove(){return (
         </div>
         <div className="rm-how">
           <p>We measure your week before we build, then again after it runs.</p>
-          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A ROOM REPORT IN YOUR NUMBERS</b></div>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>YOUR CUEPAreport, IN YOUR NUMBERS</b></div>
           <p className="rm-making">Making room for the work you love.</p>
         </div>
       </div>
@@ -41,13 +41,13 @@ export default function Prove(){return (
           </div>
           <div className="rm-note" style={{left:452,top:300}}>
             <div className="rm-note-top"><span className="av"/><b>CUEPA</b><i>Month 2</i><em>REPORTED</em></div>
-            <p>Your Room Report is in. 11.5 hours came back this week — most of it evenings. That was the point.</p>
+            <p>Your CUEPAreport is in. 11.5 hours came back this week — most of it evenings. That was the point.</p>
           </div>
 
           <div className="rm-plat" style={{top:30}}>
             <div className="rm-map-chrome">
               <span className="rm-dots"><i/><i/><i/></span>
-              <span className="rm-pill">cuepa · room report</span>
+              <span className="rm-pill">cuepa · <span className="nocase">CUEPAreport</span></span>
               <span className="rm-draft">REPRESENTATIVE</span>
             </div>
             <div className="rm-plat-body">

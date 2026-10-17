@@ -18,7 +18,7 @@ export default function ContactPage(){
           <img src="/contact-team.jpg" alt="Three people working together over pattern pieces and drawings at a studio worktable"/>
         </figure>
         <div className="contact-copy">
-          <p className="rm-eyebrow">Room Conversation</p>
+          <p className="rm-eyebrow">Let&rsquo;s talk</p>
           <h1>SEE HOW WE<br/>CAN MAKE<br/>ROOM FOR<br/>YOU</h1>
           <ContactForm/>
         </div>

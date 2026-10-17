@@ -5,7 +5,7 @@ export default function PracticeHeader(){return (
       <span>HUMAN IN THE MIDDLE</span>
     </div>
     <div className="practice-intro">
-      <p>THE CUEPA PRACTICE</p>
+      <p>THE <span className="nocase">CUEPAflow</span></p>
       <h2>ONE METHOD.<br/>FOUR TURNS. <span>↻</span></h2>
     </div>
   </>
