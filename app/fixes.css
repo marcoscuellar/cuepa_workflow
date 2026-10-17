@@ -1,0 +1,92 @@
+/* Oct 2026 design + mobile pass. Loaded last so it wins the cascade.
+   Brand refs: CUEPA Brand Book (lockup, fonts, fade-from-bottom, tap targets). */
+
+/* ── Footer: CUEPA by ELIPAN GROUP lockup + contact ───────────────────────── */
+.lockup{display:inline-flex;align-items:stretch;gap:10px;line-height:1}
+.lockup-mark{width:39px;height:38px;flex:none}
+.lockup-words{display:flex;flex-direction:column;justify-content:space-between}
+.lockup-cuepa{font:700 22px/1 'Inter',sans-serif;letter-spacing:.4px;color:#fff}
+.lockup-by{font:600 9.5px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.footer-contact{grid-column:1/-1;margin:38px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);font-size:13px}
+.footer-contact a{color:#2DD4BF;text-decoration:none}
+.footer-contact a:hover,.footer-contact a:focus-visible{text-decoration:underline}
+.site-footer p:nth-child(2),.site-footer p:nth-child(3){font-size:11px;color:rgba(255,255,255,.8)}
+/* Bottom padding so the mobile CTA bar never covers the footer. */
+@media(max-width:760px){.site-footer{padding-bottom:96px}}
+
+/* ── Hero: fade from the bottom (brand rule), fits a phone, real CTA ─────── */
+.hero2 .scrim{background:linear-gradient(0deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.12) 70%,rgba(0,0,0,0) 100%)}
+.hero2-copy .eyebrow2{font-size:12px}
+.hero2-copy p.lede2{font-size:18px;font-weight:600}
+.hero2-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.cta-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 24px;
+  background:#2DD4BF;color:#030303;font:700 13px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:0}
+.cta-primary:hover{background:#5eead4}
+.cta-primary:focus-visible,.cta2:focus-visible,.mcta a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.hero2-copy .cta2{font-size:13px;min-height:44px;color:#fff;text-decoration:none}
+.hero2-note-top b{font-size:12px}
+.hero2-note-top i,.hero2-note-top em{font-size:11px}
+.hero2-scroll{font-size:11px}
+
+@media(max-width:1024px){
+  /* Stack copy, then the proof card, in the dark part of the frame. */
+  .hero2{min-height:100svh;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:110px 22px 40px}
+  .hero2-copy{width:100%}
+  .hero2-note{display:block;position:relative;right:auto;top:auto;z-index:3;margin-top:28px;max-width:360px}
+}
+@media(max-width:560px){
+  .hero2-copy h1{font-size:clamp(46px,14vw,64px)}
+  .hero2-copy p.lede2{width:100%;font-size:17px;margin:20px 0 22px}
+  .cta-primary{width:100%}
+}
+
+/* ── Room Report CTA (the "does it work?" moment) ─────────────────────────── */
+.report-cta{background:#030303;color:#fff;padding:0 5vw 70px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px}
+.report-cta p{margin:0;max-width:560px;font-size:18px;line-height:1.5;font-weight:600;color:#e5e7eb}
+
+/* ── Form: make-room chips, readable hint, brand font on the button ──────── */
+.capture-chips{border:0;margin:0 0 22px;padding:0;min-width:0}
+.capture-chips legend{padding:0;margin:0 0 14px;font:600 14px 'Inter',sans-serif;color:#fff}
+.capture-chips legend span{font-weight:400;color:rgba(255,255,255,.7)}
+.capture-chips .convo-chips{margin-bottom:0}
+.convo-chip{min-height:44px;font-family:'Inter',sans-serif;font-size:14px}
+.convo-chip:focus-visible{outline:2px solid #2DD4BF;outline-offset:2px}
+.capture-pill input{font-family:'Inter',sans-serif;font-weight:600}
+.capture-pill button{font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;min-height:48px}
+.capture-hint{font-size:14px;color:rgba(255,255,255,.8)}
+.capture-error{font-size:14px}
+
+/* ── Nav: brand font, readable sizes ───────────────────────────────────────── */
+.navtab,.nav-cta{font-size:12px}
+.nav-drawer-cta{font-size:14px;min-height:52px}
+
+/* ── Mobile sticky CTA bar ─────────────────────────────────────────────────── */
+.mcta{display:none}
+@media(max-width:760px){
+  .mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(3,3,3,.94);border-top:1px solid rgba(255,255,255,.12);
+    transform:translateY(110%);transition:transform .25s ease;pointer-events:none}
+  .mcta.is-on{transform:translateY(0);pointer-events:auto}
+  .mcta a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;background:#2DD4BF;color:#030303;
+    font:700 14px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+}
+@media(prefers-reduced-motion:reduce){.mcta{transition:none}}
+
+/* ── Testimonial dots: 9px look, ~36px tap area ───────────────────────────── */
+.tcar-dot{position:relative}
+.tcar-dot::after{content:"";position:absolute;inset:-14px -5px}
+
+/* ── Readability floor on phones ───────────────────────────────────────────
+   Content text: 12px minimum. Dense mock-UI chrome (status bars, axis ticks,
+   phone-mock slots) gets 11px so the mockups keep their shape. */
+@media(max-width:760px){
+  .chimal-band,.practice-intro p,.report-intro p.lbl,.rm-eyebrow,.stat-card cite,
+  .trust-rows b,.trust-tags span,.rm-barow .lbl span,.rm-barow .was,.rm-beats article b,
+  .rm-chip,.rm-draft,.rm-foot .k,.rm-found .act,.rm-found .fb,.rm-found p,.rm-loop,
+  .rm-note-fine,.rm-note-top b,.rm-out span,.rm-plat-body .sub,.rm-row .nm span,.rm-spill,
+  .rm-verified p,.rrApL .k,.rrCard .s,.rrChk,.rrChk b,.rrFound .fb,.rrStat .c,.rrStat .k,
+  .rm-fprio p,.rm-fneeds,.rm-fdate{font-size:12px}
+  .rm-note-top i,.rm-note-top em,.rm-pill,.rm-foot .n small,.rm-fkick,.rm-fprio i,.rm-fslot,
+  .rm-fslot em,.rm-fslot time,.rm-pstatus em,.rrBadge,.rrBarW em,.rrDays span,.rrPeriod,
+  .rrUrl,.rrWeeks span{font-size:11px}
+}

@@ -63,7 +63,7 @@ export default function RoomMap(){return (
             </div>
             <div className="rm-map-body">
               <h3>How work moves — mapped.</h3>
-              <p>11 workflows observed · 6 people heard</p>
+              <p>Representative map · 11 workflows observed · 6 people heard</p>
               {rows.map(([name,sub,type])=>(
                 <div className="rm-row" key={name}>
                   <span className="nm"><b>{name}</b><span>{sub}</span></span>

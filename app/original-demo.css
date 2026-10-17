@@ -6,8 +6,8 @@
 .workflow-heading>p:last-child{grid-column:2;color:#5f666d;max-width:600px;font-size:17px;line-height:1.6;margin:0}
 
 .workflow-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(230px,1fr);gap:18px;align-items:stretch}.workflow-canvas{position:relative;border:1px solid #16191d;background:#fff;box-shadow:0 35px 85px -60px #17213e88;padding:18px 24px 24px;overflow:hidden;min-width:0}
-.workflow-human{position:relative;min-height:620px;overflow:hidden;background:#101317}.workflow-human img{width:100%;height:100%;object-fit:cover;object-position:47% center}.workflow-human:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#070a0de8 0,transparent 58%)}.workflow-human>div{position:absolute;z-index:2;left:22px;right:22px;bottom:24px;color:#fff}.workflow-human small{display:block;color:#aee3dc;font:700 10px 'JetBrains Mono',monospace;line-height:1.45;letter-spacing:.12em;margin-bottom:10px}.workflow-human strong{font-family:'Anton',sans-serif;font-weight:400;font-size:19px;line-height:1.12;letter-spacing:-.03em}
-.workflow-legend{min-height:52px;display:flex;gap:24px;align-items:flex-start;border-bottom:1px solid #dce0e4;font:700 10px 'JetBrains Mono',monospace;line-height:1.4;letter-spacing:.1em;color:#3f474e;padding-top:2px}
+.workflow-human{position:relative;min-height:620px;overflow:hidden;background:#101317}.workflow-human img{width:100%;height:100%;object-fit:cover;object-position:47% center}.workflow-human:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#070a0de8 0,transparent 58%)}.workflow-human>div{position:absolute;z-index:2;left:22px;right:22px;bottom:24px;color:#fff}.workflow-human small{display:block;color:#aee3dc;font:700 10px 'Inter',sans-serif;line-height:1.45;letter-spacing:.12em;margin-bottom:10px}.workflow-human strong{font-family:'Anton',sans-serif;font-weight:400;font-size:19px;line-height:1.12;letter-spacing:-.03em}
+.workflow-legend{min-height:52px;display:flex;gap:24px;align-items:flex-start;border-bottom:1px solid #dce0e4;font:700 10px 'Inter',sans-serif;line-height:1.4;letter-spacing:.1em;color:#3f474e;padding-top:2px}
 .workflow-legend span{display:flex;align-items:center;gap:8px}
 .workflow-legend i{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px #08786f88}
 .workflow-legend .input-dot{background:#111;box-shadow:none}
@@ -27,10 +27,10 @@
 .workflow-stages{position:relative;z-index:1}
 .workflow-stage{border-bottom:1px solid #dce0e4}
 .stage-trigger{width:100%;min-height:92px;display:grid;grid-template-columns:60px minmax(0,1fr) minmax(108px,auto) 32px;gap:14px;align-items:center;text-align:left;background:transparent;color:#090b0e;border:0;padding:14px 8px 14px 0;cursor:pointer}
-.stage-number{position:relative;z-index:2;width:30px;height:30px;margin-left:27px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid #8d949a;font:700 9px 'JetBrains Mono',monospace}
-.stage-title small{display:block;color:#566068;font:700 10px 'JetBrains Mono',monospace;line-height:1.4;letter-spacing:.1em;margin-bottom:6px}
+.stage-number{position:relative;z-index:2;width:30px;height:30px;margin-left:27px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid #8d949a;font:700 9px 'Inter',sans-serif}
+.stage-title small{display:block;color:#566068;font:700 10px 'Inter',sans-serif;line-height:1.4;letter-spacing:.1em;margin-bottom:6px}
 .stage-title strong{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:21px;line-height:1.12;letter-spacing:-.035em}
-.stage-status{justify-self:end;color:var(--teal);border:1px solid #62aaa2;padding:7px 10px;font:700 9px 'JetBrains Mono',monospace;line-height:1.2;letter-spacing:.1em;white-space:nowrap}
+.stage-status{justify-self:end;color:var(--teal);border:1px solid #62aaa2;padding:7px 10px;font:700 9px 'Inter',sans-serif;line-height:1.2;letter-spacing:.1em;white-space:nowrap}
 .stage-toggle{font-size:24px;text-align:center}
 .workflow-stage.is-open{background:#edf9f7}
 .workflow-stage.is-open .stage-number{background:var(--teal);color:#fff;border-color:var(--teal)}
@@ -43,18 +43,18 @@
 .is-open .stage-detail{max-height:340px;padding-bottom:20px;opacity:1}
 .stage-detail>p{color:#4f5960;font-size:15px;line-height:1.6;margin:10px 0}
 .stage-artifact{min-width:0;background:#fff;border:1px solid #bfc7cf;padding:16px 18px;box-shadow:0 16px 35px -30px #111}
-.artifact-label{display:block;color:var(--teal);font:700 10px 'JetBrains Mono',monospace;line-height:1.4;letter-spacing:.11em;margin-bottom:10px}
+.artifact-label{display:block;color:var(--teal);font:700 10px 'Inter',sans-serif;line-height:1.4;letter-spacing:.11em;margin-bottom:10px}
 .stage-artifact strong{display:block;font-size:16px;line-height:1.4}
 .stage-artifact p{color:#596168;font-size:12px;line-height:1.5;margin:7px 0 0}
 .stage-artifact ul{list-style:none;margin:0;padding:0}
 .stage-artifact li{padding:8px 0;border-bottom:1px solid #e5e8eb;font-size:13px;line-height:1.4}
 .stage-artifact li:before{content:'';display:inline-block;width:8px;height:4px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg);margin:0 10px 3px 1px}
 .artifact-actions{display:flex;gap:8px;margin-top:16px}
-.artifact-actions button{border:0;background:#101317;color:#fff;padding:11px 15px;font:700 10px 'Archivo',sans-serif;cursor:pointer}
+.artifact-actions button{border:0;background:#101317;color:#fff;padding:11px 15px;font:700 10px 'Inter',sans-serif;cursor:pointer}
 .artifact-actions .secondary{background:#fff;color:#101317;border:1px solid #b9bec3}
 
 .workflow-output{display:grid;grid-template-columns:150px minmax(0,1fr);grid-template-areas:"label result" "label note";gap:6px 24px;align-items:center;margin-top:18px;padding:20px;background:#101317;color:#fff}
-.workflow-output span{grid-area:label;color:var(--teal-bright);font:700 10px 'JetBrains Mono',monospace;line-height:1.45;letter-spacing:.12em}
+.workflow-output span{grid-area:label;color:var(--teal-bright);font:700 10px 'Inter',sans-serif;line-height:1.45;letter-spacing:.12em}
 .workflow-output strong{grid-area:result;min-width:0;font-family:'Anton',sans-serif;font-weight:400;font-size:18px;line-height:1.25}
 .workflow-output small{grid-area:note;color:#c2c7cc;font-size:12px;line-height:1.4}
 

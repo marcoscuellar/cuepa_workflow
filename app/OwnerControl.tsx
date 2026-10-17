@@ -11,11 +11,11 @@ export default function OwnerControl(){return (
         <div className="rrChrome">
           <span className="rrDots"><i/><i/><i/></span>
           <span className="rrUrl">cuepa · owner control</span>
-          <span className="rrBadge">● VERIFIED AGAINST BASELINE</span>
+          <span className="rrBadge">REPRESENTATIVE · VERIFIED AGAINST BASELINE</span>
         </div>
         <div className="rrBody">
           <div className="rrHead">
-            <div><h4>Good evening, Marcos.</h4><p>3 things need you. Everything else is handled.</p></div>
+            <div><h4>Good evening, Dana.</h4><p>3 things need you. Everything else is handled.</p></div>
             <span className="rrPeriod">MARCH · WEEK 4</span>
           </div>
 
@@ -89,6 +89,11 @@ export default function OwnerControl(){return (
         </aside>
         <p className="rrNote">Representative Room Report. Yours starts with your baseline and ends with your numbers.</p>
       </div>
+
+    <div className="report-cta">
+      <p>Want your own Room Report? It starts with a Room Map of how your week really moves.</p>
+      <a href="#conversation" className="cta-primary">Start with your Room Map <span aria-hidden>→</span></a>
+    </div>
 
     <div className="doorway"><p>THE PROCESS IS CONSISTENT. <span>THE SOLUTION IS YOURS.</span></p></div>
   </section>

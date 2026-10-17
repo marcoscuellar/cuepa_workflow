@@ -45,11 +45,11 @@ export default function Prove(){return (
             <div className="rm-map-chrome">
               <span className="rm-dots"><i/><i/><i/></span>
               <span className="rm-pill">cuepa · room report</span>
-              <span className="rm-draft">● VERIFIED</span>
+              <span className="rm-draft">REPRESENTATIVE</span>
             </div>
             <div className="rm-plat-body">
               <h4>Your room, before → after</h4>
-              <p className="sub">measured against the baseline from week one</p>
+              <p className="sub">representative example · measured against the baseline from week one</p>
               <div style={{marginTop:8}}>
                 <div className="rm-barow"><span className="lbl">Lead response<span>a new customer waits…</span></span><span className="was">42 min</span><span>→</span><span className="now">4<small> min</small></span></div>
                 <div className="rm-barow"><span className="lbl">Hours returned<span>to your calendar, weekly</span></span><span className="was">0</span><span>→</span><span className="now">11.5<small> hrs</small></span></div>

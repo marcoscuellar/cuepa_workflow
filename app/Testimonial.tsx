@@ -71,7 +71,7 @@ export default function Testimonial(){
 
   return (
     <section className="testimonial-sec" ref={sectionRef}>
-      <p className="rm-eyebrow">FROM ROOM CONVERSATIONS, THIS WEEK</p>
+      <p className="rm-eyebrow">FROM ROOM CONVERSATIONS</p>
 
       <div
         className="tcar"
