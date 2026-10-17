@@ -1,7 +1,7 @@
 const beats:[string,string][]=[
   ["01 · LISTEN","We sit with the people doing the work — and write it down in their words."],
-  ["02 · OBSERVE","We watch how work actually moves: tools, handoffs, decisions, friction."],
-  ["03 · MARK","Every workflow gets a call: automate, stays human, or protected."]
+  ["02 · OBSERVE","We watch how work really moves: tools, handoffs, decisions, friction."],
+  ["03 · MARK","Every task gets a call: automate it, keep it human, or protect it."]
 ];
 
 const rows:[string,string,"auto"|"stay"|"prot"][]=[

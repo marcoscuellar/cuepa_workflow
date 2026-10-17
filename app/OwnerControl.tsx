@@ -3,7 +3,7 @@ export default function OwnerControl(){return (
     <div className="report-intro">
       <p className="lbl">SEE WHAT YOU GET</p>
       <h3>YOUR ROOM,<br/>ON ONE SCREEN.</h3>
-      <p>Not a promise — a diagnostic. Your baseline, what the system handled, what it found, and the few things that need you. This is the screen we stand behind.</p>
+      <p>Not a promise. A diagnostic. Your baseline, what the system handled, what it found, and the few things that need you. This is the screen we stand behind.</p>
     </div>
 
     <div className="rrStage">

@@ -1,7 +1,7 @@
 const beats:[string,string][]=[
   ["01 · BASELINE","Before we build anything, we measure how things stand today."],
-  ["02 · MEASURE","After: hours returned, response times, errors caught — in your numbers."],
-  ["03 · VERIFY","Every claim ties to evidence. The report shows it — it doesn't just say it."]
+  ["02 · MEASURE","After: hours returned, response times and errors caught, all in your numbers."],
+  ["03 · VERIFY","Every number ties to a measurement. The report shows it, it doesn’t just say it."]
 ];
 
 export default function Prove(){return (

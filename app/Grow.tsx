@@ -1,7 +1,7 @@
 const beats:[string,string][]=[
-  ["01 · WATCH","The running system keeps looking for what a busy human can't see."],
-  ["02 · SURFACE","Opportunities arrive as drafts — found money, quiet customers, patterns. Never actions."],
-  ["03 · RETURN","What we learn feeds back into FIND, and the line turns again. ↻"]
+  ["01 · WATCH","The system keeps looking for what a busy owner can’t see."],
+  ["02 · SURFACE","Found money, quiet customers, patterns. They arrive as drafts, never actions."],
+  ["03 · RETURN","What we learn feeds back into FIND, and the loop turns again. ↻"]
 ];
 
 export default function Grow(){return (

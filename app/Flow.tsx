@@ -1,6 +1,6 @@
 const beats:[string,string][]=[
-  ["01 · BUILD","The system is built around how you already operate — nothing new for your team to learn."],
-  ["02 · CONNECT","Information gathered, actions prepared, decisions routed to the right person."],
+  ["01 · BUILD","Built around how you already work. Nothing new for your team to learn."],
+  ["02 · CONNECT","Information gathered, next steps prepared, decisions sent to the right person."],
   ["03 · HAND OFF","Every flow stops at a human. Your sign-off is the last step, always."]
 ];
 
@@ -29,7 +29,7 @@ export default function Flow(){return (
           </svg>
 
           <div className="rm-photo" style={{width:360,height:660}}>
-            <img src="/flow-ballgame.jpg" alt="A father and daughter cheering together at a ballgame"/>
+            <img src="/flow-cubs-game.jpg" alt="A father and son cheering at a ballgame"/>
           </div>
 
           <div className="rm-note" style={{left:402,top:96}}>

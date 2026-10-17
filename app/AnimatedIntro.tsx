@@ -56,7 +56,7 @@ export default function AnimatedIntro(){
 
   return <>
     <section className="hero2" id="top">
-      <img src="/hero-market.jpg" alt="A woman and her mother laughing over tomatoes at a sunny farmers market"/>
+      <img src="/hero-recital.jpg" alt="A father walking onto the practice field as his son waves to him"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.p className="eyebrow2" variants={heroChild}>HUMAN-CENTERED INTELLIGENCE</motion.p>
@@ -82,7 +82,7 @@ export default function AnimatedIntro(){
         <div className="reality-lead">
           <div className="reality-stage reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
             <div className="reality-photo">
-              <img src="/hero-recital.jpg" alt="A father walking onto the practice field as his son waves to him"/>
+              <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
             </div>
             <ul className="reality-pills">
               {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>

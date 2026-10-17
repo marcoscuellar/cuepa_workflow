@@ -92,17 +92,20 @@
 }
 
 /* ── Oct 16 (2): new photos, phone stacking, less copy on phones ─────────── */
-/* Hero = market. The proof card sits bottom-right over the produce, never on people. */
-.hero2 img{object-position:center 40%}
-@media(min-width:1025px){.hero2-note{top:auto;bottom:12vh;right:5vw}}
-/* Reality = football practice. Both pills live in the sky, clear of dad and son. */
-.reality-photo img{object-position:58% center}
-.rn-pill.p4{bottom:auto;top:17%;right:5%}
-
+/* Hero = football practice. Desktop: the photo fills the right ~80% so the dad
+   sits right of center and the team shows; the left edge fades to black for the copy. */
+@media(min-width:1025px){
+  .hero2 img{left:auto;right:0;width:80%;object-position:left center}
+  .hero2 .scrim{background:
+    linear-gradient(90deg,#030303 0%,#030303 20%,rgba(3,3,3,.55) 34%,rgba(3,3,3,0) 52%),
+    linear-gradient(0deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.35) 32%,rgba(0,0,0,0) 60%)}
+  /* Proof card in the sky, right of the dad's head and above the waving son. */
+  .hero2-note{top:12%;right:2.5vw;bottom:auto}
+}
 /* Phones: photo on top, words underneath, so type and cards never sit on people. */
 @media(max-width:760px){
   .hero2{display:block;min-height:0;padding:0;background:#030303}
-  .hero2 img{position:relative;display:block;height:56svh;min-height:340px;object-position:42% center}
+  .hero2 img{position:relative;display:block;height:56svh;min-height:340px;object-position:35% center}
   .hero2 .scrim{display:none}
   .hero2-copy{padding:28px 22px 40px}
   .hero2-note{margin:0 22px 36px;max-width:none}
