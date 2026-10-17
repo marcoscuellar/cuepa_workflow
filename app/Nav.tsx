@@ -8,7 +8,8 @@ const items=[
   {key:"room",label:"Making Room",href:"/#top",sections:["top","reality"]},
   {key:"how",label:"How it works",href:"/#find",sections:["find","flow","prove","grow"]},
   {key:"dashboard",label:"Room Report",href:"/#product",sections:["product"]},
-  {key:"trust",label:"Trust",href:"/#trust",sections:["trust","conversation"]}
+  {key:"stories",label:"Stories",href:"/#stories",sections:["stories"]},
+  {key:"trust",label:"Human in the Middle",href:"/#trust",sections:["trust","conversation"]}
 ];
 
 export default function Nav(){

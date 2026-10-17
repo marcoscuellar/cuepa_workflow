@@ -177,3 +177,11 @@ dialog.cm[open]{animation:cmIn .22s ease both}
 @keyframes cmIn{from{opacity:0;transform:translateY(10px)}}
 @media(prefers-reduced-motion:reduce){dialog.cm[open]{animation:none}}
 @media(max-width:560px){.cm-card{padding:26px 20px 22px}}
+
+/* ── Nav: 5 sections. Tabs need ~1200px; below that the menu button takes over. */
+.navtab{padding:12px 13px;letter-spacing:.1em;white-space:nowrap}
+@media(max-width:1240px){
+  .navlinks-tabs{display:none}
+  .nav-burger{display:block}
+  .nav-drawer{display:flex}
+}
