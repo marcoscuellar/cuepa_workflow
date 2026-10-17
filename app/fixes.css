@@ -14,33 +14,11 @@
 /* Bottom padding so the mobile CTA bar never covers the footer. */
 @media(max-width:760px){.site-footer{padding-bottom:96px}}
 
-/* ── Hero: fade from the bottom (brand rule), fits a phone, real CTA ─────── */
-.hero2 .scrim{background:linear-gradient(0deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.55) 38%,rgba(0,0,0,.12) 70%,rgba(0,0,0,0) 100%)}
-.hero2-copy .eyebrow2{font-size:12px}
-.hero2-copy p.lede2{font-size:18px;font-weight:600}
-.hero2-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+/* ── Room Report CTA (the "does it work?" moment) ─────────────────────────── */
 .cta-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 24px;
   background:#2DD4BF;color:#030303;font:700 13px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:0}
 .cta-primary:hover{background:#5eead4}
-.cta-primary:focus-visible,.cta2:focus-visible,.mcta a:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.hero2-copy .cta2{font-size:13px;min-height:44px;color:#fff;text-decoration:none}
-.hero2-note-top b{font-size:12px}
-.hero2-note-top i,.hero2-note-top em{font-size:11px}
-.hero2-scroll{font-size:11px}
-
-@media(max-width:1024px){
-  /* Stack copy, then the proof card, in the dark part of the frame. */
-  .hero2{min-height:100svh;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:110px 22px 40px}
-  .hero2-copy{width:100%}
-  .hero2-note{display:block;position:relative;right:auto;top:auto;z-index:3;margin-top:28px;max-width:360px}
-}
-@media(max-width:560px){
-  .hero2-copy h1{font-size:clamp(46px,14vw,64px)}
-  .hero2-copy p.lede2{width:100%;font-size:17px;margin:20px 0 22px}
-  .cta-primary{width:100%}
-}
-
-/* ── Room Report CTA (the "does it work?" moment) ─────────────────────────── */
+.cta-primary:focus-visible,.mcta a:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .report-cta{background:#030303;color:#fff;padding:0 5vw 70px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px}
 .report-cta p{margin:0;max-width:560px;font-size:18px;line-height:1.5;font-weight:600;color:#e5e7eb}
 
@@ -92,25 +70,6 @@
 }
 
 /* ── Oct 16 (2): new photos, phone stacking, less copy on phones ─────────── */
-/* Hero = football practice. Desktop: the photo fills the right ~80% so the dad
-   sits right of center and the team shows; the left edge fades to black for the copy. */
-@media(min-width:1025px){
-  .hero2 img{left:auto;right:0;width:80%;object-position:left center}
-  .hero2 .scrim{background:
-    linear-gradient(90deg,#030303 0%,#030303 20%,rgba(3,3,3,.55) 34%,rgba(3,3,3,0) 52%),
-    linear-gradient(0deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.35) 32%,rgba(0,0,0,0) 60%)}
-  /* Proof card in the sky, right of the dad's head and above the waving son. */
-  .hero2-note{top:12%;right:2.5vw;bottom:auto}
-}
-/* Phones: photo on top, words underneath, so type and cards never sit on people. */
-@media(max-width:760px){
-  .hero2{display:block;min-height:0;padding:0;background:#030303}
-  .hero2 img{position:relative;display:block;height:56svh;min-height:340px;object-position:35% center}
-  .hero2 .scrim{display:none}
-  .hero2-copy{padding:28px 22px 40px}
-  .hero2-note{margin:0 22px 36px;max-width:none}
-}
-
 /* Phones: each step keeps headline, one-sentence intro, photo and one card. */
 @media(max-width:760px){
   .rm-more{display:none}
