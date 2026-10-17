@@ -11,6 +11,7 @@ import Trust from "./Trust";
 import Conversation from "./Conversation";
 import SiteFooter from "./SiteFooter";
 import MobileCta from "./MobileCta";
+import ContactModal from "./ContactModal";
 
 export default function Home(){return <main>
   <Nav/>
@@ -38,4 +39,5 @@ export default function Home(){return <main>
   <Conversation/>
   <SiteFooter/>
   <MobileCta/>
+  <ContactModal/>
 </main>}

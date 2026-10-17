@@ -92,7 +92,7 @@ export default function OwnerControl(){return (
 
     <div className="report-cta">
       <p>Want your own Room Report? It starts with a Room Map of how your week really moves.</p>
-      <a href="#conversation" className="cta-primary">Start with your Room Map <span aria-hidden>→</span></a>
+      <a href="/contact" data-contact className="cta-primary">Start with your Room Map <span aria-hidden>→</span></a>
     </div>
 
     <div className="doorway"><p>THE PROCESS IS CONSISTENT. <span>THE SOLUTION IS YOURS.</span></p></div>

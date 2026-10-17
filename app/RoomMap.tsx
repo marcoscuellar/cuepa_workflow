@@ -20,9 +20,9 @@ export default function RoomMap(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">01 — FIND</p>
-          <h2>WE LEARN THE WAY<br/>YOU MAKE ROOM.</h2>
+          <h2>WE MAP YOUR WEEK.<br/>YOU MAKE THE CALLS.</h2>
         </div>
-        <p>Making room for dinner at home. <b>We sit with your team and map how work really moves.</b> Nothing changes yet. You approve every call on the Room Map.</p>
+        <p>Making room for dinner at home. <b>We sit with your team and map how work really moves.</b> <span className="rm-more">Nothing changes yet. You approve every call on the Room Map.</span></p>
       </div>
 
       <div className="rm-beats">

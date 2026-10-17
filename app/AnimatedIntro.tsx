@@ -56,7 +56,7 @@ export default function AnimatedIntro(){
 
   return <>
     <section className="hero2" id="top">
-      <img src="/hero-recital.jpg" alt="A father walking onto the field toward his son at an evening football game"/>
+      <img src="/hero-market.jpg" alt="A woman and her mother laughing over tomatoes at a sunny farmers market"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.p className="eyebrow2" variants={heroChild}>HUMAN-CENTERED INTELLIGENCE</motion.p>
@@ -67,7 +67,7 @@ export default function AnimatedIntro(){
         </h1>
         <motion.p className="lede2" variants={heroChild}>We take the work AI should be doing off your plate. You keep every decision.</motion.p>
         <motion.div className="hero2-ctas" variants={heroChild}>
-          <a href="#conversation" className="cta-primary">Let&rsquo;s make room <span aria-hidden>→</span></a>
+          <a href="/contact" data-contact className="cta-primary">Let&rsquo;s make room <span aria-hidden>→</span></a>
           <a href="#find" className="cta2">See how it works <span aria-hidden>↓</span></a>
         </motion.div>
       </motion.div>
@@ -82,7 +82,7 @@ export default function AnimatedIntro(){
         <div className="reality-lead">
           <div className="reality-stage reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
             <div className="reality-photo">
-              <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
+              <img src="/hero-recital.jpg" alt="A father walking onto the practice field as his son waves to him"/>
             </div>
             <ul className="reality-pills">
               {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>

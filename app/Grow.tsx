@@ -10,9 +10,9 @@ export default function Grow(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">04 — GROW</p>
-          <h2>THE ROOM BECOMES<br/>WHAT&rsquo;S NEXT.</h2>
+          <h2>WE FIND WHAT&rsquo;S NEXT.<br/>YOU DECIDE.</h2>
         </div>
-        <p>Making room for nothing at all. <b>We keep looking for what a busy owner can&rsquo;t see.</b> You get it as a draft, never an action. Then we start again at FIND. ↻</p>
+        <p>Making room for nothing at all. <b>We keep looking for what a busy owner can&rsquo;t see.</b> <span className="rm-more">You get it as a draft, never an action. Then we start again at FIND. ↻</span></p>
       </div>
 
       <div className="rm-beats">

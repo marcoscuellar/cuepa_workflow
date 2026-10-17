@@ -1,6 +1,8 @@
 // Receives the Room Conversation form. Sends through Resend's REST API so the
 // project needs no extra dependency — just RESEND_API_KEY in the environment.
-const TO = process.env.CONTACT_TO ?? "marcoscuellar@elipangroup.com";
+// Resend is in test mode: it only delivers to the account owner (marcos@ollinos.com).
+// Once elipangroup.com is verified in Resend, set CONTACT_TO and CONTACT_FROM in Vercel.
+const TO = process.env.CONTACT_TO ?? "marcos@ollinos.com";
 const FROM = process.env.CONTACT_FROM ?? "CUEPA <onboarding@resend.dev>";
 
 const esc = (s: string) =>

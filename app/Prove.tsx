@@ -10,9 +10,9 @@ export default function Prove(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">03 — PROVE</p>
-          <h2>WE DON&rsquo;T SAY IT WORKED.<br/>WE SHOW YOU.</h2>
+          <h2>WE MEASURE IT.<br/>YOU SEE THE PROOF.</h2>
         </div>
-        <p>Making room for the work you love. <b>We measure before we build and after it runs.</b> The Room Report shows the proof in your numbers.</p>
+        <p>Making room for the work you love. <b>We measure before we build and after it runs.</b> <span className="rm-more">The Room Report shows the proof in your numbers.</span></p>
       </div>
 
       <div className="rm-beats">

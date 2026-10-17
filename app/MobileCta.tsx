@@ -26,7 +26,7 @@ export default function MobileCta(){
   const show=pastHero&&!atForm;
   return (
     <div className={`mcta ${show?"is-on":""}`} aria-hidden={!show}>
-      <a href="#conversation" tabIndex={show?0:-1}>Let&rsquo;s make room <span aria-hidden>→</span></a>
+      <a href="/contact" data-contact tabIndex={show?0:-1}>Let&rsquo;s make room <span aria-hidden>→</span></a>
     </div>
   );
 }

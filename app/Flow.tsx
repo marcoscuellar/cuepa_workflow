@@ -10,9 +10,9 @@ export default function Flow(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">02 — FLOW</p>
-          <h2>THE NOISE RESOLVES.<br/>THE DAY GETS A SHAPE.</h2>
+          <h2>WE SORT THE NOISE.<br/>YOU KEEP THE SAY.</h2>
         </div>
-        <p>Making room for the ballgame. <b>We build the system that sorts your day before you open it.</b> Replies drafted, meetings confirmed. You keep the final say.</p>
+        <p>Making room for the ballgame. <b>We build the system that sorts your day before you open it.</b> <span className="rm-more">Replies drafted, meetings confirmed. You keep the final say.</span></p>
       </div>
 
       <div className="rm-beats">
@@ -29,7 +29,7 @@ export default function Flow(){return (
           </svg>
 
           <div className="rm-photo" style={{width:360,height:660}}>
-            <img src="/flow-cubs-game.jpg" alt="A father and son cheering at a ballgame"/>
+            <img src="/flow-ballgame.jpg" alt="A father and daughter cheering together at a ballgame"/>
           </div>
 
           <div className="rm-note" style={{left:402,top:96}}>
