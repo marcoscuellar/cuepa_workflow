@@ -12,14 +12,17 @@ export default function Prove(){return (
           <p className="rm-eyebrow">03 — PROVE</p>
           <h2>WE MEASURE IT.<br/>YOU SEE THE PROOF.</h2>
         </div>
-        <p>Making room for the work you love. <b>We measure before we build and after it runs.</b> <span className="rm-more">The Room Report shows the proof in your numbers.</span></p>
+        <div className="rm-how">
+          <p>We measure your week before we build, then again after it runs.</p>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A ROOM REPORT IN YOUR NUMBERS</b></div>
+          <p className="rm-making">Making room for the work you love.</p>
+        </div>
       </div>
 
       <div className="rm-beats">
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE ROOM REPORT</b></div>
       </div>
 
       <div className="rm-body">

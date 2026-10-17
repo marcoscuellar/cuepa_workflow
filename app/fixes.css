@@ -147,3 +147,11 @@ dialog.cm[open]{animation:cmIn .22s ease both}
   .nav-burger{display:block}
   .nav-drawer{display:flex}
 }
+
+/* ── Step headers: name → what we do → how → what you get → what it makes room for */
+.rm-how{display:flex;flex-direction:column;gap:18px}
+.rm-how>p:first-child{font-size:18px;line-height:1.55;font-weight:600;color:#030303}
+.rm-deliver span{display:block;font:700 12px 'Inter',sans-serif;letter-spacing:.15em;color:#4B5563;margin-bottom:6px}
+.rm-deliver b{display:block;font:800 20px/1.2 'Inter',sans-serif;letter-spacing:-.01em;color:#030303}
+.rm-head p.rm-making{font:italic 600 19px/1.4 'Inter',sans-serif;color:#0F766E}
+@media(max-width:760px){.rm-beats{display:none}.rm-head{padding-bottom:28px}}

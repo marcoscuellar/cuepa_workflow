@@ -12,14 +12,17 @@ export default function Grow(){return (
           <p className="rm-eyebrow">04 — GROW</p>
           <h2>WE FIND WHAT&rsquo;S NEXT.<br/>YOU DECIDE.</h2>
         </div>
-        <p>Making room for nothing at all. <b>We keep looking for what a busy owner can&rsquo;t see.</b> <span className="rm-more">You get it as a draft, never an action. Then we start again at FIND. ↻</span></p>
+        <div className="rm-how">
+          <p>We keep watching for what a busy owner can&rsquo;t see, and bring it to you as a draft.</p>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>YOUR NEXT OPPORTUNITY</b></div>
+          <p className="rm-making">Making room for nothing at all.</p>
+        </div>
       </div>
 
       <div className="rm-beats">
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE NEXT OPPORTUNITY</b></div>
       </div>
 
       <div className="rm-body">

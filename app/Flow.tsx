@@ -12,14 +12,17 @@ export default function Flow(){return (
           <p className="rm-eyebrow">02 — FLOW</p>
           <h2>WE SORT THE NOISE.<br/>YOU KEEP THE SAY.</h2>
         </div>
-        <p>Making room for the ballgame. <b>We build the system that sorts your day before you open it.</b> <span className="rm-more">Replies drafted, meetings confirmed. You keep the final say.</span></p>
+        <div className="rm-how">
+          <p>We build a system around how you already work, so your day is sorted before you open it.</p>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A WORKING SYSTEM, BUILT AROUND YOU</b></div>
+          <p className="rm-making">Making room for the ballgame.</p>
+        </div>
       </div>
 
       <div className="rm-beats">
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE WORKING SYSTEM</b></div>
       </div>
 
       <div className="rm-body">

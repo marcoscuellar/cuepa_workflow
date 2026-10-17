@@ -22,14 +22,17 @@ export default function RoomMap(){return (
           <p className="rm-eyebrow">01 — FIND</p>
           <h2>WE MAP YOUR WEEK.<br/>YOU MAKE THE CALLS.</h2>
         </div>
-        <p>Making room for dinner at home. <b>We sit with your team and map how work really moves.</b> <span className="rm-more">Nothing changes yet. You approve every call on the Room Map.</span></p>
+        <div className="rm-how">
+          <p>We sit with you and your team and map how work really moves.</p>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A PERSONALIZED ROOM MAP</b></div>
+          <p className="rm-making">Making room for dinner at home.</p>
+        </div>
       </div>
 
       <div className="rm-beats">
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE ROOM MAP</b></div>
       </div>
 
       <div className="rm-body">
