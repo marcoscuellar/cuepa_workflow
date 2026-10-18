@@ -268,14 +268,19 @@
 
 /* Persistent nav — fixed, translucent, animated tab-select indicator */
 #top,#reality,#find,#flow,#prove,#grow,#product,#trust,#conversation{scroll-margin-top:92px}
-.nav-fixed{position:fixed;top:0;left:0;right:0;z-index:100;height:92px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(3,3,3,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1);transition:background .28s ease,backdrop-filter .28s ease}
+.nav-fixed{position:fixed;top:0;left:0;right:0;z-index:100;height:92px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:transparent;border:0}
+.nav-fixed .navtab,.nav-fixed .brand span{transition:color .25s ease}
+.nav-fixed.on-light .navtab{color:rgba(3,3,3,.55)}
+.nav-fixed.on-light .navtab.is-active{color:#030303}
+.nav-fixed.on-light .nav-burger span{background:#030303}
+.nav-fixed.is-open{background:#030303}
 .nav-fixed .brand{display:flex;align-items:center}
 .navlinks-tabs{display:flex;align-items:center;gap:4px;position:relative}
 .navtab{position:relative;display:inline-flex;align-items:center;padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .25s}
 .navtab.is-active{color:#fff}
 .navtab-label{position:relative;z-index:2}
 .navpill{position:absolute;left:16px;right:16px;bottom:4px;height:2px;background:#2DD4BF;border-radius:0;z-index:1}
-.nav-fixed.is-solid{background:#030303;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:rgba(255,255,255,.14)}
+
 .nav-cta{display:inline-flex;align-items:center;gap:10px;background:#2DD4BF;color:#030303;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 22px;border-radius:0;text-decoration:none;white-space:nowrap}
 /* Mobile menu — the tabs hide below 900px, so the drawer carries them. */
 .nav-burger{display:none;position:relative;width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer;flex:none}
@@ -300,8 +305,8 @@
 
 /* Hero v2 — full-bleed photo, glass note, vertical scroll label */
 .hero2{min-height:max(92vh,880px);position:relative;display:flex;align-items:flex-end;padding:130px 5vw 7vh;color:#fff;background:#171717;overflow:hidden}
-.hero2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero2 .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.08) 76%);z-index:1}
+.hero2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;z-index:0}
+.hero2 .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,0) 150px),linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.08) 76%);z-index:1}
 .hero2-copy{position:relative;z-index:2;width:min(920px,90vw)}
 .hero2-copy .eyebrow2{font:700 10px 'Inter',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin:0}
 .hero2-copy h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(52px,7.6vw,124px);margin:14px 0 0;line-height:.92;letter-spacing:-.02em}

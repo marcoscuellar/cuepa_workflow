@@ -13,9 +13,7 @@ const items=[
 
 export default function Nav(){
   const [active,setActive]=useState("room");
-  // The glass is designed against the dark hero photo. Over the light acts below
-  // it becomes a grey slab with content showing through, so it goes solid once
-  // the hero has passed under it.
+  // true when the section behind the see-through menu is light.
   const [solid,setSolid]=useState(false);
   // Below 900px the tabs are hidden, so without this there is no way to reach
   // any section from a phone.
@@ -34,12 +32,34 @@ export default function Nav(){
     return ()=>{document.body.style.overflow=prev;window.removeEventListener("keydown",onKey);};
   },[open]);
 
+  // The menu is always see-through. To stay readable it checks what is
+  // behind it and flips to dark text over light sections.
   useEffect(()=>{
-    const hero=document.getElementById("top");
-    if(!hero) return;
-    const io=new IntersectionObserver(([e])=>setSolid(!e.isIntersecting),{rootMargin:"-92px 0px 0px 0px",threshold:0});
-    io.observe(hero);
-    return ()=>io.disconnect();
+    const nav=document.querySelector(".nav-fixed");
+    let raf=0;
+    const lum=(c:string)=>{
+      const m=c.match(/rgba?\(([^)]+)\)/);if(!m) return null;
+      const [r,g,b,a=1]=m[1].split(",").map(Number);
+      if(a<.5) return null;
+      return (0.2126*r+0.7152*g+0.0722*b)/255;
+    };
+    const check=()=>{
+      raf=0;
+      const stack=document.elementsFromPoint(window.innerWidth/2,46);
+      let light=false;
+      for(const el of stack){
+        if(nav&&nav.contains(el)) continue;
+        if(el.tagName==="IMG"||el.tagName==="VIDEO") break;
+        const l=lum(getComputedStyle(el).backgroundColor);
+        if(l!==null){light=l>.6;break;}
+      }
+      setSolid(light);
+    };
+    const onScroll=()=>{if(!raf) raf=requestAnimationFrame(check);};
+    check();
+    window.addEventListener("scroll",onScroll,{passive:true});
+    window.addEventListener("resize",onScroll);
+    return ()=>{window.removeEventListener("scroll",onScroll);window.removeEventListener("resize",onScroll);if(raf) cancelAnimationFrame(raf);};
   },[]);
 
   useEffect(()=>{
@@ -70,8 +90,8 @@ export default function Nav(){
   },[]);
 
   return (
-    <><nav className={`nav-fixed ${solid?"is-solid":""}`}>
-      <a className="brand" href="#top" aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup/></a>
+    <><nav className={`nav-fixed ${solid&&!open?"on-light":""} ${open?"is-open":""}`}>
+      <a className="brand" href="#top" aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup dark={solid&&!open}/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
           <a key={it.key} href={it.href} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>
