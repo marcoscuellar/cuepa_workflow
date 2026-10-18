@@ -1,12 +1,12 @@
 import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";
-const title="CUEPA — Make Room for What Matters";
-const description="Human-centered workflow intelligence that returns capacity without removing human control.";
+const title="CUEPA for Work — Make Room for Better Work";
+const description="CUEPA for Work by ELIPAN GROUP. Human-centered workflow help for small-business owners and teams that returns capacity without removing human control.";
 export const metadata:Metadata={
   metadataBase:new URL("https://makingcuepa.com"),
   title,description,
   alternates:{canonical:"/"},
   icons:{icon:[{url:"/favicon.svg",type:"image/svg+xml"}],apple:"/apple-touch-icon.png"},
-  openGraph:{type:"website",url:"/",siteName:"CUEPA",title,description,
+  openGraph:{type:"website",url:"/",siteName:"CUEPA for Work",title,description,
     images:[{url:"/og.jpg",width:1200,height:630,alt:"A father walking onto the field toward his son at an evening football game, over the words Making Room For What Matters"}]},
   twitter:{card:"summary_large_image",title,description,images:["/og.jpg"]}
 };

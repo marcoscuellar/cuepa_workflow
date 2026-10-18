@@ -71,7 +71,7 @@ export default function Nav(){
 
   return (
     <><nav className={`nav-fixed ${solid?"is-solid":""}`}>
-      <a className="brand" href="#top"><Logo/></a>
+      <a className="brand" href="#top" aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
           <a key={it.key} href={it.href} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>

@@ -36,9 +36,9 @@ export default function Home(){return <main>
   {/* Act 6 — Ending: conversation + footer */}
   <Conversation/>
   <footer className="site-footer">
-    <p className="wordmark"><Logo/></p>
-    <p>MAKING ROOM FOR WHAT MATTERS.</p>
+    <p className="wordmark"><Logo offering="for Work" lockup/></p>
+    <p>MAKING ROOM FOR BETTER WORK.</p>
     <p>© 2026 CUEPA</p>
-    <p className="footer-ollin">CUEPA — an Ollin company</p>
+    <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company</p>
   </footer>
 </main>}

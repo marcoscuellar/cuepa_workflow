@@ -59,13 +59,13 @@ export default function AnimatedIntro(){
       <img src="/hero-recital.jpg" alt="A father walking onto the field toward his son at an evening football game"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
-        <motion.p className="eyebrow2" variants={heroChild}>HUMAN-CENTERED INTELLIGENCE</motion.p>
-        <h1 aria-label="Making room for what matters.">
+        <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
+        <h1 aria-label="Making room for better work.">
           <motion.span style={{display:"block"}} variants={heroChild}>MAKING ROOM</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}>FOR WHAT</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}>MATTERS.</motion.span>
+          <motion.span style={{display:"block"}} variants={heroChild}>FOR BETTER</motion.span>
+          <motion.span style={{display:"block"}} variants={heroChild}>WORK.</motion.span>
         </h1>
-        <motion.p className="lede2" variants={heroChild}>CUEPA transforms how work moves—returning time, revealing opportunities, and creating capacity for people and businesses to grow.</motion.p>
+        <motion.p className="lede2" variants={heroChild}>CUEPA for Work helps small-business owners and their teams clear the repetitive work off their plate. The work gets better. The people get room back.</motion.p>
         <motion.a href="#reality" className="cta2" variants={heroChild}>See how we create room <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
       </motion.div>
       <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
