@@ -56,7 +56,7 @@ export default function AnimatedIntro(){
 
   return <>
     <section className="hero2" id="top">
-      <img src="/hero-recital.jpg" alt="A father walking onto the field toward his son at an evening football game"/>
+      <img src="/hero-work-breathe.jpg" alt="A business owner leaning back at her desk, eyes closed, taking a breath"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
