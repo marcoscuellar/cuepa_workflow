@@ -70,8 +70,8 @@ export default function Testimonial(){
   };
 
   return (
-    <section className="testimonial-sec" ref={sectionRef}>
-      <p className="rm-eyebrow">FROM ROOM CONVERSATIONS, THIS WEEK</p>
+    <section className="testimonial-sec" id="stories" ref={sectionRef}>
+      <p className="rm-eyebrow">FROM CUEPA CLIENTS</p>
 
       <div
         className="tcar"

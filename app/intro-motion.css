@@ -32,7 +32,7 @@
 .reality.is-visible .stat-card::before{width:100%}
 .reality .stat-card strong{font-size:clamp(64px,6.3vw,96px);line-height:.86}
 .stat-card blockquote{margin:22px auto 24px;color:#d3d5d7;font-size:15px;line-height:1.58;max-width:32ch;font-weight:700}
-.stat-card cite{display:block;margin-top:auto;color:#81888f;font-family:'JetBrains Mono',monospace;font-size:9px;font-style:normal;line-height:1.55;letter-spacing:.1em;text-transform:uppercase}
+.stat-card cite{display:block;margin-top:auto;color:#81888f;font-family:'Inter',sans-serif;font-size:9px;font-style:normal;line-height:1.55;letter-spacing:.1em;text-transform:uppercase}
 
 @media(max-width:900px){
   .reality-intro{padding-right:0}

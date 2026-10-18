@@ -1,0 +1,160 @@
+/* Oct 2026 design + mobile pass. Loaded last so it wins the cascade.
+   Brand refs: CUEPA Brand Book (lockup, fonts, fade-from-bottom, tap targets). */
+
+/* ── Footer: CUEPA by ELIPAN GROUP lockup + contact ───────────────────────── */
+.lockup{display:inline-flex;align-items:stretch;gap:10px;line-height:1}
+.lockup-mark{width:39px;height:38px;flex:none}
+.lockup-words{display:flex;flex-direction:column;justify-content:space-between}
+.lockup-cuepa{font:700 22px/1 'Inter',sans-serif;letter-spacing:.4px;color:#fff}
+.lockup-by{font:600 9.5px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.footer-contact{grid-column:1/-1;margin:38px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);font-size:13px}
+.footer-contact a{color:#2DD4BF;text-decoration:none}
+.footer-contact a:hover,.footer-contact a:focus-visible{text-decoration:underline}
+.site-footer p:nth-child(2),.site-footer p:nth-child(3){font-size:11px;color:rgba(255,255,255,.8)}
+/* Bottom padding so the mobile CTA bar never covers the footer. */
+@media(max-width:760px){.site-footer{padding-bottom:96px}}
+
+/* ── Room Report CTA (the "does it work?" moment) ─────────────────────────── */
+.cta-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 24px;
+  background:#2DD4BF;color:#030303;font:700 13px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:0}
+.cta-primary:hover{background:#5eead4}
+.cta-primary:focus-visible,.mcta a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.report-cta{background:#030303;color:#fff;padding:0 5vw 70px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px}
+.report-cta p{margin:0;max-width:560px;font-size:18px;line-height:1.5;font-weight:600;color:#e5e7eb}
+
+/* ── Form: make-room chips, readable hint, brand font on the button ──────── */
+.capture-chips{border:0;margin:0 0 22px;padding:0;min-width:0}
+.capture-chips legend{padding:0;margin:0 0 14px;font:600 14px 'Inter',sans-serif;color:#fff}
+.capture-chips legend span{font-weight:400;color:rgba(255,255,255,.7)}
+.capture-chips .convo-chips{margin-bottom:0}
+.convo-chip{min-height:44px;font-family:'Inter',sans-serif;font-size:14px}
+.convo-chip:focus-visible{outline:2px solid #2DD4BF;outline-offset:2px}
+.capture-pill input{font-family:'Inter',sans-serif;font-weight:600}
+.capture-pill button{font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;min-height:48px}
+.capture-hint{font-size:14px;color:rgba(255,255,255,.8)}
+.capture-error{font-size:14px}
+
+/* ── Nav: brand font, readable sizes ───────────────────────────────────────── */
+.navtab,.nav-cta{font-size:12px}
+.nav-drawer-cta{font-size:14px;min-height:52px}
+
+/* ── Mobile sticky CTA bar ─────────────────────────────────────────────────── */
+.mcta{display:none}
+@media(max-width:760px){
+  .mcta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(3,3,3,.94);border-top:1px solid rgba(255,255,255,.12);
+    transform:translateY(110%);transition:transform .25s ease;pointer-events:none}
+  .mcta.is-on{transform:translateY(0);pointer-events:auto}
+  .mcta a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;background:#2DD4BF;color:#030303;
+    font:700 14px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+}
+@media(prefers-reduced-motion:reduce){.mcta{transition:none}}
+
+/* ── Testimonial dots: 9px look, ~36px tap area ───────────────────────────── */
+.tcar-dot{position:relative}
+.tcar-dot::after{content:"";position:absolute;inset:-14px -5px}
+
+/* ── Readability floor on phones ───────────────────────────────────────────
+   Content text: 12px minimum. Dense mock-UI chrome (status bars, axis ticks,
+   phone-mock slots) gets 11px so the mockups keep their shape. */
+@media(max-width:760px){
+  .chimal-band,.practice-intro p,.report-intro p.lbl,.rm-eyebrow,.stat-card cite,
+  .trust-rows b,.trust-tags span,.rm-barow .lbl span,.rm-barow .was,.rm-beats article b,
+  .rm-chip,.rm-draft,.rm-foot .k,.rm-found .act,.rm-found .fb,.rm-found p,.rm-loop,
+  .rm-note-fine,.rm-note-top b,.rm-out span,.rm-plat-body .sub,.rm-row .nm span,.rm-spill,
+  .rm-verified p,.rrApL .k,.rrCard .s,.rrChk,.rrChk b,.rrFound .fb,.rrStat .c,.rrStat .k,
+  .rm-fprio p,.rm-fneeds,.rm-fdate{font-size:12px}
+  .rm-note-top i,.rm-note-top em,.rm-pill,.rm-foot .n small,.rm-fkick,.rm-fprio i,.rm-fslot,
+  .rm-fslot em,.rm-fslot time,.rm-pstatus em,.rrBadge,.rrBarW em,.rrDays span,.rrPeriod,
+  .rrUrl,.rrWeeks span{font-size:11px}
+}
+
+/* ── Oct 16 (2): new photos, phone stacking, less copy on phones ─────────── */
+/* Phones: each step keeps headline, one-sentence intro, photo and one card. */
+@media(max-width:760px){
+  .rm-more{display:none}
+  .rm-beats article{display:none}
+  .rm-beats{display:block;padding:18px 0 28px}
+  .rm-out{border-top:0;padding-top:0;margin-top:0}
+  .rm-stage .rm-note ~ .rm-note,
+  .rm-stage .rm-found ~ .rm-found,
+  .rm-stage .rm-spill{display:none}
+}
+
+/* ── Contact: ELIPAN-style form (name, email, message, send) ─────────────── */
+.cf{display:flex;flex-direction:column;gap:16px;max-width:560px;margin-top:28px}
+.cf-field{display:flex;flex-direction:column;gap:7px}
+.cf-field>span,.cf-chips legend{font:600 12px 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.cf-field em,.cf-chips em{font-style:normal;font-weight:400;letter-spacing:0;text-transform:none;opacity:.75}
+.cf-field input,.cf-field textarea{font:400 16px/1.45 'Inter',sans-serif;padding:13px 14px;border-radius:10px;outline:none;resize:vertical;width:100%;box-sizing:border-box}
+.cf-field input:focus,.cf-field textarea:focus{border-color:#2DD4BF;box-shadow:0 0 0 3px rgba(45,212,191,.28)}
+.cf-field.bad input{border-color:#B42318}
+.cf-chips{border:0;margin:0;padding:0;min-width:0}
+.cf-chips legend{padding:0;margin-bottom:10px}
+.cf-chips div{display:flex;flex-wrap:wrap;gap:8px}
+.cf-chip{min-height:40px;padding:8px 14px;border-radius:999px;font:500 14px 'Inter',sans-serif;cursor:pointer;background:transparent}
+.cf-chip:focus-visible,.cf-send:focus-visible,.cf-again:focus-visible,.cm-x:focus-visible{outline:2px solid #2DD4BF;outline-offset:2px}
+.cf-trap{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cf-err{margin:0;min-height:0;font:600 14px 'Inter',sans-serif}
+.cf-err:empty{display:none}
+.cf-send,.cf-again{min-height:52px;border:0;border-radius:10px;font:700 15px 'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background-color .15s ease}
+.cf-send[disabled]{opacity:.65;cursor:progress}
+.cf-hint{margin:0;font-size:14px}
+.cf-done{gap:8px;padding:8px 0}
+.cf-check{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#2DD4BF;color:#030303;font-weight:800;font-size:20px}
+.cf-done-h{margin:8px 0 0;font:400 28px 'Anton',sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.cf-done p{margin:0;font-size:16px;line-height:1.5}
+
+/* On dark sections (bottom of homepage, /contact page) */
+.cf-dark{color:#fff}
+.cf-dark .cf-field input,.cf-dark .cf-field textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.35);color:#fff}
+.cf-dark .cf-field input::placeholder,.cf-dark .cf-field textarea::placeholder{color:rgba(255,255,255,.55)}
+.cf-dark .cf-chip{border:1px solid rgba(255,255,255,.55);color:#fff}
+.cf-dark .cf-chip.on{background:#fff;color:#030303;border-color:#fff}
+.cf-dark .cf-send{background:#2DD4BF;color:#030303}
+.cf-dark .cf-send:hover{background:#5eead4}
+.cf-dark .cf-err{color:#FFB4A2}
+.cf-dark .cf-hint{color:rgba(255,255,255,.8)}
+
+/* In the pop-up (white card, ink text) */
+.cf-light{color:#030303}
+.cf-light .cf-field input,.cf-light .cf-field textarea{background:#fff;border:1px solid #D1D5DB;color:#030303}
+.cf-light .cf-field input::placeholder,.cf-light .cf-field textarea::placeholder{color:#6B7280}
+.cf-light .cf-chip{border:1px solid #9CA3AF;color:#030303}
+.cf-light .cf-chip.on{background:#030303;color:#fff;border-color:#030303}
+.cf-light .cf-send,.cf-light .cf-again{background:#030303;color:#fff}
+.cf-light .cf-send:hover,.cf-light .cf-again:hover{background:#0F766E}
+.cf-light .cf-err{color:#B42318}
+.cf-light .cf-hint{color:#4B5563}
+
+/* Dialog */
+dialog.cm{padding:0;border:0;background:transparent;width:min(500px,calc(100% - 24px));max-width:none;max-height:calc(100svh - 24px);overflow:visible}
+dialog.cm::backdrop{background:rgba(3,3,3,.6);backdrop-filter:blur(4px)}
+.cm-card{position:relative;background:#fff;border-radius:18px;padding:30px 28px 26px;max-height:calc(100svh - 24px);overflow-y:auto;box-sizing:border-box}
+.cm-card .cf{margin-top:18px}
+.cm-eyebrow{margin:0 0 8px;font:600 12px 'Inter',sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#0F766E}
+.cm-card h2{margin:0;font:400 clamp(34px,8vw,44px)/1 'Anton',sans-serif;letter-spacing:.005em;color:#030303}
+.cm-x{position:absolute;top:14px;right:14px;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:#F4F5F5;color:#030303;cursor:pointer}
+dialog.cm[open]{animation:cmIn .22s ease both}
+@keyframes cmIn{from{opacity:0;transform:translateY(10px)}}
+@media(prefers-reduced-motion:reduce){dialog.cm[open]{animation:none}}
+@media(max-width:560px){.cm-card{padding:26px 20px 22px}}
+
+/* ── Nav: 5 sections. Tabs need ~1200px; below that the menu button takes over. */
+.navtab{padding:12px 13px;letter-spacing:.1em;white-space:nowrap}
+@media(max-width:1240px){
+  .navlinks-tabs{display:none}
+  .nav-burger{display:block}
+  .nav-drawer{display:flex}
+}
+
+/* ── Step headers: name → what we do → how → what you get → what it makes room for */
+.rm-how{display:flex;flex-direction:column;gap:18px}
+.rm-how>p:first-child{font-size:18px;line-height:1.55;font-weight:600;color:#030303}
+.rm-deliver span{display:block;font:700 12px 'Inter',sans-serif;letter-spacing:.15em;color:#4B5563;margin-bottom:6px}
+.rm-deliver b{display:block;font:800 20px/1.2 'Inter',sans-serif;letter-spacing:-.01em;color:#030303}
+.rm-head p.rm-making{font:italic 600 19px/1.4 'Inter',sans-serif;color:#0F766E}
+@media(max-width:760px){.rm-beats{display:none}.rm-head{padding-bottom:28px}}
+
+/* Brand names keep their casing inside ALL-CAPS labels (CUEPAflow, CUEPAreport). */
+.nocase{text-transform:none}

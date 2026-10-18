@@ -1,6 +1,6 @@
 const beats:[string,string][]=[
-  ["01 · BUILD","The system is built around how you already operate — nothing new for your team to learn."],
-  ["02 · CONNECT","Information gathered, actions prepared, decisions routed to the right person."],
+  ["01 · BUILD","Built around how you already work. Nothing new for your team to learn."],
+  ["02 · CONNECT","Information gathered, next steps prepared, decisions sent to the right person."],
   ["03 · HAND OFF","Every flow stops at a human. Your sign-off is the last step, always."]
 ];
 
@@ -10,16 +10,19 @@ export default function Flow(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">02 — FLOW</p>
-          <h2>THE NOISE RESOLVES.<br/>THE DAY GETS A SHAPE.</h2>
+          <h2>WE SORT THE NOISE.<br/>YOU KEEP THE SAY.</h2>
         </div>
-        <p>A Tuesday, already sorted. <b>The day starts with what matters</b> — while he&rsquo;s in the stands with his son. The line does the sorting. He keeps the say.</p>
+        <div className="rm-how">
+          <p>We build a system around how you already work, so your day is sorted before you open it.</p>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>A WORKING SYSTEM, BUILT AROUND YOU</b></div>
+          <p className="rm-making">Making room for the ballgame.</p>
+        </div>
       </div>
 
       <div className="rm-beats">
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE WORKING SYSTEM</b></div>
       </div>
 
       <div className="rm-body">
@@ -53,7 +56,7 @@ export default function Flow(){return (
             <span className="rm-pstatus"><b>7:58</b><em>▪▪▪</em></span>
             <div className="rm-fplan">
               <p className="rm-fkick">YOUR DAY · OPERATING PLAN</p>
-              <h4>Good morning, Marcos<span>.</span></h4>
+              <h4>Good morning, Dana<span>.</span></h4>
               <p className="rm-fdate"><b>Tuesday · Aug 25</b> · First meeting in 48 minutes</p>
               <div className="rm-fprio">
                 <article><i>01 · DECISION</i><b>Approve the Lakeshore estimate</b><p>2 minutes. Keeps Thursday&rsquo;s install on schedule.</p></article>

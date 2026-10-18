@@ -1,7 +1,7 @@
 const beats:[string,string][]=[
   ["01 · BASELINE","Before we build anything, we measure how things stand today."],
-  ["02 · MEASURE","After: hours returned, response times, errors caught — in your numbers."],
-  ["03 · VERIFY","Every claim ties to evidence. The report shows it — it doesn't just say it."]
+  ["02 · MEASURE","After: hours returned, response times and errors caught, all in your numbers."],
+  ["03 · VERIFY","Every number ties to a measurement. The report shows it, it doesn’t just say it."]
 ];
 
 export default function Prove(){return (
@@ -10,16 +10,19 @@ export default function Prove(){return (
       <div className="rm-head">
         <div>
           <p className="rm-eyebrow">03 — PROVE</p>
-          <h2>WE DON&rsquo;T SAY IT WORKED.<br/>WE SHOW YOU.</h2>
+          <h2>WE MEASURE IT.<br/>YOU SEE THE PROOF.</h2>
         </div>
-        <p>He&rsquo;s back at the bench — the room he got back went into the work he loves. <b>The Room Report holds the proof:</b> baseline before, evidence after, in his numbers.</p>
+        <div className="rm-how">
+          <p>We measure your week before we build, then again after it runs.</p>
+          <div className="rm-deliver"><span>YOU WALK AWAY WITH</span><b>YOUR CUEPAreport, IN YOUR NUMBERS</b></div>
+          <p className="rm-making">Making room for the work you love.</p>
+        </div>
       </div>
 
       <div className="rm-beats">
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE ROOM REPORT</b></div>
       </div>
 
       <div className="rm-body">
@@ -38,18 +41,18 @@ export default function Prove(){return (
           </div>
           <div className="rm-note" style={{left:452,top:300}}>
             <div className="rm-note-top"><span className="av"/><b>CUEPA</b><i>Month 2</i><em>REPORTED</em></div>
-            <p>Your Room Report is in. 11.5 hours came back this week — most of it evenings. That was the point.</p>
+            <p>Your CUEPAreport is in. 11.5 hours came back this week — most of it evenings. That was the point.</p>
           </div>
 
           <div className="rm-plat" style={{top:30}}>
             <div className="rm-map-chrome">
               <span className="rm-dots"><i/><i/><i/></span>
-              <span className="rm-pill">cuepa · room report</span>
-              <span className="rm-draft">● VERIFIED</span>
+              <span className="rm-pill">cuepa · <span className="nocase">CUEPAreport</span></span>
+              <span className="rm-draft">REPRESENTATIVE</span>
             </div>
             <div className="rm-plat-body">
               <h4>Your room, before → after</h4>
-              <p className="sub">measured against the baseline from week one</p>
+              <p className="sub">representative example · measured against the baseline from week one</p>
               <div style={{marginTop:8}}>
                 <div className="rm-barow"><span className="lbl">Lead response<span>a new customer waits…</span></span><span className="was">42 min</span><span>→</span><span className="now">4<small> min</small></span></div>
                 <div className="rm-barow"><span className="lbl">Hours returned<span>to your calendar, weekly</span></span><span className="was">0</span><span>→</span><span className="now">11.5<small> hrs</small></span></div>

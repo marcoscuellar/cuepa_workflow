@@ -1,4 +1,4 @@
-import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";
+import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";import "./fixes.css";
 const title="CUEPA — Make Room for What Matters";
 const description="Human-centered workflow intelligence that returns capacity without removing human control.";
 export const metadata:Metadata={

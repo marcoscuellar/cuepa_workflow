@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
 import Nav from "../Nav";
-import Logo from "../Logo";
+import SiteFooter from "../SiteFooter";
 import ContactForm from "../ContactForm";
 
 export const metadata:Metadata={
@@ -18,16 +18,12 @@ export default function ContactPage(){
           <img src="/contact-team.jpg" alt="Three people working together over pattern pieces and drawings at a studio worktable"/>
         </figure>
         <div className="contact-copy">
+          <p className="rm-eyebrow">Let&rsquo;s talk</p>
           <h1>SEE HOW WE<br/>CAN MAKE<br/>ROOM FOR<br/>YOU</h1>
           <ContactForm/>
         </div>
       </div>
     </section>
-    <footer className="site-footer">
-      <p className="wordmark"><Logo/></p>
-      <p>MAKING ROOM FOR WHAT MATTERS.</p>
-      <p>© 2026 CUEPA</p>
-      <p className="footer-ollin">CUEPA — an Ollin company</p>
-    </footer>
+    <SiteFooter/>
   </main>);
 }

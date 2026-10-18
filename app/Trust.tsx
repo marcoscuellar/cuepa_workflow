@@ -1,7 +1,7 @@
 const rows:[string,string][]=[
-  ["SELF-QA","Each workflow checks its output against approved source information and flags what it cannot support."],
-  ["OUTLIER WATCH","A second layer watches for results that fall outside expected patterns — even when they look valid."],
-  ["HUMAN AUTHORITY","A person is notified whenever review is required. The technology carries the work. The human keeps the authority."]
+  ["CHECKS ITS OWN WORK","Every workflow checks its output against your approved sources and flags anything it can’t back up."],
+  ["WATCHES FOR ODD RESULTS","A second check catches results outside your normal patterns, even when they look fine."],
+  ["YOU KEEP THE FINAL SAY","When something needs review, a person is told right away. The technology carries the work. You keep the authority."]
 ];
 
 export default function Trust(){return (
@@ -9,7 +9,7 @@ export default function Trust(){return (
     <div className="trust-copy">
       <p className="rm-eyebrow">HUMAN IN THE MIDDLE</p>
       <h2>THE SYSTEM<br/>SUPPORTS.<br/><span>THE HUMAN</span><br/>DECIDES.</h2>
-      <p>Technology should expand human capacity—not quietly replace human judgment. CUEPA protects sensitive information, challenges outputs, verifies what matters, and keeps people present at consequential moments.</p>
+      <p>Technology should expand human capacity, not quietly replace human judgment. CUEPA prepares, drafts and flags. Sending, approving and deciding stay with you.</p>
       <div className="trust-tags"><span>PROTECT</span><span>CHALLENGE</span><span>VERIFY</span></div>
       <div className="trust-rows">
         {rows.map(([label,body])=>(
