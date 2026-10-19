@@ -59,6 +59,10 @@ export default function AnimatedIntro(){
       <img src="/convo-team-coffee.jpg" alt="Three coworkers laughing together over coffee in the office kitchen"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
+        <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
+          <div className="hero2-note-top"><span className="av2"/><b>CUEPA</b><i>6:15 PM</i><em>DONE</em></div>
+          <p>Email from Robert: &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo; Your schedule was open, so I confirmed by email.</p>
+        </motion.div>
         <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
         <h1 aria-label="Making room for better work.">
           <motion.span style={{display:"block"}} variants={heroChild}>MAKING ROOM</motion.span>
@@ -67,10 +71,6 @@ export default function AnimatedIntro(){
         </h1>
         <motion.p className="lede2" variants={heroChild}>CUEPA for Work helps small-business owners and their teams clear the repetitive work off their plate. The work gets better. The people get room back.</motion.p>
         <motion.a href="#reality" className="cta2" variants={heroChild}>See how we create room <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
-      </motion.div>
-      <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
-        <div className="hero2-note-top"><span className="av2"/><b>CUEPA</b><i>6:15 PM</i><em>DONE</em></div>
-        <p>Email from Robert: &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo; Your schedule was open, so I confirmed by email.</p>
       </motion.div>
       <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
     </section>
