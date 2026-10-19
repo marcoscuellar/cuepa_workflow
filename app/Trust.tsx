@@ -12,8 +12,12 @@ export default function Trust(){return (
       <p>Technology should expand human capacity—not quietly replace human judgment. CUEPA protects sensitive information, challenges outputs, verifies what matters, and keeps people present at consequential moments.</p>
       <div className="trust-tags"><span>PROTECT</span><span>CHALLENGE</span><span>VERIFY</span></div>
       <div className="trust-rows">
-        {rows.map(([label,body])=>(
-          <p key={label}><b>{label}</b><span>{body}</span></p>
+        {rows.map(([label,body],i)=>(
+          <article className="trust-row" key={label}>
+            <small>0{i+1}</small>
+            <b>{label}</b>
+            <span>{body}</span>
+          </article>
         ))}
       </div>
     </div>
