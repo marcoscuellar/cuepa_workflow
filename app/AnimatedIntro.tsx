@@ -56,7 +56,7 @@ export default function AnimatedIntro(){
 
   return <>
     <section className="hero2" id="top">
-      <img src="/convo-team-coffee.jpg" alt="Three coworkers laughing together over coffee in the office kitchen"/>
+      <img src="/hero-team-workshop.jpg" alt="A small team working together around a table in a bright brick-walled studio"/>
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
