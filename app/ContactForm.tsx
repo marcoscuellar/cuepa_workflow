@@ -18,10 +18,10 @@ export default function ContactForm({hint="No deck, no sales call. A real person
         body:JSON.stringify({email,company})
       });
       const data=await res.json().catch(()=>({}));
-      if(!res.ok) throw new Error(data.error||"Something went wrong. Please try again.");
+      if(!res.ok) throw new Error(data.error||"That didn't send. Check your connection and try again, or email marcoscuellar@elipangroup.com.");
       setState("sent");
     }catch(err){
-      setError(err instanceof Error?err.message:"Something went wrong. Please try again.");
+      setError(err instanceof Error?err.message:"That didn't send. Check your connection and try again, or email marcoscuellar@elipangroup.com.");
       setState("idle");
     }
   };

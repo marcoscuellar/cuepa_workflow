@@ -28,7 +28,7 @@ export async function POST(req: Request) {
   const key = process.env.RESEND_API_KEY;
   if (!key) {
     console.error("Contact form: RESEND_API_KEY is not set, cannot deliver submission.");
-    return Response.json({error: "The form isn't connected yet. Please email us directly."}, {status: 503});
+    return Response.json({error: "The form isn't connected yet. Email us at marcoscuellar@elipangroup.com and a real person will reply."}, {status: 503});
   }
 
   // Callers may name their own subject; the Room Conversation form does not.
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
 
   if (!res.ok) {
     console.error("Contact form: Resend returned", res.status, await res.text().catch(() => ""));
-    return Response.json({error: "We couldn't send that just now. Please try again."}, {status: 502});
+    return Response.json({error: "That didn't send just now. Try again in a minute, or email marcoscuellar@elipangroup.com."}, {status: 502});
   }
   return Response.json({ok: true});
 }

@@ -70,7 +70,7 @@ export default function AnimatedIntro(){
           <motion.span style={{display:"block"}} variants={heroChild}>WORK.</motion.span>
         </h1>
         <motion.p className="lede2" variants={heroChild}>CUEPA for Work helps small-business owners and their teams clear the repetitive work off their plate. The work gets better. The people get room back.</motion.p>
-        <motion.a href="#reality" className="cta2" variants={heroChild}>See how we create room <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
+        <motion.a href="#reality" className="cta2" variants={heroChild}>See how we make room <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
       </motion.div>
       <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
     </section>

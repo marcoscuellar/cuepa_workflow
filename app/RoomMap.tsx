@@ -75,7 +75,7 @@ export default function RoomMap(){return (
               <span className="k">Room found</span>
               <div className="n">11.5<small>hrs / week</small></div>
               <div className="rm-bar"><i/></div>
-              <p className="rm-note-fine"><b>Nothing is built until you approve it.</b> Every line of this map ends in your hands.</p>
+              <p className="rm-note-fine"><b>Nothing is built until you approve it.</b> Every line of this map ends in your hands. <i>Representative example. Your numbers come from your baseline.</i></p>
             </div>
           </div>
         </div>

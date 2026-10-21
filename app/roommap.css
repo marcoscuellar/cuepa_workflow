@@ -356,3 +356,4 @@
   .hero2 img{object-position:70% 0}
   .hero2 .scrim{background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 140px),linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.25) 62%,rgba(0,0,0,0) 74%)}
 }
+.rm-note-fine i{display:block;margin-top:6px;font-style:normal;font-weight:600;letter-spacing:.02em}

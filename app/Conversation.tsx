@@ -6,7 +6,7 @@ export default function Conversation(){
       <div className="convo-media"><img src="/hero-work-breathe.jpg" alt="A business owner leaning back at her desk, eyes closed, taking a breath"/></div>
       <div className="convo-body">
         <p className="rm-eyebrow">Start here</p>
-        <h2>SEE HOW WE<br/>CAN MAKE<br/>ROOM FOR<br/>YOU</h2>
+        <h2>WHERE DO<br/>YOU WANT<br/>TO MAKE<br/>ROOM?</h2>
         <ContactForm/>
       </div>
     </section>

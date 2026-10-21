@@ -15,7 +15,7 @@ export default function OwnerControl(){return (
         </div>
         <div className="rrBody">
           <div className="rrHead">
-            <div><h4>Good evening, Marcos.</h4><p>3 things need you. Everything else is handled.</p></div>
+            <div><h4>Good evening, Dana.</h4><p>3 things need you. Everything else is handled.</p></div>
             <span className="rrPeriod">MARCH · WEEK 4</span>
           </div>
 

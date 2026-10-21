@@ -57,7 +57,7 @@ export default function Prove(){return (
               </div>
               <div className="rm-verified">
                 <span className="rm-vring"><svg viewBox="0 0 88 88"><circle cx="44" cy="44" r="38" stroke="#eceded" strokeWidth={7} fill="none"/><circle cx="44" cy="44" r="38" stroke="#2DD4BF" strokeWidth={7} fill="none" strokeLinecap="round" strokeDasharray="239" strokeDashoffset="10" transform="rotate(-90 44 44)"/></svg><span className="vt">✓</span></span>
-                <p><b>Verified against baseline.</b> Every number ties to a measurement we took before we built anything.</p>
+                <p><b>Verified against baseline.</b> Every number ties to a measurement we took before we built anything. <i>Representative example. Your numbers come from your baseline.</i></p>
               </div>
               <div className="rm-foot">
                 <span className="k">The evenings came back</span>
