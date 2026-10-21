@@ -350,3 +350,9 @@
 .rm-note-fine{margin:10px 0 0;font-size:11px;line-height:1.5;color:#6B7280}
 .rm-note-fine b{color:#030303}
 @media(max-width:900px){.rm-head{grid-template-columns:1fr}.rm-beats{grid-template-columns:1fr 1fr}.rm-out{grid-column:1/-1;justify-self:start;text-align:left;border-left:0;padding-left:0;border-top:1px solid #E5E7EB;padding-top:16px}.rm-body{grid-template-columns:1fr}}
+/* Hero on phones: centre the crop on the team's faces and fade the bottom to
+   black so the headline sits on dark, not on people (Brand Book: type on photos). */
+@media(max-width:900px){
+  .hero2 img{object-position:70% 0}
+  .hero2 .scrim{background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 140px),linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.25) 62%,rgba(0,0,0,0) 74%)}
+}
