@@ -64,13 +64,13 @@ export default function AnimatedIntro(){
           <p>Email from Robert: &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo; Your schedule was open, so I confirmed by email.</p>
         </motion.div>
         <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
-        <h1 aria-label="Making room for better work.">
-          <motion.span style={{display:"block"}} variants={heroChild}>MAKING ROOM</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}>FOR BETTER</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}>WORK.</motion.span>
+        <h1 aria-label="Make room for what's next.">
+          <motion.span style={{display:"block"}} variants={heroChild}>MAKE ROOM</motion.span>
+          <motion.span style={{display:"block"}} variants={heroChild}>FOR WHAT&rsquo;S</motion.span>
+          <motion.span style={{display:"block"}} variants={heroChild}><span className="hero2-accent">NEXT.</span></motion.span>
         </h1>
-        <motion.p className="lede2" variants={heroChild}>CUEPA for Work helps small-business owners and their teams clear the repetitive work off their plate. The work gets better. The people get room back.</motion.p>
-        <motion.a href="#reality" className="cta2" variants={heroChild}>See how we create room <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
+        <motion.p className="lede2" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA for Work takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
+        <motion.a href="#conversation" className="cta2" variants={heroChild}>Start a Room Conversation <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
       </motion.div>
       <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
     </section>

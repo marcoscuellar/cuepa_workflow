@@ -25,7 +25,7 @@ export default function ContactPage(){
     </section>
     <footer className="site-footer">
       <p className="wordmark"><Logo offering="for Work" lockup/></p>
-      <p>MAKING ROOM FOR BETTER WORK.</p>
+      <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
       <p>© 2026 CUEPA</p>
       <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company</p>
     </footer>

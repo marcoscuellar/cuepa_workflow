@@ -1,6 +1,6 @@
-import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";
-const title="CUEPA for Work — Make Room for Better Work";
-const description="CUEPA for Work by ELIPAN GROUP. Human-centered workflow help for small-business owners and teams that returns capacity without removing human control.";
+import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";import "./roomworth.css";
+const title="CUEPA for Work — Make Room for What's Next";
+const description="CUEPA for Work by ELIPAN GROUP. Less busywork, more room for bigger things. Human-centered workflow help for small-business owners, managers and their teams. You keep the decisions.";
 export const metadata:Metadata={
   metadataBase:new URL("https://makingcuepa.com"),
   title,description,

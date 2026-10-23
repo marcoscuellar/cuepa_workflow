@@ -10,12 +10,17 @@ import Testimonial from "./Testimonial";
 import Trust from "./Trust";
 import Conversation from "./Conversation";
 import Logo from "./Logo";
+import RoomWorth from "./RoomWorth";
+import NextLines from "./NextLines";
 
 export default function Home(){return <main>
   <Nav/>
 
   {/* Act 1 — Hero (football) + Act 2 — Reality (dark stats): both in AnimatedIntro */}
   <AnimatedIntro/>
+
+  {/* "How much time and money is this costing us?" — the manager's first question */}
+  <RoomWorth/>
 
   {/* Act 3 — Four turns */}
   <PracticeHeader/>
@@ -34,10 +39,13 @@ export default function Home(){return <main>
   <Trust/>
 
   {/* Act 6 — Ending: conversation + footer */}
+  {/* "I want to grow but I'm stuck" — where the room goes */}
+  <NextLines/>
+
   <Conversation/>
   <footer className="site-footer">
     <p className="wordmark"><Logo offering="for Work" lockup/></p>
-    <p>MAKING ROOM FOR BETTER WORK.</p>
+    <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
     <p>© 2026 CUEPA</p>
     <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company</p>
   </footer>

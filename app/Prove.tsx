@@ -44,8 +44,8 @@ export default function Prove(){return (
           <div className="rm-plat" style={{top:30}}>
             <div className="rm-map-chrome">
               <span className="rm-dots"><i/><i/><i/></span>
-              <span className="rm-pill">cuepa · room report</span>
-              <span className="rm-draft">● VERIFIED</span>
+              <span className="rm-pill">cuepa · sample room report</span>
+              <span className="rm-draft">● SAMPLE</span>
             </div>
             <div className="rm-plat-body">
               <h4>Your room, before → after</h4>

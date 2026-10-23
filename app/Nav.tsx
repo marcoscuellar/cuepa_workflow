@@ -5,10 +5,10 @@ import {motion} from "motion/react";
 import Logo from "./Logo";
 
 const items=[
-  {key:"room",label:"Making Room",href:"#top",sections:["top","reality"]},
+  {key:"room",label:"Making Room",href:"#top",sections:["top","reality","worth"]},
   {key:"how",label:"How it works",href:"#find",sections:["find","flow","prove","grow"]},
   {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]},
-  {key:"trust",label:"Trust",href:"#trust",sections:["trust","conversation"]}
+  {key:"trust",label:"Trust",href:"#trust",sections:["trust","next","conversation"]}
 ];
 
 export default function Nav(){
