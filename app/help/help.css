@@ -1,0 +1,61 @@
+/* Help pages — white page with black bands. Anton headlines, Inter body, one teal accent.
+   The nav reads the background behind it and switches to dark text over the white bands. */
+.help-band{padding:clamp(64px,7vw,112px) 0;font-family:'Inter',Arial,sans-serif}
+.help-band.light{background:#fff;color:#030303}
+.help-band.dark{background:#030303;color:#fff}
+.help-band.first{padding-top:calc(92px + clamp(40px,5vw,80px))}
+.help-band .eyebrow{color:#08786f;margin:0 0 20px}
+.help-band.dark .eyebrow{color:#43cdbc}
+.help-band h1,.help-band h2{margin:0;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.02em;line-height:.94}
+.help-band h1{font-size:clamp(46px,5.6vw,92px)}
+.help-band h2{font-size:clamp(36px,4.2vw,64px);margin-bottom:28px}
+.help-dot{color:#2dd4bf}
+.help-band.light .help-dot{color:#08786f}
+.help-lead{margin:26px 0 0;max-width:560px;font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:rgba(3,3,3,.72)}
+
+.help-hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+.help-photo{margin:0;border-radius:6px;overflow:hidden;aspect-ratio:4/3.3}
+.help-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:55% 30%}
+
+.help-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(56px,6vw,96px)}
+.help-card{border-top:2px solid #030303;padding-top:22px}
+.help-card span{font:700 11px/1 'JetBrains Mono',monospace;letter-spacing:.16em;color:#08786f}
+.help-card h3{margin:14px 0 8px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:21px;letter-spacing:-.01em}
+.help-card p{margin:0;font-size:15px;line-height:1.6;color:rgba(3,3,3,.68)}
+
+.help-split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.help-panel{border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:30px;background:#0d0f12}
+.help-panel h3{margin:0 0 10px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:22px}
+.help-panel p{margin:0 0 14px;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.74)}
+.help-panel p:last-child{margin-bottom:0}
+.help-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.help-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid #030303;background:#030303;color:#fff;padding:16px 22px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:11px}
+.help-btn.ghost{background:transparent;color:#030303}
+.help-band.dark .help-btn{border-color:#fff;background:#fff;color:#030303}
+.help-band.dark .help-btn.ghost{background:transparent;color:#fff}
+
+.help-faq{border-top:1px solid rgba(3,3,3,.14)}
+.help-faq div{border-bottom:1px solid rgba(3,3,3,.14);padding:22px 0;display:grid;grid-template-columns:1fr 1.3fr;gap:24px}
+.help-faq b{font-size:17px;font-weight:600}
+.help-faq span{color:rgba(3,3,3,.7);line-height:1.6}
+
+.help-stuck{text-align:center}
+.help-stuck h2{margin-bottom:12px}
+.help-stuck p{margin:0 0 26px;color:rgba(255,255,255,.75)}
+.help-stuck .help-row{justify-content:center}
+
+/* How-to page */
+.help-narrow{width:min(980px,calc(100% - var(--gutter)*2));margin:auto}
+.help-video{margin-top:34px;border-radius:6px;overflow:hidden;background:#000;aspect-ratio:16/9;box-shadow:0 24px 60px rgba(3,3,3,.18)}
+.help-video video{display:block;width:100%;height:100%}
+.help-steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.help-steps li{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:start;border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:20px 22px;background:#0d0f12}
+.help-steps em{font-style:normal;font-family:'Inter',sans-serif;width:34px;height:34px;border-radius:50%;border:1.5px solid #43cdbc;color:#43cdbc;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.help-steps b{display:block;font-size:17px;font-weight:600}
+.help-steps span{color:rgba(255,255,255,.72);font-size:15px;line-height:1.55}
+.help-steps small{color:rgba(255,255,255,.5);font-size:13px;white-space:nowrap;padding-top:4px}
+.help-note{margin:18px 0 0;color:rgba(255,255,255,.72)}
+.help-band.light.help-stuck p{color:rgba(3,3,3,.7)}
+
+@media(max-width:900px){.help-hero,.help-split{grid-template-columns:1fr}.help-cards{grid-template-columns:1fr}.help-faq div{grid-template-columns:1fr;gap:6px}.help-photo{aspect-ratio:4/3}}
+@media(max-width:600px){.help-steps li{grid-template-columns:36px 1fr}.help-steps small{grid-column:2;padding:0}.help-panel{padding:24px}}

@@ -46,7 +46,7 @@ export default function Home(){return <main>
   <footer className="site-footer">
     <p className="wordmark"><Logo offering="for Work" lockup/></p>
     <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
-    <p>© 2026 CUEPA</p>
+    <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a></p>
     <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company</p>
   </footer>
 </main>}

@@ -8,11 +8,15 @@ const items=[
   {key:"room",label:"Making Room",href:"#top",sections:["top","reality","worth"]},
   {key:"how",label:"How it works",href:"#find",sections:["find","flow","prove","grow"]},
   {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]},
-  {key:"trust",label:"Trust",href:"#trust",sections:["trust","next","conversation"]}
+  {key:"trust",label:"Trust",href:"#trust",sections:["trust","next","conversation"]},
+  {key:"help",label:"Help",href:"/help",sections:[]}
 ];
 
-export default function Nav(){
-  const [active,setActive]=useState("room");
+// `current` is set on pages other than the home page (e.g. "help"): that tab
+// shows as active, and the section links point back to the home page.
+export default function Nav({current}:{current?:string}={}){
+  const link=(href:string)=>current&&href.startsWith("#")?`/${href}`:href;
+  const [active,setActive]=useState(current??"room");
   // true when the section behind the see-through menu is light.
   const [solid,setSolid]=useState(false);
   // Below 900px the tabs are hidden, so without this there is no way to reach
@@ -91,10 +95,10 @@ export default function Nav(){
 
   return (
     <><nav className={`nav-fixed ${solid&&!open?"on-light":""} ${open?"is-open":""}`}>
-      <a className="brand" href="#top" aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup dark={solid&&!open}/></a>
+      <a className="brand" href={link("#top")} aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup dark={solid&&!open}/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
-          <a key={it.key} href={it.href} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>
+          <a key={it.key} href={link(it.href)} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>
             {active===it.key && (
               <motion.span
                 layoutId="navpill"
@@ -118,7 +122,7 @@ export default function Nav(){
     </nav>
     <div id="nav-drawer" className={`nav-drawer ${open?"is-open":""}`} hidden={!open}>
       {items.map(it=>(
-        <a key={it.key} href={it.href} className={`nav-drawer-link ${active===it.key?"is-active":""}`}
+        <a key={it.key} href={link(it.href)} className={`nav-drawer-link ${active===it.key?"is-active":""}`}
            onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);setOpen(false);}}>
           {it.label}
         </a>
