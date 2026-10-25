@@ -7,7 +7,7 @@ export const metadata:Metadata={
   alternates:{canonical:"/"},
   icons:{icon:[{url:"/favicon.svg",type:"image/svg+xml"}],apple:"/apple-touch-icon.png"},
   openGraph:{type:"website",url:"/",siteName:"CUEPA for Work",title,description,
-    images:[{url:"/og.jpg",width:1200,height:630,alt:"A father walking onto the field toward his son at an evening football game, over the words Making Room For What Matters"}]},
+    images:[{url:"/og.jpg",width:1200,height:630,alt:"A small team planning together around a table in a bright studio, beside the words Make Room for What’s Next"}]},
   twitter:{card:"summary_large_image",title,description,images:["/og.jpg"]}
 };
 export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><head>
