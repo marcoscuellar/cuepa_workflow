@@ -11,7 +11,7 @@ export default function OwnerControl(){return (
         <div className="rrChrome">
           <span className="rrDots"><i/><i/><i/></span>
           <span className="rrUrl">cuepa · owner control</span>
-          <span className="rrBadge">● VERIFIED AGAINST BASELINE</span>
+          <span className="rrBadge">● SAMPLE · ILLUSTRATIVE NUMBERS</span>
         </div>
         <div className="rrBody">
           <div className="rrHead">

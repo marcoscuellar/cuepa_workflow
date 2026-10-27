@@ -2,7 +2,7 @@ import type {Metadata} from "next";import "./globals.css";import "./humans.css";
 const title="CUEPA for Work — Make Room for What's Next";
 const description="CUEPA for Work by ELIPAN GROUP. Less busywork, more room for bigger things. Human-centered workflow help for small-business owners, managers and their teams. You keep the decisions.";
 export const metadata:Metadata={
-  metadataBase:new URL("https://makingcuepa.com"),
+  metadataBase:new URL("https://www.makingcuepa.com"),
   title,description,
   alternates:{canonical:"/"},
   icons:{icon:[{url:"/favicon.svg",type:"image/svg+xml"}],apple:"/apple-touch-icon.png"},
