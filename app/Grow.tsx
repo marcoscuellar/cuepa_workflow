@@ -5,12 +5,12 @@ const beats:[string,string][]=[
 ];
 
 export default function Grow(){return (
-  <section className="rm" id="grow" style={{background:"#fff"}}>
+  <section className="rm" id="grow" >
     <div className="shell">
       <div className="rm-head">
         <div>
-          <p className="rm-eyebrow">04 — GROW</p>
-          <h2>THE ROOM BECOMES<br/>WHAT&rsquo;S NEXT.</h2>
+          <p className="rm-eyebrow"><span className="rm-step">04</span>Grow <span aria-hidden="true">↻</span></p>
+          <h2>The room becomes what&rsquo;s next.</h2>
         </div>
         <p>She&rsquo;s on a walk. The room she got back is why. <b>The line keeps looking</b> — surfacing what a busy human can&rsquo;t see, then asking. And then it curls back to FIND. ↻</p>
       </div>
@@ -19,14 +19,14 @@ export default function Grow(){return (
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE NEXT OPPORTUNITY</b></div>
+        <div className="rm-out"><span>Deliverable</span><b>The Next Opportunity</b><em>↻ Loops back into Find</em></div>
       </div>
 
       <div className="rm-body">
         <div className="rm-stage" style={{height:600}}>
           <svg className="rm-route" viewBox="0 0 1240 560" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M -60,330 C 200,310 480,340 720,318 C 900,302 1040,290 1092,340 C 1130,378 1112,448 1048,452 C 990,455 962,400 1006,368 C 1028,352 1060,352 1080,366" fill="none" stroke="#2DD4BF" strokeWidth={4.5} strokeLinecap="round"/>
-            <circle r={6} fill="#2DD4BF">
+            <path d="M -60,330 C 200,310 480,340 720,318 C 900,302 1040,290 1092,340 C 1130,378 1112,448 1048,452 C 990,455 962,400 1006,368 C 1028,352 1060,352 1080,366" fill="none" stroke="#0F766E" strokeWidth={4.5} strokeLinecap="round"/>
+            <circle r={6} fill="#0F766E">
               <animateMotion dur="7s" begin="1.2s" repeatCount="indefinite" path="M 1092,340 C 1130,378 1112,448 1048,452 C 990,455 962,400 1006,368 C 1028,352 1060,352 1080,366"/>
             </circle>
           </svg>

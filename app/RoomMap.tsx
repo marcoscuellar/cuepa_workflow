@@ -19,8 +19,8 @@ export default function RoomMap(){return (
     <div className="shell">
       <div className="rm-head">
         <div>
-          <p className="rm-eyebrow">01 — FIND</p>
-          <h2>WE LEARN THE WAY<br/>YOU MAKE ROOM.</h2>
+          <p className="rm-eyebrow"><span className="rm-step">01</span>Find</p>
+          <h2>We learn the way you make room.</h2>
         </div>
         <p>You keep meeting your clients. <b>We embed, listen, and map how work actually moves.</b> Nothing changes yet — the Room Map is drafted, and every call on it is yours.</p>
       </div>
@@ -29,13 +29,13 @@ export default function RoomMap(){return (
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE ROOM MAP</b></div>
+        <div className="rm-out"><span>Deliverable</span><b>The Room Map</b></div>
       </div>
 
       <div className="rm-body">
         <div className="rm-stage">
           <svg className="rm-route" viewBox="0 0 1240 690" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M -60,390 C 200,370 420,420 660,398 C 900,376 1080,388 1300,392" fill="none" stroke="#2DD4BF" strokeWidth={4.5} strokeLinecap="round"/>
+            <path d="M -60,390 C 200,370 420,420 660,398 C 900,376 1080,388 1300,392" fill="none" stroke="#0F766E" strokeWidth={4.5} strokeLinecap="round"/>
           </svg>
 
           <div className="rm-photo">
