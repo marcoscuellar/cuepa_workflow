@@ -59,7 +59,7 @@ export default function RoomMap(){return (
             <div className="rm-map-chrome">
               <span className="rm-dots"><i/><i/><i/></span>
               <span className="rm-pill">cuepa · room map</span>
-              <span className="rm-draft">DRAFT — FOR YOUR OK</span>
+              <span className="rm-draft">● Sample · Draft for review</span>
             </div>
             <div className="rm-map-body">
               <h3>How work moves — mapped.</h3>
