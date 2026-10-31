@@ -32,7 +32,7 @@ export default function Home(){return <main>
   {/* Act 4 — One screen (doorway tagline included at its end) */}
   <OwnerControl/>
 
-  {/* Real client testimonial — data proof → human proof → trust */}
+  {/* Room Stories — structured proof cards (real quotes; numbers only once measured) */}
   <Testimonial/>
 
   {/* Act 5 — Trust */}

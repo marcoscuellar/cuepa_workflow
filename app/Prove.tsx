@@ -9,8 +9,8 @@ export default function Prove(){return (
     <div className="shell">
       <div className="rm-head">
         <div>
-          <p className="rm-eyebrow">03 — PROVE</p>
-          <h2>WE DON&rsquo;T SAY IT WORKED.<br/>WE SHOW YOU.</h2>
+          <p className="rm-eyebrow"><span className="rm-step">03</span>Prove</p>
+          <h2 className="rm-callout">We don&rsquo;t say it worked.<br/>We show you.</h2>
         </div>
         <p>He&rsquo;s back at the bench — the room he got back went into the work he loves. <b>The Room Report holds the proof:</b> baseline before, evidence after, in his numbers.</p>
       </div>
@@ -19,13 +19,13 @@ export default function Prove(){return (
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE ROOM REPORT</b></div>
+        <div className="rm-out"><span>Deliverable</span><b>The Room Report</b></div>
       </div>
 
       <div className="rm-body">
         <div className="rm-stage" style={{height:690}}>
           <svg className="rm-route" viewBox="0 0 1240 690" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M -60,390 C 200,370 420,420 660,398 C 900,376 1080,388 1300,392" fill="none" stroke="#2DD4BF" strokeWidth={4.5} strokeLinecap="round"/>
+            <path d="M -60,390 C 200,370 420,420 660,398 C 900,376 1080,388 1300,392" fill="none" stroke="#0F766E" strokeWidth={4.5} strokeLinecap="round"/>
           </svg>
 
           <div className="rm-photo" style={{width:360,height:650}}>
@@ -56,7 +56,7 @@ export default function Prove(){return (
                 <div className="rm-barow"><span className="lbl">Invoice errors<span>caught before sending</span></span><span className="was">?</span><span>→</span><span className="now">17<small> caught</small></span></div>
               </div>
               <div className="rm-verified">
-                <span className="rm-vring"><svg viewBox="0 0 88 88"><circle cx="44" cy="44" r="38" stroke="#eceded" strokeWidth={7} fill="none"/><circle cx="44" cy="44" r="38" stroke="#2DD4BF" strokeWidth={7} fill="none" strokeLinecap="round" strokeDasharray="239" strokeDashoffset="10" transform="rotate(-90 44 44)"/></svg><span className="vt">✓</span></span>
+                <span className="rm-vring"><svg viewBox="0 0 88 88"><circle cx="44" cy="44" r="38" stroke="#eceded" strokeWidth={7} fill="none"/><circle cx="44" cy="44" r="38" stroke="#0F766E" strokeWidth={7} fill="none" strokeLinecap="round" strokeDasharray="239" strokeDashoffset="10" transform="rotate(-90 44 44)"/></svg><span className="vt">✓</span></span>
                 <p><b>Verified against baseline.</b> Every number ties to a measurement we took before we built anything.</p>
               </div>
               <div className="rm-foot">

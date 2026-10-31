@@ -5,12 +5,12 @@ const beats:[string,string][]=[
 ];
 
 export default function Flow(){return (
-  <section className="rm" id="flow" style={{background:"#fff"}}>
+  <section className="rm" id="flow" >
     <div className="shell">
       <div className="rm-head">
         <div>
-          <p className="rm-eyebrow">02 — FLOW</p>
-          <h2>THE NOISE RESOLVES.<br/>THE DAY GETS A SHAPE.</h2>
+          <p className="rm-eyebrow"><span className="rm-step">02</span>Flow</p>
+          <h2>The noise resolves. The day gets a shape.</h2>
         </div>
         <p>A Tuesday, already sorted. <b>The day starts with what matters</b> — while he&rsquo;s in the stands with his son. The line does the sorting. He keeps the say.</p>
       </div>
@@ -19,13 +19,13 @@ export default function Flow(){return (
         {beats.map(([label,body])=>(
           <article key={label}><b>{label}</b><p>{body}</p></article>
         ))}
-        <div className="rm-out"><span>YOU WALK AWAY WITH</span><b>THE WORKING SYSTEM</b></div>
+        <div className="rm-out"><span>Deliverable</span><b>The Working System</b></div>
       </div>
 
       <div className="rm-body">
         <div className="rm-stage" style={{height:700}}>
           <svg className="rm-route" viewBox="0 0 1240 700" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M -60,390 C 200,370 420,420 660,398 C 900,376 1080,388 1300,392" fill="none" stroke="#2DD4BF" strokeWidth={4.5} strokeLinecap="round"/>
+            <path d="M -60,390 C 200,370 420,420 660,398 C 900,376 1080,388 1300,392" fill="none" stroke="#0F766E" strokeWidth={4.5} strokeLinecap="round"/>
           </svg>
 
           <div className="rm-photo" style={{width:360,height:660}}>
