@@ -9,27 +9,58 @@
 .rw-inputs{display:flex;flex-direction:column;gap:34px}
 .rw-field-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:12px}
 .rw-field label{font-family:Inter,sans-serif;font-weight:600;font-size:16px;color:#030303}
-.rw-field output{font-family:'Archivo Black',sans-serif;font-size:22px;color:#030303;white-space:nowrap}
+.rw-field output{font-family:Inter,sans-serif;font-weight:700;font-size:22px;color:#030303;white-space:nowrap}
 .rw-field small{display:block;margin-top:8px;font-family:Inter,sans-serif;font-size:14px;color:#4b5563}
 .rw-field input[type=range]{width:100%;accent-color:#0F766E;height:28px;cursor:pointer}
 .rw-field input[type=range]:focus-visible{outline:2px solid #0F766E;outline-offset:4px;border-radius:4px}
 
 .rw-result{background:#030303;color:#fff;border-radius:20px;padding:36px 36px 30px}
-.rw-k{margin:0 0 18px;font-family:Inter,sans-serif;font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#2DD4BF}
+.rw-k{margin:0 0 18px;font-family:Inter,sans-serif;font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#FFFFFF}
 .rw-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-bottom:1px solid #ffffff26;padding-bottom:24px}
 .rw-nums div{display:flex;flex-direction:column;gap:6px;min-width:0}
 .rw-nums strong{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(30px,3.2vw,48px);line-height:1;letter-spacing:-.01em;overflow-wrap:anywhere}
 .rw-nums span{font-family:Inter,sans-serif;font-size:14px;color:#d1d5db}
-.rw-money strong{color:#2DD4BF}
+.rw-money strong{color:#FFFFFF}
 .rw-that{margin:22px 0 14px;font-family:Inter,sans-serif;font-size:19px;font-weight:700}
 .rw-steps{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:12px}
-.rw-steps li{display:flex;flex-direction:column;gap:2px;padding-left:16px;border-left:3px solid #2DD4BF}
+.rw-steps li{display:flex;flex-direction:column;gap:2px;padding-left:16px;border-left:3px solid #0F766E}
 .rw-steps b{font-family:Inter,sans-serif;font-size:15px}
 .rw-steps span{font-family:Inter,sans-serif;font-size:15px;color:#d1d5db;line-height:1.45}
-.rw-cta{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 24px;border-radius:999px;background:#fff;color:#030303;font-family:Inter,sans-serif;font-weight:700;font-size:15px;text-decoration:none}
-.rw-cta:hover{background:#2DD4BF}
-.rw-cta:focus-visible{outline:2px solid #2DD4BF;outline-offset:3px}
+.rw-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;border:0;border-radius:8px;background:#0F766E;color:#fff;font-family:Inter,sans-serif;font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;transition:background-color .15s}
+.rw-cta:hover{background:#0B5F58}
+.rw-cta:focus-visible{outline:3px solid #FFFFFF;outline-offset:3px}
 .rw-fine{margin:16px 0 0;font-family:Inter,sans-serif;font-size:13px;color:#9ca3af}
+/* Progressive gate: Room Estimate PDF */
+.rw-gate{display:grid;gap:10px;margin:4px 0 0;padding:22px;border-radius:14px;background:#0B0B0B;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);font-family:Inter,sans-serif}
+.rw-gate-h{margin:0 0 6px;font-size:18px;font-weight:600;color:#fff;display:flex;align-items:center;gap:10px}
+.rw-gate-h span{font-size:11px;font-weight:700;letter-spacing:.14em;color:#fff;background:#0F766E;border-radius:6px;padding:4px 8px}
+.rw-gate-label{font-size:14px;font-weight:600;color:#fff}
+.rw-gate-input{width:100%;min-height:48px;padding:0 14px;border:1.5px solid #8A8A8A;border-radius:8px;background:#fff;color:#030303;font:500 16px Inter,sans-serif}
+.rw-gate-input::placeholder{color:#6B6B6B}
+.rw-gate-input:focus-visible{outline:3px solid #fff;outline-offset:2px;border-color:#0F766E}
+.rw-gate-input[aria-invalid="true"]{border-color:#E5484D}
+.rw-gate-err{margin:0;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#fff}
+.rw-gate-err span{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#E5484D;color:#fff;font-size:12px;font-weight:800}
+.rw-tools{border:0;margin:8px 0 0;padding:0;display:grid;gap:10px;min-width:0}
+.rw-tools legend{padding:0;margin-bottom:10px;font-size:14px;font-weight:600;color:#fff}
+.rw-tools legend small{font-weight:400;color:#d1d5db;font-size:13px}
+.rw-chips{display:flex;flex-wrap:wrap;gap:8px}
+.rw-chip{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:8px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);color:#fff;font-size:14px;font-weight:500;cursor:pointer;transition:background-color .15s}
+.rw-chip:hover{background:rgba(255,255,255,.14)}
+.rw-chip input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.rw-chip:has(input:focus-visible){outline:3px solid #fff;outline-offset:2px}
+.rw-tick{display:none;font-weight:800}
+.rw-chip.is-on{background:#0F766E;box-shadow:none}
+.rw-chip.is-on .rw-tick{display:inline}
+.rw-other-l{margin-top:4px}
+.rw-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.rw-gate .rw-cta{margin-top:10px;width:100%}
+.rw-gate-sub{margin:0;font-size:13px;color:#d1d5db}
+.rw-gate-ok{margin:4px 0 0;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#fff}
+.rw-gate-ok span{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#0F766E;color:#fff;font-size:11px}
+.rw-alt{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:10px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#fff;text-decoration:underline;text-underline-offset:4px}
+.rw-alt:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){.rw-chip,.rw-cta{transition:none}}
 
 /* WHAT'S NEXT */
 .nx{background:#F4F5F5;color:#030303;padding:100px 0 110px}
@@ -40,7 +71,7 @@
 .nx-list li:nth-child(odd){padding-right:28px}
 .nx-list span{color:#4b5563}
 .nx-list b{color:#030303}
-.nx-close{margin:44px 0 0;font-family:'Archivo Black',sans-serif;font-size:clamp(24px,2.4vw,36px);color:#0F766E}
+.nx-close{margin:44px 0 0;font-family:Inter,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,36px);color:#0F766E}
 
 @media (max-width:900px){
   .rw,.nx{padding:72px 0 80px}
