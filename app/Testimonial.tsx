@@ -15,21 +15,21 @@ type Story = {
 const stories: Story[] = [
   {
     trade: "Small business",
-    focus: "Getting started with AI",
+    focus: "Practical AI & Tool Onboarding",
     engagement: "Verified client",
     quote: "He didn’t make us feel incompetent. He knew AI very well, gave us a quick demo and was prompt with following up. His demo was exactly what I had been hoping to do but had no idea where to start.",
     who: "Small business owner"
   },
   {
     trade: "Small business",
-    focus: "Workflow & team communications",
+    focus: "Operational Clarity & Team Alignment",
     engagement: "Verified client",
     quote: "He’s a straight shooter. He won’t shy away from what’s needed.",
     who: "Small business owner"
   },
   {
     trade: "Nonprofit",
-    focus: "Time-saving workflows",
+    focus: "Process Modernization & Capacity Relief",
     engagement: "Verified client",
     quote: "When I heard Marcos say ‘because we have always done it’ is what lets your competition eat your lunch, I knew he meant business. He came up with some great time-saving capabilities.",
     who: "Nonprofit director"
