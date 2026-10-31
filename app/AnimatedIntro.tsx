@@ -60,8 +60,16 @@ export default function AnimatedIntro(){
       <div className="scrim"/>
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
-          <div className="hero2-note-top"><span className="av2"/><b>CUEPA</b><i>6:15 PM</i><em>DONE</em></div>
-          <p>Email from Robert: &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo; Your schedule was open, so I confirmed by email.</p>
+          <div className="hero2-note-top">
+            <svg className="hero2-note-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#fff"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+            <b>CUEPA</b><i>6:15 PM</i>
+            <em><span className="hero2-dot" aria-hidden/>Handled</em>
+          </div>
+          <p><strong>Email from Robert:</strong> &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo;</p>
+          <p className="hero2-note-done">
+            <span className="hero2-check" aria-hidden><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+            Your schedule was open, so I confirmed by email.
+          </p>
         </motion.div>
         <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
         <h1 aria-label="Make room for what's next.">
@@ -70,7 +78,14 @@ export default function AnimatedIntro(){
           <motion.span style={{display:"block"}} variants={heroChild}><span className="hero2-accent">NEXT.</span></motion.span>
         </h1>
         <motion.p className="lede2" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA for Work takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
-        <motion.a href="#conversation" className="cta2" variants={heroChild}>Start a Room Conversation <span aria-hidden style={{fontSize:18}}>↘</span></motion.a>
+        <motion.div className="cta2-group" variants={heroChild}>
+          <a href="#conversation" className="cta2">
+            <span className="cta2-long">Book a 20-Minute Room Conversation</span>
+            <span className="cta2-short">Book a 20-Min Conversation</span>
+            <span aria-hidden>↘</span>
+          </a>
+          <p className="cta2-sub">A real person, 20 minutes, no pitch. We look at where your time goes.</p>
+        </motion.div>
       </motion.div>
       <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
     </section>

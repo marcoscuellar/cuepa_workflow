@@ -5,7 +5,7 @@ import {motion} from "motion/react";
 import Logo from "./Logo";
 
 const items=[
-  {key:"room",label:"Making Room",href:"#top",sections:["top","reality","worth"]},
+  {key:"room",label:"Making room",href:"#top",sections:["top","reality","worth"]},
   {key:"how",label:"How it works",href:"#find",sections:["find","flow","prove","grow"]},
   {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]},
   {key:"trust",label:"Trust",href:"#trust",sections:["trust","next","conversation"]},
@@ -17,8 +17,6 @@ const items=[
 export default function Nav({current}:{current?:string}={}){
   const link=(href:string)=>current&&href.startsWith("#")?`/${href}`:href;
   const [active,setActive]=useState(current??"room");
-  // true when the section behind the see-through menu is light.
-  const [solid,setSolid]=useState(false);
   // Below 900px the tabs are hidden, so without this there is no way to reach
   // any section from a phone.
   const [open,setOpen]=useState(false);
@@ -35,36 +33,6 @@ export default function Nav({current}:{current?:string}={}){
     window.addEventListener("keydown",onKey);
     return ()=>{document.body.style.overflow=prev;window.removeEventListener("keydown",onKey);};
   },[open]);
-
-  // The menu is always see-through. To stay readable it checks what is
-  // behind it and flips to dark text over light sections.
-  useEffect(()=>{
-    const nav=document.querySelector(".nav-fixed");
-    let raf=0;
-    const lum=(c:string)=>{
-      const m=c.match(/rgba?\(([^)]+)\)/);if(!m) return null;
-      const [r,g,b,a=1]=m[1].split(",").map(Number);
-      if(a<.5) return null;
-      return (0.2126*r+0.7152*g+0.0722*b)/255;
-    };
-    const check=()=>{
-      raf=0;
-      const stack=document.elementsFromPoint(window.innerWidth/2,46);
-      let light=false;
-      for(const el of stack){
-        if(nav&&nav.contains(el)) continue;
-        if(el.tagName==="IMG"||el.tagName==="VIDEO") break;
-        const l=lum(getComputedStyle(el).backgroundColor);
-        if(l!==null){light=l>.6;break;}
-      }
-      setSolid(light);
-    };
-    const onScroll=()=>{if(!raf) raf=requestAnimationFrame(check);};
-    check();
-    window.addEventListener("scroll",onScroll,{passive:true});
-    window.addEventListener("resize",onScroll);
-    return ()=>{window.removeEventListener("scroll",onScroll);window.removeEventListener("resize",onScroll);if(raf) cancelAnimationFrame(raf);};
-  },[]);
 
   useEffect(()=>{
     const sectionToKey:Record<string,string>={};
@@ -94,8 +62,8 @@ export default function Nav({current}:{current?:string}={}){
   },[]);
 
   return (
-    <><nav className={`nav-fixed ${solid&&!open?"on-light":""} ${open?"is-open":""}`}>
-      <a className="brand" href={link("#top")} aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup dark={solid&&!open}/></a>
+    <><nav className={`nav-fixed ${open?"is-open":""}`}>
+      <a className="brand" href={link("#top")} aria-label="CUEPA for Work by ELIPAN GROUP"><Logo offering="for Work" lockup dark/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
           <a key={it.key} href={link(it.href)} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>
@@ -110,7 +78,7 @@ export default function Nav({current}:{current?:string}={}){
           </a>
         ))}
       </div>
-      <a href="/contact" className="nav-cta">Let&rsquo;s make room <span aria-hidden>↗</span></a>
+      <a href="/contact" className="nav-cta">Book a 20-Min Conversation</a>
       <button
         type="button"
         className={`nav-burger ${open?"is-open":""}`}
@@ -127,7 +95,7 @@ export default function Nav({current}:{current?:string}={}){
           {it.label}
         </a>
       ))}
-      <a href="/contact" className="nav-drawer-cta" onClick={()=>setOpen(false)}>Let&rsquo;s make room <span aria-hidden>↗</span></a>
+      <a href="/contact" className="nav-drawer-cta" onClick={()=>setOpen(false)}>Book a 20-Min Conversation</a>
     </div></>
   );
 }
