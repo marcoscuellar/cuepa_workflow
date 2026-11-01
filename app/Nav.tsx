@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 const items=[
   {key:"room",label:"Making room",href:"#top",sections:["top","reality","worth"]},
-  {key:"how",label:"How it works",href:"#find",sections:["find","flow","prove","grow"]},
+  {key:"how",label:"How it works",href:"#method",sections:["method","find","flow","prove","grow"]},
   {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]},
   {key:"trust",label:"Trust",href:"#trust",sections:["trust","next","conversation"]},
   {key:"help",label:"Help",href:"/help",sections:[]}
