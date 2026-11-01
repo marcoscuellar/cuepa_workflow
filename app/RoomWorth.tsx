@@ -16,8 +16,8 @@ const fields:Field[]=[
   {key:"rate",label:"What an hour costs you",help:"Pay plus overhead. A rough number is fine.",min:15,max:150,step:5,format:v=>`$${v}`}
 ];
 
-// Common small-business tools. "Other" lets people name anything else.
-const TOOLS=["Google Workspace","Microsoft 365","QuickBooks","Square","HubSpot","Calendly","Salesforce","Excel / Sheets"];
+// Core SMB workflow stack. "Other" lets people name anything else.
+const TOOLS=["Google Workspace","QuickBooks","Xero","Stripe","PandaDoc","HubSpot","Notion","Asana / ClickUp"];
 const EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const money=new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0});
@@ -111,7 +111,7 @@ export default function RoomWorth(){
                 aria-invalid={status==="error"} aria-describedby={status==="error"?`${id}-err`:undefined} placeholder="you@yourbusiness.com"/>
               {status==="error" && <p className="rw-gate-err" id={`${id}-err`} role="alert"><span aria-hidden="true">!</span>Please add a valid work email.</p>}
               <fieldset className="rw-tools">
-                <legend>Tools you use <small>(optional)</small></legend>
+                <legend>Your tool stack <small>(optional)</small></legend>
                 <div className="rw-chips">
                   {TOOLS.map(t=>(
                     <label key={t} className={`rw-chip ${tools.includes(t)?"is-on":""}`}>
@@ -121,11 +121,11 @@ export default function RoomWorth(){
                   ))}
                 </div>
                 <label className="rw-gate-label rw-other-l" htmlFor={`${id}-other`}>Other tools</label>
-                <input id={`${id}-other`} className="rw-gate-input" type="text" value={other} onChange={e=>setOther(e.target.value)} placeholder="e.g. Jobber, Dentrix"/>
+                <input id={`${id}-other`} className="rw-gate-input" type="text" value={other} onChange={e=>setOther(e.target.value)} placeholder="e.g. Jobber, Gmail, Calendly"/>
               </fieldset>
               <input className="rw-hp" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={company} onChange={e=>setCompany(e.target.value)} name="company"/>
               <button type="submit" className="rw-cta">Download your Room Estimate <span aria-hidden>↓</span></button>
-              <p className="rw-gate-sub">Your estimate, not a quote. It downloads right away.</p>
+              <p className="rw-gate-sub">Operational baseline · draft for review. It downloads right away.</p>
               {status==="done" && <p className="rw-gate-ok" role="status"><span aria-hidden="true">✓</span>Your Room Estimate is downloading.</p>}
             </form>
             <a href="#conversation" className="rw-alt">Or book a 20-Minute Room Conversation <span aria-hidden>→</span></a>
