@@ -128,7 +128,8 @@ export default function HowItWorksDeck() {
   const {scrollYProgress} = useScroll({target: deck, offset: ["start start", "end end"]});
   return (
     <section aria-label="The four turns" className="relative w-full bg-[#030303] text-[#F4F5F5] py-24 md:py-36 px-4 sm:px-6 lg:px-8 selection:bg-[#2DD4BF] selection:text-black">
-      {/* Sticky deck: each card pins 112px from the top (clears the 92px fixed nav), offset 16px per card so the stack shows. */}
+      {/* Sticky deck (desktop, screens 820px+ tall): each card pins 112px from the top (clears the 92px fixed nav), offset 16px per card.
+          On phones and short screens a card is taller than the view, so the cards scroll normally there. */}
       <ol ref={deck} className="max-w-7xl mx-auto flex flex-col gap-24 relative list-none m-0 p-0">
         {turns.map((step, index) => (
           <DeckCard key={step.number} index={index} total={turns.length} progress={scrollYProgress}>
@@ -214,7 +215,7 @@ function DeckCard({index, total, progress, children}: {index: number; total: num
   // Card i starts shrinking when its own turn in the scroll begins; earlier cards end smaller (stacked further back).
   const scale = useTransform(progress, [index / total, 1], [1, reduce ? 1 : 1 - (total - 1 - index) * 0.04]);
   return (
-    <li className="sticky" style={{top: `calc(112px + ${index * 16}px)`, zIndex: index + 10}}>
+    <li className="hw-deck-card lg:sticky" style={{top: `calc(112px + ${index * 16}px)`, zIndex: index + 10}}>
       <motion.div
         style={{scale, transformOrigin: "top center"}}
         className="rounded-3xl border border-neutral-800 bg-[#0B0F0F] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden"
