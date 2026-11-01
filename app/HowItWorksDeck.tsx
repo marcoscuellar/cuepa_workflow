@@ -35,8 +35,8 @@ const turns: TurnStep[] = [
     imageSrc: "/contact-team.jpg",
     imageAlt: "Small studio team planning workflows together",
     floatingNotifications: [
-      {tag: "LISTENED", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "Sat with all 6 of your people. Wrote down how the work really moves — in their words."},
-      {tag: "MAPPED", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "Your Room Map is drafted: 3 builds recommended, 2 things stay human, 1 protected."}
+      {tag: "LISTENED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Sat with all 6 of your people. Wrote down how the work really moves — in their words."},
+      {tag: "MAPPED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Your Room Map is drafted: 3 builds recommended, 2 things stay human, 1 protected."}
     ],
     deliverableCard: {
       header: "How work moves — mapped.",
@@ -59,9 +59,9 @@ const turns: TurnStep[] = [
     imageSrc: "/flow-cubs-game.jpg",
     imageAlt: "Father and son cheering at Wrigley Field in Cubs jerseys",
     floatingNotifications: [
-      {tag: "CAUGHT", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "Two emails from client came in. Replies drafted from your verified templates."},
-      {tag: "CONFIRMED", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "Robert asked to push meeting to 3pm. Schedule was open — confirmed."},
-      {tag: "QUEUED", tagColor: "text-[#E3A33B] border-[#E3A33B]/30", body: "Invoice #1048 nudged politely. Third late one this month — flagged for review."}
+      {tag: "CAUGHT", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Two emails from client came in. Replies drafted from your verified templates."},
+      {tag: "CONFIRMED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Robert asked to push meeting to 3pm. Schedule was open — confirmed."},
+      {tag: "QUEUED", tagColor: "text-[#9A6B00] bg-[#9A6B00]/10", body: "Invoice #1048 nudged politely. Third late one this month — flagged for review."}
     ],
     deliverableCard: {
       header: "Good morning, Marcos.",
@@ -84,8 +84,8 @@ const turns: TurnStep[] = [
     imageSrc: "/prove-workbench.jpg",
     imageAlt: "Craftsman focused on detailed work at bench beside window",
     floatingNotifications: [
-      {tag: "DONE", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "Your 4pm moved to tomorrow — notes sent, client covered. Clear for the night."},
-      {tag: "REPORTED", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "11.5 hours verified back this week. Most of it after 6:00 PM. That was the point."}
+      {tag: "DONE", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Your 4pm moved to tomorrow — notes sent, client covered. Clear for the night."},
+      {tag: "REPORTED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "11.5 hours verified back this week. Most of it after 6:00 PM. That was the point."}
     ],
     deliverableCard: {
       header: "Your room, before → after",
@@ -107,8 +107,8 @@ const turns: TurnStep[] = [
     imageSrc: "/trust-woman-evening.jpg",
     imageAlt: "Woman smiling, walking her dog outside in evening light",
     floatingNotifications: [
-      {tag: "FOUND • UNBILLED", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "Found $3,180 across 4 clients, back 62 days. Drafted for your approval."},
-      {tag: "WARM WIN-BACK", tagColor: "text-[#2DD4BF] border-[#2DD4BF]/30", body: "92 days since regular client ordered. Note drafted based on past orders."}
+      {tag: "FOUND • UNBILLED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Found $3,180 across 4 clients, back 62 days. Drafted for your approval."},
+      {tag: "WARM WIN-BACK", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "92 days since regular client ordered. Note drafted based on past orders."}
     ],
     deliverableCard: {
       header: "Capacity reinvested.",
@@ -127,69 +127,69 @@ export default function HowItWorksDeck() {
   const deck = useRef<HTMLOListElement>(null);
   const {scrollYProgress} = useScroll({target: deck, offset: ["start start", "end end"]});
   return (
-    <section aria-label="The four turns" className="relative w-full bg-[#030303] text-[#F4F5F5] py-24 md:py-36 px-4 sm:px-6 lg:px-8 selection:bg-[#2DD4BF] selection:text-black">
+    <section aria-label="The four turns" className="relative w-full bg-white text-[#111827] py-24 md:py-36 px-4 sm:px-6 lg:px-8 selection:bg-[#0F766E] selection:text-white">
       {/* Sticky deck (desktop, screens 820px+ tall): each card pins 112px from the top (clears the 92px fixed nav), offset 16px per card.
           On phones and short screens a card is taller than the view, so the cards scroll normally there. */}
       <ol ref={deck} className="max-w-7xl mx-auto flex flex-col gap-24 relative list-none m-0 p-0">
         {turns.map((step, index) => (
           <DeckCard key={step.number} index={index} total={turns.length} progress={scrollYProgress}>
             {/* Top step meta rail */}
-            <div className="px-6 sm:px-10 py-5 bg-[#070A0A] border-b border-neutral-800/80 flex flex-wrap items-center justify-between gap-4">
+            <div className="px-6 sm:px-10 py-5 bg-white shadow-[inset_0_-1px_0_#E4E4E4] flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <span className="text-2xl sm:text-3xl font-mono font-bold text-[#2DD4BF]">{step.number}</span>
-                <span className="h-4 w-px bg-neutral-800" aria-hidden="true"/>
-                <h3 className="m-0 text-xl sm:text-2xl font-black uppercase tracking-wider text-white">{step.verb}</h3>
+                <span className="text-2xl sm:text-3xl font-mono font-bold text-[#0F766E]">{step.number}</span>
+                <span className="h-4 w-px bg-[#E4E4E4]" aria-hidden="true"/>
+                <h3 className="m-0 text-xl sm:text-2xl font-black uppercase tracking-wider text-[#030303]">{step.verb}</h3>
               </div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#131919] border border-neutral-700/60 text-xs font-mono uppercase tracking-wider text-neutral-300">
-                <span className="w-2 h-2 rounded-full bg-[#2DD4BF]" aria-hidden="true"/>
-                Deliverable: <strong className="text-white">{step.deliverable}</strong>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F766E]/10 text-xs font-mono uppercase tracking-wider text-[#0F766E]">
+                <span className="w-2 h-2 rounded-full bg-[#0F766E]" aria-hidden="true"/>
+                Deliverable: <strong className="text-[#030303]">{step.deliverable}</strong>
               </div>
             </div>
 
             {/* Body: 50/50 split */}
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[580px]">
               {/* Left: full-height photo with floating notifications */}
-              <div className="relative min-h-[420px] lg:min-h-full overflow-hidden bg-neutral-950">
+              <div className="relative min-h-[420px] lg:min-h-full overflow-hidden bg-[#E4E4E4]">
                 <img
                   src={step.imageSrc}
                   alt={step.imageAlt}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full max-w-none object-cover object-center brightness-[0.78] contrast-[1.05]"
+                  className="absolute inset-0 w-full h-full max-w-none object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20 lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-[#0B0F0F]" aria-hidden="true"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" aria-hidden="true"/>
                 <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-12 flex flex-col gap-3.5 z-10">
                   {step.floatingNotifications.map((notif, nIdx) => (
-                    <div key={nIdx} className="backdrop-blur-xl bg-black/75 border border-white/10 rounded-2xl p-4 shadow-2xl max-w-lg">
+                    <div key={nIdx} className="backdrop-blur-xl bg-white/90 rounded-2xl p-4 shadow-[0_2px_4px_rgba(3,3,3,0.08),0_12px_28px_rgba(3,3,3,0.18)] max-w-lg">
                       <div className="flex items-center justify-between gap-3 mb-1.5">
-                        <span className={`text-[10px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded border ${notif.tagColor}`}>{notif.tag}</span>
-                        <span className="text-[11px] font-mono text-neutral-400">CUEPA • ACTIVE</span>
+                        <span className={`text-[10px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded ${notif.tagColor}`}>{notif.tag}</span>
+                        <span className="text-[11px] font-mono text-[#5E5E5E]">CUEPA • ACTIVE</span>
                       </div>
-                      <p className="m-0 text-sm font-medium text-neutral-200 leading-snug">{notif.body}</p>
+                      <p className="m-0 text-sm font-medium text-[#111827] leading-snug">{notif.body}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Right: the turn and its deliverable */}
-              <div className="p-6 sm:p-10 flex flex-col justify-between bg-[#0B0F0F] min-w-0">
+              <div className="p-6 sm:p-10 flex flex-col justify-between bg-white min-w-0">
                 <div>
-                  <p className="m-0 text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">{step.headline}</p>
-                  <p className="m-0 text-sm sm:text-base text-neutral-400 mt-3 font-normal leading-relaxed">{step.subtext}</p>
+                  <p className="m-0 text-2xl sm:text-3xl font-bold tracking-tight text-[#030303] leading-tight">{step.headline}</p>
+                  <p className="m-0 text-sm sm:text-base text-[#5E5E5E] mt-3 font-normal leading-relaxed">{step.subtext}</p>
 
-                  <div className="mt-8 rounded-2xl bg-[#121818] border border-neutral-800 p-5 shadow-inner">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-800/80 pb-3 mb-4">
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-white">{step.deliverableCard.header}</span>
-                      <span className="text-[10px] font-mono text-[#2DD4BF] bg-[#2DD4BF]/10 px-2 py-0.5 rounded">{step.deliverableCard.badge}</span>
+                  <div className="mt-8 rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(3,3,3,0.06),0_4px_12px_rgba(3,3,3,0.06)]">
+                    <div className="flex flex-wrap items-center justify-between gap-2 shadow-[inset_0_-1px_0_#E4E4E4] pb-3 mb-4">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#030303]">{step.deliverableCard.header}</span>
+                      <span className="text-[10px] font-mono text-[#0F766E] bg-[#0F766E]/10 px-2 py-0.5 rounded">{step.deliverableCard.badge}</span>
                     </div>
                     <div className="space-y-3">
                       {step.deliverableCard.rows.map((row, rIdx) => (
-                        <div key={rIdx} className="flex items-center justify-between gap-3 text-xs py-1.5 border-b border-neutral-800/40 last:border-0">
+                        <div key={rIdx} className="flex items-center justify-between gap-3 text-xs py-1.5 border-b border-[#F0F0F0] last:border-0">
                           <div className="min-w-0">
-                            <p className="m-0 font-semibold text-neutral-200">{row.label}</p>
-                            <p className="m-0 text-[11px] text-neutral-400">{row.value}</p>
+                            <p className="m-0 font-semibold text-[#030303]">{row.label}</p>
+                            <p className="m-0 text-[11px] text-[#5E5E5E]">{row.value}</p>
                           </div>
                           {row.action && (
-                            <span className="shrink-0 font-mono text-[10px] font-bold text-neutral-300 bg-black/60 border border-neutral-700 px-2 py-1 rounded">{row.action}</span>
+                            <span className="shrink-0 font-mono text-[10px] font-bold text-[#0F766E] bg-[#0F766E]/10 px-2 py-1 rounded">{row.action}</span>
                           )}
                         </div>
                       ))}
@@ -197,9 +197,9 @@ export default function HowItWorksDeck() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-5 border-t border-neutral-800/80 flex items-center justify-between gap-4">
-                  <p className="m-0 text-xs text-neutral-400 font-mono">{step.deliverableCard.footerNotice}</p>
-                  <span className="shrink-0 text-sm font-bold text-[#2DD4BF] flex items-center gap-1">Inspect <span aria-hidden="true">→</span></span>
+                <div className="mt-8 pt-5 shadow-[inset_0_1px_0_#E4E4E4] flex items-center justify-between gap-4">
+                  <p className="m-0 text-xs text-[#5E5E5E] font-mono">{step.deliverableCard.footerNotice}</p>
+                  <span className="shrink-0 text-sm font-bold text-[#0F766E] flex items-center gap-1">Inspect <span aria-hidden="true">→</span></span>
                 </div>
               </div>
             </div>
@@ -218,7 +218,7 @@ function DeckCard({index, total, progress, children}: {index: number; total: num
     <li className="hw-deck-card lg:sticky" style={{top: `calc(112px + ${index * 16}px)`, zIndex: index + 10}}>
       <motion.div
         style={{scale, transformOrigin: "top center"}}
-        className="rounded-3xl border border-neutral-800 bg-[#0B0F0F] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden"
+        className="rounded-3xl bg-white shadow-[0_2px_4px_rgba(3,3,3,0.06),0_-4px_16px_rgba(3,3,3,0.05),0_24px_48px_rgba(3,3,3,0.12)] overflow-hidden"
       >
         {children}
       </motion.div>
