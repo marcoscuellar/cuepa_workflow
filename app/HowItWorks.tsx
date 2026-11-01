@@ -7,22 +7,29 @@ import {useState} from "react";
 // Locked: step names, order and deliverables. Examples are plain small-business
 // friction with no numbers (Brand Book honesty rule).
 
-type Turn = {n: string; name: string; loop?: boolean; steps: [string, string][]; gets: string};
+// Each turn leads with a real person (Human foreground. Intelligence background.).
+// Same photos as the four story sections below, so the overview and the stories connect.
+type Turn = {n: string; name: string; loop?: boolean; steps: [string, string][]; gets: string;
+  photo: string; alt: string; caption: string; pos?: string};
 
 const turns: Turn[] = [
-  {n: "01", name: "FIND", gets: "The Room Map", steps: [
+  {n: "01", name: "FIND", gets: "The Room Map",
+    photo: "/find-couple-kitchen.jpg", alt: "A couple cooking together in their kitchen", caption: "We listen. You keep your day.", pos: "60% 40%", steps: [
     ["Listen", "What’s your week actually like?"],
     ["Investigate", "Map how the work really moves."],
     ["Challenge", "What’s unnecessary, broken or missing?"]
   ]},
-  {n: "02", name: "FLOW", gets: "The Working System", steps: [
+  {n: "02", name: "FLOW", gets: "The Working System",
+    photo: "/flow-cubs-game.jpg", alt: "A father and son cheering at a ballgame", caption: "In the stands with his son.", pos: "50% 35%", steps: [
     ["Redesign", "The simplest way that works."],
     ["Enable", "People, process, software or AI. Whatever fits."]
   ]},
-  {n: "03", name: "PROVE", gets: "The Room Report", steps: [
+  {n: "03", name: "PROVE", gets: "The Room Report",
+    photo: "/prove-workbench.jpg", alt: "A craftsman back at his workbench", caption: "Back at the bench.", pos: "70% 45%", steps: [
     ["Validate", "Measured against how it was before. Did the week actually get easier?"]
   ]},
-  {n: "04", name: "GROW", loop: true, gets: "The Next Opportunity", steps: [
+  {n: "04", name: "GROW", loop: true, gets: "The Next Opportunity",
+    photo: "/grow-dog-walk.jpg", alt: "A woman waving to a neighbour while walking her dog on a tree-lined sidewalk", caption: "Out on a walk.", pos: "50% 30%", steps: [
     ["Enhance", "Put the time you got back to work."],
     ["Expand", "Room for more clients, the next hire, the new pitch."]
   ]}
@@ -92,6 +99,10 @@ export default function HowItWorks() {
           <ol className="hw-turns">
             {turns.map(t => (
               <li className="hw-turn" key={t.n}>
+                <figure className="hw-photo">
+                  <img src={t.photo} alt={t.alt} loading="lazy" style={{objectPosition: t.pos}}/>
+                  <figcaption>{t.caption}</figcaption>
+                </figure>
                 <div className="hw-turn-top">
                   <span className="hw-num">{t.n}</span>
                   <h3>{t.name}{t.loop && <span className="hw-ret" aria-label="loops back"> ↻</span>}</h3>
