@@ -61,7 +61,8 @@ const calls: Call[] = [
 ];
 
 export default function HowItWorks() {
-  const [pick, setPick] = useState("eliminate");
+  // Opens on "Keep human" so visitors see first that relationships stay with them.
+  const [pick, setPick] = useState("human");
   const c = calls.find(x => x.key === pick) ?? calls[0];
 
   return (
@@ -82,6 +83,7 @@ export default function HowItWorks() {
               <span><b>Marcos Cuellar</b> · Founder, CUEPA for Work</span>
             </div>
             <p className="hw-how">We understand your business first, simplify what&rsquo;s there, then put AI to work on what it should take off your plate. <b>You keep the decisions.</b></p>
+            <p className="hw-north">Human foreground. Intelligence background.</p>
           </aside>
         </div>
       </section>

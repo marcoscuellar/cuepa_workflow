@@ -25,6 +25,7 @@
 .hw-who b{color:var(--hw-ink);font-weight:600}
 .hw-how{padding-top:16px;box-shadow:inset 0 1px 0 var(--hw-line);font-size:16px}
 .hw-how b{color:var(--hw-ink);font-weight:600}
+.hw-north{font-size:15px;font-weight:600;letter-spacing:.01em;color:var(--hw-teal)}
 
 /* 2. The loop */
 .hw-loop-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px 5vw;align-items:end;padding-bottom:32px;margin-bottom:40px;box-shadow:inset 0 -1px 0 var(--hw-line)}
