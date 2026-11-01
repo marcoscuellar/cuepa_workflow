@@ -35,8 +35,8 @@ const turns: TurnStep[] = [
     imageSrc: "/contact-team.jpg",
     imageAlt: "Small studio team planning workflows together",
     floatingNotifications: [
-      {tag: "LISTENED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Sat with all 6 of your people. Wrote down how the work really moves — in their words."},
-      {tag: "MAPPED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Your Room Map is drafted: 3 builds recommended, 2 things stay human, 1 protected."}
+      {tag: "LISTENED", tagColor: "text-[#0F766E] bg-white/70", body: "Sat with all 6 of your people. Wrote down how the work really moves — in their words."},
+      {tag: "MAPPED", tagColor: "text-[#0F766E] bg-white/70", body: "Your Room Map is drafted: 3 builds recommended, 2 things stay human, 1 protected."}
     ],
     deliverableCard: {
       header: "How work moves — mapped.",
@@ -59,9 +59,9 @@ const turns: TurnStep[] = [
     imageSrc: "/flow-cubs-game.jpg",
     imageAlt: "Father and son cheering at Wrigley Field in Cubs jerseys",
     floatingNotifications: [
-      {tag: "CAUGHT", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Two emails from client came in. Replies drafted from your verified templates."},
-      {tag: "CONFIRMED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Robert asked to push meeting to 3pm. Schedule was open — confirmed."},
-      {tag: "QUEUED", tagColor: "text-[#9A6B00] bg-[#9A6B00]/10", body: "Invoice #1048 nudged politely. Third late one this month — flagged for review."}
+      {tag: "CAUGHT", tagColor: "text-[#0F766E] bg-white/70", body: "Two emails from client came in. Replies drafted from your verified templates."},
+      {tag: "CONFIRMED", tagColor: "text-[#0F766E] bg-white/70", body: "Robert asked to push meeting to 3pm. Schedule was open — confirmed."},
+      {tag: "QUEUED", tagColor: "text-[#9A6B00] bg-white/70", body: "Invoice #1048 nudged politely. Third late one this month — flagged for review."}
     ],
     deliverableCard: {
       header: "Good morning, Marcos.",
@@ -84,8 +84,8 @@ const turns: TurnStep[] = [
     imageSrc: "/prove-workbench.jpg",
     imageAlt: "Craftsman focused on detailed work at bench beside window",
     floatingNotifications: [
-      {tag: "DONE", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Your 4pm moved to tomorrow — notes sent, client covered. Clear for the night."},
-      {tag: "REPORTED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "11.5 hours verified back this week. Most of it after 6:00 PM. That was the point."}
+      {tag: "DONE", tagColor: "text-[#0F766E] bg-white/70", body: "Your 4pm moved to tomorrow — notes sent, client covered. Clear for the night."},
+      {tag: "REPORTED", tagColor: "text-[#0F766E] bg-white/70", body: "11.5 hours verified back this week. Most of it after 6:00 PM. That was the point."}
     ],
     deliverableCard: {
       header: "Your room, before → after",
@@ -107,8 +107,8 @@ const turns: TurnStep[] = [
     imageSrc: "/trust-woman-evening.jpg",
     imageAlt: "Woman smiling, walking her dog outside in evening light",
     floatingNotifications: [
-      {tag: "FOUND • UNBILLED", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "Found $3,180 across 4 clients, back 62 days. Drafted for your approval."},
-      {tag: "WARM WIN-BACK", tagColor: "text-[#0F766E] bg-[#0F766E]/10", body: "92 days since regular client ordered. Note drafted based on past orders."}
+      {tag: "FOUND • UNBILLED", tagColor: "text-[#0F766E] bg-white/70", body: "Found $3,180 across 4 clients, back 62 days. Drafted for your approval."},
+      {tag: "WARM WIN-BACK", tagColor: "text-[#0F766E] bg-white/70", body: "92 days since regular client ordered. Note drafted based on past orders."}
     ],
     deliverableCard: {
       header: "Capacity reinvested.",
@@ -159,10 +159,10 @@ export default function HowItWorksDeck() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" aria-hidden="true"/>
                 <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-12 flex flex-col gap-3.5 z-10">
                   {step.floatingNotifications.map((notif, nIdx) => (
-                    <div key={nIdx} className="backdrop-blur-xl bg-white/90 rounded-2xl p-4 shadow-[0_2px_4px_rgba(3,3,3,0.08),0_12px_28px_rgba(3,3,3,0.18)] max-w-lg">
+                    <div key={nIdx} className="backdrop-blur-2xl backdrop-saturate-150 bg-white/35 rounded-2xl p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_0_1px_rgba(255,255,255,0.28),0_8px_24px_rgba(3,3,3,0.14)] max-w-lg">
                       <div className="flex items-center justify-between gap-3 mb-1.5">
                         <span className={`text-[10px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded ${notif.tagColor}`}>{notif.tag}</span>
-                        <span className="text-[11px] font-mono text-[#5E5E5E]">CUEPA • ACTIVE</span>
+                        <span className="text-[11px] font-mono text-[#111827]/70">CUEPA • ACTIVE</span>
                       </div>
                       <p className="m-0 text-sm font-medium text-[#111827] leading-snug">{notif.body}</p>
                     </div>
