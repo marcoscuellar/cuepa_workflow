@@ -159,10 +159,10 @@ export default function HowItWorksDeck() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" aria-hidden="true"/>
                 <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-12 flex flex-col gap-3.5 z-10">
                   {step.floatingNotifications.map((notif, nIdx) => (
-                    <div key={nIdx} className="backdrop-blur-2xl backdrop-saturate-150 bg-white/35 rounded-2xl p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_0_1px_rgba(255,255,255,0.28),0_8px_24px_rgba(3,3,3,0.14)] max-w-lg">
+                    <div key={nIdx} className="backdrop-blur-2xl backdrop-saturate-150 bg-white/55 rounded-2xl p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_0_1px_rgba(255,255,255,0.28),0_8px_24px_rgba(3,3,3,0.14)] max-w-lg">
                       <div className="flex items-center justify-between gap-3 mb-1.5">
                         <span className={`text-[10px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded ${notif.tagColor}`}>{notif.tag}</span>
-                        <span className="text-[11px] font-mono text-[#111827]/70">CUEPA • ACTIVE</span>
+                        <span className="text-[11px] font-mono text-[#111827]/80">CUEPA • ACTIVE</span>
                       </div>
                       <p className="m-0 text-sm font-medium text-[#111827] leading-snug">{notif.body}</p>
                     </div>
