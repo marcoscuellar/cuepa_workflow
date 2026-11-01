@@ -32,8 +32,8 @@ const turns: TurnStep[] = [
     deliverable: "The Room Map",
     headline: "We learn the way you make room.",
     subtext: "We sit with the people doing the work and map how tasks actually flow: tools, handoffs, friction, and hidden scope.",
-    imageSrc: "/contact-team.jpg",
-    imageAlt: "Small studio team planning workflows together",
+    imageSrc: "/img/architecture-studio.jpg",
+    imageAlt: "Architects reviewing floor plans and a model together in their studio",
     floatingNotifications: [
       {tag: "LISTENED", tagColor: "text-[#0F766E] bg-white/70", body: "Sat with all 6 of your people. Wrote down how the work really moves — in their words."},
       {tag: "MAPPED", tagColor: "text-[#0F766E] bg-white/70", body: "Your Room Map is drafted: 3 builds recommended, 2 things stay human, 1 protected."}
@@ -128,7 +128,7 @@ export default function HowItWorksDeck() {
   const {scrollYProgress} = useScroll({target: deck, offset: ["start start", "end end"]});
   return (
     <section aria-label="The four turns" className="relative w-full bg-white text-[#111827] py-24 md:py-36 px-4 sm:px-6 lg:px-8 selection:bg-[#0F766E] selection:text-white">
-      {/* Sticky deck (desktop, screens 820px+ tall): each card pins 112px from the top (clears the 92px fixed nav), offset 16px per card.
+      {/* Sticky deck (desktop, screens 900px+ tall): each card pins at top-28 / lg:top-32 (clears the 92px fixed nav), offset 16px per card.
           On phones and short screens a card is taller than the view, so the cards scroll normally there. */}
       <ol ref={deck} className="max-w-7xl mx-auto flex flex-col gap-24 relative list-none m-0 p-0">
         {turns.map((step, index) => (
@@ -146,8 +146,8 @@ export default function HowItWorksDeck() {
               </div>
             </div>
 
-            {/* Body: 50/50 split */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[580px]">
+            {/* Body: 55/45 split (photo stage | the turn); stacks on mobile */}
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,11fr)_minmax(0,9fr)] lg:min-h-[580px]">
               {/* Left: full-height photo with floating notifications */}
               <div className="relative min-h-[420px] lg:min-h-full overflow-hidden bg-[#E4E4E4]">
                 <img
@@ -156,7 +156,7 @@ export default function HowItWorksDeck() {
                   loading="lazy"
                   className="absolute inset-0 w-full h-full max-w-none object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" aria-hidden="true"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" aria-hidden="true"/>
                 <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-12 flex flex-col gap-3.5 z-10">
                   {step.floatingNotifications.map((notif, nIdx) => (
                     <div key={nIdx} className="backdrop-blur-2xl backdrop-saturate-150 bg-white/55 rounded-2xl p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_0_1px_rgba(255,255,255,0.28),0_8px_24px_rgba(3,3,3,0.14)] max-w-lg">
@@ -215,10 +215,10 @@ function DeckCard({index, total, progress, children}: {index: number; total: num
   // Card i starts shrinking when its own turn in the scroll begins; earlier cards end smaller (stacked further back).
   const scale = useTransform(progress, [index / total, 1], [1, reduce ? 1 : 1 - (total - 1 - index) * 0.04]);
   return (
-    <li className="hw-deck-card lg:sticky" style={{top: `calc(112px + ${index * 16}px)`, zIndex: index + 10}}>
+    <li className="hw-deck-card lg:sticky [--deck-top:7rem] lg:[--deck-top:8rem]" style={{top: `calc(var(--deck-top) + ${index * 16}px)`, zIndex: index + 10}}>
       <motion.div
         style={{scale, transformOrigin: "top center"}}
-        className="rounded-3xl bg-white shadow-[0_2px_4px_rgba(3,3,3,0.06),0_-4px_16px_rgba(3,3,3,0.05),0_24px_48px_rgba(3,3,3,0.12)] overflow-hidden"
+        className="pt-4 rounded-3xl bg-white shadow-[0_2px_4px_rgba(3,3,3,0.06),0_-4px_16px_rgba(3,3,3,0.05),0_24px_48px_rgba(3,3,3,0.12)] overflow-hidden"
       >
         {children}
       </motion.div>

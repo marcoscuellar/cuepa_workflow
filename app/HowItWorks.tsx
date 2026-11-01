@@ -65,7 +65,7 @@ export default function HowItWorks() {
       <section className="hw-sec hw-tight" aria-labelledby="hw-calls">
         <div className="hw-wrap hw-calls">
           <div className="hw-calls-copy">
-            <p className="hw-eyebrow">The decision point</p>
+            <p className="hw-eyebrow">The 5-call decision framework • How every flow is classified</p>
             <h2 id="hw-calls">Not everything should be automated.</h2>
             <p>Before anything gets built, every task gets one of five calls. Automation is one answer, not the first one.</p>
             <p className="hw-small">Tap a call to see what it looks like in a small business.</p>

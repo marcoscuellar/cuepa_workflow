@@ -62,4 +62,4 @@
 @media(prefers-reduced-motion:reduce){.hw-chip{transition:none}}
 
 /* Deck: only stack when a whole card fits on screen */
-@media(max-height:819px){.hw-deck-card{position:relative!important}}
+@media(max-height:899px){.hw-deck-card{position:relative!important}}
