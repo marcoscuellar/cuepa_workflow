@@ -25,6 +25,7 @@
 .hw-who b{color:var(--hw-ink);font-weight:600}
 .hw-how{padding-top:16px;box-shadow:inset 0 1px 0 var(--hw-line);font-size:16px}
 .hw-how b{color:var(--hw-ink);font-weight:600}
+.hw-north{font-size:15px;font-weight:600;letter-spacing:.01em;color:var(--hw-teal)}
 
 /* 3. The five calls */
 .hw-calls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(28px,5vw,64px);align-items:start}
