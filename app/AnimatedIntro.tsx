@@ -25,7 +25,7 @@ const stats=[
 // life it handed back. Alternating the two is the point of the statement above.
 const pills=[
   {spot:"p1",text:"Rescheduled your 3pm"},
-  {spot:"p4",text:"Don't forget Dad's birthday Sunday"}
+  {spot:"p4",text:"Invoice drafted, waiting on your OK"}
 ];
 
 const heroContainer={
@@ -94,7 +94,7 @@ export default function AnimatedIntro(){
         <div className="reality-lead">
           <div className="reality-stage reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
             <div className="reality-photo">
-              <img src="/reality-market.jpeg" alt="Two women shopping together at an outdoor farmers market"/>
+              <img src="/convo-team-coffee.jpg" alt="Three teammates laughing together over coffee in the office kitchen"/>
             </div>
             <ul className="reality-pills">
               {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>
@@ -105,11 +105,11 @@ export default function AnimatedIntro(){
           <div className="reality-copy reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
           <p className="reality-eyebrow">The reality</p>
           <h2 className="reality-statement">
-            <span>CUEPA manages</span>
-            <span>the work around you.</span>
-            <span>So you can make room</span>
-            <span>for <em>those around you</em>.</span>
+            <span>Real workflows. </span>
+            <span>Real people. </span>
+            <span><em>Real outcomes.</em></span>
           </h2>
+          <p className="reality-sub">We see AI through the work your team actually does, so it solves a real problem instead of adding one.</p>
           </div>
         </div>
         <div className="reality-quotes">

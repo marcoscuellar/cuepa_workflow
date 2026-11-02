@@ -101,3 +101,7 @@
 .site .rrDial svg{width:100%;height:100%}
 .site .rrChart>path:first-of-type{stroke:none}
 .site .rrChart circle{stroke:none}
+
+/* Reality: "Real workflows. Real people. Real outcomes." + the line under it. */
+.reality-sub{margin:20px 0 0;max-width:44ch;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:#5E5E5E}
+.site .reality-photo img{object-position:58% center}
