@@ -1,8 +1,22 @@
+"use client";
+
 // The CUEPA Practice: four turns, told once, always in order (FIND → FLOW → PROVE → GROW ↻).
 // Each turn pairs a business moment (photo, with see-through CUEPA notes on it) with an iPhone
 // showing the work getting done at that moment. One company goal runs through all four, so the
 // story is: we start with the goal, then put AI only where it pays off.
 // All numbers are labeled Sample. Nothing here is a real client result.
+// Motion (motion.dev): each turn plays as it scrolls in. Head rises, the photo settles, notes arrive
+// one by one, the teal line draws to the phone, the phone rises and its rows tick in. Plays once.
+// Off entirely when the visitor prefers reduced motion.
+
+import {motion, useReducedMotion, type Variants} from "motion/react";
+
+const EASE=[0.22,1,0.36,1] as const;
+const VIEW={once:true,amount:0.3} as const;
+const rise:Variants={hidden:{opacity:0,y:28,filter:"blur(6px)"},show:{opacity:1,y:0,filter:"blur(0px)",transition:{duration:.7,ease:EASE}}};
+const stagger=(gap:number,delay=0):Variants=>({hidden:{},show:{transition:{staggerChildren:gap,delayChildren:delay}}});
+const note:Variants={hidden:{opacity:0,y:18,scale:.96},show:{opacity:1,y:0,scale:1,transition:{duration:.55,ease:EASE}}};
+const row:Variants={hidden:{opacity:0,x:14},show:{opacity:1,x:0,transition:{duration:.45,ease:EASE}}};
 
 type Note = {time: string; tag: string; body: string; warn?: boolean};
 type Row = {title: string; sub?: string; hrs?: string; act: string; why?: string; human?: boolean; hideSm?: boolean};
@@ -103,32 +117,36 @@ function Mark({size=14}:{size?:number}){
   return <svg width={size} height={size} viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>;
 }
 
-function Phone({p}:{p:Turn["phone"]}){
+function Phone({p,reduce}:{p:Turn["phone"];reduce:boolean}){
   return (
-    <div className="pr-phone" role="img" aria-label={`CUEPA on a phone: ${p.app}`}>
-      <div className="pr-screen">
+    <motion.div className="pr-phone" role="img" aria-label={`CUEPA on a phone: ${p.app}`}
+      initial={reduce?false:{opacity:0,y:60}} whileInView={{opacity:1,y:0}} viewport={VIEW}
+      transition={{duration:.85,delay:.35,ease:EASE}}>
+      <motion.div className="pr-screen" variants={stagger(.09,.75)} initial={reduce?false:"hidden"} whileInView="show" viewport={VIEW}>
         <span className="pr-island" aria-hidden="true"/>
         <span className="pr-sbar" aria-hidden="true"><span>{p.time}</span><span>●●●</span></span>
         <div className="pr-app"><Mark size={16}/>CUEPA<span>{p.app}</span></div>
         {p.sample && <span className="pr-sample"><i aria-hidden="true"/>{p.sample}</span>}
         {p.title && <h4>{p.title}</h4>}
         {p.sub && <p className="pr-sub">{p.sub}</p>}
-        {p.goal && <div className="pr-goal"><small>Company goal</small><b>{GOAL}</b></div>}
-        {p.found && <div className="pr-found"><span>Busywork found</span><b>{p.found}</b></div>}
+        {p.goal && <motion.div variants={row} className="pr-goal"><small>Company goal</small><b>{GOAL}</b></motion.div>}
+        {p.found && <motion.div variants={row} className="pr-found"><span>Busywork found</span><b>{p.found}</b></motion.div>}
         {p.rows.map(r=>(
-          <div key={r.title} className={`pr-row${r.why?" has-why":""}${r.hideSm?" hide-sm":""}`}>
+          <motion.div variants={row} key={r.title} className={`pr-row${r.why?" has-why":""}${r.hideSm?" hide-sm":""}`}>
             <span className="pr-rt"><b>{r.title}</b>{r.hrs && <span className="pr-hrs"> · {r.hrs}</span>}{r.sub && <small>{r.sub}</small>}</span>
             <span className={`pr-act${r.human?" is-human":""}`}>{r.act}</span>
             {r.why && <span className="pr-why">{r.why}</span>}
-          </div>
+          </motion.div>
         ))}
         <p className="pr-foot">{p.foot}</p>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
 export default function Practice(){
+  const reduce=!!useReducedMotion();
+  const init=reduce?false:"hidden";
   return (
     <div className="pr">
       <section className="pr-way" aria-labelledby="pr-way-h">
@@ -136,11 +154,12 @@ export default function Practice(){
           <p className="pr-eyebrow">The CUEPA way</p>
           <h2 id="pr-way-h">Work gets done. Life keeps going.</h2>
           <p className="pr-lead">Four turns, always in order. While you run the business, CUEPA carries the work, and you keep every decision.</p>
-          <ol className="pr-rail">
+          <motion.ol className="pr-rail" variants={stagger(.14,.15)} initial={init} whileInView="show" viewport={VIEW}>
+            <motion.li className="pr-rail-line" aria-hidden="true" initial={reduce?false:{scaleX:0}} whileInView={{scaleX:1}} viewport={VIEW} transition={{duration:1.2,ease:EASE}}/>
             {turns.map(t=>(
-              <li key={t.id}><a href={`#${t.id}`}><span className="pr-step">{t.n}</span><b>{t.name}</b><small>{t.deliverable}</small></a></li>
+              <motion.li variants={rise} key={t.id}><a href={`#${t.id}`}><span className="pr-step">{t.n}</span><b>{t.name}</b><small>{t.deliverable}</small></a></motion.li>
             ))}
-          </ol>
+          </motion.ol>
         </div>
       </section>
 
@@ -149,7 +168,7 @@ export default function Practice(){
           {i>0 && <p className="pr-then" aria-hidden="true">Then <b>{t.n} {t.name.replace(" ↻","")}</b></p>}
           <section className="pr-turn" id={t.id} aria-labelledby={`pr-${t.id}-h`}>
             <div className="pr-shell">
-              <div className="pr-head">
+              <motion.div className="pr-head" variants={rise} initial={init} whileInView="show" viewport={VIEW}>
                 <div>
                   <p className="pr-label"><span className="pr-step">{t.n}</span><span className="pr-name">{t.name}</span></p>
                   <h3 id={`pr-${t.id}-h`}>{t.headline}</h3>
@@ -158,24 +177,25 @@ export default function Practice(){
                   <p className="pr-deliv">Deliverable · <b>{t.deliverable}</b></p>
                   <p className="pr-lead">{t.lead}</p>
                 </div>
-              </div>
+              </motion.div>
               <div className="pr-stage">
                 <svg className="pr-route" viewBox="0 0 1200 680" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 300,420 C 520,400 640,300 760,330 C 880,360 940,340 1060,340" fill="none" stroke="#0F766E" strokeWidth={4} strokeLinecap="round"/>
+                  <motion.path d="M 300,420 C 520,400 640,300 760,330 C 880,360 940,340 1060,340" fill="none" stroke="#0F766E" strokeWidth={4} strokeLinecap="round"
+                    initial={reduce?false:{pathLength:0}} whileInView={{pathLength:1}} viewport={VIEW} transition={{duration:1.1,delay:.55,ease:"easeInOut"}}/>
                 </svg>
-                <div className="pr-life">
-                  <img src={t.img} alt={t.alt} loading="lazy"/>
+                <motion.div className="pr-life" initial={reduce?false:{opacity:0,x:-40}} whileInView={{opacity:1,x:0}} viewport={VIEW} transition={{duration:.8,ease:EASE}}>
+                  <motion.img src={t.img} alt={t.alt} loading="lazy" initial={reduce?false:{scale:1.08}} whileInView={{scale:1}} viewport={VIEW} transition={{duration:1.4,ease:EASE}}/>
                   <span className="pr-cap"><i aria-hidden="true"/>{t.caption}</span>
-                  <ul className="pr-notes" aria-label="CUEPA notifications">
+                  <motion.ul className="pr-notes" aria-label="CUEPA notifications" variants={stagger(.28,.6)} initial={init} whileInView="show" viewport={VIEW}>
                     {t.notes.map(n=>(
-                      <li key={n.time+n.tag} className="pr-note">
+                      <motion.li variants={note} key={n.time+n.tag} className="pr-note">
                         <span className="pr-note-top"><Mark/>CUEPA <em>· {n.time}</em><span className={`pr-tag${n.warn?" is-warn":""}`}><i aria-hidden="true"/>{n.tag}</span></span>
                         <span className="pr-note-body">{n.body}</span>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
-                </div>
-                <Phone p={t.phone}/>
+                  </motion.ul>
+                </motion.div>
+                <Phone p={t.phone} reduce={reduce}/>
               </div>
             </div>
           </section>
