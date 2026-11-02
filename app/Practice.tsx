@@ -35,7 +35,7 @@ const turns: Turn[] = [
     id: "find", n: "01", name: "Find", deliverable: "The Room Map",
     headline: "First, your goal. Then, the work in the way.",
     lead: <>We start with where you want the business to go. Then we sit with your people and map how work actually gets done, and how many hours it takes. <b>Every call on the map ties back to your goal,</b> so AI only goes where it pays off.</>,
-    img: "/img/architecture-studio.jpg", alt: "An owner walking her team through plans at the studio table", caption: "Planning location two",
+    img: "/img/find-goal-meeting.jpg", alt: "An owner talking through her goal with a team member, a whiteboard of plans behind them", caption: "Setting the goal for location two",
     notes: [
       {time: "Day 1", tag: "Goal set", body: "Second location by next fall. Everything we map gets measured against that."},
       {time: "Day 5", tag: "Mapped", body: "11.5 hours a week of busywork found. 1 to automate, 1 to simplify, 1 to stop, 1 stays with you."}
