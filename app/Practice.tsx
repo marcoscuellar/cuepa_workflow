@@ -24,6 +24,8 @@ type Turn = {
   id: string; n: string; name: string; deliverable: string;
   headline: string; lead: React.ReactNode;
   img: string; alt: string; caption: string;
+  // Where the glass notes sit so they never cover a face. Default: bottom-left.
+  notesAt?: "right"; notesOnPhone?: boolean;
   notes: Note[];
   phone: {time: string; app: string; title?: string; sub?: string; sample?: string; goal?: boolean; found?: string; rows: Row[]; foot: React.ReactNode};
 };
@@ -55,7 +57,7 @@ const turns: Turn[] = [
     id: "flow", n: "02", name: "Flow", deliverable: "The Working System",
     headline: "The noise resolves. The day gets a shape.",
     lead: <>A Tuesday, already sorted, <b>while she&rsquo;s on the floor with her team.</b> The system does the sorting. She keeps the say.</>,
-    img: "/img/flow-owner-floor.jpg", alt: "The owner and her operations manager walking the office floor, talking with the team at their desks", caption: "On the floor with her team",
+    img: "/img/flow-owner-floor.jpg", alt: "The owner and her operations manager walking the office floor, talking with the team at their desks", caption: "On the floor with her team", notesAt: "right", notesOnPhone: false,
     notes: [
       {time: "1:22 PM", tag: "Caught", body: "Two emails from the client came in. Replies drafted from your templates."},
       {time: "1:36 PM", tag: "Confirmed", body: "Robert asked to push to 3pm. Your calendar was open, so it's confirmed."},
@@ -183,7 +185,7 @@ export default function Practice(){
                   <motion.path d="M 300,420 C 520,400 640,300 760,330 C 880,360 940,340 1060,340" fill="none" stroke="#0F766E" strokeWidth={4} strokeLinecap="round"
                     initial={reduce?false:{pathLength:0}} whileInView={{pathLength:1}} viewport={VIEW} transition={{duration:1.1,delay:.55,ease:"easeInOut"}}/>
                 </svg>
-                <motion.div className="pr-life" initial={reduce?false:{opacity:0,x:-40}} whileInView={{opacity:1,x:0}} viewport={VIEW} transition={{duration:.8,ease:EASE}}>
+                <motion.div className={`pr-life${t.notesAt==="right"?" notes-right":""}${t.notesOnPhone===false?" notes-off-sm":""}`} initial={reduce?false:{opacity:0,x:-40}} whileInView={{opacity:1,x:0}} viewport={VIEW} transition={{duration:.8,ease:EASE}}>
                   <motion.img src={t.img} alt={t.alt} loading="lazy" initial={reduce?false:{scale:1.08}} whileInView={{scale:1}} viewport={VIEW} transition={{duration:1.4,ease:EASE}}/>
                   <span className="pr-cap"><i aria-hidden="true"/>{t.caption}</span>
                   <motion.ul className="pr-notes" aria-label="CUEPA notifications" variants={stagger(.28,.6)} initial={init} whileInView="show" viewport={VIEW}>
