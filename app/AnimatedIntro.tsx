@@ -21,11 +21,11 @@ const stats=[
   }
 ];
 
-// Act 2 shows the promise rather than asserting it: work CUEPA handled, and the
-// life it handed back. Alternating the two is the point of the statement above.
-const pills=[
-  {spot:"p1",text:"Rescheduled your 3pm"},
-  {spot:"p4",text:"New workflow drafted, waiting on your final approval"}
+// Act 2 shows the promise rather than asserting it: CUEPA carries the work, a person approves.
+// Same see-through notification treatment as The CUEPA Practice photos.
+const notes=[
+  {time:"1:36 PM",tag:"Confirmed",body:"Rescheduled your 3pm. Your calendar was open."},
+  {time:"4:10 PM",tag:"Needs you",body:"New workflow drafted, waiting on your final approval."}
 ];
 
 const heroContainer={
@@ -95,12 +95,16 @@ export default function AnimatedIntro(){
           <div className="reality-stage reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
             <div className="reality-photo">
               <img src="/convo-team-coffee.jpg" alt="Three teammates laughing together over coffee in the office kitchen"/>
+              <ul className="pr-notes reality-notes" aria-label="CUEPA notifications">
+                {notes.map((n,index)=><li className="pr-note" key={n.tag} style={{"--note-order":index} as React.CSSProperties}>
+                  <span className="pr-note-top">
+                    <svg width={14} height={14} viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+                    CUEPA <em>· {n.time}</em><span className="pr-tag"><i aria-hidden="true"/>{n.tag}</span>
+                  </span>
+                  <span className="pr-note-body">{n.body}</span>
+                </li>)}
+              </ul>
             </div>
-            <ul className="reality-pills">
-              {pills.map((pill,index)=><li className={`rn-pill ${pill.spot}`} key={pill.spot} style={{"--pill-order":index+1} as React.CSSProperties}>
-                <span className="rn-dot" aria-hidden/>{pill.text}
-              </li>)}
-            </ul>
           </div>
           <div className="reality-copy reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
           <p className="reality-eyebrow">The reality</p>

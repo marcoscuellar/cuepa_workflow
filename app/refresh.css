@@ -105,3 +105,12 @@
 /* Reality: "Real workflows. Real people. Real outcomes." + the line under it. */
 .reality-sub{margin:20px 0 0;max-width:44ch;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:#5E5E5E}
 .site .reality-photo img{object-position:58% center}
+
+/* Reality notes: the same see-through treatment as the Practice photos. */
+.reality{--pr-ink:#030303;--pr-slate:#111827;--pr-teal:#0F766E;--pr-warn:#9A6B00}
+.site .reality-photo .reality-notes{position:absolute;z-index:2;left:20px;right:auto;bottom:20px;width:min(330px,calc(100% - 40px));margin:0;padding:0;list-style:none;display:grid;gap:10px;text-align:left}
+.site .reality-photo .reality-notes .pr-note{display:grid}
+.reality-notes .pr-note{opacity:0;transform:translateY(16px) scale(.97);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);transition-delay:calc(500ms + var(--note-order,0) * 280ms)}
+.reality.is-visible .reality-notes .pr-note{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reality-notes .pr-note{opacity:1;transform:none;transition:none}}
+@media(max-width:900px){.site .reality-photo .reality-notes .pr-note{display:grid}}
