@@ -95,3 +95,7 @@
   .pr-row{padding:9px 10px}
 }
 @media(max-width:360px){.pr-phone{width:280px}}
+
+/* Per-turn note placement so faces stay clear (Flow: right side; no notes on phones). */
+.pr-life.notes-right .pr-notes{left:auto;right:20px}
+@media(max-width:900px){.pr-life.notes-off-sm .pr-notes{display:none}}
