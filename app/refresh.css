@@ -104,7 +104,7 @@
 
 /* Reality: "Real workflows. Real people. Real outcomes." + the line under it. */
 .reality-sub{margin:20px 0 0;max-width:44ch;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:#5E5E5E}
-.site .reality-photo img{object-position:58% center}
+.site .reality-photo img{object-position:50% center}
 
 /* Reality notes: the same see-through treatment as the Practice photos. */
 .reality{--pr-ink:#030303;--pr-slate:#111827;--pr-teal:#0F766E;--pr-warn:#9A6B00}

@@ -94,7 +94,7 @@ export default function AnimatedIntro(){
         <div className="reality-lead">
           <div className="reality-stage reality-reveal" style={{"--stat-order":0} as React.CSSProperties}>
             <div className="reality-photo">
-              <img src="/convo-team-coffee.jpg" alt="Three teammates laughing together over coffee in the office kitchen"/>
+              <img src="/img/reality-team-mapping.jpg" alt="A small team mapping a workflow together at a shared table, laptops, sticky notes and a printed process map between them"/>
               <ul className="pr-notes reality-notes" aria-label="CUEPA notifications">
                 {notes.map((n,index)=><li className="pr-note" key={n.tag} style={{"--note-order":index} as React.CSSProperties}>
                   <span className="pr-note-top">
