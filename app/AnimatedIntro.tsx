@@ -102,12 +102,15 @@ export default function AnimatedIntro(){
               </li>)}
             </ul>
           </div>
-          <h2 className="reality-statement reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
+          <div className="reality-copy reality-reveal" style={{"--stat-order":1} as React.CSSProperties}>
+          <p className="reality-eyebrow">The reality</p>
+          <h2 className="reality-statement">
             <span>CUEPA manages</span>
             <span>the work around you.</span>
             <span>So you can make room</span>
             <span>for <em>those around you</em>.</span>
           </h2>
+          </div>
         </div>
         <div className="reality-quotes">
           {stats.map((stat,index)=><article className="stat-card reality-reveal" key={stat.value} style={{"--stat-order":index+2} as React.CSSProperties}>

@@ -1,11 +1,11 @@
 "use client";
 
 import {useState} from "react";
-import HowItWorksDeck from "./HowItWorksDeck";
+import Practice from "./Practice";
 
 // "How it works": the executive mental model. The four photo story sections
 // below (FIND, FLOW, PROVE, GROW) prove the work in practice.
-// The four turns live in HowItWorksDeck (sticky-stacking cards).
+// The four turns live in Practice (business moment + iPhone, one company goal).
 
 type Call = {key: string; label: string; title: string; what: string; before: string; after: string; keep?: boolean};
 
@@ -43,7 +43,7 @@ export default function HowItWorks() {
       <section className="hw-sec" aria-labelledby="hw-open">
         <div className="hw-wrap hw-open">
           <div>
-            <p className="hw-eyebrow">How it works</p>
+            <p className="hw-eyebrow">The CUEPA Practice · How we actually do the work</p>
             <h2 id="hw-open" className="hw-callout">Don&rsquo;t make the wrong things <span>faster.</span></h2>
             <p className="hw-after">Make the right things easier. Then make room for more.</p>
           </div>
@@ -54,20 +54,20 @@ export default function HowItWorks() {
               <svg viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
               <span><b>Marcos Cuellar</b> · Founder, CUEPA for Work</span>
             </div>
-            <p className="hw-how">We understand your business first, simplify what&rsquo;s there, then put AI to work on what it should take off your plate. <b>You keep the decisions.</b></p>
+            <p className="hw-how">I lead CUEPA for Work, where we help businesses identify operational gaps and design practical, <b>human-governed AI workflows.</b> My background is in business development, staffing and operational strategy, so my approach starts with the human business outcome rather than the technology.</p>
             <p className="hw-north">Human foreground. Intelligence background.</p>
           </aside>
         </div>
       </section>
 
-      {/* 2. The four turns: full-width sticky-stacking deck */}
-      <HowItWorksDeck/>
+      {/* 2. The four turns: the CUEPA way */}
+      <Practice/>
 
       {/* 3. The five calls */}
       <section className="hw-sec hw-tight" aria-labelledby="hw-calls">
         <div className="hw-wrap hw-calls">
           <div className="hw-calls-copy">
-            <p className="hw-eyebrow">The 5-call decision framework • How every flow is classified</p>
+            <p className="hw-eyebrow">The 5-call framework · How every task is classified</p>
             <h2 id="hw-calls">Not everything should be automated.</h2>
             <p>Before anything gets built, every task gets one of five calls. Automation is one answer, not the first one.</p>
             <p className="hw-small">Tap a call to see what it looks like in a small business.</p>

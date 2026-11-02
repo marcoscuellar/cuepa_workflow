@@ -1,10 +1,6 @@
 import AnimatedIntro from "./AnimatedIntro";
 import Nav from "./Nav";
 import PracticeHeader from "./PracticeHeader";
-import RoomMap from "./RoomMap";
-import Flow from "./Flow";
-import Prove from "./Prove";
-import Grow from "./Grow";
 import OwnerControl from "./OwnerControl";
 import Testimonial from "./Testimonial";
 import Trust from "./Trust";
@@ -13,7 +9,7 @@ import Logo from "./Logo";
 import RoomWorth from "./RoomWorth";
 import NextLines from "./NextLines";
 
-export default function Home(){return <main>
+export default function Home(){return <main className="site">
   <Nav/>
 
   {/* Act 1 — Hero (football) + Act 2 — Reality (dark stats): both in AnimatedIntro */}
@@ -22,12 +18,8 @@ export default function Home(){return <main>
   {/* "How much time and money is this costing us?" — the manager's first question */}
   <RoomWorth/>
 
-  {/* Act 3 — Four turns */}
+  {/* Act 3 — The CUEPA Practice: CHIMAL band, how we work, the four turns, the 5 calls */}
   <PracticeHeader/>
-  <RoomMap/>
-  <Flow/>
-  <Prove/>
-  <Grow/>
 
   {/* Act 4 — One screen (doorway tagline included at its end) */}
   <OwnerControl/>
@@ -44,9 +36,9 @@ export default function Home(){return <main>
 
   <Conversation/>
   <footer className="site-footer">
-    <p className="wordmark"><Logo offering="for Work" lockup/></p>
+    <p className="wordmark"><Logo offering="for Work" lockup dark/></p>
     <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
     <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a> · <a href="https://you.makingcuepa.com/">CUEPA for You: AI help for everyday life</a></p>
-    <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company</p>
+    <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company.</p>
   </footer>
 </main>}
