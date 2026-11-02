@@ -90,6 +90,6 @@ export default function OwnerControl(){return (
         <p className="rrNote">Representative Room Report. Yours starts with your baseline and ends with your numbers.</p>
       </div>
 
-    <div className="doorway"><p>THE PROCESS IS CONSISTENT. <span>THE SOLUTION IS YOURS.</span></p></div>
+    <p className="doorway">The process is consistent. <span>The solution is yours.</span></p>
   </section>
 )}
