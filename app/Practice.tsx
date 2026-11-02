@@ -37,7 +37,7 @@ const turns: Turn[] = [
     id: "find", n: "01", name: "Find", deliverable: "The Room Map",
     headline: "First, your goal. Then, the work in the way.",
     lead: <>We start with where you want the business to go. Then we sit with your people and map how work actually gets done, and how many hours it takes. <b>Every call on the map ties back to your goal,</b> so AI only goes where it pays off.</>,
-    img: "/img/find-goal-meeting.jpg", alt: "An owner talking through her goal with a team member, a whiteboard of plans behind them", caption: "Setting the goal for location two",
+    img: "/img/find-room-map-session.jpg", alt: "The owner and her operations manager mapping their workflow with a CUEPA guide, a workflow map on the table", caption: "Mapping the work with CUEPA",
     notes: [
       {time: "Day 1", tag: "Goal set", body: "Second location by next fall. Everything we map gets measured against that."},
       {time: "Day 5", tag: "Mapped", body: "11.5 hours a week of busywork found. 1 to automate, 1 to simplify, 1 to stop, 1 stays with you."}
@@ -97,18 +97,17 @@ const turns: Turn[] = [
   {
     id: "grow", n: "04", name: "Grow ↻", deliverable: "The Next Opportunity",
     headline: "The room becomes what’s next.",
-    lead: <>The room she got back <b>became the next hire.</b> The system keeps looking for what a busy owner can&rsquo;t see, then asks. Then it turns back to Find.</>,
-    img: "/img/grow-new-hire.jpg", alt: "An owner welcoming a new hire with a handshake", caption: "Welcoming the new hire",
+    lead: <>The room she got back <b>became location two.</b> The system keeps looking for what a busy owner can&rsquo;t see, then asks. Then it turns back to Find.</>,
+    img: "/img/grow-location-two-keys.jpg", alt: "The owner receiving the keys to her second location from the leasing agent, her operations manager beside her", caption: "Getting the keys to location two", notesOnPhone: false,
     notes: [
-      {time: "Month 3", tag: "Ready", body: "The hours you got back cover a new role. A job description is drafted from your Room Map."},
-      {time: "4:20 PM", tag: "Found", body: "Work that was never billed, across 4 clients. Invoices drafted for your review."}
+      {time: "Month 6", tag: "Ready", body: "The hours you got back made room for location two. Opening plan drafted."}
     ],
     phone: {
       time: "4:31", app: "Found", title: "Room for what’s next.", sub: "Drafts only. Nothing goes out without you.", goal: true,
       rows: [
-        {title: "Room for 1 new hire", sub: "Job description drafted from your Room Map", act: "Review"},
-        {title: "Unbilled work", sub: "4 clients · invoices drafted", act: "Review"},
-        {title: "Warm win-back", sub: "A regular went quiet", act: "Read note", hideSm: true}
+        {title: "Location two opening plan", sub: "Drafted from your Room Map", act: "Review"},
+        {title: "Room for 1 new hire", sub: "Job description for the new location", act: "Review"},
+        {title: "Unbilled work", sub: "4 clients · invoices drafted", act: "Review", hideSm: true}
       ],
       foot: <><span className="pr-sample"><i aria-hidden="true"/>Sample</span><br/><b>↻ What we learn goes back into Find.</b></>
     }
