@@ -117,3 +117,4 @@
 
 /* Reality photo: square, so the whole team photo fits. */
 .site .reality-photo{aspect-ratio:1/1}
+@media(max-width:900px){.site .reality-photo .reality-notes{bottom:14px;left:14px;width:calc(100% - 28px)}.site .reality-photo .reality-notes .pr-note:nth-child(n+2){display:none}}
