@@ -55,7 +55,7 @@ const turns: Turn[] = [
     id: "flow", n: "02", name: "Flow", deliverable: "The Working System",
     headline: "The noise resolves. The day gets a shape.",
     lead: <>A Tuesday, already sorted, <b>while she&rsquo;s on the floor with her team.</b> The system does the sorting. She keeps the say.</>,
-    img: "/img/flow-studio-team.jpg", alt: "An owner walking her design team through new samples at the studio table", caption: "On the floor with her team",
+    img: "/img/flow-owner-floor.jpg", alt: "The owner and her operations manager walking the office floor, talking with the team at their desks", caption: "On the floor with her team",
     notes: [
       {time: "1:22 PM", tag: "Caught", body: "Two emails from the client came in. Replies drafted from your templates."},
       {time: "1:36 PM", tag: "Confirmed", body: "Robert asked to push to 3pm. Your calendar was open, so it's confirmed."},
@@ -76,8 +76,8 @@ const turns: Turn[] = [
   {
     id: "prove", n: "03", name: "Prove", deliverable: "The Room Report",
     headline: "We don’t say it worked. We show you.",
-    lead: <>The team sits down with the Room Report. <b>Baseline before, evidence after,</b> in your own numbers, so everyone sees what changed and what it&rsquo;s worth.</>,
-    img: "/human-team.png", alt: "An owner and two team members reviewing work together at the studio table", caption: "Reviewing the numbers together",
+    lead: <>She walks the team through the Room Report. <b>Baseline before, evidence after,</b> in your own numbers, so everyone sees what changed and what it&rsquo;s worth.</>,
+    img: "/img/prove-room-report.jpg", alt: "The owner presenting the Room Report to her team, a before-and-after chart on the screen behind her", caption: "Walking the team through the numbers",
     notes: [
       {time: "6:12 PM", tag: "Done", body: "Your 4pm moved to tomorrow. Notes sent, client covered. You're clear for the night."},
       {time: "Month 2", tag: "Reported", body: "Your Room Report is in. Measured against the baseline from week one."}
