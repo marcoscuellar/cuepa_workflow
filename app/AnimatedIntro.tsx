@@ -61,7 +61,7 @@ export default function AnimatedIntro(){
       <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
         <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
           <div className="hero2-note-top">
-            <svg className="hero2-note-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#fff"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+            <svg className="hero2-note-mark" viewBox="-5 -5 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="57" height="27" fill="#fff"/><rect x="61.5" y="1.5" width="27" height="57" fill="#fff"/><rect x="31.5" y="61.5" width="57" height="27" fill="#fff"/><rect x="1.5" y="31.5" width="27" height="57" fill="#fff"/><rect x="36" y="36" width="18" height="18" fill="#0F766E"/></svg>
             <b>CUEPA</b><i>6:15 PM</i>
             <em><span className="hero2-dot" aria-hidden/>Handled</em>
           </div>
@@ -98,7 +98,7 @@ export default function AnimatedIntro(){
               <ul className="pr-notes reality-notes" aria-label="CUEPA notifications">
                 {notes.map((n,index)=><li className="pr-note" key={n.tag} style={{"--note-order":index} as React.CSSProperties}>
                   <span className="pr-note-top">
-                    <svg width={14} height={14} viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+                    <svg width={14} height={14} viewBox="-5 -5 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="57" height="27" fill="#030303"/><rect x="61.5" y="1.5" width="27" height="57" fill="#030303"/><rect x="31.5" y="61.5" width="57" height="27" fill="#030303"/><rect x="1.5" y="31.5" width="27" height="57" fill="#030303"/><rect x="36" y="36" width="18" height="18" fill="#0F766E"/></svg>
                     CUEPA <em>· {n.time}</em><span className="pr-tag"><i aria-hidden="true"/>{n.tag}</span>
                   </span>
                   <span className="pr-note-body">{n.body}</span>

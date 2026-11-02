@@ -51,7 +51,7 @@ export default function HowItWorks() {
             <span className="hw-k">How I&rsquo;ve always worked</span>
             <blockquote>&ldquo;Understand first. Simplify before automating. I don&rsquo;t believe in forcing a product into a problem.&rdquo;</blockquote>
             <div className="hw-who">
-              <svg viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+              <svg viewBox="-5 -5 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="57" height="27" fill="#030303"/><rect x="61.5" y="1.5" width="27" height="57" fill="#030303"/><rect x="31.5" y="61.5" width="57" height="27" fill="#030303"/><rect x="1.5" y="31.5" width="27" height="57" fill="#030303"/><rect x="36" y="36" width="18" height="18" fill="#0F766E"/></svg>
               <span><b>Marcos Cuellar</b> · Founder, CUEPA for Work</span>
             </div>
             <p className="hw-how">I lead CUEPA for Work, where we help businesses identify operational gaps and design practical, <b>human-governed AI workflows.</b> My background is in business development, staffing and operational strategy, so my approach starts with the human business outcome rather than the technology.</p>

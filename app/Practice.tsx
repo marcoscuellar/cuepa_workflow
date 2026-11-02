@@ -115,7 +115,7 @@ const turns: Turn[] = [
 ];
 
 function Mark({size=14}:{size?:number}){
-  return <svg width={size} height={size} viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>;
+  return <svg width={size} height={size} viewBox="-5 -5 100 100" aria-hidden="true"><rect x="1.5" y="1.5" width="57" height="27" fill="#030303"/><rect x="61.5" y="1.5" width="27" height="57" fill="#030303"/><rect x="31.5" y="61.5" width="57" height="27" fill="#030303"/><rect x="1.5" y="31.5" width="27" height="57" fill="#030303"/><rect x="36" y="36" width="18" height="18" fill="#0F766E"/></svg>;
 }
 
 function Phone({p,reduce}:{p:Turn["phone"];reduce:boolean}){
