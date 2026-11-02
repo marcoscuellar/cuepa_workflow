@@ -24,8 +24,6 @@ type Turn = {
   id: string; n: string; name: string; deliverable: string;
   headline: string; lead: React.ReactNode;
   img: string; alt: string; caption: string;
-  // Where the glass notes sit so they never cover a face. Default: bottom-left.
-  notesAt?: "right"; notesOnPhone?: boolean;
   notes: Note[];
   phone: {time: string; app: string; title?: string; sub?: string; sample?: string; goal?: boolean; found?: string; rows: Row[]; foot: React.ReactNode};
 };
@@ -37,7 +35,7 @@ const turns: Turn[] = [
     id: "find", n: "01", name: "Find", deliverable: "The Room Map",
     headline: "First, your goal. Then, the work in the way.",
     lead: <>We start with where you want the business to go. Then we sit with your people and map how work actually gets done, and how many hours it takes. <b>Every call on the map ties back to your goal,</b> so AI only goes where it pays off.</>,
-    img: "/img/find-room-map-session.jpg", alt: "The owner and her operations manager mapping their workflow with a CUEPA guide, a workflow map on the table", caption: "Mapping the work with CUEPA",
+    img: "/img/architecture-studio.jpg", alt: "An owner walking her team through plans at the studio table", caption: "Planning location two",
     notes: [
       {time: "Day 1", tag: "Goal set", body: "Second location by next fall. Everything we map gets measured against that."},
       {time: "Day 5", tag: "Mapped", body: "11.5 hours a week of busywork found. 1 to automate, 1 to simplify, 1 to stop, 1 stays with you."}
@@ -57,7 +55,7 @@ const turns: Turn[] = [
     id: "flow", n: "02", name: "Flow", deliverable: "The Working System",
     headline: "The noise resolves. The day gets a shape.",
     lead: <>A Tuesday, already sorted, <b>while she&rsquo;s on the floor with her team.</b> The system does the sorting. She keeps the say.</>,
-    img: "/img/flow-owner-floor.jpg", alt: "The owner and her operations manager walking the office floor, talking with the team at their desks", caption: "On the floor with her team", notesAt: "right", notesOnPhone: false,
+    img: "/img/flow-studio-team.jpg", alt: "An owner walking her design team through new samples at the studio table", caption: "On the floor with her team",
     notes: [
       {time: "1:22 PM", tag: "Caught", body: "Two emails from the client came in. Replies drafted from your templates."},
       {time: "1:36 PM", tag: "Confirmed", body: "Robert asked to push to 3pm. Your calendar was open, so it's confirmed."},
@@ -69,7 +67,7 @@ const turns: Turn[] = [
         {title: "Approve Lakeshore estimate", sub: "2 minutes", act: "Decision"},
         {title: "Rivera brief", sub: "Ready for the 10:30", act: "Prepared"},
         {title: "Invoice #1048", sub: "Drafted, waiting on your OK", act: "Handled"},
-        {title: "Floor walk with the team", sub: "Protected until 3:00 PM", act: "Room", human: true},
+        {title: "Samples review with the team", sub: "Protected until 3:00 PM", act: "Room", human: true},
         {title: "Focus: finish the proposal", sub: "9:00 to 11:00, no meetings", act: "Protected", hideSm: true}
       ],
       foot: <>Everything else is handled. <b>1 thing needs you.</b></>
@@ -78,8 +76,8 @@ const turns: Turn[] = [
   {
     id: "prove", n: "03", name: "Prove", deliverable: "The Room Report",
     headline: "We don’t say it worked. We show you.",
-    lead: <>She walks the team through the Room Report. <b>Baseline before, evidence after,</b> in your own numbers, so everyone sees what changed and what it&rsquo;s worth.</>,
-    img: "/img/prove-room-report.jpg", alt: "The owner presenting the Room Report to her team, a before-and-after chart on the screen behind her", caption: "Walking the team through the numbers",
+    lead: <>The team sits down with the Room Report. <b>Baseline before, evidence after,</b> in your own numbers, so everyone sees what changed and what it&rsquo;s worth.</>,
+    img: "/human-team.png", alt: "An owner and two team members reviewing work together at the studio table", caption: "Reviewing the numbers together",
     notes: [
       {time: "6:12 PM", tag: "Done", body: "Your 4pm moved to tomorrow. Notes sent, client covered. You're clear for the night."},
       {time: "Month 2", tag: "Reported", body: "Your Room Report is in. Measured against the baseline from week one."}
@@ -97,17 +95,18 @@ const turns: Turn[] = [
   {
     id: "grow", n: "04", name: "Grow ↻", deliverable: "The Next Opportunity",
     headline: "The room becomes what’s next.",
-    lead: <>The room she got back <b>became location two.</b> The system keeps looking for what a busy owner can&rsquo;t see, then asks. Then it turns back to Find.</>,
-    img: "/img/grow-location-two-keys.jpg", alt: "The owner receiving the keys to her second location from the leasing agent, her operations manager beside her", caption: "Getting the keys to location two", notesOnPhone: false,
+    lead: <>The room she got back <b>became the next hire.</b> The system keeps looking for what a busy owner can&rsquo;t see, then asks. Then it turns back to Find.</>,
+    img: "/img/grow-new-hire.jpg", alt: "An owner welcoming a new hire with a handshake", caption: "Welcoming the new hire",
     notes: [
-      {time: "Month 6", tag: "Ready", body: "The hours you got back made room for location two. Opening plan drafted."}
+      {time: "Month 3", tag: "Ready", body: "The hours you got back cover a new role. A job description is drafted from your Room Map."},
+      {time: "4:20 PM", tag: "Found", body: "Work that was never billed, across 4 clients. Invoices drafted for your review."}
     ],
     phone: {
       time: "4:31", app: "Found", title: "Room for what’s next.", sub: "Drafts only. Nothing goes out without you.", goal: true,
       rows: [
-        {title: "Location two opening plan", sub: "Drafted from your Room Map", act: "Review"},
-        {title: "Room for 1 new hire", sub: "Job description for the new location", act: "Review"},
-        {title: "Unbilled work", sub: "4 clients · invoices drafted", act: "Review", hideSm: true}
+        {title: "Room for 1 new hire", sub: "Job description drafted from your Room Map", act: "Review"},
+        {title: "Unbilled work", sub: "4 clients · invoices drafted", act: "Review"},
+        {title: "Warm win-back", sub: "A regular went quiet", act: "Read note", hideSm: true}
       ],
       foot: <><span className="pr-sample"><i aria-hidden="true"/>Sample</span><br/><b>↻ What we learn goes back into Find.</b></>
     }
@@ -184,7 +183,7 @@ export default function Practice(){
                   <motion.path d="M 300,420 C 520,400 640,300 760,330 C 880,360 940,340 1060,340" fill="none" stroke="#0F766E" strokeWidth={4} strokeLinecap="round"
                     initial={reduce?false:{pathLength:0}} whileInView={{pathLength:1}} viewport={VIEW} transition={{duration:1.1,delay:.55,ease:"easeInOut"}}/>
                 </svg>
-                <motion.div className={`pr-life${t.notesAt==="right"?" notes-right":""}${t.notesOnPhone===false?" notes-off-sm":""}`} initial={reduce?false:{opacity:0,x:-40}} whileInView={{opacity:1,x:0}} viewport={VIEW} transition={{duration:.8,ease:EASE}}>
+                <motion.div className="pr-life" initial={reduce?false:{opacity:0,x:-40}} whileInView={{opacity:1,x:0}} viewport={VIEW} transition={{duration:.8,ease:EASE}}>
                   <motion.img src={t.img} alt={t.alt} loading="lazy" initial={reduce?false:{scale:1.08}} whileInView={{scale:1}} viewport={VIEW} transition={{duration:1.4,ease:EASE}}/>
                   <span className="pr-cap"><i aria-hidden="true"/>{t.caption}</span>
                   <motion.ul className="pr-notes" aria-label="CUEPA notifications" variants={stagger(.28,.6)} initial={init} whileInView="show" viewport={VIEW}>
