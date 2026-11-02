@@ -15,7 +15,7 @@ export default function NextLines(){return (
   <section className="nx" id="next">
     <div className="shell">
       <p className="rm-eyebrow">Feeling stuck?</p>
-      <h2 className="nx-h">GROWTH NEEDS ROOM.<br/>HERE&rsquo;S WHERE IT GOES.</h2>
+      <h2 className="nx-h">Growth needs room.<br/>Here&rsquo;s where it goes.</h2>
       <ul className="nx-list">
         {lines.map(l=><li key={l}><span>Making room for</span> <b>{l}</b></li>)}
       </ul>

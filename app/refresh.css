@@ -92,3 +92,12 @@
 .site .site-footer p:nth-child(3){font-size:14px;letter-spacing:0}
 .site .site-footer a{color:#111827}
 .site .footer-ollin{border-top:0;box-shadow:inset 0 1px 0 #E4E4E4;color:#5E5E5E;letter-spacing:0;text-transform:none;font-size:14px}
+
+/* Practice: note times stay slate (the global em rule makes em teal). */
+.site .pr-note-top em{color:#111827}
+.pr-rt{line-height:1.35}
+/* Room Report chart: the global svg{width:1em;stroke:currentColor} rule shrank the dial and
+   outlined the chart area. */
+.site .rrDial svg{width:100%;height:100%}
+.site .rrChart>path:first-of-type{stroke:none}
+.site .rrChart circle{stroke:none}
