@@ -67,7 +67,7 @@ const turns: Turn[] = [
         {title: "Approve Lakeshore estimate", sub: "2 minutes", act: "Decision"},
         {title: "Rivera brief", sub: "Ready for the 10:30", act: "Prepared"},
         {title: "Invoice #1048", sub: "Drafted, waiting on your OK", act: "Handled"},
-        {title: "Samples review with the team", sub: "Protected until 3:00 PM", act: "Room", human: true},
+        {title: "Floor walk with the team", sub: "Protected until 3:00 PM", act: "Room", human: true},
         {title: "Focus: finish the proposal", sub: "9:00 to 11:00, no meetings", act: "Protected", hideSm: true}
       ],
       foot: <>Everything else is handled. <b>1 thing needs you.</b></>
