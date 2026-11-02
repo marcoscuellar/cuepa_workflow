@@ -114,3 +114,6 @@
 .reality.is-visible .reality-notes .pr-note{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reality-notes .pr-note{opacity:1;transform:none;transition:none}}
 @media(max-width:900px){.site .reality-photo .reality-notes .pr-note{display:grid}}
+
+/* Reality photo: square, so the whole team photo fits. */
+.site .reality-photo{aspect-ratio:1/1}
