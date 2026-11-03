@@ -28,7 +28,19 @@ export const metadata:Metadata={
   keywords:["human-governed AI workflows","AI workflows for small business","operational gaps","small business AI consulting","workflow automation","human in the loop AI","business process improvement","operational strategy","CUEPA","ELIPAN GROUP"],
   authors:[{name:"Marcos Cuellar"}],
   alternates:{canonical:"/"},
-  icons:{icon:[{url:"/favicon.svg",type:"image/svg+xml"}],apple:"/apple-touch-icon.png"},
+  icons:{
+    icon:[
+      {url:"/favicon.ico",sizes:"any"},
+      {url:"/favicon.svg",type:"image/svg+xml"},
+      {url:"/favicon-32.png",sizes:"32x32",type:"image/png"},
+      {url:"/favicon-16.png",sizes:"16x16",type:"image/png"},
+      {url:"/icon-192.png",sizes:"192x192",type:"image/png"},
+      {url:"/icon-512.png",sizes:"512x512",type:"image/png"}
+    ],
+    apple:[{url:"/apple-touch-icon.png",sizes:"180x180",type:"image/png"}],
+    shortcut:"/favicon.ico"
+  },
+  manifest:"/site.webmanifest",
   openGraph:{type:"website",url:"/",siteName:"CUEPA",title,description,
     images:[{url:"/og.jpg",width:1200,height:630,alt:"A woman presenting ideas on a whiteboard to her smiling team in a sunny brick loft, beside the words Make Room for What’s Next"}]},
   twitter:{card:"summary_large_image",title,description,images:["/og.jpg"]}
