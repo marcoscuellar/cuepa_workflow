@@ -71,9 +71,10 @@ export function buildRoomEstimatePdf(input: RoomEstimateInput): Uint8Array {
   const rule = (y: number) => rect(56, y, 500, 0.75, LINE);
   const label = (s: string, y: number) => text(s.toUpperCase(), 56, y, 8.5, TEAL, true);
 
-  // Header: CUEPA mark (two equal blocks, Deep Ink + Teal Mark) and lockup
-  rect(56, 728, 11, 26, INK);
-  rect(71, 728, 11, 26, TEAL);
+  // Header: CUEPA Room Mark (2x2, top-right open, bottom-right Teal Mark) and lockup
+  rect(56, 742.3, 11.7, 11.7, INK);
+  rect(56, 728, 11.7, 11.7, INK);
+  rect(70.3, 728, 11.7, 11.7, TEAL);
   text("CUEPA", 92, 742, 15, INK, true);
   text("BY ELIPAN GROUP", 92, 730, 7, MUTED);
   right(date, 556, 742, 9, MUTED);
