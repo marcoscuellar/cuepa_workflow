@@ -71,11 +71,11 @@ export function buildRoomEstimatePdf(input: RoomEstimateInput): Uint8Array {
   const rule = (y: number) => rect(56, y, 500, 0.75, LINE);
   const label = (s: string, y: number) => text(s.toUpperCase(), 56, y, 8.5, TEAL, true);
 
-  // Header: CUEPA mark (two equal blocks, Deep Ink + Teal Mark) and lockup
-  rect(56, 728, 11, 26, INK);
-  rect(71, 728, 11, 26, TEAL);
-  text("CUEPA", 92, 742, 15, INK, true);
-  text("for Work", 151, 742, 10, INK);
+  // Header: CUEPA Room Mark (2x2, top-right open, Teal Mark) and lockup
+  rect(56, 742.3, 11.7, 11.7, TEAL);
+  rect(56, 728, 11.7, 11.7, TEAL);
+  rect(70.3, 728, 11.7, 11.7, TEAL);
+  text("CUEPA", 92, 742, 15, TEAL, true);
   text("BY ELIPAN GROUP", 92, 730, 7, MUTED);
   right(date, 556, 742, 9, MUTED);
 
@@ -168,7 +168,7 @@ export function buildRoomEstimatePdf(input: RoomEstimateInput): Uint8Array {
   let fy = 74;
   for (const l of wrap(fine, 7.5, 500)) { text(l, 56, fy, 7.5, MUTED); fy -= 10; }
   rule(48);
-  text("CUEPA for Work · An ELIPAN GROUP company", 56, 36, 7.5, MUTED);
+  text("CUEPA · An ELIPAN GROUP company", 56, 36, 7.5, MUTED);
 
   const content = ops.join("\n");
   const objects = [
@@ -179,7 +179,7 @@ export function buildRoomEstimatePdf(input: RoomEstimateInput): Uint8Array {
     "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>",
     `<< /Length ${content.length} >>\nstream\n${content}\nendstream`,
     `<< /Type /Annot /Subtype /Link /Rect [${link.map(n => n.toFixed(1)).join(" ")}] /Border [0 0 0] /A << /S /URI /URI ${pdfStr(BOOKING_URL)} >> >>`,
-    `<< /Title ${pdfStr("Your Room Estimate")} /Author ${pdfStr("CUEPA for Work")} /Producer ${pdfStr("makingcuepa.com")} >>`
+    `<< /Title ${pdfStr("Your Room Estimate")} /Author ${pdfStr("CUEPA")} /Producer ${pdfStr("makingcuepa.com")} >>`
   ];
   let out = "%PDF-1.4\n";
   const offsets: number[] = [];

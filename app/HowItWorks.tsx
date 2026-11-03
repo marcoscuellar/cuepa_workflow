@@ -52,9 +52,9 @@ export default function HowItWorks() {
             <blockquote>&ldquo;Understand first. Simplify before automating. I don&rsquo;t believe in forcing a product into a problem.&rdquo;</blockquote>
             <div className="hw-who">
               <svg viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
-              <span><b>Marcos Cuellar</b> · Founder, CUEPA for Work</span>
+              <span><b>Marcos Cuellar</b> · Founder, CUEPA</span>
             </div>
-            <p className="hw-how">I lead CUEPA for Work, where we help businesses identify operational gaps and design practical, <b>human-governed AI workflows.</b> My background is in business development, staffing and operational strategy, so my approach starts with the human business outcome rather than the technology.</p>
+            <p className="hw-how">I lead CUEPA, where we help businesses identify operational gaps and design practical, <b>human-governed AI workflows.</b> My background is in business development, staffing and operational strategy, so my approach starts with the human business outcome rather than the technology.</p>
             <p className="hw-north">Human foreground. Intelligence background.</p>
           </aside>
         </div>

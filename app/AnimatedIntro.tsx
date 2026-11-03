@@ -77,7 +77,7 @@ export default function AnimatedIntro(){
           <motion.span style={{display:"block"}} variants={heroChild}>FOR WHAT&rsquo;S</motion.span>
           <motion.span style={{display:"block"}} variants={heroChild}><span className="hero2-accent">NEXT.</span></motion.span>
         </h1>
-        <motion.p className="lede2" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA for Work takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
+        <motion.p className="lede2" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
         <motion.div className="cta2-group" variants={heroChild}>
           <a href="#conversation" className="cta2">
             <span className="cta2-long">Book a 20-Minute Room Conversation</span>

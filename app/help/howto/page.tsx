@@ -55,10 +55,10 @@ export default function HowToPage(){
     </section>
 
     <footer className="site-footer">
-      <p className="wordmark"><Logo offering="for Work" lockup/></p>
+      <p className="wordmark"><Logo lockup/></p>
       <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
       <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a></p>
-      <p className="footer-ollin">CUEPA for Work · An ELIPAN GROUP company</p>
+      <p className="footer-ollin">CUEPA · An ELIPAN GROUP company</p>
     </footer>
   </main>);
 }

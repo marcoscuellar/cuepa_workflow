@@ -1,10 +1,10 @@
-# CUEPA for Work
+# CUEPA
 
-> CUEPA for Work helps small businesses identify operational gaps and design practical, human-governed AI workflows. We start with the business goal, not the technology. A person approves before anything goes out. CUEPA for Work is an ELIPAN GROUP company.
+> CUEPA helps small businesses identify operational gaps and design practical, human-governed AI workflows. We start with the business goal, not the technology. A person approves before anything goes out. CUEPA is an ELIPAN GROUP company.
 
 ## Who leads it
 
-Marcos Cuellar leads CUEPA for Work. His background is in business development, staffing and operational strategy, so the approach starts with the human business outcome rather than the technology.
+Marcos Cuellar leads CUEPA. His background is in business development, staffing and operational strategy, so the approach starts with the human business outcome rather than the technology.
 
 ## Who it's for
 
