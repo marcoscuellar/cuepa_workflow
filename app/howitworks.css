@@ -1,4 +1,4 @@
-/* How it works — executive mental model (Pure White, Teal Mark only, Inter; Anton for the one callout). */
+/* How it works — executive mental model (Pure White, Teal Mark only, Inter; Inter ExtraBold for the one callout). */
 .hw{--hw-ink:#030303;--hw-slate:#111827;--hw-muted:#5E5E5E;--hw-line:#E4E4E4;--hw-teal:#0F766E;--hw-tint:rgba(15,118,110,.08);
   --hw-rest:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06);--hw-lift:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10);
   background:#fff;color:var(--hw-slate);font-family:'Inter',sans-serif;font-size:17px;line-height:1.6}
@@ -14,7 +14,7 @@
 
 /* 1. Opening */
 .hw-open{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end}
-.hw h2.hw-callout{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(52px,7.4vw,112px);line-height:.92;letter-spacing:-.005em}
+.hw h2.hw-callout{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(44.7px,6.4vw,96.3px);line-height:1;letter-spacing:-.04em}
 .hw-callout span{color:var(--hw-teal)}
 .hw-after{margin-top:22px!important;font-size:clamp(20px,2vw,26px);font-weight:600;color:var(--hw-ink);line-height:1.35;max-width:26ch}
 .hw-note{background:#fff;border-radius:16px;padding:28px;box-shadow:var(--hw-rest);display:grid;gap:16px}

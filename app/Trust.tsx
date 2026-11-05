@@ -1,4 +1,4 @@
-// Human in the Middle — on Pure White. One Anton statement, three shadow-lifted cards (no outlines,
+// Human in the Middle — on Pure White. One Inter ExtraBold statement, three shadow-lifted cards (no outlines,
 // no accent bars). CHIMAL: Protect · Challenge · Verify.
 const rows:[string,string,string][]=[
   ["Protect","Self-QA","Each workflow checks its output against approved source information and flags what it cannot support."],

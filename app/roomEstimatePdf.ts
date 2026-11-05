@@ -75,8 +75,8 @@ export function buildRoomEstimatePdf(input: RoomEstimateInput): Uint8Array {
   rect(56, 742.3, 11.7, 11.7, INK);
   rect(56, 728, 11.7, 11.7, INK);
   rect(70.3, 728, 11.7, 11.7, TEAL);
-  text("CUEPA", 92, 742, 15, INK, true);
-  text("BY ELIPAN GROUP", 92, 730, 7, MUTED);
+  // CUEPA: heavy, tight (Helvetica-Bold, -0.04em), cap height = 82% of the mark, gap = one square
+  ops.push(`BT /F2 29 Tf -1.16 Tc ${rgb(INK)} rg 93.7 730.5 Td ${pdfStr("CUEPA")} Tj 0 Tc ET`);
   right(date, 556, 742, 9, MUTED);
 
   // Title
