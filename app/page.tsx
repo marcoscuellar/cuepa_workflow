@@ -36,7 +36,7 @@ export default function Home(){return <main className="site">
 
   <Conversation/>
   <footer className="site-footer">
-    <p className="wordmark"><Logo lockup dark/></p>
+    <p className="wordmark"><Logo lockup dark size={26}/></p>
     <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
     <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a> · <a href="https://you.makingcuepa.com/">CUEPA for You: AI help for everyday life</a></p>
     <p className="footer-ollin">CUEPA · An ELIPAN GROUP company.</p>

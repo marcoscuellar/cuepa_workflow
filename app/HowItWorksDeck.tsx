@@ -127,7 +127,7 @@ export default function HowItWorksDeck() {
   const deck = useRef<HTMLOListElement>(null);
   const {scrollYProgress} = useScroll({target: deck, offset: ["start start", "end end"]});
   return (
-    <section aria-label="The four turns" className="relative w-full bg-white text-[#111827] py-24 md:py-36 px-4 sm:px-6 lg:px-8 selection:bg-[#0F766E] selection:text-white">
+    <section aria-label="The four turns" className="relative w-full bg-white text-[#080B0F] py-24 md:py-36 px-4 sm:px-6 lg:px-8 selection:bg-[#0F766E] selection:text-white">
       {/* Sticky deck (desktop, screens 900px+ tall): each card pins at top-28 / lg:top-32 (clears the 92px fixed nav), offset 16px per card.
           On phones and short screens a card is taller than the view, so the cards scroll normally there. */}
       <ol ref={deck} className="max-w-7xl mx-auto flex flex-col gap-24 relative list-none m-0 p-0">
@@ -138,11 +138,11 @@ export default function HowItWorksDeck() {
               <div className="flex items-center gap-4">
                 <span className="text-2xl sm:text-3xl font-mono font-bold text-[#0F766E]">{step.number}</span>
                 <span className="h-4 w-px bg-[#E4E4E4]" aria-hidden="true"/>
-                <h3 className="m-0 text-xl sm:text-2xl font-black uppercase tracking-wider text-[#030303]">{step.verb}</h3>
+                <h3 className="m-0 text-xl sm:text-2xl font-black uppercase tracking-wider text-[#080B0F]">{step.verb}</h3>
               </div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F766E]/10 text-xs font-mono uppercase tracking-wider text-[#0F766E]">
                 <span className="w-2 h-2 rounded-full bg-[#0F766E]" aria-hidden="true"/>
-                Deliverable: <strong className="text-[#030303]">{step.deliverable}</strong>
+                Deliverable: <strong className="text-[#080B0F]">{step.deliverable}</strong>
               </div>
             </div>
 
@@ -159,12 +159,12 @@ export default function HowItWorksDeck() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" aria-hidden="true"/>
                 <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-12 flex flex-col gap-3.5 z-10">
                   {step.floatingNotifications.map((notif, nIdx) => (
-                    <div key={nIdx} className="backdrop-blur-2xl backdrop-saturate-150 bg-white/55 rounded-2xl p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_0_1px_rgba(255,255,255,0.28),0_8px_24px_rgba(3,3,3,0.14)] max-w-lg">
+                    <div key={nIdx} className="backdrop-blur-2xl backdrop-saturate-150 bg-white/55 rounded-2xl p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_0_1px_rgba(255,255,255,0.28),0_8px_24px_rgba(8,11,15,0.14)] max-w-lg">
                       <div className="flex items-center justify-between gap-3 mb-1.5">
                         <span className={`text-[10px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded ${notif.tagColor}`}>{notif.tag}</span>
-                        <span className="text-[11px] font-mono text-[#111827]/80">CUEPA • ACTIVE</span>
+                        <span className="text-[11px] font-mono text-[#080B0F]/80">CUEPA • ACTIVE</span>
                       </div>
-                      <p className="m-0 text-sm font-medium text-[#111827] leading-snug">{notif.body}</p>
+                      <p className="m-0 text-sm font-medium text-[#080B0F] leading-snug">{notif.body}</p>
                     </div>
                   ))}
                 </div>
@@ -173,20 +173,20 @@ export default function HowItWorksDeck() {
               {/* Right: the turn and its deliverable */}
               <div className="p-6 sm:p-10 flex flex-col justify-between bg-white min-w-0">
                 <div>
-                  <p className="m-0 text-2xl sm:text-3xl font-bold tracking-tight text-[#030303] leading-tight">{step.headline}</p>
-                  <p className="m-0 text-sm sm:text-base text-[#5E5E5E] mt-3 font-normal leading-relaxed">{step.subtext}</p>
+                  <p className="m-0 text-2xl sm:text-3xl font-bold tracking-tight text-[#080B0F] leading-tight">{step.headline}</p>
+                  <p className="m-0 text-sm sm:text-base text-[#5E6670] mt-3 font-normal leading-relaxed">{step.subtext}</p>
 
-                  <div className="mt-8 rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(3,3,3,0.06),0_4px_12px_rgba(3,3,3,0.06)]">
+                  <div className="mt-8 rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(8,11,15,0.06),0_4px_12px_rgba(8,11,15,0.06)]">
                     <div className="flex flex-wrap items-center justify-between gap-2 shadow-[inset_0_-1px_0_#E4E4E4] pb-3 mb-4">
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#030303]">{step.deliverableCard.header}</span>
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#080B0F]">{step.deliverableCard.header}</span>
                       <span className="text-[10px] font-mono text-[#0F766E] bg-[#0F766E]/10 px-2 py-0.5 rounded">{step.deliverableCard.badge}</span>
                     </div>
                     <div className="space-y-3">
                       {step.deliverableCard.rows.map((row, rIdx) => (
                         <div key={rIdx} className="flex items-center justify-between gap-3 text-xs py-1.5 border-b border-[#F0F0F0] last:border-0">
                           <div className="min-w-0">
-                            <p className="m-0 font-semibold text-[#030303]">{row.label}</p>
-                            <p className="m-0 text-[11px] text-[#5E5E5E]">{row.value}</p>
+                            <p className="m-0 font-semibold text-[#080B0F]">{row.label}</p>
+                            <p className="m-0 text-[11px] text-[#5E6670]">{row.value}</p>
                           </div>
                           {row.action && (
                             <span className="shrink-0 font-mono text-[10px] font-bold text-[#0F766E] bg-[#0F766E]/10 px-2 py-1 rounded">{row.action}</span>
@@ -198,7 +198,7 @@ export default function HowItWorksDeck() {
                 </div>
 
                 <div className="mt-8 pt-5 shadow-[inset_0_1px_0_#E4E4E4] flex items-center justify-between gap-4">
-                  <p className="m-0 text-xs text-[#5E5E5E] font-mono">{step.deliverableCard.footerNotice}</p>
+                  <p className="m-0 text-xs text-[#5E6670] font-mono">{step.deliverableCard.footerNotice}</p>
                   <span className="shrink-0 text-sm font-bold text-[#0F766E] flex items-center gap-1">Inspect <span aria-hidden="true">→</span></span>
                 </div>
               </div>
@@ -218,7 +218,7 @@ function DeckCard({index, total, progress, children}: {index: number; total: num
     <li className="hw-deck-card lg:sticky [--deck-top:7rem] lg:[--deck-top:8rem]" style={{top: `calc(var(--deck-top) + ${index * 16}px)`, zIndex: index + 10}}>
       <motion.div
         style={{scale, transformOrigin: "top center"}}
-        className="pt-4 rounded-3xl bg-white shadow-[0_2px_4px_rgba(3,3,3,0.06),0_-4px_16px_rgba(3,3,3,0.05),0_24px_48px_rgba(3,3,3,0.12)] overflow-hidden"
+        className="pt-4 rounded-3xl bg-white shadow-[0_2px_4px_rgba(8,11,15,0.06),0_-4px_16px_rgba(8,11,15,0.05),0_24px_48px_rgba(8,11,15,0.12)] overflow-hidden"
       >
         {children}
       </motion.div>

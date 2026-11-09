@@ -1,50 +1,50 @@
 /* Brand refresh — CUEPA Brand Book (Oct 31, 2026), aligned to ELIPAN GROUP.
-   Pure White ground. Teal Mark #0F766E is the only brand color. Deep Ink #030303 only for the
+   Pure White ground. Teal Mark #0F766E is the only brand color. Deep Ink #080B0F only for the
    Hero and the Room Report band. Cards lift with soft black shadows, never outlines or accent bars.
    Anton for one short all-caps statement per view; Inter for everything else.
    Loaded last so it wins ties. Scoped to the marketing page (.site) where it touches bare elements. */
 
 /* Type: the marketing page runs on Inter. :where() keeps this at element specificity so
    every class rule (Anton statements included) still wins. */
-.site{font-family:'Inter',sans-serif;background:#fff;color:#111827}
+.site{font-family:'Inter',sans-serif;background:#fff;color:#080B0F}
 :where(.site) :is(h1,h2,h3,h4){font-family:'Inter',sans-serif}
 .site em{font-family:'Inter',sans-serif;font-style:normal;font-weight:inherit;color:#0F766E}
 
 /* ── Reality: was dark #0e1218 ── */
-.site .reality{background:#fff;color:#111827;border:0;text-align:left;padding:clamp(72px,9vw,120px) 0}
+.site .reality{background:#fff;color:#080B0F;border:0;text-align:left;padding:clamp(72px,9vw,120px) 0}
 .site .reality-lead{align-items:center}
-.site .reality-photo{border-radius:16px;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
-.site .rn-pill{background:#fff;color:#030303;border:0;backdrop-filter:none;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10);font-weight:600;font-size:14px}
+.site .reality-photo{border-radius:16px;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
+.site .rn-pill{background:#fff;color:#080B0F;border:0;backdrop-filter:none;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10);font-weight:600;font-size:14px}
 .site .rn-dot{box-shadow:none}
 .reality-eyebrow{margin:0 0 14px;font:600 12px 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0F766E}
-.site .reality-statement{font-family:'Inter',sans-serif;font-weight:600;color:#030303;letter-spacing:-.03em;line-height:1.1}
+.site .reality-statement{font-family:'Inter',sans-serif;font-weight:600;color:#080B0F;letter-spacing:-.03em;line-height:1.1}
 .site .reality-quotes{gap:24px}
-.site .reality .stat-card{align-items:flex-start;text-align:left;background:#fff;border:0!important;border-radius:16px;padding:32px!important;gap:12px;box-shadow:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06)}
+.site .reality .stat-card{align-items:flex-start;text-align:left;background:#fff;border:0!important;border-radius:16px;padding:32px!important;gap:12px;box-shadow:0 1px 2px rgba(8,11,15,.06),0 4px 12px rgba(8,11,15,.06)}
 .site .reality .stat-card::before{display:none}
-.site .reality .stat-card strong{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(44px,4.4vw,56px);line-height:1;letter-spacing:-.03em;color:#030303}
-.site .stat-card blockquote{margin:0;color:#111827;font-size:17px;line-height:1.6;font-weight:400;max-width:none}
-.site .stat-card cite{font-family:'Inter',sans-serif;font-size:14px;letter-spacing:0;text-transform:none;color:#5E5E5E}
+.site .reality .stat-card strong{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(44px,4.4vw,56px);line-height:1;letter-spacing:-.03em;color:#080B0F}
+.site .stat-card blockquote{margin:0;color:#080B0F;font-size:17px;line-height:1.6;font-weight:400;max-width:none}
+.site .stat-card cite{font-family:'Inter',sans-serif;font-size:14px;letter-spacing:0;text-transform:none;color:#5E6670}
 @media(max-width:900px){.site .reality-statement{text-align:left}.site .reality-quotes{gap:16px}}
 
 /* ── Trust: was Deep Ink with outlined cards and teal top bars ── */
-.tr{background:#fff;color:#111827;padding:clamp(72px,9vw,120px) 0;font-family:'Inter',sans-serif}
+.tr{background:#fff;color:#080B0F;padding:clamp(72px,9vw,120px) 0;font-family:'Inter',sans-serif}
 .tr-shell{width:min(var(--shell-max,1440px),calc(100% - var(--gutter,112px)*2));margin:0 auto}
 @media(max-width:640px){.tr-shell{width:calc(100% - 32px)}}
 .tr-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:48px}
 @media(max-width:820px){.tr-head{grid-template-columns:minmax(0,1fr)}}
 .tr-eyebrow{margin:0;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#0F766E}
-.tr h2{margin:16px 0 0;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(48px,7.4vw,112px);line-height:.92;letter-spacing:.005em;color:#030303}
+.tr h2{margin:16px 0 0;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(36px,5.5vw,83px);line-height:1.02;letter-spacing:-.04em;color:#080B0F}
 .tr h2 span{color:#0F766E}
-.tr-lead{margin:0;color:#5E5E5E;font-size:18px;line-height:1.6;max-width:52ch}
-.tr-shield{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:28px 0 0;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#030303}
+.tr-lead{margin:0;color:#5E6670;font-size:18px;line-height:1.6;max-width:52ch}
+.tr-shield{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:28px 0 0;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#080B0F}
 .tr-shield i{font-style:normal;color:#B5B5B5}
 .tr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:900px){.tr-grid{grid-template-columns:minmax(0,1fr)}}
-.tr-card{background:#fff;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06);transition:box-shadow .25s cubic-bezier(.2,.7,.2,1),translate .25s cubic-bezier(.2,.7,.2,1)}
-.tr-card:hover{box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10);translate:0 -3px}
+.tr-card{background:#fff;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(8,11,15,.06),0 4px 12px rgba(8,11,15,.06);transition:box-shadow .25s cubic-bezier(.2,.7,.2,1),translate .25s cubic-bezier(.2,.7,.2,1)}
+.tr-card:hover{box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10);translate:0 -3px}
 .tr-num{font-size:12px;font-weight:600;letter-spacing:.14em;color:#0F766E}
-.tr-card h3{margin:0;font-family:'Inter',sans-serif;font-weight:600;font-size:20px;line-height:1.3;color:#030303}
-.tr-card p{margin:0;color:#5E5E5E;line-height:1.6}
+.tr-card h3{margin:0;font-family:'Inter',sans-serif;font-weight:600;font-size:20px;line-height:1.3;color:#080B0F}
+.tr-card p{margin:0;color:#5E6670;line-height:1.6}
 @media(prefers-reduced-motion:reduce){.tr-card{transition:none}.tr-card:hover{translate:none}}
 
 /* ── Room Report: Deep Ink stays here (allowed), as a rounded night band ── */
@@ -53,48 +53,48 @@
 .site .report-intro{border-bottom:0}
 .site .report-intro p.lbl{font:600 12px 'Inter',sans-serif;letter-spacing:.16em}
 .site .report-intro p:last-child{font-weight:400;color:#A0A0A0}
-.site :is(.rrStat,.rrCard,.rrApprove,.rrMini){border:0;box-shadow:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06)}
-.site .rrStat.key{background:#fff;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
+.site :is(.rrStat,.rrCard,.rrApprove,.rrMini){border:0;box-shadow:0 1px 2px rgba(8,11,15,.06),0 4px 12px rgba(8,11,15,.06)}
+.site .rrStat.key{background:#fff;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
 .site .rrChrome{border-bottom:0;box-shadow:inset 0 -1px 0 #E4E4E4}
-.site .rrPeriod{border:0;box-shadow:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06);color:#111827}
-.site .rrHold{border:0;box-shadow:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06)}
+.site .rrPeriod{border:0;box-shadow:0 1px 2px rgba(8,11,15,.06),0 4px 12px rgba(8,11,15,.06);color:#080B0F}
+.site .rrHold{border:0;box-shadow:0 1px 2px rgba(8,11,15,.06),0 4px 12px rgba(8,11,15,.06)}
 .site .rrNote{color:#A0A0A0}
 .site .doorway{background:none;padding:0;margin:56px 0 0;font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,36px);line-height:1.2;letter-spacing:-.02em;color:#fff}
 .site .doorway span{color:#0F766E}
 
-/* ── Next lines: was Ivory #F4F5F5 ── */
+/* ── Next lines: was Ivory #F1EFE9 ── */
 .site .nx{background:#fff}
 .site .nx-h{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.025em;line-height:1.08;text-transform:none;font-size:clamp(32px,4vw,48px)}
 .site .nx-list{border-top:0;gap:16px}
-.site .nx-list li,.site .nx-list li:nth-child(odd){padding:18px 22px;border:0;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(3,3,3,.06),0 4px 12px rgba(3,3,3,.06);font-size:19px}
-.site .nx-list span{color:#5E5E5E}
+.site .nx-list li,.site .nx-list li:nth-child(odd){padding:18px 22px;border:0;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(8,11,15,.06),0 4px 12px rgba(8,11,15,.06);font-size:19px}
+.site .nx-list span{color:#5E6670}
 .site .nx-list b{font-weight:600}
 
 /* ── Conversation: was grey #4a4f52 ── */
-.site .convo-sec{background:#fff;color:#111827;align-items:center}
-.site .convo-media{border-radius:16px;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
-.site .convo-body h2{color:#030303;letter-spacing:.005em}
-.site .capture-pill{background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
-.site .capture-pill input{font-family:'Inter',sans-serif;font-weight:500;color:#030303}
+.site .convo-sec{background:#fff;color:#080B0F;align-items:center}
+.site .convo-media{border-radius:16px;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
+.site .convo-body h2{color:#080B0F;letter-spacing:.005em}
+.site .capture-pill{background:#fff;border-radius:12px;padding:8px;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
+.site .capture-pill input{font-family:'Inter',sans-serif;font-weight:500;color:#080B0F}
 .site .capture-pill button{background:#0F766E;border-radius:8px;min-height:48px;padding:0 22px;font:600 16px 'Inter',sans-serif;letter-spacing:0;text-transform:none}
 .site .capture-pill button:hover{background:#0B5F58}
 @media(max-width:520px){.site .capture-pill{border-radius:12px}}
-.site .capture-hint{color:#5E5E5E;font-size:14px}
+.site .capture-hint{color:#5E6670;font-size:14px}
 .site .capture-error{color:#C62828}
-.site .capture-sent{background:#fff;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
-.site .capture-sent-h{font-family:'Inter',sans-serif;font-weight:600;color:#030303}
-.site .capture-sent p{color:#111827;font-weight:400}
-.site .capture-sent strong{color:#030303}
+.site .capture-sent{background:#fff;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
+.site .capture-sent-h{font-family:'Inter',sans-serif;font-weight:600;color:#080B0F}
+.site .capture-sent p{color:#080B0F;font-weight:400}
+.site .capture-sent strong{color:#080B0F}
 
 /* ── Footer: was Deep Ink ── */
-.site .site-footer{background:#fff;color:#5E5E5E;box-shadow:inset 0 1px 0 #E4E4E4;align-items:center}
-.site .site-footer p:nth-child(2){font-family:'Anton',sans-serif;font-size:28px;letter-spacing:.005em;color:#030303}
+.site .site-footer{background:#fff;color:#5E6670;box-shadow:inset 0 1px 0 #E4E4E4;align-items:center}
+.site .site-footer p:nth-child(2){font-family:'Inter',sans-serif;font-size:23px;letter-spacing:-.04em;color:#080B0F;font-weight:800}
 .site .site-footer p:nth-child(3){font-size:14px;letter-spacing:0}
-.site .site-footer a{color:#111827}
-.site .footer-ollin{border-top:0;box-shadow:inset 0 1px 0 #E4E4E4;color:#5E5E5E;letter-spacing:0;text-transform:none;font-size:14px}
+.site .site-footer a{color:#080B0F}
+.site .footer-ollin{border-top:0;box-shadow:inset 0 1px 0 #E4E4E4;color:#5E6670;letter-spacing:0;text-transform:none;font-size:14px}
 
 /* Practice: note times stay slate (the global em rule makes em teal). */
-.site .pr-note-top em{color:#111827}
+.site .pr-note-top em{color:#080B0F}
 .pr-rt{line-height:1.35}
 /* Room Report chart: the global svg{width:1em;stroke:currentColor} rule shrank the dial and
    outlined the chart area. */
@@ -103,11 +103,11 @@
 .site .rrChart circle{stroke:none}
 
 /* Reality: "Real workflows. Real people. Real outcomes." + the line under it. */
-.reality-sub{margin:20px 0 0;max-width:44ch;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:#5E5E5E}
+.reality-sub{margin:20px 0 0;max-width:44ch;font-size:clamp(18px,1.5vw,21px);line-height:1.5;color:#5E6670}
 .site .reality-photo img{object-position:50% center}
 
 /* Reality notes: the same see-through treatment as the Practice photos. */
-.reality{--pr-ink:#030303;--pr-slate:#111827;--pr-teal:#0F766E;--pr-warn:#9A6B00}
+.reality{--pr-ink:#080B0F;--pr-slate:#080B0F;--pr-teal:#0F766E;--pr-warn:#9A6B00}
 .site .reality-photo .reality-notes{position:absolute;z-index:2;left:20px;right:auto;bottom:20px;width:min(330px,calc(100% - 40px));margin:0;padding:0;list-style:none;display:grid;gap:10px;text-align:left}
 .site .reality-photo .reality-notes .pr-note{display:grid}
 .reality-notes .pr-note{opacity:0;transform:translateY(16px) scale(.97);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);transition-delay:calc(500ms + var(--note-order,0) * 280ms)}
@@ -124,9 +124,9 @@
 .site :is(.nx-list li,.rrStat,.rrCard,.rrFound,.rrApprove,.hw-note,.hw-panel){transition:box-shadow .25s cubic-bezier(.2,.7,.2,1),translate .25s cubic-bezier(.2,.7,.2,1)}
 .site .reality .stat-card{transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1),filter .72s ease,box-shadow .25s cubic-bezier(.2,.7,.2,1),translate .25s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--stat-order,0) * 120ms),calc(var(--stat-order,0) * 120ms),calc(var(--stat-order,0) * 120ms),0s,0s}
 @media (hover:hover) and (prefers-reduced-motion:no-preference){
-  .site :is(.reality .stat-card,.nx-list li,.rrStat,.rrCard,.rrFound,.rrApprove,.hw-note,.hw-panel,.tr-card,.rs-card):hover{translate:0 -3px;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
-  .site .rrStat.key:hover{box-shadow:0 4px 8px rgba(3,3,3,.10),0 18px 36px rgba(3,3,3,.14)}
+  .site :is(.reality .stat-card,.nx-list li,.rrStat,.rrCard,.rrFound,.rrApprove,.hw-note,.hw-panel,.tr-card,.rs-card):hover{translate:0 -3px;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
+  .site .rrStat.key:hover{box-shadow:0 4px 8px rgba(8,11,15,.10),0 18px 36px rgba(8,11,15,.14)}
 }
 @media (hover:hover) and (prefers-reduced-motion:reduce){
-  .site :is(.reality .stat-card,.nx-list li,.rrStat,.rrCard,.rrFound,.rrApprove,.hw-note,.hw-panel,.tr-card,.rs-card):hover{translate:none;box-shadow:0 2px 4px rgba(3,3,3,.08),0 12px 28px rgba(3,3,3,.10)}
+  .site :is(.reality .stat-card,.nx-list li,.rrStat,.rrCard,.rrFound,.rrApprove,.hw-note,.hw-panel,.tr-card,.rs-card):hover{translate:none;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
 }

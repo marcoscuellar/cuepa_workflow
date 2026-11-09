@@ -24,7 +24,7 @@ export default function ContactPage(){
       </div>
     </section>
     <footer className="site-footer">
-      <p className="wordmark"><Logo lockup/></p>
+      <p className="wordmark"><Logo lockup size={26}/></p>
       <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
       <p>© 2026 CUEPA</p>
       <p className="footer-ollin">CUEPA · An ELIPAN GROUP company</p>

@@ -20,7 +20,7 @@ export const BOOKING_URL = "https://www.makingcuepa.com/#conversation";
 
 type RGB = [number, number, number];
 const INK: RGB = [0.094, 0.102, 0.118];      // Deep Ink #181A1E
-const MUTED: RGB = [0.369, 0.369, 0.369];    // #5E5E5E
+const MUTED: RGB = [0.369, 0.369, 0.369];    // #5E6670
 const TEAL: RGB = [0.059, 0.463, 0.431];     // Teal Mark #0F766E
 const TINT: RGB = [0.937, 0.965, 0.961];     // Teal Mark at ~6% on white
 const LINE: RGB = [0.894, 0.894, 0.894];     // #E4E4E4
