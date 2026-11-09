@@ -76,7 +76,7 @@ export default function AnimatedIntro(){
           <img src="/hero-team-workshop.jpg" alt="A small team planning together around a table in a bright open studio, sticky notes on a whiteboard beside them"/>
           <motion.div className="hero3-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:1,ease:[0.22,1,0.36,1]}}>
             <div className="hero3-note-top">
-              <svg width={16} height={16} viewBox="-456 -2695 3900 3900" aria-hidden="true" style={{fill:"none",stroke:"none",flex:"none"}}><rect x="-456" y="-2695" width="3900" height="3900" rx="858" fill="#151A20"/><path d="M764 24C1145 24 1414 -208 1456 -560H1037C1011 -420 915 -336 772 -336C569 -336 460 -484 460 -744C460 -1005 570 -1154 772 -1154C915 -1154 1012 -1069 1037 -928H1456C1415 -1280 1145 -1514 764 -1514C357 -1514 40 -1242 40 -744C40 -250 357 24 764 24Z" fill="#FFFFFF"/><rect x="1760" y="-266" width="1188" height="266" fill="#2DD4BF"/></svg>
+              <svg width={16} height={16} viewBox="0 0 1024 1024" aria-hidden="true" style={{fill:"none",stroke:"none",flex:"none"}}><rect width="1024" height="1024" rx="224" fill="#151A20"/><g transform="translate(512,512) scale(3.7) translate(-95,-100)"><path d="M155.2 146.3 A72 72 0 1 1 155.2 53.7 A17 17 0 0 1 129.1 75.6 A38 38 0 1 0 129.1 124.4" fill="none" stroke="#2DD4BF" strokeWidth={22} strokeLinecap="round"/></g></svg>
               <b>CUEPA</b><i>6:15 PM</i>
               <em><span className="hero3-live" aria-hidden/>Handled</em>
             </div>
