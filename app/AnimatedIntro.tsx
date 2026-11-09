@@ -60,8 +60,8 @@ export default function AnimatedIntro(){
       <div className="hero3-band">
         <motion.div className="hero3-copy" variants={heroContainer} initial="hidden" animate="show">
           <motion.p className="hero3-eyebrow" variants={heroChild}>CUEPA · By ELIPAN GROUP</motion.p>
-          <motion.h1 className="hero3-title" variants={heroChild}>Make room for what&rsquo;s next<span className="hero3-dot">.</span></motion.h1>
-          <motion.p className="hero3-lede" variants={heroChild}>Less busywork. More room for bigger things. CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
+          <motion.h1 className="hero3-title" variants={heroChild} aria-label="Make room for what's next."><span>Make room</span><span>for what&rsquo;s</span><span className="hero3-next">next.</span></motion.h1>
+          <motion.p className="hero3-lede" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
           <motion.div className="hero3-btns" variants={heroChild}>
             <a href="#conversation" className="hero3-btn hero3-btn-primary">
               <span className="cta2-long">Book a 20-Minute Room Conversation</span>

@@ -6,7 +6,7 @@
 .help-band.first{padding-top:calc(92px + clamp(40px,5vw,80px))}
 .help-band .eyebrow{color:#0F766E;margin:0 0 20px}
 .help-band.dark .eyebrow{color:#43cdbc}
-.help-band h1,.help-band h2{margin:0;font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-.04em;line-height:1.02}
+.help-band h1,.help-band h2{margin:0;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.02em;line-height:.94}
 .help-band h1{font-size:clamp(46px,5.6vw,92px)}
 .help-band h2{font-size:clamp(36px,4.2vw,64px);margin-bottom:28px}
 .help-dot{color:#2dd4bf}
@@ -20,12 +20,12 @@
 .help-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(56px,6vw,96px)}
 .help-card{border-top:2px solid #080B0F;padding-top:22px}
 .help-card span{font:700 11px/1 'JetBrains Mono',monospace;letter-spacing:.16em;color:#0F766E}
-.help-card h3{margin:14px 0 8px;font-family:'Inter',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.04em}
+.help-card h3{margin:14px 0 8px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:21px;letter-spacing:-.01em}
 .help-card p{margin:0;font-size:15px;line-height:1.6;color:rgba(8,11,15,.68)}
 
 .help-split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .help-panel{border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:30px;background:#0d0f12}
-.help-panel h3{margin:0 0 10px;font-family:'Inter',sans-serif;font-weight:800;font-size:18px}
+.help-panel h3{margin:0 0 10px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:22px}
 .help-panel p{margin:0 0 14px;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.74)}
 .help-panel p:last-child{margin-bottom:0}
 .help-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}

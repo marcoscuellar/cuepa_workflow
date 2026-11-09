@@ -12,7 +12,7 @@ const stages=[
 export default function WorkflowDemo(){
  const [open,setOpen]=useState(0);
  return <section className="living-workflow" id="workflow" aria-labelledby="workflow-title"><div className="workflow-shell shell">
-  <header className="workflow-heading"><p className="eyebrow">The engagement · How a team actually starts</p><h2 id="workflow-title">We build it with you.<br/><span>You decide what grows.</span></h2><p>Start with your people. Prove one contained flow. Then decide together whether it expands—or stops.</p></header>
+  <header className="workflow-heading"><p className="eyebrow">The engagement · How a team actually starts</p><h2 id="workflow-title">WE BUILD IT WITH YOU.<br/><span>YOU DECIDE WHAT GROWS.</span></h2><p>Start with your people. Prove one contained flow. Then decide together whether it expands—or stops.</p></header>
   <div className="workflow-layout">
   <div className="workflow-canvas">
    <div className="workflow-legend" aria-label="Partnership journey legend"><span><i className="input-dot"/>What your team shares</span><span><i/>What we build together</span><span><i className="human-dot"/>What only you decide</span></div>

@@ -14,7 +14,7 @@
 
 /* 1. Opening */
 .hw-open{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end}
-.hw h2.hw-callout{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(38px,5.5vw,83px);line-height:1.02;letter-spacing:-.04em}
+.hw h2.hw-callout{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(52px,7.4vw,112px);line-height:.92;letter-spacing:-.005em}
 .hw-callout span{color:var(--hw-teal)}
 .hw-after{margin-top:22px!important;font-size:clamp(20px,2vw,26px);font-weight:600;color:var(--hw-ink);line-height:1.35;max-width:26ch}
 .hw-note{background:#fff;border-radius:16px;padding:28px;box-shadow:var(--hw-rest);display:grid;gap:16px}

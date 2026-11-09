@@ -2,9 +2,9 @@
    Next's CSS pipeline strips remote @import from bundled stylesheets,
    which silently dropped Archivo, Archivo Black, JetBrains Mono and
    Playfair Display to Arial. Keep the families in layout.tsx. */
-body{font-family:'Inter',sans-serif}
-h1,h2,h3,h4,.scramble,.plantop h3,.conversation h2{font-family:'Inter',sans-serif;font-weight:800}
-.brand{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-.04em}
+body{font-family:'Archivo',Arial,sans-serif}
+h1,h2,h3,h4,.scramble,.plantop h3,.conversation h2{font-family:'Archivo Black','Archivo',Arial,sans-serif;font-weight:400}
+.brand{font-family:'Archivo Black','Archivo',Arial,sans-serif;font-weight:400;letter-spacing:-.025em}
 .eyebrow,.navlinks a,.nav>a:last-child,.signal small,.storysignal small,.storynum,.chaosview>small,.dayplan small,.prioritylabel,.schedule time,.schedule span,.replay,.demoPrinciple strong{font-family:'JetBrains Mono',monospace}
 .navlinks a{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);transition:color .2s}
 .navlinks a:hover{color:#fff}
