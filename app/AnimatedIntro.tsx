@@ -55,39 +55,36 @@ export default function AnimatedIntro(){
   },[]);
 
   return <>
-    <section className="hero2" id="top">
-      <img src="/hero-team-workshop.jpg" alt="A small team planning together around a table in a bright open studio, sticky notes on a whiteboard beside them"/>
-      <div className="scrim"/>
-      <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
-        <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
-          <div className="hero2-note-top">
-            <svg className="hero2-note-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#fff"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
-            <b>CUEPA</b><i>6:15 PM</i>
-            <em><span className="hero2-dot" aria-hidden/>Handled</em>
-          </div>
-          <p><strong>Email from Robert:</strong> &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo;</p>
-          <p className="hero2-note-done">
-            <span className="hero2-check" aria-hidden><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-            Your schedule was open, so I confirmed by email.
-          </p>
+    {/* Hero (Nov 9, 2026): the brand book's Ground Ink band. Copy left, the workshop photo right. */}
+    <section className="hero3" id="top">
+      <div className="hero3-band">
+        <motion.div className="hero3-copy" variants={heroContainer} initial="hidden" animate="show">
+          <motion.p className="hero3-eyebrow" variants={heroChild}>CUEPA · By ELIPAN GROUP</motion.p>
+          <motion.h1 className="hero3-title" variants={heroChild}>Make room for what&rsquo;s next<span className="hero3-dot">.</span></motion.h1>
+          <motion.p className="hero3-lede" variants={heroChild}>Less busywork. More room for bigger things. CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
+          <motion.div className="hero3-btns" variants={heroChild}>
+            <a href="#conversation" className="hero3-btn hero3-btn-primary">
+              <span className="cta2-long">Book a 20-Minute Room Conversation</span>
+              <span className="cta2-short">Book a 20-Min Conversation</span>
+              <span aria-hidden>&rarr;</span>
+            </a>
+            <a href="#method" className="hero3-btn hero3-btn-dark">See the method</a>
+          </motion.div>
+          <motion.p className="hero3-sub" variants={heroChild}>A real person, 20 minutes, no pitch. We look at where your time goes.</motion.p>
         </motion.div>
-        <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
-        <h1 aria-label="Make room for what's next.">
-          <motion.span style={{display:"block"}} variants={heroChild}>MAKE ROOM</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}>FOR WHAT&rsquo;S</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}><span className="hero2-accent">NEXT.</span></motion.span>
-        </h1>
-        <motion.p className="lede2" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
-        <motion.div className="cta2-group" variants={heroChild}>
-          <a href="#conversation" className="cta2">
-            <span className="cta2-long">Book a 20-Minute Room Conversation</span>
-            <span className="cta2-short">Book a 20-Min Conversation</span>
-            <span aria-hidden>↘</span>
-          </a>
-          <p className="cta2-sub">A real person, 20 minutes, no pitch. We look at where your time goes.</p>
+        <motion.div className="hero3-media" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.8,delay:.3,ease:[0.22,1,0.36,1]}}>
+          <img src="/hero-team-workshop.jpg" alt="A small team planning together around a table in a bright open studio, sticky notes on a whiteboard beside them"/>
+          <motion.div className="hero3-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:1,ease:[0.22,1,0.36,1]}}>
+            <div className="hero3-note-top">
+              <svg width={16} height={16} viewBox="-456 -2695 3900 3900" aria-hidden="true" style={{fill:"none",stroke:"none",flex:"none"}}><rect x="-456" y="-2695" width="3900" height="3900" rx="858" fill="#151A20"/><path d="M764 24C1145 24 1414 -208 1456 -560H1037C1011 -420 915 -336 772 -336C569 -336 460 -484 460 -744C460 -1005 570 -1154 772 -1154C915 -1154 1012 -1069 1037 -928H1456C1415 -1280 1145 -1514 764 -1514C357 -1514 40 -1242 40 -744C40 -250 357 24 764 24Z" fill="#FFFFFF"/><rect x="1760" y="-266" width="1188" height="266" fill="#2DD4BF"/></svg>
+              <b>CUEPA</b><i>6:15 PM</i>
+              <em><span className="hero3-live" aria-hidden/>Handled</em>
+            </div>
+            <p><strong>Email from Robert:</strong> &ldquo;Let&rsquo;s push our meeting to 3pm. Sound good?&rdquo;</p>
+            <p className="hero3-note-done"><span aria-hidden className="hero3-check">&#10003;</span>Your schedule was open, so I confirmed by email.</p>
+          </motion.div>
         </motion.div>
-      </motion.div>
-      <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
+      </div>
     </section>
     <section ref={realityRef} id="reality" className={`reality ${statsVisible?"is-visible":""}`}>
       <div className="shell reality-shell">

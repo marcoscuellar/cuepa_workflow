@@ -63,7 +63,7 @@ export default function Nav({current}:{current?:string}={}){
 
   return (
     <><nav className={`nav-fixed ${open?"is-open":""}`}>
-      <a className="brand" href={link("#top")} aria-label="CUEPA home"><Logo dark size={22}/></a>
+      <a className="brand" href={link("#top")} aria-label="CUEPA home"><Logo size={22}/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
           <a key={it.key} href={link(it.href)} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>

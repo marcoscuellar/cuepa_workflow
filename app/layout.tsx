@@ -1,4 +1,4 @@
-import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";import "./roomworth.css";import "./howitworks.css";import "./practice.css";import "./refresh.css";
+import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";import "./roomworth.css";import "./howitworks.css";import "./practice.css";import "./refresh.css";import "./brand-nov.css";
 const title="CUEPA — Human-Governed AI Workflows for Small Business";
 const description="CUEPA helps small businesses find operational gaps and design practical, human-governed AI workflows. We start with your business goal, not the technology. You keep the decisions.";
 // Structured data: only facts Marcos has stated. No address, hours, prices or ratings.
@@ -30,17 +30,17 @@ export const metadata:Metadata={
   alternates:{canonical:"/"},
   icons:{
     icon:[
-      {url:"/favicon.ico",sizes:"any"},
-      {url:"/favicon.svg",type:"image/svg+xml"},
-      {url:"/favicon-32.png",sizes:"32x32",type:"image/png"},
-      {url:"/favicon-16.png",sizes:"16x16",type:"image/png"},
-      {url:"/icon-192.png",sizes:"192x192",type:"image/png"},
-      {url:"/icon-512.png",sizes:"512x512",type:"image/png"}
+      {url:"/favicon.ico?v=4",sizes:"any"},
+      {url:"/favicon.svg?v=4",type:"image/svg+xml"},
+      {url:"/favicon-32.png?v=4",sizes:"32x32",type:"image/png"},
+      {url:"/favicon-16.png?v=4",sizes:"16x16",type:"image/png"},
+      {url:"/icon-192.png?v=4",sizes:"192x192",type:"image/png"},
+      {url:"/icon-512.png?v=4",sizes:"512x512",type:"image/png"}
     ],
-    apple:[{url:"/apple-touch-icon.png",sizes:"180x180",type:"image/png"}],
-    shortcut:"/favicon.ico"
+    apple:[{url:"/apple-touch-icon.png?v=4",sizes:"180x180",type:"image/png"}],
+    shortcut:"/favicon.ico?v=4"
   },
-  manifest:"/site.webmanifest",
+  manifest:"/site.webmanifest?v=4",
   openGraph:{type:"website",url:"/",siteName:"CUEPA",title,description,
     images:[{url:"/og.jpg",width:1200,height:630,alt:"A woman presenting ideas on a whiteboard to her smiling team in a sunny brick loft, beside the words Make Room for What’s Next"}]},
   twitter:{card:"summary_large_image",title,description,images:["/og.jpg"]}

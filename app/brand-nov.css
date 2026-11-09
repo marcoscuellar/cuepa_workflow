@@ -1,0 +1,59 @@
+/* Brand update Nov 9, 2026 — from the CUEPA Brand Book hero.
+   Ground Ink header with the CUEPA_ logo (Ink + Bright Signal), and the hero as a rounded Ink band on a white page.
+   Loaded last so it wins over older files. */
+
+/* ---------- Header: Ground Ink ---------- */
+.nav-fixed{background:#080B0F;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.navtab{color:#B7BEC2}
+.navtab:hover,.navtab.is-active{color:#FFFFFF}
+.navpill{background:#2DD4BF}
+.nav-burger span{background:#FFFFFF}
+:is(.navtab,.nav-cta,.nav-burger,.nav-drawer-link,.nav-drawer-cta,.brand):focus-visible{outline-color:#2DD4BF}
+.nav-drawer{background:#080B0F}
+.nav-drawer-link{color:#FFFFFF;box-shadow:inset 0 -1px 0 rgba(255,255,255,.1)}
+.nav-drawer-link.is-active{color:#2DD4BF}
+
+/* ---------- Hero: Ink band on white ---------- */
+.hero3{background:#FFFFFF;padding:116px 40px 0}
+.hero3-band{max-width:1360px;margin:0 auto;background:#080B0F;color:#FFFFFF;border-radius:24px;padding:clamp(40px,5.5vw,72px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,4vw,56px);align-items:center}
+.hero3-eyebrow{margin:0;font:700 12px/1.4 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2DD4BF}
+.hero3-title{margin:16px 0 0;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(46px,6.4vw,92px);line-height:1;letter-spacing:-.045em;color:#FFFFFF;text-wrap:balance}
+.hero3-dot{color:#2DD4BF}
+.hero3-lede{margin:22px 0 0;max-width:46ch;font:400 19px/1.6 'Inter',sans-serif;color:#B7BEC2}
+.hero3-btns{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.hero3-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:8px;font:700 15px/1.2 'Inter',sans-serif;text-decoration:none;transition:background-color .15s}
+.hero3-btn-primary{background:#0E7490;color:#FFFFFF}
+.hero3-btn-primary:hover{background:#0B5F76}
+.hero3-btn-dark{background:#151A20;color:#FFFFFF}
+.hero3-btn-dark:hover{background:#1E252D}
+.hero3-btn:focus-visible{outline:3px solid #2DD4BF;outline-offset:3px}
+.hero3-sub{margin:14px 0 0;font:400 14px/1.5 'Inter',sans-serif;color:#9AA4A4}
+.hero3 .cta2-short{display:none}
+
+.hero3-media{position:relative;align-self:stretch;min-height:440px;border-radius:18px;overflow:hidden;background:#151A20}
+.hero3-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.hero3-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,11,15,.7),rgba(8,11,15,0) 55%);pointer-events:none}
+.hero3-note{position:absolute;z-index:2;left:18px;right:18px;bottom:18px;max-width:340px;background:rgba(8,11,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:14px;padding:14px 16px;box-shadow:0 18px 40px rgba(0,0,0,.45);color:#FFFFFF;font-family:'Inter',sans-serif}
+.hero3-note-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.hero3-note-top b{font-size:12px;font-weight:700;letter-spacing:.06em}
+.hero3-note-top i{font-style:normal;font-size:12px;color:#9AA4A4}
+.hero3-note-top em{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#2DD4BF}
+.hero3-live{width:8px;height:8px;border-radius:50%;background:#2DD4BF}
+.hero3-note p{margin:0;font-size:14px;line-height:1.5;color:#B7BEC2}
+.hero3-note p strong{color:#FFFFFF;font-weight:600}
+.hero3-note-done{display:flex;gap:10px;align-items:flex-start;margin-top:8px!important;color:#FFFFFF!important;font-weight:600}
+.hero3-check{flex:none;width:20px;height:20px;border-radius:50%;background:#0F766E;display:grid;place-items:center;font-size:11px;font-weight:800;color:#FFFFFF;margin-top:1px}
+
+@media (max-width:960px){
+  .hero3-band{grid-template-columns:1fr}
+  .hero3-media{min-height:340px}
+}
+@media (max-width:640px){
+  .hero3{padding:100px 16px 0}
+  .hero3-band{padding:32px 22px;border-radius:20px}
+  .hero3-btn-primary{width:100%;justify-content:center}
+  .hero3 .cta2-long{display:none}
+  .hero3 .cta2-short{display:inline}
+  .hero3-media{min-height:300px}
+  .hero3-lede{font-size:17px}
+}
