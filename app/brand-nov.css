@@ -65,3 +65,17 @@
   .hero3-lede{font-size:17px}
 }
 .hero3-lede b{color:#FFFFFF;font-weight:700}
+
+/* ---------- Option 3 (preview): every section gets the hero's "room around it" ----------
+   Sections sit as rounded bands with the same 16px white margin and 24px corners as the hero.
+   Rhythm from the brand book: White page → Ink band → Paper band → white → Ink → Paper … */
+.rw,.report-showcase,.tr,.convo-sec{margin:16px 16px 0!important;border-radius:24px!important;overflow:hidden}
+.rw{background:#F1EFE9!important}
+.tr{background:#F1EFE9!important}
+.convo-sec{background:#F1EFE9!important}
+.report-showcase{padding-inline:5vw!important}
+.site-footer{margin-top:16px}
+@media (max-width:640px){
+  .rw,.report-showcase,.tr,.convo-sec{margin:12px 12px 0!important;border-radius:20px!important}
+  .report-showcase{padding-inline:16px!important}
+}
