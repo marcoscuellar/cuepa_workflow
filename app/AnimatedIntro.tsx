@@ -65,6 +65,10 @@ export default function AnimatedIntro(){
 
         <motion.div variants={heroContainer} initial="hidden" animate="show"
           className="relative z-[3] flex max-w-4xl flex-col items-center text-center">
+          <motion.p variants={heroChild}
+            className="mb-5 text-balance text-sm font-semibold tracking-wide text-[#2DD4BF] [text-shadow:0_0_14px_rgba(45,212,191,.65),0_0_32px_rgba(45,212,191,.35)] sm:text-base">
+            Human-governed AI workflows for growing businesses
+          </motion.p>
           <motion.h1 variants={heroChild}
             className="hero4-h1 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
             Making room for more.
