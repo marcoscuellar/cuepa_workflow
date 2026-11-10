@@ -66,7 +66,8 @@ export default function AnimatedIntro(){
         <motion.div variants={heroContainer} initial="hidden" animate="show"
           className="relative z-[3] flex max-w-4xl flex-col items-center text-center">
           <motion.p variants={heroChild}
-            className="mb-5 text-balance text-sm font-semibold tracking-wide text-[#2DD4BF] [text-shadow:0_0_14px_rgba(45,212,191,.65),0_0_32px_rgba(45,212,191,.35)] sm:text-base">
+            className="mb-5 text-balance text-sm font-semibold tracking-wide text-white/90 sm:text-base">
+            <span aria-hidden="true" className="mr-2.5 inline-block h-2 w-2 -translate-y-px rounded-full align-middle bg-[#2DD4BF] shadow-[0_0_8px_2px_rgba(45,212,191,.75),0_0_20px_4px_rgba(45,212,191,.35)]"/>
             Human-governed AI workflows for growing businesses
           </motion.p>
           <motion.h1 variants={heroChild}
