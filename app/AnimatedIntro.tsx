@@ -40,9 +40,7 @@ const heroChild={
 export default function AnimatedIntro(){
   const realityRef=useRef<HTMLElement>(null);
   const [statsVisible,setStatsVisible]=useState(false);
-  // Preview toggle: ?hero=light shows the Paper version of the banner overlay.
-  const [heroLight,setHeroLight]=useState(false);
-  useEffect(()=>{setHeroLight(new URLSearchParams(window.location.search).get("hero")==="light");},[]);
+
 
   useEffect(()=>{
     const node=realityRef.current;
@@ -58,36 +56,60 @@ export default function AnimatedIntro(){
   },[]);
 
   return <>
-    {/* Hero (Nov 9, 2026): Salesforce-style centered stack on the faded meeting photo.
-        Logo + accent line, subline, two pills, then the CUEPA "Today" window rising inside the band. */}
-    <section className={`hero4 ${heroLight?"hero4--paper":"hero4--ink"}`} id="top">
-      <div className="hero4-band">
+    {/* Hero (Nov 9, 2026) — enterprise hierarchy.
+        The nav owns the logo. Here: small Return C mark -> H1 focal point -> subhead -> two CTAs ->
+        Operations Overview peeking above the fold. Photo + banner overlay live in brand-nov.css (.hero4). */}
+    <section id="top" className="hero4 hero4--ink bg-white px-3 pt-20 sm:px-4 sm:pt-[88px]">
+      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-14 text-white sm:rounded-3xl sm:px-6 sm:pt-20 lg:pt-24">
         <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
-        <motion.div className="hero4-copy" variants={heroContainer} initial="hidden" animate="show">
-          <motion.h1 variants={heroChild} className="hero4-logo" aria-label="CUEPA. Making room for more.">
-            <img src={heroLight?"/brand/cuepa-logo-ink.svg":"/brand/cuepa-logo-white.svg"} alt=""/>
-            <span className="hero4-tag" aria-hidden="true">Making room <em>for more.</em></span>
+
+        <motion.div variants={heroContainer} initial="hidden" animate="show"
+          className="relative z-[3] flex max-w-4xl flex-col items-center text-center">
+          <motion.img variants={heroChild} src="/brand/cuepa-mark-white.svg" alt="" aria-hidden="true"
+            className="mb-6 h-8 w-8 opacity-90"/>
+          <motion.h1 variants={heroChild}
+            className="hero4-h1 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+            Making room for more.
           </motion.h1>
-          <motion.p variants={heroChild} className="hero4-lede">We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.</motion.p>
-          <motion.div variants={heroChild} className="hero4-btns">
-            <a href="#conversation" className="hero4-btn hero4-btn-white">
-              <span className="cta2-long">Book a 20-Minute Room Conversation</span>
-              <span className="cta2-short">Book a 20-Min Conversation</span>
+          <motion.p variants={heroChild}
+            className="hero4-sub mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+            We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.
+          </motion.p>
+          <motion.div variants={heroChild}
+            className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+            <a href="#conversation"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-7 text-base font-bold text-[#080B0F] shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              <span className="hidden sm:inline">Book a 20-Minute Room Conversation</span>
+              <span className="sm:hidden">Book a 20-Min Conversation</span>
             </a>
-            <a href="#method" className="hero4-btn hero4-btn-glass">See the method</a>
+            <a href="#method"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white/15 px-7 text-base font-bold text-white shadow-[0_10px_28px_rgba(8,11,15,.18)] backdrop-blur-md transition hover:-translate-y-px hover:bg-white/25 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              See the method
+            </a>
           </motion.div>
         </motion.div>
-        <motion.div className="hero4-app" initial={{opacity:0,y:60}} animate={{opacity:1,y:0}} transition={{duration:.9,delay:.5,ease:[0.22,1,0.36,1]}}>
-          <div className="hero4-app-bar" aria-hidden="true"><i/><i/><i/><span>app.makingcuepa.com / Today</span></div>
-          <div className="hero4-app-body">
-            <div className="hero4-app-head">
-              <p>Today</p>
-              <h2>Here&rsquo;s what needs you.</h2>
-            </div>
-            <ul className="hero4-app-list">
-              <li><b className="t-done">Handled</b><div><strong>Robert moved your meeting to 3pm.</strong><span>Your schedule was open, so CUEPA confirmed by email.</span></div></li>
-              <li><b className="t-you">Needs you</b><div><strong>New workflow drafted.</strong><span>Waiting on your final approval before anything goes out.</span></div></li>
-              <li><b className="t-draft">Drafted</b><div><strong>Follow-up to this morning&rsquo;s inquiry.</strong><span>Written in your voice. Review and send.</span></div></li>
+
+        {/* Operations Overview — peeks above the fold */}
+        <motion.div initial={{opacity:0,y:60}} animate={{opacity:1,y:0}} transition={{duration:.9,delay:.5,ease:[0.22,1,0.36,1]}}
+          className="relative z-[3] mt-12 w-full max-w-[1080px] rounded-t-[22px] bg-white/20 px-3 pt-3 shadow-[0_-10px_60px_rgba(8,11,15,.35)] backdrop-blur-xl sm:mt-14">
+          <div className="flex items-center gap-[7px] px-2 pb-3 pt-1" aria-hidden="true">
+            <i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/>
+            <span className="ml-3 truncate text-[13px] font-medium text-white/85"><span className="hidden sm:inline">app.makingcuepa.com / </span>Operations Overview</span>
+          </div>
+          <div className="rounded-t-[14px] bg-white p-6 text-[#080B0F] sm:p-10">
+            <p className="text-xs font-bold uppercase tracking-[.16em] text-[#0F766E]">Operations Overview</p>
+            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight sm:text-3xl">Here&rsquo;s what needs you.</h2>
+            <ul className="mt-6 grid gap-4 md:grid-cols-3">
+              {[
+                ["Handled","bg-[#E6F4F3] text-[#0F766E]","Robert moved your meeting to 3pm.","Your schedule was open, so CUEPA confirmed by email."],
+                ["Needs you","bg-[#080B0F] text-white","New workflow drafted.","Waiting on your final approval before anything goes out."],
+                ["Drafted","bg-[#E7F1F5] text-[#0E7490]","Follow-up to this morning\u2019s inquiry.","Written in your voice. Review and send."],
+              ].map(([tag,tone,title,body])=>(
+                <li key={tag} className="grid content-start gap-3 rounded-[14px] bg-white p-[18px] text-left shadow-[0_2px_4px_rgba(8,11,15,.05),0_14px_30px_rgba(8,11,15,.10)]">
+                  <b className={`justify-self-start rounded-full px-2.5 py-[7px] text-[11px] font-bold uppercase tracking-[.14em] ${tone}`}>{tag}</b>
+                  <div><strong className="block text-base font-bold leading-snug">{title}</strong><span className="mt-1.5 block text-sm leading-normal text-[#5E6670]">{body}</span></div>
+                </li>
+              ))}
             </ul>
           </div>
         </motion.div>
