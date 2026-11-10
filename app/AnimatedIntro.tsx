@@ -96,22 +96,9 @@ export default function AnimatedIntro(){
             <i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/>
             <span className="ml-3 truncate text-[13px] font-medium text-white/85"><span className="hidden sm:inline">app.makingcuepa.com / </span>Operations Overview</span>
           </div>
-          <div className="rounded-t-[14px] bg-white p-6 text-[#080B0F] sm:p-10">
-            <p className="text-xs font-bold uppercase tracking-[.16em] text-[#0F766E]">Operations Overview</p>
-            <h2 className="mt-2.5 text-2xl font-extrabold tracking-tight sm:text-3xl">Here&rsquo;s what needs you.</h2>
-            <ul className="mt-6 grid gap-4 md:grid-cols-3">
-              {[
-                ["Handled","bg-[#E6F4F3] text-[#0F766E]","Robert moved your meeting to 3pm.","Your schedule was open, so CUEPA confirmed by email."],
-                ["Needs you","bg-[#080B0F] text-white","New workflow drafted.","Waiting on your final approval before anything goes out."],
-                ["Drafted","bg-[#E7F1F5] text-[#0E7490]","Follow-up to this morning\u2019s inquiry.","Written in your voice. Review and send."],
-              ].map(([tag,tone,title,body])=>(
-                <li key={tag} className="grid content-start gap-3 rounded-[14px] bg-white p-[18px] text-left shadow-[0_2px_4px_rgba(8,11,15,.05),0_14px_30px_rgba(8,11,15,.10)]">
-                  <b className={`justify-self-start rounded-full px-2.5 py-[7px] text-[11px] font-bold uppercase tracking-[.14em] ${tone}`}>{tag}</b>
-                  <div><strong className="block text-base font-bold leading-snug">{title}</strong><span className="mt-1.5 block text-sm leading-normal text-[#5E6670]">{body}</span></div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <img src="/hero-operations-overview.png" width={1225} height={887}
+            alt="CUEPA Operations Overview: Capacity and ROI, the Decision Station approval feed, and Live Engine Activity (demo with sample data)"
+            className="block h-auto w-full rounded-t-[14px] bg-white"/>
         </motion.div>
       </div>
     </section>
