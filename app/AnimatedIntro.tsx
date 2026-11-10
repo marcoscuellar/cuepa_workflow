@@ -99,9 +99,12 @@ export default function AnimatedIntro(){
             <i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/>
             <span className="ml-3 truncate text-[13px] font-medium text-white/85"><span className="hidden sm:inline">app.makingcuepa.com / </span>Operations Overview</span>
           </div>
-          <img src="/hero-operations-overview.png" width={1225} height={887}
-            alt="CUEPA Operations Overview: Capacity and ROI, the Decision Station approval feed, and Live Engine Activity (demo with sample data)"
-            className="block h-auto w-full rounded-t-[14px] bg-white"/>
+          <picture>
+            <source media="(max-width: 639px)" srcSet="/hero-operations-overview-phone.jpg" width={786} height={1572}/>
+            <img src="/hero-operations-overview.png" width={1225} height={887}
+              alt="CUEPA Operations Overview: Capacity and ROI, the Decision Station approval feed, and Live Engine Activity (demo with sample data)"
+              className="block h-auto w-full rounded-t-[14px] bg-white"/>
+          </picture>
         </motion.div>
       </div>
     </section>
