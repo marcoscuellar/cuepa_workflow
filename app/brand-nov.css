@@ -196,3 +196,11 @@
 .hero4--paper .hero4-app-bar span{color:#5E6670}
 /* Logo is the headline; tagline steps down so they don't compete (Nov 9) */
 .hero4-tag{font-size:clamp(26px,3vw,46px);font-weight:700;letter-spacing:-.025em;margin-top:clamp(16px,1.6vw,24px)}
+/* Photo shows through more (Nov 9): people visible, glows kept, words still readable */
+.hero4--ink .hero4-photo img{opacity:.75;mix-blend-mode:normal;filter:grayscale(.35) contrast(1) brightness(.95)}
+.hero4--ink .hero4-photo::after{background:
+  radial-gradient(55% 60% at 88% 6%,rgba(14,116,144,.55),rgba(14,116,144,0) 70%),
+  radial-gradient(60% 65% at 6% 100%,rgba(15,118,110,.55),rgba(15,118,110,0) 70%),
+  radial-gradient(45% 38% at 50% 34%,rgba(8,11,15,.55),rgba(8,11,15,0) 100%),
+  linear-gradient(180deg,rgba(8,11,15,.45) 0%,rgba(8,11,15,.35) 50%,rgba(8,11,15,.5) 100%)}
+.hero4--ink .hero4-lede,.hero4--ink .hero4-tag{text-shadow:0 2px 14px rgba(8,11,15,.7)}
