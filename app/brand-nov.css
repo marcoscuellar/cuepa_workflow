@@ -129,7 +129,7 @@
 .hero4-logo{margin:0;display:flex;flex-direction:column;align-items:center;line-height:1}
 .hero4-logo img{display:block;width:min(720px,82vw);height:auto;filter:drop-shadow(0 10px 30px rgba(8,11,15,.3))}
 .hero4-tag{display:block;margin-top:clamp(18px,2vw,28px);font:800 clamp(34px,4.6vw,72px)/1.02 'Inter',sans-serif;letter-spacing:-.035em;color:#FFFFFF}
-.hero4-tag em{font-style:normal;color:#2DD4BF}
+.hero4-tag em{font-style:normal;color:#080B0F}
 .hero4-lede{margin:22px 0 0;max-width:46ch;font:500 clamp(17px,1.4vw,21px)/1.5 'Inter',sans-serif;color:rgba(255,255,255,.9)}
 .hero4-btns{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .hero4-btn{display:inline-flex;align-items:center;min-height:54px;padding:0 28px;border-radius:999px;font:700 16px/1.2 'Inter',sans-serif;text-decoration:none;transition:transform .15s,box-shadow .15s,background-color .15s}
