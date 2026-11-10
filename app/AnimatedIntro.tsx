@@ -55,34 +55,38 @@ export default function AnimatedIntro(){
   },[]);
 
   return <>
-    {/* Hero (Nov 9, 2026): the brand book's Ground Ink band. Copy left, the workshop photo right. */}
-    <section className="hero3 hero3--light" id="top">
-      <div className="hero3-band">
-        <motion.div className="hero3-copy" variants={heroContainer} initial="hidden" animate="show">
-          <motion.p className="hero3-eyebrow" variants={heroChild}>CUEPA · By ELIPAN GROUP</motion.p>
-          <motion.h1 className="hero3-title" variants={heroChild} aria-label="Make room for what's next."><span>Make room</span><span>for what&rsquo;s</span><span className="hero3-next">next.</span></motion.h1>
-          <motion.p className="hero3-lede" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
-          <motion.div className="hero3-btns" variants={heroChild}>
-            <a href="#conversation" className="hero3-btn hero3-btn-primary">
+    {/* Hero (Nov 9, 2026): Salesforce-style centered stack on the faded meeting photo.
+        Logo + accent line, subline, two pills, then the CUEPA "Today" window rising inside the band. */}
+    <section className="hero4" id="top">
+      <div className="hero4-band">
+        <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
+        <motion.div className="hero4-copy" variants={heroContainer} initial="hidden" animate="show">
+          <motion.h1 variants={heroChild} className="hero4-logo" aria-label="CUEPA. Making room for more.">
+            <img src="/brand/cuepa-logo-white.svg" alt=""/>
+            <span className="hero4-tag" aria-hidden="true">Making room <em>for more.</em></span>
+          </motion.h1>
+          <motion.p variants={heroChild} className="hero4-lede">We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.</motion.p>
+          <motion.div variants={heroChild} className="hero4-btns">
+            <a href="#conversation" className="hero4-btn hero4-btn-white">
               <span className="cta2-long">Book a 20-Minute Room Conversation</span>
               <span className="cta2-short">Book a 20-Min Conversation</span>
-              <span aria-hidden>&rarr;</span>
             </a>
-            <a href="#method" className="hero3-btn hero3-btn-dark">See the method</a>
+            <a href="#method" className="hero4-btn hero4-btn-glass">See the method</a>
           </motion.div>
-          <motion.p className="hero3-sub" variants={heroChild}>A real person, 20 minutes, no pitch. We look at where your time goes.</motion.p>
         </motion.div>
-        <motion.div className="hero3-media" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.8,delay:.3,ease:[0.22,1,0.36,1]}}>
-          <img src="/hero-meeting.jpg" alt="A team meeting in a bright brick-and-glass office: one person presents at a screen while the others listen around a long wooden table"/>
-          <motion.div className="hero3-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:1,ease:[0.22,1,0.36,1]}}>
-            <div className="hero3-note-top">
-              <svg width={16} height={16} viewBox="0 0 1024 1024" aria-hidden="true" style={{fill:"none",stroke:"none",flex:"none"}}><rect width="1024" height="1024" rx="224" fill="#151A20"/><g transform="translate(512,512) scale(3.7) translate(-95,-100)"><path d="M155.2 146.3 A72 72 0 1 1 155.2 53.7 A17 17 0 0 1 129.1 75.6 A38 38 0 1 0 129.1 124.4" fill="none" stroke="#2DD4BF" strokeWidth={22} strokeLinecap="round"/></g></svg>
-              <b>CUEPA</b><i>6:15 PM</i>
-              <em><span className="hero3-live" aria-hidden/>Handled</em>
+        <motion.div className="hero4-app" initial={{opacity:0,y:60}} animate={{opacity:1,y:0}} transition={{duration:.9,delay:.5,ease:[0.22,1,0.36,1]}}>
+          <div className="hero4-app-bar" aria-hidden="true"><i/><i/><i/><span>app.makingcuepa.com / Today</span></div>
+          <div className="hero4-app-body">
+            <div className="hero4-app-head">
+              <p>Today</p>
+              <h2>Here&rsquo;s what needs you.</h2>
             </div>
-            <p><strong>Email from Robert:</strong> &ldquo;Let&rsquo;s push our meeting to 3pm. Sound good?&rdquo;</p>
-            <p className="hero3-note-done"><span aria-hidden className="hero3-check">&#10003;</span>Your schedule was open, so I confirmed by email.</p>
-          </motion.div>
+            <ul className="hero4-app-list">
+              <li><b className="t-done">Handled</b><div><strong>Robert moved your meeting to 3pm.</strong><span>Your schedule was open, so CUEPA confirmed by email.</span></div></li>
+              <li><b className="t-you">Needs you</b><div><strong>New workflow drafted.</strong><span>Waiting on your final approval before anything goes out.</span></div></li>
+              <li><b className="t-draft">Drafted</b><div><strong>Follow-up to this morning&rsquo;s inquiry.</strong><span>Written in your voice. Review and send.</span></div></li>
+            </ul>
+          </div>
         </motion.div>
       </div>
     </section>
