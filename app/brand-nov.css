@@ -133,3 +133,5 @@
 /* Older global rules (h1 weight 400, a{color:inherit}) sit outside Tailwind's layers and win — pin these. */
 .hero4-h1{font-family:Inter,sans-serif;font-weight:700}
 .hero4-cta{color:#080B0F}
+/* "The reality" (under the hero): start fading in as soon as it enters the screen — softer, quicker (Nov 10) */
+@media (prefers-reduced-motion:no-preference){.reality-reveal{filter:blur(4px);transform:translateY(16px);transition-duration:.6s,.6s,.6s;transition-delay:calc(var(--stat-order,0) * 80ms)}}

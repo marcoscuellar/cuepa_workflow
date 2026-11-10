@@ -50,7 +50,7 @@ export default function AnimatedIntro(){
         setStatsVisible(true);
         observer.disconnect();
       }
-    },{threshold:.2});
+    },{threshold:0,rootMargin:"0px 0px -6% 0px"});
     observer.observe(node);
     return ()=>observer.disconnect();
   },[]);
