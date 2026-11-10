@@ -81,7 +81,7 @@ export default function AnimatedIntro(){
           <motion.div variants={heroChild}
             className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
             <a href="#conversation"
-              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-7 text-base font-bold text-[#080B0F] shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              className="hero4-cta inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-7 text-base font-bold text-[#080B0F] shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
               <span className="hidden sm:inline">Book a 20-Minute Room Conversation</span>
               <span className="sm:hidden">Book a 20-Min Conversation</span>
             </a>

@@ -130,3 +130,6 @@
   radial-gradient(45% 38% at 50% 34%,rgba(8,11,15,.6),rgba(8,11,15,0) 100%),
   linear-gradient(180deg,rgba(8,11,15,.58) 0%,rgba(8,11,15,.48) 50%,rgba(8,11,15,.62) 100%)}
 .hero4-h1,.hero4-sub{text-shadow:0 2px 18px rgba(8,11,15,.6)}
+/* Older global rules (h1 weight 400, a{color:inherit}) sit outside Tailwind's layers and win — pin these. */
+.hero4-h1{font-family:Inter,sans-serif;font-weight:700}
+.hero4-cta{color:#080B0F}
