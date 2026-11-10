@@ -56,7 +56,7 @@ export default function AnimatedIntro(){
 
   return <>
     {/* Hero (Nov 9, 2026): the brand book's Ground Ink band. Copy left, the workshop photo right. */}
-    <section className="hero3" id="top">
+    <section className="hero3 hero3--light" id="top">
       <div className="hero3-band">
         <motion.div className="hero3-copy" variants={heroContainer} initial="hidden" animate="show">
           <motion.p className="hero3-eyebrow" variants={heroChild}>CUEPA · By ELIPAN GROUP</motion.p>
@@ -73,7 +73,7 @@ export default function AnimatedIntro(){
           <motion.p className="hero3-sub" variants={heroChild}>A real person, 20 minutes, no pitch. We look at where your time goes.</motion.p>
         </motion.div>
         <motion.div className="hero3-media" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.8,delay:.3,ease:[0.22,1,0.36,1]}}>
-          <img src="/hero-team-workshop.jpg" alt="A small team planning together around a table in a bright open studio, sticky notes on a whiteboard beside them"/>
+          <img src="/hero-meeting.jpg" alt="A team meeting in a bright brick-and-glass office: one person presents at a screen while the others listen around a long wooden table"/>
           <motion.div className="hero3-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:1,ease:[0.22,1,0.36,1]}}>
             <div className="hero3-note-top">
               <svg width={16} height={16} viewBox="0 0 1024 1024" aria-hidden="true" style={{fill:"none",stroke:"none",flex:"none"}}><rect width="1024" height="1024" rx="224" fill="#151A20"/><g transform="translate(512,512) scale(3.7) translate(-95,-100)"><path d="M155.2 146.3 A72 72 0 1 1 155.2 53.7 A17 17 0 0 1 129.1 75.6 A38 38 0 1 0 129.1 124.4" fill="none" stroke="#2DD4BF" strokeWidth={22} strokeLinecap="round"/></g></svg>

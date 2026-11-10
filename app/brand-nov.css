@@ -65,3 +65,40 @@
   .hero3-lede{font-size:17px}
 }
 .hero3-lede b{color:#FFFFFF;font-weight:700}
+
+/* ---------- Light hero (preview, Nov 9) — from Marcos's favorite banner ----------
+   Soft Paper-to-mint haze with grain, the meeting photo faded in behind, Ink type on top. */
+.hero3--light .hero3-band{background:#E9EBE6;color:#080B0F}
+.hero3--light .hero3-media{left:0;width:auto}
+.hero3--light .hero3-media img{object-position:50% 42%;filter:grayscale(.15);opacity:.85}
+.hero3--light .hero3-media{background:#EEF0EC}
+.hero3--light .hero3-media::after{background:
+  radial-gradient(52% 70% at 32% 50%,rgba(238,240,236,.96) 0%,rgba(238,240,236,.86) 45%,rgba(238,240,236,.5) 80%,rgba(238,240,236,.3) 100%),
+  linear-gradient(rgba(238,240,236,.18),rgba(238,240,236,.18)),
+  radial-gradient(45% 55% at 88% 8%,rgba(45,212,191,.38),transparent 70%),
+  radial-gradient(50% 60% at 6% 100%,rgba(14,116,144,.20),transparent 70%)}
+.hero3--light .hero3-media::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.09;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero3--light .hero3-media::after{z-index:1}
+.hero3--light .hero3-note{z-index:3}
+.hero3--light .hero3-eyebrow{color:#0F766E}
+.hero3--light .hero3-title{color:#080B0F}
+.hero3--light .hero3-next{color:#0E7490}
+.hero3--light .hero3-lede{color:#3A4148}
+.hero3--light .hero3-lede b{color:#080B0F}
+.hero3--light .hero3-sub{color:#5E6670}
+.hero3--light .hero3-btn-dark{background:#080B0F;color:#FFFFFF}
+.hero3--light .hero3-btn-dark:hover{background:#1E252D}
+.hero3--light .hero3-btn:focus-visible{outline-color:#0E7490}
+@media (max-width:960px){
+  .hero3--light .hero3-media{left:auto}
+  .hero3--light .hero3-media::after{background:
+    radial-gradient(80% 60% at 50% 30%,rgba(238,240,236,.92) 0%,rgba(238,240,236,.6) 60%,rgba(238,240,236,.35) 100%),
+    radial-gradient(60% 50% at 90% 6%,rgba(45,212,191,.34),transparent 70%)}
+}
+.hero3--light .hero3-note{background:rgba(255,255,255,.94);color:#080B0F;box-shadow:0 2px 4px rgba(8,11,15,.06),0 18px 40px rgba(8,11,15,.14)}
+.hero3--light .hero3-note p{color:#3A4148}
+.hero3--light .hero3-note p strong,.hero3--light .hero3-note-done{color:#080B0F!important}
+.hero3--light .hero3-note-top i{color:#5E6670}
+.hero3--light .hero3-note-top em{color:#0F766E}
+.hero3--light .hero3-live{background:#0F766E}
