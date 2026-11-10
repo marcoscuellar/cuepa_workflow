@@ -40,6 +40,9 @@ const heroChild={
 export default function AnimatedIntro(){
   const realityRef=useRef<HTMLElement>(null);
   const [statsVisible,setStatsVisible]=useState(false);
+  // Preview toggle: ?hero=light shows the Paper version of the banner overlay.
+  const [heroLight,setHeroLight]=useState(false);
+  useEffect(()=>{setHeroLight(new URLSearchParams(window.location.search).get("hero")==="light");},[]);
 
   useEffect(()=>{
     const node=realityRef.current;
@@ -57,12 +60,12 @@ export default function AnimatedIntro(){
   return <>
     {/* Hero (Nov 9, 2026): Salesforce-style centered stack on the faded meeting photo.
         Logo + accent line, subline, two pills, then the CUEPA "Today" window rising inside the band. */}
-    <section className="hero4" id="top">
+    <section className={`hero4 ${heroLight?"hero4--paper":"hero4--ink"}`} id="top">
       <div className="hero4-band">
         <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
         <motion.div className="hero4-copy" variants={heroContainer} initial="hidden" animate="show">
           <motion.h1 variants={heroChild} className="hero4-logo" aria-label="CUEPA. Making room for more.">
-            <img src="/brand/cuepa-logo-white.svg" alt=""/>
+            <img src={heroLight?"/brand/cuepa-logo-ink.svg":"/brand/cuepa-logo-white.svg"} alt=""/>
             <span className="hero4-tag" aria-hidden="true">Making room <em>for more.</em></span>
           </motion.h1>
           <motion.p variants={heroChild} className="hero4-lede">We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.</motion.p>
