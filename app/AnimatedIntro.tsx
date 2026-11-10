@@ -57,16 +57,14 @@ export default function AnimatedIntro(){
 
   return <>
     {/* Hero (Nov 9, 2026) — enterprise hierarchy.
-        The nav owns the logo. Here: small Return C mark -> H1 focal point -> subhead -> two CTAs ->
+        The nav owns the logo. Here: H1 focal point -> subhead -> two CTAs ->
         Operations Overview peeking above the fold. Photo + banner overlay live in brand-nov.css (.hero4). */}
     <section id="top" className="hero4 hero4--ink bg-white px-3 pt-20 sm:px-4 sm:pt-[88px]">
-      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-14 text-white sm:rounded-3xl sm:px-6 sm:pt-20 lg:pt-24">
+      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-12 text-white sm:rounded-3xl sm:px-6 sm:pt-16 lg:pt-20">
         <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
 
         <motion.div variants={heroContainer} initial="hidden" animate="show"
           className="relative z-[3] flex max-w-4xl flex-col items-center text-center">
-          <motion.img variants={heroChild} src="/brand/cuepa-mark-white.svg" alt="" aria-hidden="true"
-            className="mb-6 h-8 w-8 opacity-90"/>
           <motion.h1 variants={heroChild}
             className="hero4-h1 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
             Making room for more.
