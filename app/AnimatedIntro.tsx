@@ -94,7 +94,7 @@ export default function AnimatedIntro(){
 
         {/* Operations Overview — peeks above the fold */}
         <motion.div initial={{opacity:0,y:60}} animate={{opacity:1,y:0}} transition={{duration:.9,delay:.5,ease:[0.22,1,0.36,1]}}
-          className="relative z-[3] mt-12 w-full max-w-[1080px] rounded-t-[22px] bg-white/20 px-3 pt-3 shadow-[0_-10px_60px_rgba(8,11,15,.35)] backdrop-blur-xl sm:mt-14">
+          className="relative z-[3] mt-12 w-full max-w-[1080px] max-sm:h-[380px] max-sm:overflow-hidden rounded-t-[22px] bg-white/20 px-3 pt-3 shadow-[0_-10px_60px_rgba(8,11,15,.35)] backdrop-blur-xl sm:mt-14">
           <div className="flex items-center gap-[7px] px-2 pb-3 pt-1" aria-hidden="true">
             <i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/>
             <span className="ml-3 truncate text-[13px] font-medium text-white/85"><span className="hidden sm:inline">app.makingcuepa.com / </span>Operations Overview</span>
