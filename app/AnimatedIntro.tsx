@@ -65,7 +65,7 @@ export default function AnimatedIntro(){
         <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
         <motion.div className="hero4-copy" variants={heroContainer} initial="hidden" animate="show">
           <motion.h1 variants={heroChild} className="hero4-logo" aria-label="CUEPA. Making room for more.">
-            <img src={heroLight?"/brand/cuepa-logo-ink-open.svg":"/brand/cuepa-logo-white-open.svg"} alt=""/>
+            <img src={heroLight?"/brand/cuepa-logo-ink.svg":"/brand/cuepa-logo-white.svg"} alt=""/>
             <span className="hero4-tag" aria-hidden="true">Making room <em>for more.</em></span>
           </motion.h1>
           <motion.p variants={heroChild} className="hero4-lede">We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.</motion.p>

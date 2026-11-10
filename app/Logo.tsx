@@ -13,7 +13,7 @@ const RATIO = 9303/2130;
 
 export default function Logo({dark=false,size=18,lockup=false}:{dark?:boolean;size?:number;offering?:string;lockup?:boolean}){
   const letters = dark ? "#080B0F" : "#FFFFFF";
-  const mark = dark ? "#0E7490" : "#2DD4BF";
+  const mark = letters; // one color, exactly like cuepa-logo-ink.svg / cuepa-logo-white.svg
   const byColor = dark ? "#5E6670" : "#9AA4A4";
   const h = Math.round(size*1.4);
   const w = Math.round(h*RATIO);
