@@ -156,3 +156,15 @@
 .nav-pill.is-over-hero .nav-burger span{background:#FFFFFF}
 .nav-pill.is-over-hero :is(.navtab,.nav-cta,.nav-burger,.brand):focus-visible{outline-color:#FFFFFF}
 @media (max-width:900px){.nav-fixed.nav-pill{top:20px;width:calc(100% - 40px);height:60px;padding:0 8px 0 18px}}
+
+/* ---------- Hero = the CUEPA banner (Nov 10) ----------
+   Ground Ink, Primary Accent glow top-right, Secondary Teal glow bottom-left, grain. Big lockup,
+   "Making room for more.", the descriptor line, CTAs. Platform lives in "Your room, on one screen". */
+.hero4--og .hero4-band{background:#080B0F}
+.hero4--og .hero4-photo img{opacity:.42;filter:grayscale(.45) brightness(.8)}
+.hero4--og .hero4-photo::after{background:
+  radial-gradient(52% 62% at 90% 4%,rgba(14,116,144,.7),rgba(14,116,144,0) 70%),
+  radial-gradient(55% 62% at 4% 100%,rgba(15,118,110,.65),rgba(15,118,110,0) 70%),
+  radial-gradient(48% 40% at 50% 46%,rgba(8,11,15,.55),rgba(8,11,15,0) 100%),
+  linear-gradient(rgba(8,11,15,.5),rgba(8,11,15,.5))}
+.hero4--og .hero4-h1{font-weight:600;text-shadow:0 2px 16px rgba(8,11,15,.5)}

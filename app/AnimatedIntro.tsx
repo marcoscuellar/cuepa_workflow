@@ -60,53 +60,33 @@ export default function AnimatedIntro(){
     {/* Hero (Nov 9, 2026) — enterprise hierarchy.
         The nav owns the logo. Here: H1 focal point -> subhead -> two CTAs ->
         Operations Overview peeking above the fold. Photo + banner overlay live in brand-nov.css (.hero4). */}
-    <section id="top" className="hero4 hero4--ink bg-white px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-[116px] text-white sm:rounded-3xl sm:px-6 sm:pt-[136px] lg:pt-[152px]">
+    <section id="top" className="hero4 hero4--og bg-white px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="hero4-band relative isolate flex min-h-[calc(100svh-24px)] flex-col items-center justify-center overflow-hidden rounded-[20px] px-5 pb-16 pt-[116px] text-white sm:min-h-[calc(100svh-32px)] sm:rounded-3xl sm:px-6 sm:pb-20 sm:pt-[132px]">
         <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
-
         <motion.div variants={heroContainer} initial="hidden" animate="show"
-          className="relative z-[3] flex max-w-4xl flex-col items-center text-center">
-          <motion.p variants={heroChild}
-            className="mb-5 text-balance text-sm font-semibold tracking-wide text-white/90 sm:text-base">
-            <span aria-hidden="true" className="mr-2.5 inline-block h-2 w-2 -translate-y-px rounded-full align-middle bg-[#2DD4BF] shadow-[0_0_8px_2px_rgba(45,212,191,.75),0_0_20px_4px_rgba(45,212,191,.35)]"/>
-            Human-governed AI workflows for growing businesses
-          </motion.p>
+          className="relative z-[3] flex w-full max-w-4xl flex-col items-center text-center">
+          <motion.img variants={heroChild} src="/brand/cuepa-logo-white.svg" alt="CUEPA" width={1127} height={314}
+            className="h-auto w-[min(640px,82vw)]"/>
           <motion.h1 variants={heroChild}
-            className="hero4-h1 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+            className="hero4-h1 mt-8 text-3xl font-semibold tracking-tight text-white/90 sm:mt-11 sm:text-4xl lg:text-[40px]">
             Making room for more.
           </motion.h1>
           <motion.p variants={heroChild}
-            className="hero4-sub mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-            We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.
+            className="mt-4 text-balance text-base font-medium text-white/55 sm:mt-5 sm:text-xl">
+            Human-governed AI workflows for growing businesses
           </motion.p>
           <motion.div variants={heroChild}
-            className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+            className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:mt-12 sm:w-auto sm:flex-row sm:gap-4">
             <a href="#conversation"
-              className="hero4-cta inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-7 text-base font-bold text-[#080B0F] shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              className="hero4-cta inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-7 text-base font-bold shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
               <span className="hidden sm:inline">Book a 20-Minute Room Conversation</span>
               <span className="sm:hidden">Book a 20-Min Conversation</span>
             </a>
-            <a href="#method"
-              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white/15 px-7 text-base font-bold text-white shadow-[0_10px_28px_rgba(8,11,15,.18)] backdrop-blur-md transition hover:-translate-y-px hover:bg-white/25 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
-              See the method
+            <a href="#product"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white/10 px-7 text-base font-bold text-white shadow-[0_10px_28px_rgba(8,11,15,.18)] backdrop-blur-md transition hover:-translate-y-px hover:bg-white/20 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              See the platform
             </a>
           </motion.div>
-        </motion.div>
-
-        {/* Operations Overview — peeks above the fold */}
-        <motion.div initial={{opacity:0,y:60}} animate={{opacity:1,y:0}} transition={{duration:.9,delay:.5,ease:[0.22,1,0.36,1]}}
-          className="relative z-[3] mt-12 w-full max-w-[1080px] max-sm:h-[190px] max-sm:overflow-hidden rounded-t-[22px] bg-white/20 px-3 pt-3 shadow-[0_-10px_60px_rgba(8,11,15,.35)] backdrop-blur-xl sm:mt-14">
-          <div className="flex items-center gap-[7px] px-2 pb-3 pt-1" aria-hidden="true">
-            <i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/>
-            <span className="ml-3 truncate text-[13px] font-medium text-white/85"><span className="hidden sm:inline">app.makingcuepa.com / </span>Operations Overview</span>
-          </div>
-          <picture>
-            <source media="(max-width: 639px)" srcSet="/hero-operations-overview-phone.jpg" width={786} height={1572}/>
-            <img src="/hero-operations-overview.png" width={1225} height={887}
-              alt="CUEPA Operations Overview: Capacity and ROI, the Decision Station approval feed, and Live Engine Activity (demo with sample data)"
-              className="block h-auto w-full rounded-t-[14px] bg-white"/>
-          </picture>
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080B0F]/80 to-transparent sm:hidden"/>
         </motion.div>
       </div>
     </section>
