@@ -2,7 +2,7 @@
 import ReturnMark from "./ReturnMark";
 
 import {useEffect, useRef, useState} from "react";
-import {motion} from "motion/react";
+import {motion, useReducedMotion, useScroll, useTransform} from "motion/react";
 
 const stats=[
   {
@@ -40,6 +40,13 @@ const heroChild={
 
 export default function AnimatedIntro(){
   const realityRef=useRef<HTMLElement>(null);
+  // Hero parallax (motion.dev pattern): the photo drifts slower than the page, the words lift and fade.
+  const heroRef=useRef<HTMLElement>(null);
+  const reduceMotion=useReducedMotion();
+  const {scrollYProgress:heroProgress}=useScroll({target:heroRef,offset:["start start","end start"]});
+  const photoY=useTransform(heroProgress,[0,1],["0%","14%"]);
+  const copyY=useTransform(heroProgress,[0,1],[0,-90]);
+  const copyOpacity=useTransform(heroProgress,[0,.6],[1,0]);
   const [statsVisible,setStatsVisible]=useState(false);
 
 
@@ -60,9 +67,10 @@ export default function AnimatedIntro(){
     {/* Hero (Nov 9, 2026) — enterprise hierarchy.
         The nav owns the logo. Here: H1 focal point -> subhead -> two CTAs ->
         Operations Overview peeking above the fold. Photo + banner overlay live in brand-nov.css (.hero4). */}
-    <section id="top" className="hero4 hero4--og bg-white px-3 pt-3 sm:px-4 sm:pt-4">
+    <section ref={heroRef} id="top" className="hero4 hero4--og relative bg-white px-3 pt-3 sm:px-4 sm:pt-4">
       <div className="hero4-band relative isolate flex min-h-[calc(100svh-24px)] flex-col items-center justify-center overflow-hidden rounded-[20px] px-5 pb-16 pt-[116px] text-white sm:min-h-[calc(100svh-32px)] sm:rounded-3xl sm:px-6 sm:pb-20 sm:pt-[132px]">
-        <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
+        <motion.div className="hero4-photo hero4-photo--parallax" aria-hidden="true" style={reduceMotion?undefined:{y:photoY}}><img src="/hero-meeting.jpg" alt=""/></motion.div>
+        <motion.div style={reduceMotion?undefined:{y:copyY,opacity:copyOpacity}} className="relative z-[3] flex w-full justify-center">
         <motion.div variants={heroContainer} initial="hidden" animate="show"
           className="relative z-[3] flex w-full max-w-4xl flex-col items-center text-center">
           <motion.img variants={heroChild} src="/brand/cuepa-logo-white.svg" alt="CUEPA" width={1127} height={314}
@@ -87,6 +95,7 @@ export default function AnimatedIntro(){
               See the platform
             </a>
           </motion.div>
+        </motion.div>
         </motion.div>
         <a href="#reality" className="hero4-cue absolute bottom-6 left-1/2 z-[3] flex -translate-x-1/2 flex-col items-center gap-1.5 text-[13px] font-semibold tracking-wide text-white/70 transition hover:text-white sm:bottom-8">
           See how it works
