@@ -20,6 +20,17 @@ export default function Nav({current}:{current?:string}={}){
   // Below 900px the tabs are hidden, so without this there is no way to reach
   // any section from a phone.
   const [open,setOpen]=useState(false);
+  // Floating pill header: see-through while it sits on the home hero, white glass once you scroll past it.
+  const [onHero,setOnHero]=useState(false);
+  useEffect(()=>{
+    const band=document.querySelector("#top .hero4-band");
+    if(!band){setOnHero(false);return;}
+    const update=()=>setOnHero(band.getBoundingClientRect().bottom>110);
+    update();
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    return ()=>{window.removeEventListener("scroll",update);window.removeEventListener("resize",update);};
+  },[]);
   // While a click-scroll is in flight the scroll-spy would briefly re-report the
   // section we're leaving, snapping the pill backwards mid-slide. Ignore the spy
   // until it agrees with the clicked tab (or the scroll has had time to land).
@@ -62,8 +73,8 @@ export default function Nav({current}:{current?:string}={}){
   },[]);
 
   return (
-    <><nav className={`nav-fixed ${open?"is-open":""}`}>
-      <a className="brand" href={link("#top")} aria-label="CUEPA home"><Logo dark size={22}/></a>
+    <><nav className={`nav-fixed nav-pill ${onHero&&!open?"is-over-hero":""} ${open?"is-open":""}`}>
+      <a className="brand" href={link("#top")} aria-label="CUEPA home"><Logo dark={!(onHero&&!open)} size={22}/></a>
       <div className="navlinks-tabs">
         {items.map(it=>(
           <a key={it.key} href={link(it.href)} className={`navtab ${active===it.key?"is-active":""}`} onClick={()=>{clickLock.current={key:it.key,until:performance.now()+1500};setActive(it.key);}}>
