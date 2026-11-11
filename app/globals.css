@@ -1,5 +1,5 @@
 @import "tailwindcss";@import "tw-animate-css";@import "../vendor/shadcn-tailwind-4.13.0.css";
-:root{--gutter:112px;--shell-max:1440px;--ink:#080b0f;--paper:#f1efe9;--blue:#08786f;--teal:#08786f;--teal-bright:#0F766E;--line:#ffffff20}
+:root{--gutter:112px;--shell-max:1440px;--ink:#080b0f;--paper:#f1efe9;--blue:#0F766E;--teal:#0F766E;--teal-bright:#0F766E;--line:#ffffff20}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--paper);font-family:Arial,sans-serif}

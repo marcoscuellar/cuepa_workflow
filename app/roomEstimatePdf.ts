@@ -20,7 +20,7 @@ export const BOOKING_URL = "https://www.makingcuepa.com/#conversation";
 
 type RGB = [number, number, number];
 const INK: RGB = [0.094, 0.102, 0.118];      // Deep Ink #181A1E
-const MUTED: RGB = [0.369, 0.369, 0.369];    // #5E5E5E
+const MUTED: RGB = [0.369, 0.369, 0.369];    // #5E6670
 const TEAL: RGB = [0.059, 0.463, 0.431];     // Teal Mark #0F766E
 const TINT: RGB = [0.937, 0.965, 0.961];     // Teal Mark at ~6% on white
 const LINE: RGB = [0.894, 0.894, 0.894];     // #E4E4E4
@@ -71,12 +71,11 @@ export function buildRoomEstimatePdf(input: RoomEstimateInput): Uint8Array {
   const rule = (y: number) => rect(56, y, 500, 0.75, LINE);
   const label = (s: string, y: number) => text(s.toUpperCase(), 56, y, 8.5, TEAL, true);
 
-  // Header: CUEPA Room Mark (2x2, top-right open, bottom-right Teal Mark) and lockup
-  rect(56, 742.3, 11.7, 11.7, INK);
-  rect(56, 728, 11.7, 11.7, INK);
-  rect(70.3, 728, 11.7, 11.7, TEAL);
-  text("CUEPA", 92, 742, 15, INK, true);
-  text("BY ELIPAN GROUP", 92, 730, 7, MUTED);
+  // Header: CUEPA lockup — Return C mark (stroked, round caps) + thin divider + CUEPA (CUEPA-logo-files-2)
+  ops.push(`q ${rgb(INK)} RG 1.9 w 1 J 1 j 67.91 742.86 m 66.23 740.86 63.48 740.13 61.03 741.02 c 58.58 741.91 56.95 744.24 56.95 746.85 c 56.95 749.46 58.58 751.79 61.03 752.68 c 63.48 753.57 66.23 752.84 67.91 750.84 c 68.43 750.22 68.35 749.29 67.72 748.77 c 67.10 748.25 66.18 748.33 65.66 748.95 c 64.77 750.01 63.32 750.40 62.03 749.93 c 60.74 749.46 59.87 748.23 59.87 746.85 c 59.87 745.47 60.74 744.24 62.03 743.77 c 63.32 743.30 64.77 743.69 65.66 744.75 c S Q`);
+  rect(73.5, 739.5, 0.7, 15, MUTED);
+  text("CUEPA", 79, 742, 15, INK, true);
+  text("BY ELIPAN GROUP", 79, 730, 7, MUTED);
   right(date, 556, 742, 9, MUTED);
 
   // Title

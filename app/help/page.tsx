@@ -81,7 +81,7 @@ export default function HelpPage(){
     </section>
 
     <footer className="site-footer">
-      <p className="wordmark"><Logo lockup/></p>
+      <p className="wordmark"><Logo lockup size={26}/></p>
       <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
       <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a></p>
       <p className="footer-ollin">CUEPA · An ELIPAN GROUP company</p>

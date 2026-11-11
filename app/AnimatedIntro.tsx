@@ -1,4 +1,5 @@
 "use client";
+import ReturnMark from "./ReturnMark";
 
 import {useEffect, useRef, useState} from "react";
 import {motion} from "motion/react";
@@ -41,6 +42,7 @@ export default function AnimatedIntro(){
   const realityRef=useRef<HTMLElement>(null);
   const [statsVisible,setStatsVisible]=useState(false);
 
+
   useEffect(()=>{
     const node=realityRef.current;
     if(!node) return;
@@ -49,45 +51,64 @@ export default function AnimatedIntro(){
         setStatsVisible(true);
         observer.disconnect();
       }
-    },{threshold:.2});
+    },{threshold:0,rootMargin:"0px 0px -6% 0px"});
     observer.observe(node);
     return ()=>observer.disconnect();
   },[]);
 
   return <>
-    <section className="hero2" id="top">
-      <img src="/hero-team-workshop.jpg" alt="A small team planning together around a table in a bright open studio, sticky notes on a whiteboard beside them"/>
-      <div className="scrim"/>
-      <motion.div className="hero2-copy" variants={heroContainer} initial="hidden" animate="show">
-        <motion.div className="hero2-note" initial={{opacity:0,y:16,filter:"blur(8px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} transition={{duration:.6,delay:.9,ease:[0.22,1,0.36,1]}}>
-          <div className="hero2-note-top">
-            <svg className="hero2-note-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#fff"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
-            <b>CUEPA</b><i>6:15 PM</i>
-            <em><span className="hero2-dot" aria-hidden/>Handled</em>
+    {/* Hero (Nov 9, 2026) — enterprise hierarchy.
+        The nav owns the logo. Here: H1 focal point -> subhead -> two CTAs ->
+        Operations Overview peeking above the fold. Photo + banner overlay live in brand-nov.css (.hero4). */}
+    <section id="top" className="hero4 hero4--ink bg-white px-3 pt-20 sm:px-4 sm:pt-[88px]">
+      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-12 text-white sm:rounded-3xl sm:px-6 sm:pt-16 lg:pt-20">
+        <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
+
+        <motion.div variants={heroContainer} initial="hidden" animate="show"
+          className="relative z-[3] flex max-w-4xl flex-col items-center text-center">
+          <motion.p variants={heroChild}
+            className="mb-5 text-balance text-sm font-semibold tracking-wide text-white/90 sm:text-base">
+            <span aria-hidden="true" className="mr-2.5 inline-block h-2 w-2 -translate-y-px rounded-full align-middle bg-[#2DD4BF] shadow-[0_0_8px_2px_rgba(45,212,191,.75),0_0_20px_4px_rgba(45,212,191,.35)]"/>
+            Human-governed AI workflows for growing businesses
+          </motion.p>
+          <motion.h1 variants={heroChild}
+            className="hero4-h1 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+            Making room for more.
+          </motion.h1>
+          <motion.p variants={heroChild}
+            className="hero4-sub mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+            We take the busywork off your team&rsquo;s plate, so there&rsquo;s room for what&rsquo;s next. You keep the decisions.
+          </motion.p>
+          <motion.div variants={heroChild}
+            className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+            <a href="#conversation"
+              className="hero4-cta inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-7 text-base font-bold text-[#080B0F] shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              <span className="hidden sm:inline">Book a 20-Minute Room Conversation</span>
+              <span className="sm:hidden">Book a 20-Min Conversation</span>
+            </a>
+            <a href="#method"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white/15 px-7 text-base font-bold text-white shadow-[0_10px_28px_rgba(8,11,15,.18)] backdrop-blur-md transition hover:-translate-y-px hover:bg-white/25 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto">
+              See the method
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Operations Overview — peeks above the fold */}
+        <motion.div initial={{opacity:0,y:60}} animate={{opacity:1,y:0}} transition={{duration:.9,delay:.5,ease:[0.22,1,0.36,1]}}
+          className="relative z-[3] mt-12 w-full max-w-[1080px] max-sm:h-[190px] max-sm:overflow-hidden rounded-t-[22px] bg-white/20 px-3 pt-3 shadow-[0_-10px_60px_rgba(8,11,15,.35)] backdrop-blur-xl sm:mt-14">
+          <div className="flex items-center gap-[7px] px-2 pb-3 pt-1" aria-hidden="true">
+            <i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/><i className="h-[11px] w-[11px] rounded-full bg-white/70"/>
+            <span className="ml-3 truncate text-[13px] font-medium text-white/85"><span className="hidden sm:inline">app.makingcuepa.com / </span>Operations Overview</span>
           </div>
-          <p><strong>Email from Robert:</strong> &ldquo;Let&rsquo;s push our meeting to 3pm — sound good?&rdquo;</p>
-          <p className="hero2-note-done">
-            <span className="hero2-check" aria-hidden><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-            Your schedule was open, so I confirmed by email.
-          </p>
+          <picture>
+            <source media="(max-width: 639px)" srcSet="/hero-operations-overview-phone.jpg" width={786} height={1572}/>
+            <img src="/hero-operations-overview.png" width={1225} height={887}
+              alt="CUEPA Operations Overview: Capacity and ROI, the Decision Station approval feed, and Live Engine Activity (demo with sample data)"
+              className="block h-auto w-full rounded-t-[14px] bg-white"/>
+          </picture>
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080B0F]/80 to-transparent sm:hidden"/>
         </motion.div>
-        <motion.p className="eyebrow2" variants={heroChild}>CUEPA FOR WORK · BY ELIPAN GROUP</motion.p>
-        <h1 aria-label="Make room for what's next.">
-          <motion.span style={{display:"block"}} variants={heroChild}>MAKE ROOM</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}>FOR WHAT&rsquo;S</motion.span>
-          <motion.span style={{display:"block"}} variants={heroChild}><span className="hero2-accent">NEXT.</span></motion.span>
-        </h1>
-        <motion.p className="lede2" variants={heroChild}><b>Less busywork. More room for bigger things.</b> CUEPA takes the repetitive work off the plate of small-business owners, managers and their teams. You keep the decisions.</motion.p>
-        <motion.div className="cta2-group" variants={heroChild}>
-          <a href="#conversation" className="cta2">
-            <span className="cta2-long">Book a 20-Minute Room Conversation</span>
-            <span className="cta2-short">Book a 20-Min Conversation</span>
-            <span aria-hidden>↘</span>
-          </a>
-          <p className="cta2-sub">A real person, 20 minutes, no pitch. We look at where your time goes.</p>
-        </motion.div>
-      </motion.div>
-      <p className="hero2-scroll">SCROLL TO MAKE ROOM</p>
+      </div>
     </section>
     <section ref={realityRef} id="reality" className={`reality ${statsVisible?"is-visible":""}`}>
       <div className="shell reality-shell">
@@ -98,7 +119,7 @@ export default function AnimatedIntro(){
               <ul className="pr-notes reality-notes" aria-label="CUEPA notifications">
                 {notes.map((n,index)=><li className="pr-note" key={n.tag} style={{"--note-order":index} as React.CSSProperties}>
                   <span className="pr-note-top">
-                    <svg width={14} height={14} viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#030303"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+                    <ReturnMark size={14}/>
                     CUEPA <em>· {n.time}</em><span className="pr-tag"><i aria-hidden="true"/>{n.tag}</span>
                   </span>
                   <span className="pr-note-body">{n.body}</span>
