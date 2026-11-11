@@ -139,3 +139,4 @@
 .rrStage--ops{display:block}
 .rrStage--ops .rrFrame{width:100%;max-width:1120px;margin:0 auto}
 .rrShot{display:block;width:100%;height:auto;background:#fff}
+@media (max-width:639px){.rrStage--ops .rrUrl{display:none}.rrStage--ops .rrChrome{justify-content:space-between}}
