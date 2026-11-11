@@ -168,9 +168,6 @@
   radial-gradient(46% 38% at 50% 46%,rgba(8,11,15,.5),rgba(8,11,15,0) 100%),
   linear-gradient(rgba(8,11,15,.42),rgba(8,11,15,.42))}
 .hero4--og .hero4-h1{font-weight:600;text-shadow:0 2px 16px rgba(8,11,15,.5)}
-/* 1. Logo shows once: the pill hides its logo while it sits on the hero (the hero lockup is the logo moment) */
-.nav-pill .brand{transition:opacity .3s ease,visibility .3s}
-.nav-pill.is-over-hero .brand{opacity:0;visibility:hidden}
 /* 4. Scroll cue */
 @media (prefers-reduced-motion:no-preference){.hero4-cue svg{animation:cueNudge 2.2s ease-in-out infinite}}
 @keyframes cueNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
