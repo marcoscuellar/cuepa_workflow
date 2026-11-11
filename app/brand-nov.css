@@ -135,3 +135,7 @@
 .hero4-cta{color:#080B0F}
 /* "The reality" (under the hero): start fading in as soon as it enters the screen — softer, quicker (Nov 10) */
 @media (prefers-reduced-motion:no-preference){.reality-reveal{filter:blur(4px);transform:translateY(16px);transition-duration:.6s,.6s,.6s;transition-delay:calc(var(--stat-order,0) * 80ms)}}
+/* Your Room, on one screen — real Operations Overview in the frame (Nov 10) */
+.rrStage--ops{display:block}
+.rrStage--ops .rrFrame{width:100%;max-width:1120px;margin:0 auto}
+.rrShot{display:block;width:100%;height:auto;background:#fff}
