@@ -161,10 +161,17 @@
    Ground Ink, Primary Accent glow top-right, Secondary Teal glow bottom-left, grain. Big lockup,
    "Making room for more.", the descriptor line, CTAs. Platform lives in "Your room, on one screen". */
 .hero4--og .hero4-band{background:#080B0F}
-.hero4--og .hero4-photo img{opacity:.42;filter:grayscale(.45) brightness(.8)}
+.hero4--og .hero4-photo img{opacity:.46;filter:grayscale(.12) saturate(.9) brightness(.72)}
 .hero4--og .hero4-photo::after{background:
-  radial-gradient(52% 62% at 90% 4%,rgba(14,116,144,.7),rgba(14,116,144,0) 70%),
-  radial-gradient(55% 62% at 4% 100%,rgba(15,118,110,.65),rgba(15,118,110,0) 70%),
-  radial-gradient(48% 40% at 50% 46%,rgba(8,11,15,.55),rgba(8,11,15,0) 100%),
-  linear-gradient(rgba(8,11,15,.5),rgba(8,11,15,.5))}
+  radial-gradient(58% 68% at 92% 2%,rgba(14,116,144,.95),rgba(14,116,144,0) 72%),
+  radial-gradient(60% 68% at 2% 100%,rgba(15,118,110,.92),rgba(15,118,110,0) 72%),
+  radial-gradient(46% 38% at 50% 46%,rgba(8,11,15,.5),rgba(8,11,15,0) 100%),
+  linear-gradient(rgba(8,11,15,.42),rgba(8,11,15,.42))}
 .hero4--og .hero4-h1{font-weight:600;text-shadow:0 2px 16px rgba(8,11,15,.5)}
+/* 1. Logo shows once: the pill hides its logo while it sits on the hero (the hero lockup is the logo moment) */
+.nav-pill .brand{transition:opacity .3s ease,visibility .3s}
+.nav-pill.is-over-hero .brand{opacity:0;visibility:hidden}
+/* 4. Scroll cue */
+@media (prefers-reduced-motion:no-preference){.hero4-cue svg{animation:cueNudge 2.2s ease-in-out infinite}}
+@keyframes cueNudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.hero4-cue:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:6px}

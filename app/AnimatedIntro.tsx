@@ -72,7 +72,7 @@ export default function AnimatedIntro(){
             Making room for more.
           </motion.h1>
           <motion.p variants={heroChild}
-            className="mt-4 text-balance text-base font-medium text-white/55 sm:mt-5 sm:text-xl">
+            className="mt-4 text-balance text-lg font-medium text-white/80 sm:mt-5 sm:text-[22px]">
             Human-governed AI workflows for growing businesses
           </motion.p>
           <motion.div variants={heroChild}
@@ -88,6 +88,10 @@ export default function AnimatedIntro(){
             </a>
           </motion.div>
         </motion.div>
+        <a href="#reality" className="hero4-cue absolute bottom-6 left-1/2 z-[3] flex -translate-x-1/2 flex-col items-center gap-1.5 text-[13px] font-semibold tracking-wide text-white/70 transition hover:text-white sm:bottom-8">
+          See how it works
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
       </div>
     </section>
     <section ref={realityRef} id="reality" className={`reality ${statsVisible?"is-visible":""}`}>
