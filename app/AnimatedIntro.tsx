@@ -60,8 +60,8 @@ export default function AnimatedIntro(){
     {/* Hero (Nov 9, 2026) — enterprise hierarchy.
         The nav owns the logo. Here: H1 focal point -> subhead -> two CTAs ->
         Operations Overview peeking above the fold. Photo + banner overlay live in brand-nov.css (.hero4). */}
-    <section id="top" className="hero4 hero4--ink bg-white px-3 pt-20 sm:px-4 sm:pt-[88px]">
-      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-12 text-white sm:rounded-3xl sm:px-6 sm:pt-16 lg:pt-20">
+    <section id="top" className="hero4 hero4--ink bg-white px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="hero4-band relative isolate flex flex-col items-center overflow-hidden rounded-[20px] px-4 pt-[116px] text-white sm:rounded-3xl sm:px-6 sm:pt-[136px] lg:pt-[152px]">
         <div className="hero4-photo" aria-hidden="true"><img src="/hero-meeting.jpg" alt=""/></div>
 
         <motion.div variants={heroContainer} initial="hidden" animate="show"
