@@ -42,8 +42,8 @@ export const metadata:Metadata={
   },
   manifest:"/site.webmanifest?v=5",
   openGraph:{type:"website",url:"/",siteName:"CUEPA",title,description,
-    images:[{url:"/og.jpg",width:1200,height:630,alt:"A woman presenting ideas on a whiteboard to her smiling team in a sunny brick loft, beside the words Make Room for What’s Next"}]},
-  twitter:{card:"summary_large_image",title,description,images:["/og.jpg"]}
+    images:[{url:"/og.jpg?v=6",width:1200,height:630,alt:"CUEPA logo on a dark teal background. Making room for more. Human-governed AI workflows for growing businesses."}]},
+  twitter:{card:"summary_large_image",title,description,images:["/og.jpg?v=6"]}
 };
 export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><head>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>

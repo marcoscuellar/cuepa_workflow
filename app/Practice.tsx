@@ -1,4 +1,5 @@
 "use client";
+import ReturnMark from "./ReturnMark";
 
 // The CUEPA Practice: four turns, told once, always in order (FIND → FLOW → PROVE → GROW ↻).
 // Each turn pairs a business moment (photo, with see-through CUEPA notes on it) with an iPhone
@@ -114,7 +115,7 @@ const turns: Turn[] = [
 ];
 
 function Mark({size=14}:{size?:number}){
-  return <svg width={size} height={size} viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#080B0F"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>;
+  return <ReturnMark size={size}/>;
 }
 
 function Phone({p,reduce}:{p:Turn["phone"];reduce:boolean}){

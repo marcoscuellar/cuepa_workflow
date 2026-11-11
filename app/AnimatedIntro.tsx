@@ -1,4 +1,5 @@
 "use client";
+import ReturnMark from "./ReturnMark";
 
 import {useEffect, useRef, useState} from "react";
 import {motion} from "motion/react";
@@ -118,7 +119,7 @@ export default function AnimatedIntro(){
               <ul className="pr-notes reality-notes" aria-label="CUEPA notifications">
                 {notes.map((n,index)=><li className="pr-note" key={n.tag} style={{"--note-order":index} as React.CSSProperties}>
                   <span className="pr-note-top">
-                    <svg width={14} height={14} viewBox="-456 -2695 3900 3900" aria-hidden="true" style={{fill:"none",stroke:"none"}}><rect x="-456" y="-2695" width="3900" height="3900" rx="858" fill="#080B0F"/><path d="M764 24C1145 24 1414 -208 1456 -560H1037C1011 -420 915 -336 772 -336C569 -336 460 -484 460 -744C460 -1005 570 -1154 772 -1154C915 -1154 1012 -1069 1037 -928H1456C1415 -1280 1145 -1514 764 -1514C357 -1514 40 -1242 40 -744C40 -250 357 24 764 24Z" fill="#FFFFFF"/><rect x="1760" y="-266" width="1188" height="266" fill="#2DD4BF"/></svg>
+                    <ReturnMark size={14}/>
                     CUEPA <em>· {n.time}</em><span className="pr-tag"><i aria-hidden="true"/>{n.tag}</span>
                   </span>
                   <span className="pr-note-body">{n.body}</span>

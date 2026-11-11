@@ -1,4 +1,5 @@
 "use client";
+import ReturnMark from "./ReturnMark";
 
 import {useState} from "react";
 import Practice from "./Practice";
@@ -51,7 +52,7 @@ export default function HowItWorks() {
             <span className="hw-k">How I&rsquo;ve always worked</span>
             <blockquote>&ldquo;Understand first. Simplify before automating. I don&rsquo;t believe in forcing a product into a problem.&rdquo;</blockquote>
             <div className="hw-who">
-              <svg viewBox="14 14 72 72" aria-hidden="true"><rect x="14" y="14" width="30" height="72" fill="#080B0F"/><rect x="56" y="14" width="30" height="72" fill="#0F766E"/></svg>
+              <ReturnMark size={22}/>
               <span><b>Marcos Cuellar</b> · Founder, CUEPA</span>
             </div>
             <p className="hw-how">I lead CUEPA, where we help businesses identify operational gaps and design practical, <b>human-governed AI workflows.</b> My background is in business development, staffing and operational strategy, so my approach starts with the human business outcome rather than the technology.</p>
