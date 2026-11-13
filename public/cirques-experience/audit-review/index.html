@@ -276,6 +276,15 @@ ul.clean{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--soft)}
 .checkgrid .check em{display:block;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--mute);margin-bottom:6px}
 .checkgrid .check small{margin-top:6px}
 .checkgrid .check.decided{cursor:default;gap:16px}
+.checkgrid .check{color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.checkgrid .check.g0{background:radial-gradient(90% 110% at 100% 0%,rgba(232,184,87,.5) 0%,rgba(232,184,87,0) 65%),#121A20}
+.checkgrid .check.g1{background:radial-gradient(90% 110% at 100% 0%,rgba(45,212,191,.42) 0%,rgba(45,212,191,0) 65%),#121A20}
+.checkgrid .check.g2{background:radial-gradient(90% 110% at 100% 0%,rgba(14,116,144,.75) 0%,rgba(14,116,144,0) 65%),#121A20}
+.checkgrid .check.g3{background:radial-gradient(90% 110% at 100% 0%,rgba(201,119,58,.55) 0%,rgba(201,119,58,0) 65%),#121A20}
+.checkgrid .check small{color:rgba(255,255,255,.72)}
+.checkgrid .check em{color:rgba(255,255,255,.6)}
+.checkgrid .check input:checked + span{color:rgba(255,255,255,.55)}
+.checkgrid .check .nextmove{color:#2DD4BF}
 .nextmove{display:block;margin-top:10px;font-size:14px;font-weight:700;color:#0F766E}
 body:not(.light) .nextmove{color:var(--signal)}
 .checkgrid .check.decided .done{flex:none}
