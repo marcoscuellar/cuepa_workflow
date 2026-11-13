@@ -285,10 +285,23 @@ ul.clean{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--soft)}
 .checkgrid .check em{color:rgba(255,255,255,.6)}
 .checkgrid .check input:checked + span{color:rgba(255,255,255,.55)}
 .checkgrid .check .nextmove{color:#2DD4BF}
-#checks .check.g0{background:radial-gradient(90% 110% at 100% 0%,rgba(232,184,87,.5) 0%,rgba(232,184,87,0) 65%),#121A20}
-#checks .check.g1{background:radial-gradient(90% 110% at 100% 0%,rgba(45,212,191,.42) 0%,rgba(45,212,191,0) 65%),#121A20}
-#checks .check.g2{background:radial-gradient(90% 110% at 100% 0%,rgba(14,116,144,.75) 0%,rgba(14,116,144,0) 65%),#121A20}
-#checks .check.g3{background:radial-gradient(90% 110% at 100% 0%,rgba(201,119,58,.55) 0%,rgba(201,119,58,0) 65%),#121A20}
+#checks .check:not(.wide){color:var(--fg);box-shadow:var(--shadow)}
+#checks .check:not(.wide) small{color:var(--mute)}
+#checks .check:not(.wide) em{color:var(--mute)}
+#checks .check:not(.wide) input:checked + span{color:var(--mute)}
+#checks .check.g0:not(.wide){background:radial-gradient(70% 90% at 100% 0%,rgba(232,184,87,.55) 0%,rgba(232,184,87,0) 65%),radial-gradient(70% 90% at 0% 100%,rgba(14,116,144,.7) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+#checks .check.g0:not(.wide) small{color:rgba(255,255,255,.75)}
+#checks .check.g0:not(.wide) em{color:rgba(255,255,255,.6)}
+#checks .check.g2:not(.wide){background:radial-gradient(70% 90% at 100% 0%,rgba(14,116,144,.9) 0%,rgba(14,116,144,0) 65%),radial-gradient(70% 90% at 0% 100%,rgba(201,119,58,.45) 0%,rgba(201,119,58,0) 70%),#1B2A31;color:#fff}
+#checks .check.g2:not(.wide) small{color:rgba(255,255,255,.75)}
+#checks .check.g2:not(.wide) em{color:rgba(255,255,255,.6)}
+#checks .check.g3:not(.wide){background:#FFFFFF;color:#0A0C0F}
+#checks .check.g3:not(.wide) small,#checks .check.g3:not(.wide) em{color:#5E6670}
+#checks .check.wide.decided{background:radial-gradient(60% 120% at 100% 0%,rgba(45,212,191,.3) 0%,rgba(45,212,191,0) 70%),var(--tile);color:var(--fg);box-shadow:var(--shadow)}
+#checks .check.wide.decided small,#checks .check.wide.decided em{color:var(--mute)}
+#checks .check.wide.decided .nextmove{color:#0F766E}
+body:not(.light) #checks .check.wide.decided .nextmove{color:#2DD4BF}
+#checks .check.wide{background:radial-gradient(55% 90% at 90% 10%,rgba(201,119,58,.75) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 120% at 0% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
 .nextmove{display:block;margin-top:10px;font-size:14px;font-weight:700;color:#0F766E}
 body:not(.light) .nextmove{color:var(--signal)}
 .checkgrid .check.decided .done{flex:none}
@@ -491,9 +504,9 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
       <h3 style="font-size:20px;font-weight:700">In your Room</h3>
       <ul class="clean"><li>Waiting on you: approve in one tap</li><li>Inbox sorted by your Gmail folders</li><li>Your week + live processes</li><li>Ask CUEPA when an idea hits</li></ul>
     </div>
-    <div class="tile"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>Coming next</div><h3 style="font-size:20px;font-weight:700">Coach roster</h3><p class="k-mute">Roll call in three taps. Paid + waiver status on every kid. Pickup check-off.</p></div>
-    <div class="tile hero" style="min-height:0"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>Coming next</div><h3 style="font-size:20px;font-weight:700">Early-departure receipt</h3><p class="k-mute">Parent gets a receipt with the camp policy. No more refund arguments months later.</p></div>
-    <div class="tile"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Coming next</div><h3 style="font-size:20px;font-weight:700">Event + mileage log</h3><p class="k-mute">The 2-page paper form becomes 60 seconds on a phone.</p></div>
+    <div class="tile"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Coach roster</h3><p class="k-mute">Roll call in three taps. Paid + waiver status on every kid. Pickup check-off.</p></div>
+    <div class="tile hero" style="min-height:0"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Early-departure receipt</h3><p class="k-mute">Parent gets a receipt with the camp policy. No more refund arguments months later.</p></div>
+    <div class="tile"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Event + mileage log</h3><p class="k-mute">The 2-page paper form becomes 60 seconds on a phone.</p></div>
   </div>
 </section>
 
