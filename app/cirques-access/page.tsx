@@ -31,6 +31,10 @@ const css = `
 .sx-glow{position:relative;overflow:hidden;background:${GLOW};color:#FFFFFF;display:flex;flex-direction:column;padding:28px clamp(24px,5vw,80px) 40px}
 .sx-glow::after{content:"";position:absolute;inset:0;background-image:${GRAIN};opacity:.16;mix-blend-mode:overlay;pointer-events:none}
 .sx-glow>*{position:relative;z-index:1}
+.sx-brand{display:flex;align-items:center;gap:12px}
+.sx-brand a{display:inline-flex}
+.sx-sep{width:1px;height:18px;background:rgba(255,255,255,.4)}
+.sx-by{font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.8);white-space:nowrap}
 .sx-hello{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:40px 0}
 .sx-day{margin:0;font:600 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8FE6DA}
 .sx-hello h1{margin:0;font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.0;text-wrap:balance}
@@ -63,7 +67,7 @@ export default async function CirquesAccess({searchParams}: {searchParams: Promi
     <main className="sx">
       <style dangerouslySetInnerHTML={{__html: css}}/>
       <section className="sx-glow">
-        <Link href="/" aria-label="CUEPA home"><Logo size={14}/></Link>
+        <div className="sx-brand"><Link href="/" aria-label="CUEPA home"><Logo size={14}/></Link><span className="sx-sep" aria-hidden="true"></span><span className="sx-by">by ELIPAN GROUP</span></div>
         <div className="sx-hello">
           <p className="sx-day" id="sx-day" suppressHydrationWarning>{day}</p>
           <h1><span id="sx-greet" suppressHydrationWarning>{greeting()}</span>, Team Cirques Experience<span className="dot">.</span></h1>
