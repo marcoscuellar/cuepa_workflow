@@ -31,26 +31,24 @@ const css = `
 .sx-glow{position:relative;overflow:hidden;background:${GLOW};color:#FFFFFF;display:flex;flex-direction:column;padding:28px clamp(24px,5vw,80px) 40px}
 .sx-glow::after{content:"";position:absolute;inset:0;background-image:${GRAIN};opacity:.16;mix-blend-mode:overlay;pointer-events:none}
 .sx-glow>*{position:relative;z-index:1}
-.sx-brand{display:flex;align-items:center;gap:12px}
-.sx-brand a{display:inline-flex}
-.sx-sep{width:1px;height:18px;background:rgba(255,255,255,.4)}
-.sx-by{font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.8);white-space:nowrap}
+.sx-brand{display:inline-grid;justify-items:end;width:fit-content;text-decoration:none;line-height:1}
+.sx-by{font-weight:500;text-transform:uppercase;letter-spacing:.2em;margin-right:-.2em;font-size:8px;margin-top:5px;color:#9AA4A4;white-space:nowrap}
 .sx-hello{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:40px 0}
-.sx-day{margin:0;font:600 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8FE6DA}
+.sx-day{margin:0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#2DD4BF}
 .sx-hello h1{margin:0;font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.0;text-wrap:balance}
 .sx-hello h1 .dot{color:#2DD4BF}
 .sx-hello p{margin:0;font-size:19px;line-height:1.55;color:#FFFFFF;max-width:38ch}
 .sx-side{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px 28px}
 .sx-card{width:min(460px,100%);background:#FFFFFF;border-radius:24px;padding:32px;display:grid;gap:12px;box-shadow:0 18px 50px rgba(8,11,15,.14)}
 .sx-lead{margin:0 0 4px;font-size:15px;font-weight:600}
-.sx-card label{font-size:12.5px;font-weight:600;color:#6B7575}
+.sx-card label{font-size:12.5px;font-weight:600;color:#5E6670}
 .sx-card input[type=password]{font:inherit;font-size:16px;min-height:48px;padding:0 14px;border-radius:12px;border:0;background:#FFFFFF;color:#080B0F;box-shadow:0 2px 9px rgba(0,0,0,.10);outline:none}
 .sx-card input[type=password]:focus{outline:2px solid #0F766E}
 .sx-card button{margin-top:6px;min-height:50px;border:0;border-radius:12px;background:${BTN};color:#FFFFFF;font:inherit;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 8px 22px rgba(10,18,22,.35);transition:transform .2s}
 .sx-card button:hover{background:${BTN_HOVER};transform:translateY(-1px)}
 .sx-card button:focus-visible{outline:2px solid #0F766E;outline-offset:3px}
 .sx-err{margin:0;font-size:14px;line-height:1.45;color:#B42318}
-.sx-help{margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#6B7575}
+.sx-help{margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#5E6670}
 .sx-help a{color:#0F766E;font-weight:600}
 .sx-foot{margin:28px 0 0;font-size:12px;color:#5E6670;text-align:center}
 @media (max-width:860px){.sx{grid-template-columns:minmax(0,1fr)}.sx-hello{padding:28px 0 8px}.sx-hello h1{font-size:clamp(32px,9vw,44px)}.sx-side{padding:0 20px 28px;margin-top:-24px}}
@@ -67,7 +65,7 @@ export default async function CirquesAccess({searchParams}: {searchParams: Promi
     <main className="sx">
       <style dangerouslySetInnerHTML={{__html: css}}/>
       <section className="sx-glow">
-        <div className="sx-brand"><Link href="/" aria-label="CUEPA home"><Logo size={14}/></Link><span className="sx-sep" aria-hidden="true"></span><span className="sx-by">by ELIPAN GROUP</span></div>
+        <Link href="/" className="sx-brand" aria-label="CUEPA by ELIPAN GROUP, home"><Logo size={16}/><span className="sx-by" aria-hidden="true">By ELIPAN GROUP</span></Link>
         <div className="sx-hello">
           <p className="sx-day" id="sx-day" suppressHydrationWarning>{day}</p>
           <h1><span id="sx-greet" suppressHydrationWarning>{greeting()}</span>, Team Cirques Experience<span className="dot">.</span></h1>
