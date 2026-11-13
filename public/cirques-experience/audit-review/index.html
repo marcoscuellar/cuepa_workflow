@@ -241,6 +241,23 @@ body:not(.light) .morelink{color:#2DD4BF}
 .inv-pay span{font-size:14px;color:rgba(255,255,255,.85)}
 .decide{margin-top:20px;min-height:0!important;display:flex!important;flex-direction:row!important;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .decide h2{font-size:34px}
+.wflow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;counter-reset:wf}
+@media(max-width:1100px){.wflow{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.wflow{grid-template-columns:1fr}}
+.wflow li{counter-increment:wf;position:relative;background:var(--tile);border-radius:20px;padding:16px;box-shadow:var(--shadow);display:grid;gap:6px;align-content:start}
+.wflow li::after{content:"\2192";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:#2DD4BF;color:#0A0C0F;font-size:11px;font-weight:800;display:grid;place-items:center;z-index:1}
+.wflow li:last-child::after{display:none}
+@media(max-width:1100px){.wflow li:nth-child(3n)::after{display:none}}
+@media(max-width:640px){.wflow li::after{display:none}}
+.wflow .wk{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0F766E}
+body:not(.light) .wflow .wk{color:#2DD4BF}
+.wflow b{font-size:16px;line-height:1.25}
+.wflow span:not(.wk){font-size:13px;line-height:1.45;color:var(--mute)}
+.wflow li.you{background:radial-gradient(55% 90% at 90% 10%,rgba(201,119,58,.7) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 120% at 0% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+.wflow li.you .wk{color:#2DD4BF}
+.wflow li.you span:not(.wk){color:rgba(255,255,255,.8)}
+.wreuse{margin-top:12px}
+.wreuse p{margin:0;color:var(--soft);font-size:15px;line-height:1.5;max-width:85ch}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -562,6 +579,17 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <li><b>Launch</b><span>The site goes live and sign-ups start landing in your Room.</span></li>
     <li><b>Online payments</b><span>Stripe, or whichever processor connects to your QuickBooks.</span></li>
   </ol>
+
+  <div class="sec" style="padding-top:40px"><div class="eb">What step 2 looks like</div><h2>New coach? It runs itself.</h2><p>Your first workstream. You add a coach, and the hub handles the welcome, the paperwork and the follow-up. You only step in to approve.</p></div>
+  <ol class="wflow">
+    <li><span class="wk">Trigger</span><b>You add a new coach</b><span>Name and email in your hub. That's the only thing you type.</span></li>
+    <li><span class="wk">Welcome</span><b>Email from your Gmail</b><span>"Congrats, welcome to the team. Here's your paperwork." You set the wording once.</span></li>
+    <li><span class="wk">Collect</span><b>Coach fills it out</b><span>A private link on their phone. No login, no printing.</span></li>
+    <li><span class="wk">Nudge</span><b>Reminders if it stalls</b><span>The hub follows up so you don't have to chase anyone.</span></li>
+    <li class="you"><span class="wk">You review</span><b>Waiting on you</b><span>The finished packet lands in your Room. Approve in one tap.</span></li>
+    <li><span class="wk">Done</span><b>Coach is ready</b><span>Marked ready to teach, documents filed where your team can find them.</span></li>
+  </ol>
+  <div class="tile wreuse"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>Built once, reused</div><p>The same pattern (trigger, send, collect, review, done) then runs <b>new family enrollment</b>, <b>performer contracts</b> before a parade, and the <b>event + mileage log</b>. We'll set what goes in the coach packet with you during step 2.</p></div>
 
   <div class="tile notinc"><div class="ic"><i><svg><use href="#i-miss"/></svg></i>Not included · quoted separately</div><ul class="clean"><li>Online tuition payments (step 6 above)</li><li>A full class scheduling backend to replace iClassPro</li></ul><p class="k-mute" style="font-size:13px">We'll scope these with you once the site is live, so you only pay for what you need.</p></div>
 
