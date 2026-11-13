@@ -26,7 +26,8 @@ const BTN_HOVER = "radial-gradient(160px 80px at 10% 0%,rgba(45,212,191,.6),tran
 const GRAIN = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 const css = `
-.sx{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:#FFFFFF;color:#080B0F;font-family:'Inter',system-ui,sans-serif}
+.sx,.sx *{box-sizing:border-box}
+.sx{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#FFFFFF;color:#080B0F;font-family:'Inter',system-ui,sans-serif}
 .sx-glow{position:relative;overflow:hidden;background:${GLOW};color:#FFFFFF;display:flex;flex-direction:column;padding:28px clamp(24px,5vw,80px) 40px}
 .sx-glow::after{content:"";position:absolute;inset:0;background-image:${GRAIN};opacity:.16;mix-blend-mode:overlay;pointer-events:none}
 .sx-glow>*{position:relative;z-index:1}
@@ -48,7 +49,7 @@ const css = `
 .sx-help{margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#6B7575}
 .sx-help a{color:#0F766E;font-weight:600}
 .sx-foot{margin:28px 0 0;font-size:12px;color:#5E6670;text-align:center}
-@media (max-width:860px){.sx{grid-template-columns:1fr}.sx-hello{padding:28px 0 8px}.sx-hello h1{font-size:clamp(32px,9vw,44px)}.sx-side{padding:0 20px 28px;margin-top:-24px}}
+@media (max-width:860px){.sx{grid-template-columns:minmax(0,1fr)}.sx-hello{padding:28px 0 8px}.sx-hello h1{font-size:clamp(32px,9vw,44px)}.sx-side{padding:0 20px 28px;margin-top:-24px}}
 @media (prefers-reduced-motion:reduce){.sx-card button,.sx-card button:hover{transition:none;transform:none}}
 `;
 
