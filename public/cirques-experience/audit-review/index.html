@@ -198,6 +198,20 @@ details .in{padding:0 20px 16px;color:var(--soft);font-size:15px}
 .cps .card .nm{font-size:20px}
 .cps .card p{color:var(--soft);font-size:14px;line-height:1.5}
 
+.gobtn{display:inline-flex;align-items:center;margin-top:10px;min-height:40px;padding:8px 16px;border-radius:999px;background:#2DD4BF;color:#0A0C0F;font-size:13px;font-weight:800;text-decoration:none;width:fit-content}
+.gobtn:hover{background:#5EEAD4}
+.prop4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:960px){.prop4{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.prop4{grid-template-columns:1fr}}
+.prop4 .card p{color:var(--soft);font-size:14px;line-height:1.5;margin:0}
+.prop4 .card .nm{font-size:18px}
+.propsteps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:ps}
+@media(max-width:860px){.propsteps{grid-template-columns:1fr}}
+.propsteps li{counter-increment:ps;background:var(--tile);border-radius:20px;padding:18px;box-shadow:var(--shadow);display:grid;gap:6px}
+.propsteps li::before{content:counter(ps);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--fg);color:var(--bg);font-weight:800;font-size:13px}
+.propsteps li:first-child::before{background:#2DD4BF;color:#0A0C0F}
+.propsteps b{font-size:16px}
+.propsteps span{color:var(--mute);font-size:14px;line-height:1.45}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -342,6 +356,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
       <button class="tab" role="tab" data-view="overview">Today</button>
       <button class="tab" role="tab" data-view="audit">The audit</button>
       <button class="tab" role="tab" data-view="plan">The plan</button>
+      <button class="tab" role="tab" data-view="proposal">Website proposal</button>
       <button class="tab" role="tab" data-view="roadmap">Roadmap</button>
       <button class="tab" role="tab" data-view="next">Next steps</button>
     </nav>
@@ -361,7 +376,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <div class="tile hero">
       <div class="ic"><i><svg><use href="#i-loop"/></svg></i>Up next</div>
       <h2>Next: your approval.</h2>
-      <div class="row"><p class="k-mute" style="font-size:14px">Approve the website and next steps. Then compliance forms + onboarding (about a week), <b style="color:#fff">finalize the website</b>, and turn on online payments.</p><button class="go" data-go="next" aria-label="Go to next steps"><svg><use href="#i-arrow"/></svg></button></div>
+      <div class="row"><p class="k-mute" style="font-size:14px">Approve the website and next steps. Then compliance forms + onboarding (about a week), <b style="color:#fff">finalize the website</b>, and turn on online payments.</p><button class="go" data-go="proposal" aria-label="Go to the website proposal"><svg><use href="#i-arrow"/></svg></button></div>
     </div>
     <div class="tile photo span2">
       <img src="/cirques-experience/audit-review/assets/room.png" alt="Approved Cirques Experience Room: Waiting on you, Inbox, Your week and Ask CUEPA">
@@ -510,6 +525,38 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   </div>
 </section>
 
+<!-- PROPOSAL -->
+<section class="view" id="v-proposal" hidden>
+  <div class="sec"><div class="eb">Website proposal</div><h2>Your new website. Sign up, sign, book. One visit.</h2><p>What we're building, how we'll get there, and what's quoted separately. Approve it here and we start.</p></div>
+  <div class="bento">
+    <div class="tile photo span2" style="min-height:320px"><img src="/cirques-experience/audit-review/assets/web-1.jpg" alt="Website concept: Choose your next adventure, with class cards for Aerial Arts, Gym and Cyr Wheel, and Circus Explorers"><div class="cap">Website concept preview · for your approval</div></div>
+    <div class="tile hero" style="justify-content:flex-start;min-height:0"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>The short version</div><h3 style="font-size:22px;font-weight:700;letter-spacing:-.02em">Built for wheel, aerial and circus arts, not cheer gyms.</h3><p class="k-mute" style="font-size:14px">Families find a class, pick how to book and sign every form before they pay. Everything lands in your Room.</p></div>
+  </div>
+
+  <div class="sec" style="padding-top:40px"><div class="eb">What we'll build</div><h2>Four pieces, one system.</h2></div>
+  <div class="grid3 prop4">
+    <div class="card g0"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>01</div><div class="nm">A new public website</div><p>Programs, classes + camps, parties + events, about and contact. Your look, written for Cirques.</p></div>
+    <div class="card g1"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>02</div><div class="nm">Class sign-up</div><p>Families browse by who's coming and pick a single class, a pass, camp days or a semester.</p></div>
+    <div class="card g2"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>03</div><div class="nm">Online paperwork</div><p>Waiver + photo release, medical + emergency and pickup list, signed before anyone pays.</p></div>
+    <div class="card g3"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>04</div><div class="nm">Connected to your Room</div><p>Bookings, passes and signed forms flow straight into your hub, ready for your team.</p></div>
+  </div>
+
+  <div class="sec" style="padding-top:40px"><div class="eb">How we'll do it</div><h2>In this order.</h2></div>
+  <ol class="propsteps">
+    <li><b>You approve</b><span>This proposal and the next steps.</span></li>
+    <li><b>Compliance forms + onboarding</b><span>Your waiver, medical and pickup forms go digital. About one week.</span></li>
+    <li><b>Design + build</b><span>We build the site from the approved concept and share it with you as we go.</span></li>
+    <li><b>You review</b><span>You and your team click through it. We fix what you flag.</span></li>
+    <li><b>Launch</b><span>The site goes live and sign-ups start landing in your Room.</span></li>
+    <li><b>Online payments</b><span>Stripe, or whichever processor connects to your QuickBooks.</span></li>
+  </ol>
+
+  <div class="bento" style="margin-top:14px">
+    <div class="tile span2"><div class="ic"><i><svg><use href="#i-miss"/></svg></i>Quoted separately</div><ul class="clean"><li>Online tuition payments (step 6 above)</li><li>A full class scheduling backend to replace iClassPro</li></ul><p class="k-mute" style="font-size:13px">We'll scope these with you once the site is live, so you only pay for what you need.</p></div>
+    <div class="tile light" style="justify-content:space-between"><div><div class="ic"><i><svg><use href="#i-ok"/></svg></i>Ready?</div><p class="k-mute" style="font-size:14px;margin-top:8px">Approve the website and we'll get started on your forms right away.</p></div><a class="abtn" style="justify-content:center" target="_blank" rel="noopener" href="mailto:marcoscuellar@elipangroup.com?subject=Approved%3A%20Cirques%20Experience%20website%20proposal&amp;body=Hi%20Marcos%2C%0A%0AWe%20approve%20the%20website%20proposal%20and%20next%20steps.%20Let%27s%20get%20started.%0A%0AThanks%2C%0AChristian"><svg aria-hidden="true"><use href="#i-ok"/></svg>Approve the website</a></div>
+  </div>
+</section>
+
 <!-- ROADMAP -->
 <section class="view" id="v-roadmap" hidden>
   <div class="sec"><div class="eb">Roadmap</div><h2>Now, next, later.</h2><p>We build in the order that gives you the most room first.</p></div>
@@ -529,7 +576,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <div class="nextgrid">
     <div class="tile photo nextphoto"><img src="/cirques-experience/audit-review/assets/hallway.jpg" alt="Students walking through a sunlit school hallway"><div class="cap">Families move fast. The paperwork should too.</div></div>
     <div class="checkgrid" id="checks">
-      <label class="check g1 wide"><input type="checkbox" data-k="approve"><span><em>Start here</em>Approve the website + next steps<small>Your go-ahead starts the clock on everything below.</small></span></label>
+      <label class="check g1 wide"><input type="checkbox" data-k="approve"><span><em>Start here</em>Approve the website + next steps<small>Your go-ahead starts the clock on everything below.</small><a class="gobtn" href="#proposal" data-go="proposal">Go to website proposal →</a></span></label>
       <label class="check g0"><input type="checkbox" data-k="forms"><span><em>01</em>Current waiver, medical or pickup forms<small>Whatever you use today, even paper.</small></span></label>
       <label class="check g1"><input type="checkbox" data-k="venues"><span><em>02</em>Which venues are active<small>Broadway Armory, Chase Park, or both.</small></span></label>
       <label class="check g2"><input type="checkbox" data-k="coi"><span><em>03</em>Your current insurance certificate (COI)<small>The one CPS and your venues ask for.</small></span></label>
@@ -558,7 +605,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   mode.addEventListener('click',function(){setMode(!document.body.classList.contains('light'))});
 
   // tabs
-  var views=['overview','audit','plan','roadmap','next'],tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var views=['overview','audit','plan','proposal','roadmap','next'],tabs=[].slice.call(document.querySelectorAll('.tab'));
   function show(v,scroll){
     if(views.indexOf(v)<0)v='overview';
     views.forEach(function(x){document.getElementById('v-'+x).hidden=(x!==v)});
