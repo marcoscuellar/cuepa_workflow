@@ -17,7 +17,7 @@
 body.light{
   --bg:#F7F8F8; --fg:#0A0C0F; --mute:#6B7276; --soft:#3A4148;
   --tile:#FFFFFF; --tile-fg:#0A0C0F;
-  --light:#E4F1EE; --light-fg:#0A0C0F; --light-mute:#4A5A5C;
+  --light:#151A20; --light-fg:#FFFFFF; --light-mute:#9AA4A4;
   --glow:radial-gradient(60% 50% at 0% 70%, rgba(214,150,98,.22) 0%, rgba(247,248,248,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(45,212,191,.22) 0%, rgba(247,248,248,0) 70%);
   --shadow:0 2px 4px rgba(0,0,0,.05),0 12px 28px rgba(0,0,0,.10);
 }
@@ -258,6 +258,9 @@ body:not(.light) .wflow .wk{color:#2DD4BF}
 .wflow li.you span:not(.wk){color:rgba(255,255,255,.8)}
 .wreuse{margin-top:12px}
 .wreuse p{margin:0;color:var(--soft);font-size:15px;line-height:1.5;max-width:85ch}
+.tile.light .morelink{color:#FFFFFF}
+body.light .tile.light .li small{color:#5E6670}
+.tile.light .ic i{background:rgba(255,255,255,.18)}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
