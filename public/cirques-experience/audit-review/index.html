@@ -261,6 +261,7 @@ body:not(.light) .wflow .wk{color:#2DD4BF}
 .tile.light .morelink{color:#FFFFFF}
 body.light .tile.light .li small{color:#5E6670}
 .tile.light .ic i{background:rgba(255,255,255,.18)}
+.tile.light.glass{background:radial-gradient(80% 100% at 100% 0%,rgba(45,212,191,.22) 0%,rgba(45,212,191,0) 70%),rgba(21,26,32,.82);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 10px 30px rgba(0,0,0,.18),inset 0 0 0 1px rgba(255,255,255,.08)}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -426,7 +427,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
       <div class="th"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>The full audit</div><button class="go" data-go="audit" aria-label="Open the full audit"><svg><use href="#i-arrow"/></svg></button></div>
       <div class="row"><div><div class="mini" aria-hidden="true"><b style="height:60%"></b><b style="height:90%"></b><b style="height:45%"></b><b style="height:45%"></b></div><p class="k-mute" style="font-size:13px;margin-top:6px">Missing documents</p></div><div class="big" id="missBig">12</div></div>
     </div>
-    <div class="tile light">
+    <div class="tile light glass">
       <div class="th"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>Lines of business</div><button class="go" data-go="plan" aria-label="Open the plan"><svg><use href="#i-arrow"/></svg></button></div>
       <div class="row"><p class="k-mute" style="font-size:13px">Classes · Camps · Events + parades</p><div class="big">3</div></div>
     </div>
