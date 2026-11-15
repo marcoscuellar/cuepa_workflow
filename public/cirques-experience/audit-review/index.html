@@ -253,6 +253,23 @@ body.light .tile.light .li small{color:#5E6670}
 #v-proposal .bento>.tile.light{justify-content:flex-start}
 #v-proposal .bento>.tile.light .morelink{margin-top:auto}
 .tile.photo.propshot img{object-fit:cover;object-position:center}
+.whygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:760px){.whygrid{grid-template-columns:1fr}}
+.whycard{gap:14px}
+.whyhead{display:flex;align-items:center;gap:12px}
+.whyn{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--fg);color:var(--bg);font-size:13px;font-weight:800;flex:none}
+.whyhead h3{font-size:20px;font-weight:700;letter-spacing:-.02em;margin:0}
+.whycard dl{margin:0;display:grid;gap:10px}
+.whycard dl div{display:grid;gap:2px}
+.whycard dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.whycard dd{margin:0;font-size:15px;line-height:1.5;color:var(--soft)}
+.whycard .fix{border-top:1px solid rgba(127,127,127,.18);padding-top:10px}
+.whycard .fix dt{color:#0F766E}
+body:not(.light) .whycard .fix dt{color:#2DD4BF}
+.whycard .fix dd{color:var(--fg);font-weight:600}
+.whycta{margin-top:20px;min-height:0!important;display:flex!important;flex-direction:row!important;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.whycta h2{font-size:30px;max-width:22ch}
+.whycta .abtn{text-decoration:none}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -365,7 +382,8 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <div class="wrap">
     <a class="logo" href="#overview" aria-label="CUEPA, back to overview"><img class="w" src="/cirques-experience/audit-review/assets/cuepa-logo-white.png" alt="CUEPA"><img class="k" src="/cirques-experience/audit-review/assets/cuepa-logo-ink.png" alt="CUEPA"></a>
     <nav class="tabs" role="tablist" aria-label="Sections">
-      <button class="tab" role="tab" data-view="overview">Why</button>
+      <button class="tab" role="tab" data-view="overview">Overview</button>
+      <button class="tab" role="tab" data-view="why">Why</button>
       <button class="tab" role="tab" data-view="proposal">The proposal</button>
       <button class="tab" role="tab" data-view="plan">For families</button>
       <button class="tab" role="tab" data-view="roadmap">What's next</button>
@@ -425,7 +443,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
         <button class="li" data-go="overview-found">Nothing written down <small>Refunds</small></button>
       </div>
       <div class="fpop" id="foundNote" aria-live="polite"></div>
-      <a class="morelink" href="#audit" data-go="audit">See the full audit →</a>
+      <a class="morelink" href="#why" data-go="why">Why it matters →</a>
     </div>
   </div>
 </section>
@@ -516,6 +534,23 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <div class="tile"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Coach roster</h3><p class="k-mute">Roll call in three taps. Paid + waiver status on every kid. Pickup check-off.</p></div>
     <div class="tile light" style="min-height:0"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Early-departure receipt</h3><p class="k-mute">Parent gets a receipt with the camp policy. No more refund arguments months later.</p></div>
     <div class="tile"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Event + mileage log</h3><p class="k-mute">The 2-page paper form becomes 60 seconds on a phone.</p></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="view" id="v-why" hidden>
+  <div class="sec"><div class="eb">Why · what's happening today</div><h2>Cirques runs on tools built for someone else.</h2><p>We sat with how your team works today. These are the problems we found, what each one costs you, and what we'll do about it.</p></div>
+  <div class="whygrid">
+    <div class="tile whycard"><div class="whyhead"><span class="whyn">01</span><h3>Built for cheer gyms</h3></div><dl><div><dt>Today</dt><dd>iClassPro's skill levels and menus are made for cheer, not wheel, aerial or circus arts.</dd></div><div><dt>What it costs you</dt><dd>Families work to find the right class, and your levels don't match the system you pay for.</dd></div><div class="fix"><dt>What we'll do</dt><dd>A sign-up built around how Cirques actually teaches, with your own levels.</dd></div></dl></div>
+    <div class="tile whycard"><div class="whyhead"><span class="whyn">02</span><h3>Paperwork has no home</h3></div><dl><div><dt>Today</dt><dd>There's no single waiver, medical or pickup form. The audit found 12 documents missing.</dd></div><div><dt>What it costs you</dt><dd>On CPS property and with your insurer, missing waivers, medical info and pickup lists are a real risk.</dd></div><div class="fix"><dt>What we'll do</dt><dd>Every form signed online before anyone pays, filed where your team can find it.</dd></div></dl></div>
+    <div class="tile whycard"><div class="whyhead"><span class="whyn">03</span><h3>Clunky camp passes</h3></div><dl><div><dt>Today</dt><dd>Day passes sit next to 11-week packages in a checkout that wasn't made for both.</dd></div><div><dt>What it costs you</dt><dd>Hard to sell, hard to redeem, and tracked by hand.</dd></div><div class="fix"><dt>What we'll do</dt><dd>One checkout for a class, a pass, camp days or a semester, tracked for you.</dd></div></dl></div>
+    <div class="tile whycard"><div class="whyhead"><span class="whyn">04</span><h3>Paper on the road</h3></div><dl><div><dt>Today</dt><dd>Parades and school shows run on a 2-page paper time and mileage form.</dd></div><div><dt>What it costs you</dt><dd>Time spent on paper after every event, and nothing in one place for payroll.</dd></div><div class="fix"><dt>What we'll do</dt><dd>A 60-second phone form that lands in your hub.</dd></div></dl></div>
+    <div class="tile whycard"><div class="whyhead"><span class="whyn">05</span><h3>Nothing written down</h3></div><dl><div><dt>Today</dt><dd>Refund promises happen in texts and hallway talks.</dd></div><div><dt>What it costs you</dt><dd>Arguments months later, with nothing in writing to point to.</dd></div><div class="fix"><dt>What we'll do</dt><dd>Every booking sends a receipt with your refund policy, the same day.</dd></div></dl></div>
+    <div class="tile whycard"><div class="whyhead"><span class="whyn">06</span><h3>Too many tools</h3></div><dl><div><dt>Today</dt><dd>iClassPro, Webconnex, QuickBooks, paper and texts all hold a piece of the business.</dd></div><div><dt>What it costs you</dt><dd>No one place shows you the full picture of your day.</dd></div><div class="fix"><dt>What we'll do</dt><dd>One Room that pulls it together, with you approving what matters.</dd></div></dl></div>
+  </div>
+  <div class="tile hero whycta">
+    <div><div class="ic"><i><svg><use href="#i-loop"/></svg></i>What it adds up to</div><h2>Every one of these lands on you or your team to fix by hand.</h2><p class="k-mute" style="font-size:15px;max-width:56ch">That's the room we're here to make. The proposal shows how we fix them, in what order, and what it costs.</p></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="abtn" href="#proposal" data-go="proposal">Read the proposal →</a><a class="morelink" style="color:#fff" href="#audit" data-go="audit">See the full audit →</a></div>
   </div>
 </section>
 
@@ -641,7 +676,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   mode.addEventListener('click',function(){setMode(!document.body.classList.contains('light'))});
 
   // tabs
-  var views=['overview','proposal','plan','roadmap','audit'],tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var views=['overview','why','proposal','plan','roadmap','audit'],tabs=[].slice.call(document.querySelectorAll('.tab'));
   function show(v,scroll){
     if(views.indexOf(v)<0)v='overview';
     views.forEach(function(x){document.getElementById('v-'+x).hidden=(x!==v)});
