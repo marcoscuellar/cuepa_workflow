@@ -11,14 +11,14 @@
   --tile:rgba(255,255,255,.055); --tile-fg:#FFFFFF;
   --light:#EEF1F0; --light-fg:#0A0C0F; --light-mute:#5E6670;
   --signal:#2DD4BF; --accent:#0E7490; --amber:#E8B857;
-  --glow:radial-gradient(60% 50% at 0% 70%, rgba(150,88,40,.38) 0%, rgba(10,12,15,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(14,116,144,.34) 0%, rgba(10,12,15,0) 70%),radial-gradient(40% 30% at 55% 0%, rgba(45,212,191,.08) 0%, rgba(10,12,15,0) 70%);
+  --glow:radial-gradient(60% 50% at 0% 70%, rgba(15,118,110,.38) 0%, rgba(10,12,15,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(14,116,144,.34) 0%, rgba(10,12,15,0) 70%),radial-gradient(40% 30% at 55% 0%, rgba(45,212,191,.08) 0%, rgba(10,12,15,0) 70%);
   --shadow:0 10px 30px rgba(0,0,0,.35);
 }
 body.light{
   --bg:#F7F8F8; --fg:#0A0C0F; --mute:#6B7276; --soft:#3A4148;
   --tile:#FFFFFF; --tile-fg:#0A0C0F;
   --light:#151A20; --light-fg:#FFFFFF; --light-mute:#9AA4A4;
-  --glow:radial-gradient(60% 50% at 0% 70%, rgba(214,150,98,.22) 0%, rgba(247,248,248,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(45,212,191,.22) 0%, rgba(247,248,248,0) 70%);
+  --glow:radial-gradient(60% 50% at 0% 70%, rgba(14,116,144,.22) 0%, rgba(247,248,248,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(45,212,191,.22) 0%, rgba(247,248,248,0) 70%);
   --shadow:0 2px 4px rgba(0,0,0,.05),0 12px 28px rgba(0,0,0,.10);
 }
 *{box-sizing:border-box}
@@ -59,7 +59,7 @@ body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 .tile.light{background:var(--light);color:var(--light-fg)}
 .tile.light .k-mute{color:var(--light-mute)}
 .k-mute{color:var(--mute)}
-.tile.hero{min-height:270px;justify-content:space-between;background:radial-gradient(55% 60% at 85% 25%, rgba(201,119,58,.85) 0%, rgba(201,119,58,0) 70%),radial-gradient(70% 70% at 10% 100%, rgba(14,116,144,.9) 0%, rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+.tile.hero{min-height:270px;justify-content:space-between;background:radial-gradient(60% 80% at 88% 6%,#0E7490 0%,rgba(14,116,144,0) 100%),radial-gradient(65% 90% at 6% 100%,#0F766E 0%,rgba(15,118,110,0) 100%),radial-gradient(35% 45% at 60% 65%,rgba(45,212,191,.16) 0%,rgba(45,212,191,0) 100%),#080B0F;color:#fff}
 .tile.hero .k-mute{color:rgba(255,255,255,.75)}
 .tile.photo{padding:0;min-height:270px;background:#0F1418}
 .tile.photo img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0}
@@ -76,7 +76,7 @@ body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 .hero h2{font-size:34px;font-weight:700;letter-spacing:-.035em;line-height:1.05}
 .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
 .mini{display:flex;gap:4px;align-items:flex-end;height:34px}
-.mini b{width:8px;border-radius:4px;background:linear-gradient(180deg,var(--amber),var(--accent))}
+.mini b{width:8px;border-radius:4px;background:linear-gradient(180deg,#2DD4BF,var(--accent))}
 
 /* pipeline */
 .pipe{display:grid;gap:10px;margin-top:6px}
@@ -109,7 +109,7 @@ body.light .tile.light .li.on small{color:var(--signal)}
 .fpop .fs{border-top:1px solid rgba(255,255,255,.14);padding-top:12px}.fpop .fs span{color:#2DD4BF}.fpop .fs p{font-weight:600}
 .li.sel{outline:2px solid #0E7490;outline-offset:-2px}
 .fpop:empty{display:none}
-.donebar{background:radial-gradient(60% 120% at 100% 0%,rgba(45,212,191,.32) 0%,rgba(45,212,191,0) 70%),var(--tile)}
+.donebar{background:var(--tile)}
 .donegrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:640px){.donegrid{grid-template-columns:1fr}}
 .donegrid>div{display:flex;flex-direction:column;gap:6px;background:rgba(127,127,127,.08);border-radius:16px;padding:14px 16px}
@@ -162,17 +162,17 @@ details[open] summary::after{content:"–"}
 .card .pri{margin-left:0}
 .card .nm{font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
 .card small{color:var(--mute);font-size:13px;margin-top:auto}
-.g0{background:radial-gradient(90% 100% at 100% 0%,rgba(232,184,87,.42) 0%,rgba(232,184,87,0) 70%),var(--tile)}
-.g1{background:radial-gradient(90% 100% at 100% 0%,rgba(45,212,191,.38) 0%,rgba(45,212,191,0) 70%),var(--tile)}
-.g2{background:radial-gradient(90% 100% at 100% 0%,rgba(14,116,144,.55) 0%,rgba(14,116,144,0) 70%),var(--tile)}
-.g3{background:radial-gradient(90% 100% at 100% 0%,rgba(201,119,58,.42) 0%,rgba(201,119,58,0) 70%),var(--tile)}
-.d0{background:#E8B857}.d1{background:#2DD4BF}.d2{background:#0E7490}.d3{background:#C9773A}
+.g0{background:var(--tile)}
+.g1{background:var(--tile)}
+.g2{background:var(--tile)}
+.g3{background:var(--tile)}
+.d0{background:#0E7490}.d1{background:#0F766E}.d2{background:#080B0F}.d3{background:#9AA4A4}
 .abtn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:999px;background:#2DD4BF;color:#0A0C0F;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(45,212,191,.45)}
 .abtn:hover{background:#5EEAD4}
 .abtn svg{width:18px;height:18px}
 .athanks{display:none;font-size:14px;font-weight:600;color:#2DD4BF}
 .athanks.on{display:block}
-.addon{display:inline-flex;align-items:center;gap:8px;width:fit-content;background:#E8B857;color:#0A0C0F;font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(232,184,87,.45)}
+.addon{display:inline-flex;align-items:center;gap:8px;width:fit-content;background:#080B0F;color:#2DD4BF;font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px;box-shadow:none}
 .addon svg{width:16px;height:16px}
 .helpgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:640px){.helpgrid{grid-template-columns:1fr}}
@@ -205,7 +205,7 @@ details[open] summary::after{content:"–"}
 .morelink{display:inline-flex;align-items:center;min-height:40px;font-size:14px;font-weight:700;color:#0F766E;text-decoration:none}
 body:not(.light) .morelink{color:#2DD4BF}
 .sec .morelink{margin-bottom:10px}
-.prove{margin-top:12px;background:radial-gradient(60% 140% at 100% 0%,rgba(45,212,191,.28) 0%,rgba(45,212,191,0) 70%),var(--tile)}
+.prove{margin-top:12px;background:var(--tile)}
 .prove p{margin:0;color:var(--soft);font-size:15px;line-height:1.5;max-width:80ch}
 .notinc{margin-top:14px}
 .addonbox{margin-top:14px;gap:12px}
@@ -213,7 +213,7 @@ body:not(.light) .morelink{color:#2DD4BF}
 .addonbox .helpcol h3{color:var(--fg)}
 .addonbox .helpcol ul.clean{color:var(--soft)}
 .addonbox .helpcol p{color:var(--mute)}
-.invest{border-radius:26px;overflow:hidden;background:radial-gradient(55% 90% at 90% 10%,rgba(201,119,58,.7) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 120% at 0% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff;box-shadow:var(--shadow);margin:0}
+.invest{border-radius:26px;overflow:hidden;background:radial-gradient(60% 80% at 88% 6%,#0E7490 0%,rgba(14,116,144,0) 100%),radial-gradient(65% 90% at 6% 100%,#0F766E 0%,rgba(15,118,110,0) 100%),radial-gradient(35% 45% at 60% 65%,rgba(45,212,191,.16) 0%,rgba(45,212,191,0) 100%),#080B0F;color:#fff;box-shadow:var(--shadow);margin:0}
 .invest summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 24px;min-height:44px}
 .invest summary::-webkit-details-marker{display:none}
 .invest summary::after{display:none}
@@ -243,7 +243,7 @@ body:not(.light) .morelink{color:#2DD4BF}
 body:not(.light) .wflow .wk{color:#2DD4BF}
 .wflow b{font-size:16px;line-height:1.25}
 .wflow span:not(.wk){font-size:13px;line-height:1.45;color:var(--mute)}
-.wflow li.you{background:radial-gradient(55% 90% at 90% 10%,rgba(201,119,58,.7) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 120% at 0% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+.wflow li.you{background:radial-gradient(60% 80% at 88% 6%,#0E7490 0%,rgba(14,116,144,0) 100%),radial-gradient(65% 90% at 6% 100%,#0F766E 0%,rgba(15,118,110,0) 100%),radial-gradient(35% 45% at 60% 65%,rgba(45,212,191,.16) 0%,rgba(45,212,191,0) 100%),#080B0F;color:#fff}
 .wflow li.you .wk{color:#2DD4BF}
 .wflow li.you span:not(.wk){color:rgba(255,255,255,.8)}
 .wreuse{margin-top:12px}
@@ -271,6 +271,13 @@ body.light .tile.light .li small{color:#5E6670}
 .whycta{margin-top:20px;min-height:0!important;display:flex!important;flex-direction:row!important;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .whycta h2{font-size:30px;max-width:22ch}
 .whycta .abtn{text-decoration:none}
+.pd{color:#0F766E}
+body:not(.light) .pd,.tile.hero .pd,.why .pd{color:#2DD4BF}
+.logo{color:#FFFFFF}
+body.light .logo{color:#080B0F}
+.logo .lg{display:block;width:118px;height:auto}
+footer .flogo{display:block;color:#FFFFFF;margin-bottom:10px}
+footer .flogo .lg{display:block;width:96px;height:auto}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -297,7 +304,7 @@ body:not(.light) .wr.b span{color:var(--amber)}body:not(.light) .wr.n span{color
 .stepnav button{min-height:44px;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;background:rgba(127,127,127,.16)}
 .stepnav button.pr{background:var(--fg);color:var(--bg)}
 .stepnav button[disabled]{opacity:.35;cursor:default}
-.mocks{border-radius:26px;padding:24px;display:grid;place-items:center;background:radial-gradient(60% 60% at 85% 15%,rgba(201,119,58,.55) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 70% at 10% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;box-shadow:var(--shadow)}
+.mocks{border-radius:26px;padding:24px;display:grid;place-items:center;background:radial-gradient(60% 60% at 85% 15%,rgba(14,116,144,.55) 0%,rgba(14,116,144,0) 70%),radial-gradient(70% 70% at 10% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;box-shadow:var(--shadow)}
 .mocks{grid-template-rows:1fr auto;gap:12px}
 .shot{margin:0;width:100%;display:grid;place-items:center}
 .shot[hidden]{display:none}
@@ -329,10 +336,10 @@ ul.clean{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--soft)}
 .checkgrid .check small{margin-top:6px}
 .checkgrid .check.decided{cursor:default;gap:16px}
 .checkgrid .check{color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.25)}
-.checkgrid .check.g0{background:radial-gradient(90% 110% at 100% 0%,rgba(232,184,87,.5) 0%,rgba(232,184,87,0) 65%),#121A20}
-.checkgrid .check.g1{background:radial-gradient(90% 110% at 100% 0%,rgba(45,212,191,.42) 0%,rgba(45,212,191,0) 65%),#121A20}
-.checkgrid .check.g2{background:radial-gradient(90% 110% at 100% 0%,rgba(14,116,144,.75) 0%,rgba(14,116,144,0) 65%),#121A20}
-.checkgrid .check.g3{background:radial-gradient(90% 110% at 100% 0%,rgba(201,119,58,.55) 0%,rgba(201,119,58,0) 65%),#121A20}
+.checkgrid .check.g0{background:var(--tile)}
+.checkgrid .check.g1{background:var(--tile)}
+.checkgrid .check.g2{background:var(--tile)}
+.checkgrid .check.g3{background:var(--tile)}
 .checkgrid .check small{color:rgba(255,255,255,.72)}
 .checkgrid .check em{color:rgba(255,255,255,.6)}
 .checkgrid .check input:checked + span{color:rgba(255,255,255,.55)}
@@ -345,18 +352,18 @@ ul.clean{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--soft)}
 #checks .check.wide.decided small,#checks .check.wide.decided em{color:var(--mute)}
 #checks .check.wide.decided .nextmove{color:#0F766E}
 body:not(.light) #checks .check.wide.decided .nextmove{color:#2DD4BF}
-#checks .check.wide{background:radial-gradient(55% 90% at 90% 10%,rgba(201,119,58,.75) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 120% at 0% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+#checks .check.wide{background:radial-gradient(60% 80% at 88% 6%,#0E7490 0%,rgba(14,116,144,0) 100%),radial-gradient(65% 90% at 6% 100%,#0F766E 0%,rgba(15,118,110,0) 100%),radial-gradient(35% 45% at 60% 65%,rgba(45,212,191,.16) 0%,rgba(45,212,191,0) 100%),#080B0F;color:#fff}
 .nextmove{display:block;margin-top:10px;font-size:14px;font-weight:700;color:#0F766E}
 body:not(.light) .nextmove{color:var(--signal)}
 .checkgrid .check.decided .done{flex:none}
-.checkgrid .check.g0{background:radial-gradient(90% 100% at 100% 0%,rgba(232,184,87,.42) 0%,rgba(232,184,87,0) 70%),var(--tile)}
-.checkgrid .check.g1{background:radial-gradient(90% 100% at 100% 0%,rgba(45,212,191,.38) 0%,rgba(45,212,191,0) 70%),var(--tile)}
-.checkgrid .check.g2{background:radial-gradient(90% 100% at 100% 0%,rgba(14,116,144,.55) 0%,rgba(14,116,144,0) 70%),var(--tile)}
-.checkgrid .check.g3{background:radial-gradient(90% 100% at 100% 0%,rgba(201,119,58,.42) 0%,rgba(201,119,58,0) 70%),var(--tile)}
+.checkgrid .check.g0{background:var(--tile)}
+.checkgrid .check.g1{background:var(--tile)}
+.checkgrid .check.g2{background:var(--tile)}
+.checkgrid .check.g3{background:var(--tile)}
 .bar{height:6px;border-radius:99px;background:rgba(127,127,127,.2);overflow:hidden;margin:8px 0 14px}
 .bar i{display:block;height:100%;width:0;background:var(--signal);transition:width .3s}
 
-footer{margin-top:40px;padding:28px 0 16px;background:radial-gradient(55% 90% at 92% 0%,rgba(201,119,58,.55) 0%,rgba(201,119,58,0) 70%),radial-gradient(60% 100% at 0% 100%,rgba(14,116,144,.8) 0%,rgba(14,116,144,0) 70%),#13202A;color:#fff;border-radius:36px 36px 0 0}
+footer{margin-top:40px;padding:28px 0 16px;background:radial-gradient(60% 80% at 88% 6%,#0E7490 0%,rgba(14,116,144,0) 100%),radial-gradient(65% 90% at 6% 100%,#0F766E 0%,rgba(15,118,110,0) 100%),radial-gradient(35% 45% at 60% 65%,rgba(45,212,191,.16) 0%,rgba(45,212,191,0) 100%),#080B0F;color:#fff;border-radius:36px 36px 0 0}
 footer .flogo{height:18px;width:auto;display:block;margin-bottom:8px}
 footer .legal{max-width:1080px;margin:18px auto 0;padding:12px 28px 0;border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:rgba(255,255,255,.6);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:640px){footer .legal{padding:12px 14px 0}}
@@ -381,7 +388,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#overview" aria-label="CUEPA, back to overview"><img class="w" src="/cirques-experience/audit-review/assets/cuepa-logo-white.png" alt="CUEPA"><img class="k" src="/cirques-experience/audit-review/assets/cuepa-logo-ink.png" alt="CUEPA"><span class="by" aria-hidden="true">By ELIPAN GROUP</span></a>
+    <a class="logo" href="#overview" aria-label="CUEPA by ELIPAN GROUP, back to overview"><svg class="lg" viewBox="0 -2235 11109 2980" aria-hidden="true"><g transform="translate(-305.1,-2540.0) scale(17.95)"><path d="M155.2 146.3 A72 72 0 1 1 155.2 53.7 A17 17 0 0 1 129.1 75.6 A38 38 0 1 0 129.1 124.4" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g><rect x="3385" y="-1937" width="80" height="2384" fill="currentColor" opacity=".35"/><path transform="translate(4104.5,0)" d="M788 20C1225 20 1446 -290 1466 -544H1056C1036 -417 946 -332 798 -332C600 -332 486 -471 486 -744C486 -1004 597 -1158 800 -1158C950 -1158 1038 -1073 1054 -946H1464C1427 -1306 1159 -1510 788 -1510C387 -1510 70 -1242 70 -744C70 -249 379 20 788 20ZM2269 18C2652 18 2913 -195 2913 -536V-1490H2509V-570C2509 -431 2409 -332 2269 -332C2131 -332 2031 -431 2031 -570V-1490H1627V-536C1627 -195 1884 18 2269 18ZM3105 0H4175V-326H3509V-594H4123V-912H3509V-1164H4179V-1490H3105ZM4360 0H4764V-442H4988C5328 -442 5556 -642 5556 -962C5556 -1280 5334 -1490 5002 -1490H4360ZM4764 -756V-1166H4906C5049 -1166 5134 -1091 5134 -962C5134 -836 5049 -756 4906 -756ZM5468 0H5920L6002 -286H6460L6546 0H7004L6503 -1490H5951ZM6088 -588C6140 -770 6182 -964 6223 -1159C6268 -964 6316 -770 6370 -588Z" fill="currentColor"/></svg><span class="by" aria-hidden="true">By ELIPAN GROUP</span></a>
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button class="tab" role="tab" data-view="overview">Overview</button>
       <button class="tab" role="tab" data-view="why">Why</button>
@@ -398,7 +405,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 <!-- TODAY -->
 <section class="view" id="v-overview">
   <div class="greet">
-    <h1><span>Let's make room,</span> Cirques Experience.</h1>
+    <h1><span>Let's make room,</span> Cirques Experience<span class="pd">.</span></h1>
     <p>What we found, what we propose, and how it works for your families. Prepared by CUEPA for Christian Ochsner &amp; Wolfgang Bientzle, Cirques Experience · November 2026.</p>
   </div>
   <div class="bento">
@@ -451,7 +458,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <!-- AUDIT -->
 <section class="view" id="v-audit" hidden>
-  <div class="sec"><a class="morelink" href="#overview" data-go="overview">← Back</a><div class="eb">The full audit</div><h2>What's on file, what's missing.</h2><p>Every document in your Drive, mapped by who uses it. The gaps below are what put you at risk with CPS, your insurer and refund disputes, and they're what the proposal fixes first.</p></div>
+  <div class="sec"><a class="morelink" href="#overview" data-go="overview">← Back</a><div class="eb">The full audit</div><h2>What's on file, what's missing<span class="pd">.</span></h2><p>Every document in your Drive, mapped by who uses it. The gaps below are what put you at risk with CPS, your insurer and refund disputes, and they're what the proposal fixes first.</p></div>
   <div class="filters" role="group" aria-label="Filter by group" id="fGroup">
     <button class="fb" aria-pressed="true" data-g="all">Everyone</button>
     <button class="fb" aria-pressed="false" data-g="Parents">Parents</button>
@@ -467,12 +474,12 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <p class="count" id="auditCount" aria-live="polite"></p>
   <div id="rows"></div>
 
-  <div class="sec"><div class="eb">Chicago Public Schools</div><h2>What still applies on CPS property.</h2><p>Billing parents directly skips CPS vendor bidding, purchase orders and the $35K cap. Confirm current rules with CPS and your insurer.</p></div>
+  <div class="sec"><div class="eb">Chicago Public Schools</div><h2>What still applies on CPS property<span class="pd">.</span></h2><p>Billing parents directly skips CPS vendor bidding, purchase orders and the $35K cap. Confirm current rules with CPS and your insurer.</p></div>
   <div class="chi" role="img" aria-label="Chicago skyline over Lake Michigan">
     <svg viewBox="0 0 1000 280" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13202A"/><stop offset=".65" stop-color="#1B3540"/><stop offset="1" stop-color="#0E7490"/></linearGradient>
-        <radialGradient id="sun" cx=".78" cy=".55" r=".45"><stop offset="0" stop-color="#E8B857" stop-opacity=".75"/><stop offset=".5" stop-color="#C9773A" stop-opacity=".3"/><stop offset="1" stop-color="#C9773A" stop-opacity="0"/></radialGradient>
+        <radialGradient id="sun" cx=".78" cy=".55" r=".45"><stop offset="0" stop-color="#2DD4BF" stop-opacity=".75"/><stop offset=".5" stop-color="#0E7490" stop-opacity=".3"/><stop offset="1" stop-color="#0E7490" stop-opacity="0"/></radialGradient>
         <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#0A0C0F"/></linearGradient>
       </defs>
       <rect width="1000" height="280" fill="url(#sky)"/>
@@ -493,7 +500,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
       </g>
       <rect y="230" width="1000" height="50" fill="url(#lake)"/>
       <g stroke="#2DD4BF" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"><path d="M180 246h90M520 252h120M760 244h70M60 262h60M380 266h80"/></g>
-      <g fill="#E8B857" opacity=".55"><rect x="262" y="90" width="3" height="3"/><rect x="270" y="120" width="3" height="3"/><rect x="538" y="100" width="3" height="3"/><rect x="548" y="140" width="3" height="3"/><rect x="740" y="110" width="3" height="3"/><rect x="748" y="160" width="3" height="3"/><rect x="432" y="130" width="3" height="3"/><rect x="620" y="120" width="3" height="3"/></g>
+      <g fill="#2DD4BF" opacity=".55"><rect x="262" y="90" width="3" height="3"/><rect x="270" y="120" width="3" height="3"/><rect x="538" y="100" width="3" height="3"/><rect x="548" y="140" width="3" height="3"/><rect x="740" y="110" width="3" height="3"/><rect x="748" y="160" width="3" height="3"/><rect x="432" y="130" width="3" height="3"/><rect x="620" y="120" width="3" height="3"/></g>
     </svg>
     <span class="chi-cap">Chicago · CPS property</span>
   </div>
@@ -507,7 +514,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <!-- PLAN -->
 <section class="view" id="v-plan" hidden>
-  <div class="sec"><div class="eb">For families</div><h2>How booking works, step by step.</h2><p>Tap each step to see what a parent sees and what changes for your team.</p></div>
+  <div class="sec"><div class="eb">For families</div><h2>How booking works, step by step<span class="pd">.</span></h2><p>Tap each step to see what a parent sees and what changes for your team.</p></div>
   <div class="steps" role="group" aria-label="Booking steps">
     <button class="step" aria-pressed="true" data-step="0"><span class="n">1</span><b>Find a class</b></button>
     <button class="step" aria-pressed="false" data-step="1"><span class="n">2</span><b>Pick how to book</b></button>
@@ -525,7 +532,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   </div>
   </div>
 
-  <div class="sec"><div class="eb">Your Room</div><h2>One place to run the day.</h2><p>Everything the website collects lands here. You approve, CUEPA handles the rest.</p></div>
+  <div class="sec"><div class="eb">Your Room</div><h2>One place to run the day<span class="pd">.</span></h2><p>Everything the website collects lands here. You approve, CUEPA handles the rest.</p></div>
   <div class="bento">
     <div class="tile photo span2" style="min-height:360px"><img src="/cirques-experience/audit-review/assets/room.png" alt="Approved Cirques Experience Room"><div class="cap"><svg width="12" height="12"><use href="#i-ok"/></svg>Approved</div></div>
     <div class="tile light">
@@ -540,7 +547,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <!-- WHY -->
 <section class="view" id="v-why" hidden>
-  <div class="sec"><div class="eb">Why · what's happening today</div><h2>Cirques runs on tools built for someone else.</h2><p>We sat with how your team works today. These are the problems we found, what each one costs you, and what we'll do about it.</p></div>
+  <div class="sec"><div class="eb">Why · what's happening today</div><h2>Cirques runs on tools built for someone else<span class="pd">.</span></h2><p>We sat with how your team works today. These are the problems we found, what each one costs you, and what we'll do about it.</p></div>
   <div class="whygrid">
     <div class="tile whycard"><div class="whyhead"><span class="whyn">01</span><h3>Built for cheer gyms</h3></div><dl><div><dt>Today</dt><dd>iClassPro's skill levels and menus are made for cheer, not wheel, aerial or circus arts.</dd></div><div><dt>What it costs you</dt><dd>Families work to find the right class, and your levels don't match the system you pay for.</dd></div><div class="fix"><dt>What we'll do</dt><dd>A sign-up built around how Cirques actually teaches, with your own levels.</dd></div></dl></div>
     <div class="tile whycard"><div class="whyhead"><span class="whyn">02</span><h3>Paperwork has no home</h3></div><dl><div><dt>Today</dt><dd>There's no single waiver, medical or pickup form. The audit found 12 documents missing.</dd></div><div><dt>What it costs you</dt><dd>On CPS property and with your insurer, missing waivers, medical info and pickup lists are a real risk.</dd></div><div class="fix"><dt>What we'll do</dt><dd>Every form signed online before anyone pays, filed where your team can find it.</dd></div></dl></div>
@@ -557,14 +564,14 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <!-- PROPOSAL -->
 <section class="view" id="v-proposal" hidden>
-  <div class="sec"><div class="eb">Proposal · Cirques Experience website</div><h2>Your new website. Sign up, sign, book. One visit.</h2><p>Prepared for Christian Ochsner &amp; Wolfgang Bientzle · November 2026. Everything you need to decide is on this page.</p></div>
+  <div class="sec"><div class="eb">Proposal · Cirques Experience website</div><h2>Your new website. Sign up, sign, book. One visit<span class="pd">.</span></h2><p>Prepared for Christian Ochsner &amp; Wolfgang Bientzle · November 2026. Everything you need to decide is on this page.</p></div>
 
   <div class="bento">
     <div class="tile photo span2 propshot"><img src="/cirques-experience/audit-review/assets/wheel.jpg" alt="Kids and a Cirques Experience coach on the German Wheel outdoors"><div class="cap">Cirques Experience · German Wheel</div></div>
     <div class="tile light" style="justify-content:flex-start"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>The situation</div><ul class="clean"><li>iClassPro is built for cheer gyms, not wheel, aerial or circus arts.</li><li>Waivers, medical info and pickup lists have no single form.</li><li>Day passes and 11-week packages are hard to sell and redeem.</li><li>Refund promises live in texts and hallway talks.</li></ul><a class="morelink" href="#audit" data-go="audit">See the full audit →</a></div>
   </div>
 
-  <div class="sec" style="padding-top:40px"><div class="eb">What you get</div><h2>What changes when it's live.</h2></div>
+  <div class="sec" style="padding-top:40px"><div class="eb">What you get</div><h2>What changes when it's live<span class="pd">.</span></h2></div>
   <div class="grid3">
     <div class="card"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>For families</div><p>Find a class, pick how to book and sign every form from their phone in one visit. Nothing to print, nothing to bring on day one.</p></div>
     <div class="card"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>For your team</div><p>Bookings, passes and signed forms in one place instead of five tools, ready in your Room before class starts.</p></div>
@@ -572,7 +579,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   </div>
   <div class="tile prove"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>How we'll prove it</div><p>Before we start, we record a week-one baseline of how sign-ups, paperwork and refund questions run today. After launch, your <b>Room Report</b> shows the before and after, so you see what changed in your own numbers.</p></div>
 
-  <div class="sec" style="padding-top:40px"><div class="eb">What we'll build</div><h2>Four pieces, one system.</h2></div>
+  <div class="sec" style="padding-top:40px"><div class="eb">What we'll build</div><h2>Four pieces, one system<span class="pd">.</span></h2></div>
   <div class="grid3 prop4">
     <div class="card g0"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>01</div><div class="nm">A new public website</div><p>Programs, classes + camps, parties + events, about and contact. Your look, written for Cirques.</p></div>
     <div class="card g1"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>02</div><div class="nm">Class sign-up</div><p>Families browse by who's coming and pick a single class, a pass, camp days or a semester.</p></div>
@@ -580,7 +587,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <div class="card g3"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>04</div><div class="nm">Connected to your Room</div><p>Bookings, passes and signed forms flow straight into your hub, ready for your team.</p></div>
   </div>
 
-  <div class="sec" style="padding-top:40px"><div class="eb">How we'll do it</div><h2>In this order.</h2></div>
+  <div class="sec" style="padding-top:40px"><div class="eb">How we'll do it</div><h2>In this order<span class="pd">.</span></h2></div>
   <ol class="propsteps">
     <li><b>You approve</b><span>This proposal and the next steps.</span></li>
     <li><b>Compliance forms + onboarding</b><span>Your waiver, medical and pickup forms go digital. About one week.</span></li>
@@ -590,7 +597,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <li><b>Online payments</b><span>Stripe, or whichever processor connects to your QuickBooks.</span></li>
   </ol>
 
-  <div class="sec" style="padding-top:40px"><div class="eb">What step 2 looks like</div><h2>New coach? It runs itself.</h2><p>Your first workstream. You add a coach, and the hub handles the welcome, the paperwork and the follow-up. You only step in to approve.</p></div>
+  <div class="sec" style="padding-top:40px"><div class="eb">What step 2 looks like</div><h2>New coach? It runs itself<span class="pd">.</span></h2><p>Your first workstream. You add a coach, and the hub handles the welcome, the paperwork and the follow-up. You only step in to approve.</p></div>
   <ol class="wflow">
     <li><span class="wk">Trigger</span><b>You add a new coach</b><span>Name and email in your hub. That's the only thing you type.</span></li>
     <li><span class="wk">Welcome</span><b>Email from your Gmail</b><span>"Congrats, welcome to the team. Here's your paperwork." You set the wording once.</span></li>
@@ -613,7 +620,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     </div>
   </div>
 
-  <div class="sec" style="padding-top:40px"><div class="eb">Investment</div><h2>Your investment.</h2></div>
+  <div class="sec" style="padding-top:40px"><div class="eb">Investment</div><h2>Your investment<span class="pd">.</span></h2></div>
   <details class="invest">
     <summary><span>See your investment</span><small>Estimate #113 · valid until December 8, 2026</small></summary>
     <div class="invest-in">
@@ -623,7 +630,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     </div>
   </details>
 
-  <div class="sec" style="padding-top:40px"><div class="eb">After you approve</div><h2>What we need from you.</h2><p>Tick them off as you go. Your checks stay on this device.</p></div>
+  <div class="sec" style="padding-top:40px"><div class="eb">After you approve</div><h2>What we need from you<span class="pd">.</span></h2><p>Tick them off as you go. Your checks stay on this device.</p></div>
   <div class="bar" aria-hidden="true"><i id="bar"></i></div>
   <p class="count" id="checkCount" aria-live="polite"></p>
   <div class="nextgrid">
@@ -648,7 +655,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <!-- ROADMAP -->
 <section class="view" id="v-roadmap" hidden>
-  <div class="sec"><div class="eb">What's next</div><h2>Now, next, later.</h2><p>We build in the order that gives you the most room first.</p></div>
+  <div class="sec"><div class="eb">What's next</div><h2>Now, next, later<span class="pd">.</span></h2><p>We build in the order that gives you the most room first.</p></div>
   <div class="bento">
     <div class="tile span3 donebar"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>Done</div><div class="donegrid"><div><span class="done"><svg aria-hidden="true"><use href="#i-ok"/></svg>Complete</span><b>Your Room platform</b><p class="k-mute">Designed and approved: Waiting on you, Inbox, Your week, Ask CUEPA.</p></div><div><span class="done"><svg aria-hidden="true"><use href="#i-ok"/></svg>Complete</span><b>Operations audit</b><p class="k-mute">Every document mapped by who uses it, plus what applies on CPS property.</p></div></div></div>
     <div class="tile hero" style="justify-content:flex-start"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>Now · in this order</div><ol class="path"><li><b>You approve</b>The website and these next steps</li><li><b>Compliance forms + onboarding</b>Waiver, medical + pickup · about one week</li><li><b>Finalize the website</b>Sign up, sign and book in one visit</li><li><b>Online payments</b>Stripe, or whichever processor connects to your QuickBooks</li></ol></div>
@@ -662,7 +669,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 <footer>
   <div class="wrap">
     <h2>What are you making room for?</h2>
-    <p><img class="flogo" src="/cirques-experience/audit-review/assets/cuepa-logo-white.png" alt="CUEPA">CUEPA by ELIPAN GROUP<br>Marcos Cuellar · marcoscuellar@elipangroup.com</p>
+    <p><span class="flogo" role="img" aria-label="CUEPA"><svg class="lg" viewBox="0 -2235 11109 2980" aria-hidden="true"><g transform="translate(-305.1,-2540.0) scale(17.95)"><path d="M155.2 146.3 A72 72 0 1 1 155.2 53.7 A17 17 0 0 1 129.1 75.6 A38 38 0 1 0 129.1 124.4" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/></g><rect x="3385" y="-1937" width="80" height="2384" fill="currentColor" opacity=".35"/><path transform="translate(4104.5,0)" d="M788 20C1225 20 1446 -290 1466 -544H1056C1036 -417 946 -332 798 -332C600 -332 486 -471 486 -744C486 -1004 597 -1158 800 -1158C950 -1158 1038 -1073 1054 -946H1464C1427 -1306 1159 -1510 788 -1510C387 -1510 70 -1242 70 -744C70 -249 379 20 788 20ZM2269 18C2652 18 2913 -195 2913 -536V-1490H2509V-570C2509 -431 2409 -332 2269 -332C2131 -332 2031 -431 2031 -570V-1490H1627V-536C1627 -195 1884 18 2269 18ZM3105 0H4175V-326H3509V-594H4123V-912H3509V-1164H4179V-1490H3105ZM4360 0H4764V-442H4988C5328 -442 5556 -642 5556 -962C5556 -1280 5334 -1490 5002 -1490H4360ZM4764 -756V-1166H4906C5049 -1166 5134 -1091 5134 -962C5134 -836 5049 -756 4906 -756ZM5468 0H5920L6002 -286H6460L6546 0H7004L6503 -1490H5951ZM6088 -588C6140 -770 6182 -964 6223 -1159C6268 -964 6316 -770 6370 -588Z" fill="currentColor"/></svg></span>CUEPA by ELIPAN GROUP<br>Marcos Cuellar · marcoscuellar@elipangroup.com</p>
   </div>
   <div class="legal"><span>Prepared for Cirques Experience · November 2026</span><span>© 2026 ELIPAN GROUP LLC</span></div>
 </footer>
