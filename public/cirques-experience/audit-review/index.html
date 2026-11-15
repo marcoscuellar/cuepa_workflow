@@ -33,7 +33,9 @@ button{font:inherit;cursor:pointer;border:0;color:inherit}
 /* top bar */
 .top{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent)}
 .top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;min-height:72px}
-.logo{display:flex;align-items:center}
+.logo{display:inline-grid;justify-items:end;width:fit-content;text-decoration:none;line-height:1}
+.logo .by{font-weight:500;text-transform:uppercase;letter-spacing:.2em;margin-right:-.2em;font-size:8px;margin-top:5px;color:#9AA4A4;white-space:nowrap}
+body.light .logo .by{color:#5E6670}
 .logo img{height:26px;width:auto;display:block}
 body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 .tabs{display:flex;gap:4px;overflow-x:auto}
@@ -379,7 +381,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#overview" aria-label="CUEPA, back to overview"><img class="w" src="/cirques-experience/audit-review/assets/cuepa-logo-white.png" alt="CUEPA"><img class="k" src="/cirques-experience/audit-review/assets/cuepa-logo-ink.png" alt="CUEPA"></a>
+    <a class="logo" href="#overview" aria-label="CUEPA, back to overview"><img class="w" src="/cirques-experience/audit-review/assets/cuepa-logo-white.png" alt="CUEPA"><img class="k" src="/cirques-experience/audit-review/assets/cuepa-logo-ink.png" alt="CUEPA"><span class="by" aria-hidden="true">By ELIPAN GROUP</span></a>
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button class="tab" role="tab" data-view="overview">Overview</button>
       <button class="tab" role="tab" data-view="why">Why</button>
