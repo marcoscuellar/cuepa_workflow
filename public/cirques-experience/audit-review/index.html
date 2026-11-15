@@ -278,6 +278,10 @@ body.light .logo{color:#080B0F}
 .logo .lg{display:block;width:118px;height:auto}
 footer .flogo{display:block;color:#FFFFFF;margin-bottom:10px}
 footer .flogo .lg{display:block;width:96px;height:auto}
+.famban{position:relative;margin:0 0 14px;border-radius:26px;overflow:hidden;aspect-ratio:21/9;box-shadow:var(--shadow)}
+@media(max-width:640px){.famban{aspect-ratio:4/3}}
+.famban img{width:100%;height:100%;object-fit:cover;object-position:55% 40%;display:block}
+.famban figcaption{position:absolute;left:18px;bottom:16px;background:rgba(8,11,15,.72);backdrop-filter:blur(8px);color:#fff;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -515,6 +519,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 <!-- PLAN -->
 <section class="view" id="v-plan" hidden>
   <div class="sec"><div class="eb">For families</div><h2>How booking works, step by step<span class="pd">.</span></h2><p>Tap each step to see what a parent sees and what changes for your team.</p></div>
+  <figure class="famban"><img src="/cirques-experience/audit-review/assets/family.jpg" alt="A parent at the kitchen table booking a class on a laptop with a card in hand"><figcaption>Booked from the kitchen table, in one visit.</figcaption></figure>
   <div class="steps" role="group" aria-label="Booking steps">
     <button class="step" aria-pressed="true" data-step="0"><span class="n">1</span><b>Find a class</b></button>
     <button class="step" aria-pressed="false" data-step="1"><span class="n">2</span><b>Pick how to book</b></button>
