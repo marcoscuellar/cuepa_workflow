@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cirques Experience · Website Audit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* CUEPA Bento, light (Christian's preference). Inter only. 8-pt grid. Shadows, no outlines. Status = icon + word. */
+:root{
+  --bg:#F7F8F8; --ink:#080B0F; --text:#1E242A; --mute:#5E6670; --tile:#FFFFFF; --cool:#EEF1F0;
+  --accent:#0E7490; --teal:#0F766E; --signal:#2DD4BF; --amber:#9A6B00; --amberbg:#FFF1DE; --tealbg:#E3F1F0;
+  --shadow:0 2px 4px rgba(0,0,0,.05),0 12px 28px rgba(0,0,0,.10);
+  --font:Inter,system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(60% 40% at 0% 10%,rgba(214,150,98,.20) 0%,rgba(247,248,248,0) 70%),radial-gradient(50% 40% at 100% 0%,rgba(45,212,191,.22) 0%,rgba(247,248,248,0) 70%),var(--bg);background-repeat:no-repeat;color:var(--text);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0} h1,h2{text-wrap:balance}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.wrap{padding:0 16px}}
+/* top */
+.top{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(247,248,248,.82)}
+.top .wrap{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:24px;min-height:72px}
+.lock{justify-self:start;display:inline-flex;flex-direction:column;align-items:flex-end;gap:2px}
+.lock img{height:26px;display:block}
+.lock span{font-size:8px;letter-spacing:.22em;color:var(--mute)}
+.tabs{display:flex;gap:8px;overflow-x:auto;justify-content:flex-end;scrollbar-width:none}
+.tab{padding:8px 16px;border-radius:999px;font-size:14px;font-weight:500;color:var(--mute);white-space:nowrap;min-height:44px;display:flex;align-items:center}
+.tab:hover{color:var(--ink)}
+.tab[aria-current="page"]{background:var(--ink);color:#fff;font-weight:600}
+@media(max-width:900px){.top .wrap{grid-template-columns:1fr;gap:8px;padding-top:16px;padding-bottom:8px}.tabs{justify-content:flex-start}}
+/* views */
+.view{display:none;padding:32px 0 64px}
+.view.on{display:block}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}
+.greet{padding:24px 0 32px}
+.greet h1{font-size:clamp(36px,5.4vw,60px);font-weight:800;letter-spacing:-.045em;line-height:1.02;margin-top:8px}
+.greet h1 span{color:var(--mute);font-weight:700}
+.prep{font-size:14px;color:var(--mute);margin-top:16px}
+.greet h1 .cyc{display:inline-block;color:var(--accent);transition:opacity .35s ease,transform .35s cubic-bezier(.2,.7,.2,1)}
+.greet h1 .cyc.out{opacity:0;transform:translateY(10px)}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.s2{grid-column:span 2} .s3{grid-column:1/-1}
+@media(max-width:860px){.bento{grid-template-columns:1fr}.s2,.s3{grid-column:auto}}
+.tile{background:var(--tile);border-radius:24px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;min-width:0}
+.tile.cool{background:var(--cool);box-shadow:none}
+.th{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.th h3{font-size:15px;font-weight:600}
+.go{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;flex:none}
+.go svg{width:16px;height:16px}
+.big{font-size:64px;font-weight:300;letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums}
+.cap{font-size:13px;color:var(--mute);font-weight:500}
+a.cap{display:inline-flex;align-items:center;min-height:32px;color:var(--accent);font-weight:600}
+.hero{background:radial-gradient(55% 80% at 90% 10%,rgba(201,119,58,.5) 0%,rgba(201,119,58,0) 70%),radial-gradient(70% 90% at 0% 100%,rgba(14,116,144,.95) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+.hero .cap{color:rgba(255,255,255,.95)}
+.hero h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.hero .go{background:#fff;color:var(--ink)}
+/* motion: calm, quick, meaningful; off for reduced-motion */
+@media (prefers-reduced-motion:no-preference){
+  :root{interpolate-size:allow-keywords}
+  .fc::details-content{height:0;overflow:clip;transition:height .28s cubic-bezier(.2,.7,.2,1),content-visibility .28s allow-discrete}
+  .fc[open]::details-content{height:auto}
+  .fc{transition:box-shadow .2s,transform .2s}
+  .fc:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(0,0,0,.06),0 18px 36px rgba(0,0,0,.14)}
+  a.tile{transition:transform .2s,box-shadow .2s}
+  a.tile:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.06),0 20px 40px rgba(0,0,0,.16)}
+  @keyframes rise{from{opacity:.35;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @keyframes pip{from{opacity:.15;transform:scaleY(.4)}to{opacity:1;transform:none}}
+  @keyframes here{0%{box-shadow:0 0 0 0 rgba(14,116,144,.55)}100%{box-shadow:0 0 0 10px rgba(14,116,144,0)}}
+  .anim .tile,.anim .fc,.anim .flow>div,.anim .checks li,.anim .sv{animation:rise .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 45ms)}
+  .anim .bt b,.anim .stack b{transform-origin:left;animation:grow .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:.25s}
+  .anim .pips i{transform-origin:bottom;animation:pip .3s ease-out both;animation-delay:calc(.3s + var(--p,0) * 70ms)}
+  .anim .loop li.on em{animation:here 1.2s ease-out 2 .6s}
+}
+/* intro */
+.intro{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;padding:32px;align-items:center}
+@media(max-width:860px){.intro{grid-template-columns:1fr}}
+.introtext{display:flex;flex-direction:column;gap:16px;max-width:62ch}
+.introtext h2{font-size:clamp(26px,3.2vw,34px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:var(--ink)}
+.introtext p:not(.eyebrow){font-size:16px;color:var(--text)}
+.loop{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.loop li{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:16px;background:var(--cool);border-radius:16px;padding:16px 24px}
+.loop b{font-size:15px;font-weight:800;letter-spacing:1.5px;color:var(--ink)}
+.loop span{font-size:14px;color:var(--mute)}
+.loop em{font-style:normal;font-size:12px;font-weight:700;color:#fff;background:var(--accent);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.loop li.on{background:var(--ink);box-shadow:0 2px 4px rgba(0,0,0,.08),0 14px 30px rgba(0,0,0,.18)}
+.loop li.on b{color:#fff} .loop li.on span{color:rgba(255,255,255,.9)}
+/* severity hero */
+.sevtile{gap:24px;padding:32px}
+.sevh{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.08;margin-top:8px;color:var(--ink)}
+.sevh span{color:var(--mute);font-weight:700}
+.sevgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:860px){.sevgrid{grid-template-columns:1fr 1fr}}
+.sv{border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px;min-height:200px;box-shadow:0 2px 4px rgba(0,0,0,.08),0 14px 30px rgba(0,0,0,.16)}
+.sv.critical{background:var(--ink);color:#fff} .sv.high{background:#9A6B00;color:#fff} .sv.medium{background:#0F766E;color:#fff} .sv.low{background:var(--cool);color:var(--ink);box-shadow:none}
+.svw{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:flex;gap:8px;align-items:center}
+.svw i{font-style:normal}
+button.sv{text-align:left;width:100%;cursor:pointer;transition:translate .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){button.sv:hover{translate:0 -6px;box-shadow:0 4px 8px rgba(0,0,0,.10),0 24px 44px rgba(0,0,0,.22)}}
+button.sv[aria-expanded="true"]{outline:3px solid var(--accent);outline-offset:4px}
+.svgo{font-size:13px;font-weight:700;opacity:.9}
+.sevlist{display:grid;gap:16px}
+.sevlist a{display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:center;background:var(--cool);border-radius:16px;padding:16px;min-height:44px;font-size:15px;font-weight:600;color:var(--ink)}
+.sevlist a:hover{color:var(--accent)}
+.sevlist small{font-size:12px;font-weight:600;color:var(--mute)}
+.svn{font-size:88px;font-weight:300;letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums;margin-top:auto}
+.svd{font-size:14px;line-height:1.35;min-height:2.7em}
+.sv.critical .svd,.sv.high .svd,.sv.medium .svd{color:#fff}
+.research{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rlab{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-right:8px}
+.rc{background:var(--cool);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--text)}
+.rc b{color:var(--ink);font-weight:800;margin-right:4px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.split>div{display:flex;flex-direction:column;gap:8px}
+/* severity */
+.sev{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.sev i{font-style:normal;font-size:10px}
+.sev.critical{background:var(--ink);color:#fff} .sev.high{background:var(--amberbg);color:var(--amber)}
+.sev.medium{background:var(--tealbg);color:var(--teal)} .sev.low{background:var(--cool);color:var(--mute)}
+.stack{display:flex;height:16px;border-radius:999px;overflow:hidden;gap:2px}
+.stack b.critical,.dots b.critical,.hc.critical.l1,.hc.critical.l2,.hc.critical.l3{background:var(--ink)}
+.stack b.high,.dots b.high{background:#9A6B00} .stack b.medium,.dots b.medium{background:#0F766E} .stack b.low,.dots b.low{background:#6B747B}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;font-weight:600;color:var(--ink)}
+.legend span{display:flex;align-items:center;gap:8px}
+/* heat */
+.heat{width:100%;border-collapse:separate;border-spacing:8px;margin:-8px} .heat th[scope=row]{text-align:left;font-weight:600}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hh{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--mute);text-align:center}
+.ha{font-size:14px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;min-height:32px} .ha:hover{color:var(--accent)}
+.hc{height:40px;border-radius:12px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;background:var(--cool);color:var(--mute)}
+.hc.critical.l1,.hc.critical.l2,.hc.critical.l3{color:#fff}
+.hc.high.l1{background:#FBE3C4;color:#7A5500} .hc.high.l2,.hc.high.l3{background:#9A6B00;color:#fff}
+.hc.medium.l1{background:#D3EBE8;color:#0B5F59} .hc.medium.l2,.hc.medium.l3{background:#0F766E;color:#fff}
+.hc.low.l1,.hc.low.l2{background:#DCE1E3;color:var(--text)}
+/* bars */
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(96px,150px) 1fr 64px;gap:16px;align-items:center;font-size:14px}
+.bl{color:var(--text);font-weight:500} .bv{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);text-align:right}
+.bt{height:12px;background:var(--cool);border-radius:999px;overflow:hidden}
+.bt b{display:block;height:100%;border-radius:999px;background:var(--accent)}
+.tight .bar{grid-template-columns:1fr auto;row-gap:4px}
+.tight .bt{grid-column:1/-1;grid-row:2}
+.hero .bt{background:rgba(255,255,255,.14)} .hero .bl,.hero .bv{color:#fff}
+/* systems */
+.sys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media(max-width:640px){.sys{grid-template-columns:1fr 1fr}}
+.sys div{background:var(--cool);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.sys b{font-size:15px;color:var(--ink)} .sys span{font-size:13px;color:var(--mute)}
+/* steps */
+.steps{display:grid;gap:16px}
+.srow{display:grid;grid-template-columns:80px 1fr 40px;gap:16px;align-items:center}
+.srow .lab{font-size:13px;font-weight:600}
+.pips{display:flex;gap:4px} .pips i{flex:1;height:24px;border-radius:6px;background:#9A6B00}
+.pips.new i{background:var(--accent)}
+.srow .n{font-weight:800;font-size:20px;text-align:right;font-variant-numeric:tabular-nums}
+/* contact */
+.nums{display:flex;flex-wrap:wrap;gap:8px}
+.nums span{background:var(--cool);border-radius:999px;padding:8px 12px;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.nums span.ok{background:var(--tealbg);color:var(--teal)}
+.addr{display:grid;gap:8px}
+.addr div{display:flex;gap:12px;align-items:center;font-size:14px}
+.addr i{font-style:normal;font-weight:700;font-size:12px;padding:4px 8px;border-radius:999px;white-space:nowrap}
+.addr .ok i{background:var(--tealbg);color:var(--teal)} .addr .no i{background:var(--amberbg);color:var(--amber)}
+/* area header */
+.ah{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:24px 0}
+.ah h2{font-size:clamp(32px,4.4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-top:8px}
+.acount{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.dots{display:flex;gap:4px} .dots b{width:24px;height:8px;border-radius:999px}
+.tools{display:flex;gap:8px;margin-bottom:16px}
+.pill{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;background:var(--tile);box-shadow:0 1px 3px rgba(0,0,0,.08);min-height:44px}
+.cards{display:grid;gap:16px}
+/* finding cards */
+.fc{background:var(--tile);border-radius:24px;box-shadow:var(--shadow)}
+.fc summary{list-style:none;display:grid;grid-template-columns:48px 1fr auto auto 44px;gap:16px;align-items:center;padding:24px;cursor:pointer}
+.fc summary::-webkit-details-marker{display:none}
+.fid{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.ft{font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.fx{font-size:12px;font-weight:600;color:var(--mute)}
+.chev{width:44px;height:44px;border-radius:50%;background:var(--ink);display:grid;place-items:center;position:relative}
+.chev::before{content:"";width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.fc[open] .chev::before{transform:translateY(2px) rotate(-135deg)}
+.fb{padding:0 24px 24px 88px;display:grid;gap:16px}
+.fmeta{display:grid;grid-template-columns:1.5fr 1.5fr .5fr;gap:16px;font-size:13px;color:var(--text)}
+.fmeta small,.ir small{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.ev{margin:0;padding-left:18px;display:grid;gap:4px;font-size:14px;color:var(--text)}
+.ir{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ir>div{background:var(--cool);border-radius:16px;padding:16px;font-size:14px}
+.ir .rc{background:var(--tealbg)} .ir .rc small{color:var(--teal)}
+@media(max-width:760px){.fc summary{grid-template-columns:1fr auto 44px;padding:16px}.fc summary .fid{grid-column:1/-1}.fx{display:none}.fb{padding:0 16px 16px}.fmeta,.ir{grid-template-columns:1fr}}
+/* plan */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+@media(max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+.flow div{counter-increment:s;background:var(--tile);border-radius:24px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.flow div::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.flow b{font-size:16px;color:var(--ink)} .flow span{font-size:14px;color:var(--mute)}
+.journey{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;counter-reset:j}
+@media(max-width:860px){.journey{grid-template-columns:1fr}}
+.journey li{counter-increment:j;background:var(--tile);border-radius:24px;padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.journey li::before{content:counter(j);width:32px;height:32px;border-radius:50%;background:var(--amber);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.journey b{font-size:16px;color:var(--ink)} .journey span{font-size:14px;color:var(--mute)}
+.journey em{font-style:normal;font-size:14px;font-weight:600;color:var(--amber);background:var(--amberbg);border-radius:12px;padding:8px 12px;margin-top:auto}
+.journey a.fid{display:inline-flex;align-items:center;min-height:32px}
+.famdb,.tex{background:radial-gradient(45% 70% at 85% 15%,rgba(201,119,58,.55) 0%,rgba(201,119,58,0) 70%),radial-gradient(60% 80% at 0% 100%,rgba(14,116,144,.75) 0%,rgba(14,116,144,0) 70%),#1B2A31;color:#fff}
+.famdb .cap{color:rgba(255,255,255,.9);max-width:70ch}
+.famsearch{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.10);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:0 20px;min-height:52px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.famsearch svg{width:18px;height:18px;flex:none;opacity:.8}
+.famsearch input{flex:1;background:none;border:0;color:#fff;font:inherit;font-size:16px;min-height:44px;outline:none}
+.famsearch input::placeholder{color:rgba(255,255,255,.65)}
+.famsearch:focus-within{box-shadow:inset 0 0 0 2px var(--signal)}
+.famgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+@media(max-width:860px){.famgrid{grid-template-columns:1fr}}
+.fam{background:rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:4px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.fam b{font-size:16px} .fam span{font-size:14px;color:rgba(255,255,255,.85)}
+.fam i{font-style:normal;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;align-self:flex-start;margin-top:8px}
+.fam i.ok{background:rgba(45,212,191,.18);color:#5EEAD4} .fam i.no{background:rgba(251,191,36,.18);color:#FCD34D}
+.fam[hidden]{display:none}
+.famnone,.famnote{font-size:13px;color:rgba(255,255,255,.7)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.checks li{display:flex;gap:16px;align-items:flex-start;background:var(--tile);border-radius:16px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.checks input{width:20px;height:20px;accent-color:var(--accent);margin:2px 0 0;flex:none}
+.checks li.plain{padding:0} .checks li.plain::before{display:none} .checks li.plain a{display:flex;gap:12px;padding:16px;width:100%;font-size:15px;min-height:44px;align-items:center}
+.checks label{font-size:15px;display:flex;gap:12px;cursor:pointer}
+.checks input:checked+label{color:var(--mute);text-decoration:line-through}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:48px 0 16px}
+.sh h2{font-size:28px;font-weight:800;letter-spacing:-.03em}
+.close{margin-top:48px}
+.close h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;letter-spacing:-.035em}
+footer{padding:32px 0 48px;font-size:12px;color:var(--mute)}
+
+/* Brand Book alignment · Nov 15 audit */
+.prep .back{color:var(--accent);font-weight:600;display:inline-flex;min-height:32px;align-items:center}
+.eyebrow{font-weight:700;letter-spacing:.16em;color:var(--teal)}
+.lock span{font-weight:500;text-transform:uppercase;letter-spacing:.2em;margin-right:-.2em}
+.pd{color:var(--teal)} .hero .pd,.famdb .pd,.tex .pd{color:var(--signal)}
+.hero.ember{background:radial-gradient(55% 60% at 88% 8%,rgba(196,122,62,.9) 0%,rgba(196,122,62,0) 100%),radial-gradient(65% 70% at 4% 100%,rgba(14,116,144,.6) 0%,rgba(14,116,144,0) 100%),#1A2127}
+.famdb,.tex{background:radial-gradient(60% 80% at 88% 6%,#0E7490 0%,rgba(14,116,144,0) 100%),radial-gradient(65% 90% at 6% 100%,#0F766E 0%,rgba(15,118,110,0) 100%),radial-gradient(35% 45% at 60% 65%,rgba(45,212,191,.16) 0%,rgba(45,212,191,0) 100%),#080B0F}
+.btnp{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:8px;color:#fff;font-size:16px;font-weight:700;text-decoration:none;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(70% 140% at 92% 0%,rgba(196,122,62,.55) 0%,rgba(196,122,62,0) 100%),radial-gradient(80% 160% at 0% 100%,rgba(15,118,110,.9) 0%,rgba(15,118,110,0) 100%),#0E7490;box-shadow:0 1px 2px rgba(8,11,15,.18),0 6px 14px rgba(8,11,15,.18)}.btnp:hover{background:radial-gradient(70% 140% at 92% 0%,rgba(196,122,62,.65) 0%,rgba(196,122,62,0) 100%),radial-gradient(80% 160% at 0% 100%,rgba(15,118,110,.95) 0%,rgba(15,118,110,0) 100%),#0B5F76}.btnp::after{content:"";position:absolute;inset:0;border-radius:inherit;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.16;mix-blend-mode:overlay;pointer-events:none;z-index:-1}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="lock" href="#overview" aria-label="CUEPA by ELIPAN GROUP, overview"><img src="/cirques-experience/website-audit/assets/cuepa-logo-ink.png" alt="CUEPA"><span>by ELIPAN GROUP</span></a>
+  <nav class="tabs" aria-label="Audit areas"><a class="tab" href="#overview" data-t="overview">Overview</a><a class="tab" href="#policy" data-t="policy">Policy &amp; pricing</a><a class="tab" href="#registration" data-t="registration">Registration</a><a class="tab" href="#trust" data-t="trust">Trust &amp; contact</a><a class="tab" href="#navigation" data-t="navigation">Navigation</a><a class="tab" href="#search" data-t="search">Search &amp; access</a><a class="tab" href="#plan" data-t="plan">The plan</a></nav>
+</div></header>
+
+<main class="wrap">
+
+<section class="view" id="v-overview" data-v="overview">
+  <div class="greet">
+    <p class="eyebrow">Website audit · cirquesexperience.org</p>
+    <h1>Making room for more<br><span class="sr">classes, parades, students, parents, teachers and trainers.</span><span class="cyc" aria-hidden="true">classes.</span></h1>
+    <p class="prep">Prepared for Christian Ochsner &amp; Wolfgang Bientzle · November 13, 2026</p>
+  </div>
+  <div class="bento">
+    <section class="tile s3 intro" aria-labelledby="introh">
+      <div class="introtext">
+        <p class="eyebrow">Step 1 of the CUEPA process · FIND</p>
+        <h2 id="introh">We walked your site the way a parent would<span class="pd">.</span></h2>
+        <p>Before we build anything, we find where time is going for you and for your families. Our team tested every public page of cirquesexperience.org and walked every sign-up path, from the home page to the payment screen.</p>
+        <p>What we found isn’t about your programs. Your story, your coaches and your community are the strongest things on the site. The gaps are in the sign-up systems and paperwork around them, and every one of them has a fix.</p>
+      </div>
+      <ol class="loop" aria-label="The CUEPA process">
+        <li class="on"><b>FIND</b><span>Room Map</span><em>You are here</em></li>
+        <li><b>FLOW</b><span>Working System</span></li>
+        <li><b>PROVE</b><span>Room Report</span></li>
+        <li><b>GROW</b><span>Next Opportunity</span></li>
+      </ol>
+    </section>
+
+    <section class="tile s3 sevtile" aria-labelledby="sevh">
+      <div class="sevtop">
+        <div><p class="eyebrow">Severity</p>
+        <h2 id="sevh" class="sevh">20 website findings. <span>4 need fixing before anything else.</span></h2></div>
+      </div>
+      <div class="sevgrid">
+        <button type="button" class="sv critical" data-sev="critical" aria-expanded="false" aria-controls="sevlist"><span class="svw"><i aria-hidden="true">◆</i>Critical</span><span class="svn">4</span><span class="svd">Money, safety or legal risk. Fix first.</span><span class="svgo">See them →</span></button>
+        <button type="button" class="sv high" data-sev="high" aria-expanded="false" aria-controls="sevlist"><span class="svw"><i aria-hidden="true">▲</i>High</span><span class="svn">6</span><span class="svd">Families drop off or call to ask.</span><span class="svgo">See them →</span></button>
+        <button type="button" class="sv medium" data-sev="medium" aria-expanded="false" aria-controls="sevlist"><span class="svw"><i aria-hidden="true">●</i>Medium</span><span class="svn">6</span><span class="svd">Slows people down or weakens trust.</span><span class="svgo">See them →</span></button>
+        <button type="button" class="sv low" data-sev="low" aria-expanded="false" aria-controls="sevlist"><span class="svw"><i aria-hidden="true">○</i>Low</span><span class="svn">4</span><span class="svd">Polish for search and copy.</span><span class="svgo">See them →</span></button>
+      </div>
+      <div class="sevlist" id="sevlist" hidden></div>
+      <div class="research"><span class="rlab">The research</span>
+        <span class="rc"><b>12+</b> site pages</span><span class="rc"><b>1</b> sign-up portal</span><span class="rc"><b>4</b> outside listings</span><span class="rc"><b>4</b> parent tasks walked</span><span class="rc"><b>3</b> peer circus schools</span><span class="rc"><b>10</b> usability heuristics</span>
+      </div>
+    </section>
+
+    <div class="tile s2">
+      <div class="th"><h3>Where the problems are</h3><span class="cap">Tap an area</span></div>
+      <table class="heat"><caption class="sr">Findings by audit area and severity</caption><thead><tr><td></td><th scope="col" class="hh"><span aria-hidden="true">◆ </span>Critical</th><th scope="col" class="hh"><span aria-hidden="true">▲ </span>High</th><th scope="col" class="hh"><span aria-hidden="true">● </span>Medium</th><th scope="col" class="hh"><span aria-hidden="true">○ </span>Low</th></tr></thead><tbody><tr><th scope="row"><a class="ha" href="#policy">Policy &amp; pricing</a></th><td class="hc critical l2">2</td><td class="hc high l1">1</td><td class="hc medium l1">1</td><td class="hc low l1">1</td></tr><tr><th scope="row"><a class="ha" href="#registration">Registration</a></th><td class="hc critical l1">1</td><td class="hc high l3">3</td><td class="hc medium l1">1</td><td class="hc low l0"><span class="sr">0</span></td></tr><tr><th scope="row"><a class="ha" href="#trust">Trust &amp; contact</a></th><td class="hc critical l1">1</td><td class="hc high l1">1</td><td class="hc medium l0"><span class="sr">0</span></td><td class="hc low l2">2</td></tr><tr><th scope="row"><a class="ha" href="#navigation">Navigation</a></th><td class="hc critical l0"><span class="sr">0</span></td><td class="hc high l1">1</td><td class="hc medium l3">3</td><td class="hc low l0"><span class="sr">0</span></td></tr><tr><th scope="row"><a class="ha" href="#search">Search &amp; access</a></th><td class="hc critical l0"><span class="sr">0</span></td><td class="hc high l0"><span class="sr">0</span></td><td class="hc medium l1">1</td><td class="hc low l1">1</td></tr></tbody></table>
+    </div>
+    <a class="tile hero ember" href="#plan">
+      <div class="th"><p class="cap">Recommendation</p><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+      <h2>Replace iClassPro, in two steps<span class="pd">.</span></h2>
+      <p class="cap">First, sign-up and forms on your own site. Then a Smart Scheduler built for circus arts.</p>
+    </a>
+
+    <div class="tile">
+      <div class="th"><h3>What an unused pass refunds</h3></div>
+      <div class="bars tight"><div class="bar"><span class="bl">Day pass · camp page</span><span class="bt"><b style="width:88.2%"></b></span><span class="bv">75%</span></div><div class="bar"><span class="bl">Day pass · checkout</span><span class="bt"><b style="width:100.0%"></b></span><span class="bv">85%</span></div><div class="bar"><span class="bl">Half-day · camp page</span><span class="bt"><b style="width:0.0%"></b></span><span class="bv">0%</span></div><div class="bar"><span class="bl">Half-day · checkout (typo)</span><span class="bt"><b style="width:52.9%"></b></span><span class="bv">45%</span></div></div>
+      <a class="cap" href="#f-01">F-01 · two rules for every pass →</a>
+    </div>
+    <div class="tile">
+      <div class="th"><h3>Camp day price</h3><a class="cap" href="#f-08">F-08 →</a></div>
+      <div class="bars tight"><div class="bar"><span class="bl">In-house Services</span><span class="bt"><b style="width:89.5%"></b></span><span class="bv">$85</span></div><div class="bar"><span class="bl">2026 camp page</span><span class="bt"><b style="width:97.4%"></b></span><span class="bv">$92.50</span></div><div class="bar"><span class="bl">2025 page</span><span class="bt"><b style="width:100%"></b></span><span class="bv">$95</span></div></div>
+    </div>
+    <div class="tile">
+      <div class="th"><h3>Phone numbers in use</h3><a class="cap" href="#f-09">F-09 →</a></div>
+      <span class="big">5</span>
+      <div class="nums"><span class="ok">(312) 598-2040</span><span>(847) 305-4404</span><span>(312) 305-4404</span><span>(312) 375-5264</span><span>(773) 430-3084</span></div>
+    </div>
+
+    <div class="tile s2">
+      <div class="th"><h3>Steps to enroll a child</h3><a class="cap" href="#f-06">F-06 →</a></div>
+      <div class="steps">
+        <div class="srow"><span class="lab">Today</span><span class="pips" aria-hidden="true"><i title="Home → “See classes”" style="--p:0"></i><i title="Leave to iClassPro (shows Chicago Wheel JAM)" style="--p:1"></i><i title="Create account" style="--p:2"></i><i title="Verify email" style="--p:3"></i><i title="Accept family and student policies" style="--p:4"></i><i title="Add student" style="--p:5"></i><i title="Find the class (unfiltered list)" style="--p:6"></i><i title="Enroll, answer questions" style="--p:7"></i><i title="Choose schedule, add to cart" style="--p:8"></i><i title="Enter payment" style="--p:9"></i></span><span class="n">10</span></div>
+        <div class="srow"><span class="lab">New site</span><span class="pips new" style="width:40%" aria-hidden="true"><i style="--p:0"></i><i style="--p:1"></i><i style="--p:2"></i><i style="--p:3"></i></span><span class="n">4</span></div>
+      </div>
+    </div>
+    <a class="tile" href="#plan">
+      <div class="th"><h3>How they get fixed</h3><span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+      <div class="split"><div><span class="big">11</span><span class="cap">fixable on the current site</span></div><div><span class="big">9</span><span class="cap">solved by the new site</span></div></div>
+    </a>
+
+    <div class="tile s3">
+      <div class="th"><h3>Four systems to sign up</h3><a class="cap" href="#f-05">F-05 →</a></div>
+      <div class="sys">
+        <div><b>iClassPro</b><span>Classes · after-school</span></div>
+        <div><b>Wix Store</b><span>Camp passes</span></div>
+        <div><b>Wix Events</b><span>Shows · day camps</span></div>
+        <div><b>RegFox</b><span>Wheel Weekend</span></div>
+      </div>
+    </div>
+
+    <div class="tile s3">
+      <div class="th"><h3>Where families are sent</h3><a class="cap" href="#f-09">F-09 →</a></div>
+      <div class="addr">
+        <div class="ok"><i>✓ Correct</i>5944 N Magnolia Ave, 60660</div>
+        <div class="no"><i>▲ Typo</i>5944 W Magnolia Ave · many page footers</div>
+        <div class="no"><i>▲ Portal</i>2045 W Grand Ave STE B, 60612 · “Chicago Wheel JAM”</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="v-policy" data-v="policy">
+<div class="ah"><div><p class="eyebrow">Audit area</p><h2>Policy &amp; pricing</h2></div>
+<div class="acount"><span class="big">5</span><span class="dots" aria-hidden="true"><b class="critical"></b><b class="critical"></b><b class="high"></b><b class="medium"></b><b class="low"></b></span><span class="sr">findings in this area</span></div></div>
+<div class="tools"><button class="pill" data-open="1">Open all</button><button class="pill" data-open="0">Close all</button></div>
+<div class="cards"><details class="fc" id="f-01">
+<summary><span class="fid">F-01</span><span class="ft">Refund rules contradict each other</span><span class="sev critical"><i aria-hidden="true">◆</i>Critical</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>/summer-circus-camp · camp pass product pages · /aftercare</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  <div class="bars"><p class="cap">What an unused pass refunds, by page</p><div class="bar"><span class="bl">Day pass · camp page</span><span class="bt"><b style="width:88.2%"></b></span><span class="bv">75%</span></div><div class="bar"><span class="bl">Day pass · checkout</span><span class="bt"><b style="width:100.0%"></b></span><span class="bv">85%</span></div><div class="bar"><span class="bl">Half-day · camp page</span><span class="bt"><b style="width:0.0%"></b></span><span class="bv">0%</span></div><div class="bar"><span class="bl">Half-day · checkout (typo)</span><span class="bt"><b style="width:52.9%"></b></span><span class="bv">45%</span></div></div>
+  <ul class="ev"><li>Summer Camp page: unused day passes refunded “7 5%” (75%); half-day passes “nonrefundable”.</li><li>Day Pass and Weekly Pass product pages: “85% of the value of unused … passes is refunded automatically”.</li><li>Half-Day Pass product page: “4**5%” refunded, which contradicts “nonrefundable”.</li><li>After-school page states two rules: a full refund less a 20% fee 48 hours out, and full credit 30+ days out / 50% at 7–30 days.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Parents can quote whichever page favours them. This is the documented source of refund disputes months after a session.</p></div><div class="rc"><small>Goal</small><p>One refund answer, no matter where a family reads it.</p></div></div>
+</div></details><details class="fc" id="f-03">
+<summary><span class="fid">F-03</span><span class="ft">Required family forms are not available on the site</span><span class="sev critical"><i aria-hidden="true">◆</i>Critical</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>/services-2 (Forms and Policies) · site footer</span><span><small>Heuristic</small>H10 · Help and documentation</span><span><small>Effort</small>M</span></div>
+  
+  <ul class="ev"><li>Forms page text indexed by Google: “This is a page with all CirquesExperiences waivers, permission slips, etc..” No documents found.</li><li>Footer has no waiver, refund, privacy or terms link; “Do Not Sell My Personal Information” is unlinked.</li><li>Paperwork review: liability waiver + photo release, medical/allergy/emergency form and approved-pickup list are missing.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>No signed record exists when an injury, pickup question or photo complaint comes up. Chicago Public Schools sites also expect signed waivers and pickup lists.</p></div><div class="rc"><small>Goal</small><p>Every family’s required forms signed and on file.</p></div></div>
+</div></details><details class="fc" id="f-08">
+<summary><span class="fid">F-08</span><span class="ft">Prices differ from page to page</span><span class="sev high"><i aria-hidden="true">▲</i>High</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>/summer-circus-camp · /inhouse-services · product pages · day camp events</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  <div class="bars"><p class="cap">Camp day price shown</p><div class="bar"><span class="bl">In-house Services</span><span class="bt"><b style="width:89.5%"></b></span><span class="bv">$85</span></div><div class="bar"><span class="bl">2026 camp page</span><span class="bt"><b style="width:97.4%"></b></span><span class="bv">$92.50</span></div><div class="bar"><span class="bl">2025 page</span><span class="bt"><b style="width:100.0%"></b></span><span class="bv">$95</span></div></div>
+  <ul class="ev"><li>Camp day: $92.50 (2026 camp page and product page) · $85 (In-house Services) · $95 (2025 page).</li><li>Camp week: $437.50 (camp page) · $450.00 (Weekly Pass product page).</li><li>Before/aftercare: $10 per hour (In-house Services) · $12.50 per hour (day camp events).</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Families screenshot the lowest price. Staff end up honouring it or arguing.</p></div><div class="rc"><small>Goal</small><p>One price for each program, everywhere it appears.</p></div></div>
+</div></details><details class="fc" id="f-13">
+<summary><span class="fid">F-13</span><span class="ft">Age ranges don’t agree</span><span class="sev medium"><i aria-hidden="true">●</i>Medium</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Home · camp pages · day camps · scholarships</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>Home: “5 to 99” and “ages 3-17”. Summer camp: 5–14. Day camps: 5–13. Scholarships: up to 15.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Parents of 3-, 4- and 14-year-olds can’t tell if their child fits.</p></div><div class="rc"><small>Goal</small><p>A clear age range for every program.</p></div></div>
+</div></details><details class="fc" id="f-20">
+<summary><span class="fid">F-20</span><span class="ft">Party prices don’t scale evenly</span><span class="sev low"><i aria-hidden="true">○</i>Low</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Birthday Parties</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>20–24 kids: 2 h $618 (=$309/h) but 3 h $915, where the 2-hour rate gives $927. Other tiers carry odd cents ($924.50).</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Looks like an error and invites questions.</p></div><div class="rc"><small>Goal</small><p>Party prices that read as intentional.</p></div></div>
+</div></details></div></section><section class="view" id="v-registration" data-v="registration">
+<div class="ah"><div><p class="eyebrow">Audit area</p><h2>Registration &amp; checkout</h2></div>
+<div class="acount"><span class="big">5</span><span class="dots" aria-hidden="true"><b class="critical"></b><b class="high"></b><b class="high"></b><b class="high"></b><b class="medium"></b></span><span class="sr">findings in this area</span></div></div>
+<div class="tools"><button class="pill" data-open="1">Open all</button><button class="pill" data-open="0">Close all</button></div>
+<div class="cards"><details class="fc" id="f-02">
+<summary><span class="fid">F-02</span><span class="ft">Safety and emergency details are collected after payment</span><span class="sev critical"><i aria-hidden="true">◆</i>Critical</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>/product-page/summer-camp-day-pass · /summer-camp-registration</span><span><small>Heuristic</small>H5 · Error prevention</span><span><small>Effort</small>M</span></div>
+  
+  <ul class="ev"><li>Product pages: “After checkout, families must complete the Summer Camp Registration Form to provide camper and emergency information.”</li><li>Registration page: “this registration form must be completed after purchase for each child attending camp.”</li></ul>
+  <div class="ir"><div><small>Impact</small><p>A camper can be paid for and arrive with no emergency contact, medical or allergy information, or signed waiver on file.</p></div><div class="rc"><small>Goal</small><p>No child arrives without safety and emergency information on file.</p></div></div>
+</div></details><details class="fc" id="f-05">
+<summary><span class="fid">F-05</span><span class="ft">Registration is split across four systems</span><span class="sev high"><i aria-hidden="true">▲</i>High</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Site-wide</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>L</span></div>
+  
+  <ul class="ev"><li>iClassPro: classes, after-school, and even the “About” link.</li><li>Wix Store: summer camp passes.  Wix Events: shows and day camps.  RegFox: Wheel Weekend.</li><li>A 2023 show page: “Some of our customers had difficulties ordering/paying for tickets.”</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Each system has its own account, receipts and rules. Families can’t see everything they’ve bought; staff reconcile four sources.</p></div><div class="rc"><small>Goal</small><p>One place for families to sign up for everything.</p></div></div>
+</div></details><details class="fc" id="f-06">
+<summary><span class="fid">F-06</span><span class="ft">An account is required before anything else</span><span class="sev high"><i aria-hidden="true">▲</i>High</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>portal.iclasspro.com/chicagowheeljam/dashboard</span><span><small>Heuristic</small>H7 · Flexibility and efficiency of use</span><span><small>Effort</small>L</span></div>
+  <div class="bars"><p class="cap">Steps to enroll</p><div class="bar"><span class="bl">Today</span><span class="bt"><b style="width:100.0%"></b></span><span class="bv">10</span></div><div class="bar"><span class="bl">New site</span><span class="bt"><b style="width:40.0%"></b></span><span class="bv">4</span></div></div>
+  <ul class="ev"><li>Portal: “All registrations start with creating an account.”</li><li>iClassPro’s documented flow: create account, verify email, accept policies, add student, select class, answer questions, choose schedule, add to cart, pay.</li><li>The site carries a 10-part FAQ explaining how to register.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>First-time, drop-in and one-day camp buyers meet a wall before they see a price.</p></div><div class="rc"><small>Goal</small><p>New families can see what they’re buying before they commit.</p></div></div>
+</div></details><details class="fc" id="f-07">
+<summary><span class="fid">F-07</span><span class="ft">Class prices and schedules are hidden until the portal</span><span class="sev high"><i aria-hidden="true">▲</i>High</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Home · Kids &amp; Teens · Adults → portal /classes</span><span><small>Heuristic</small>H6 · Recognition rather than recall</span><span><small>Effort</small>M</span></div>
+  
+  <ul class="ev"><li>In-house Services: “Fees, Dates, and Times find in our Customer Portal”.</li><li>CircusConnect listing tells families pricing is not on the website.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Parents commit effort before they know the cost. Peer schools (Actors Gymnasium, NECCA, SANCA) show days, times and prices up front.</p></div><div class="rc"><small>Goal</small><p>Prices and schedules visible before sign-up.</p></div></div>
+</div></details><details class="fc" id="f-11">
+<summary><span class="fid">F-11</span><span class="ft">Parties and events are quoted by hand</span><span class="sev medium"><i aria-hidden="true">●</i>Medium</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Birthday Parties · Parades &amp; Performances</span><span><small>Heuristic</small>H7 · Flexibility and efficiency of use</span><span><small>Effort</small>M</span></div>
+  
+  <ul class="ev"><li>Birthday parties route to an email link; parades and workshops list personal cell numbers.</li><li>Every booking needs guest count, length, add-ons (popcorn machine $50, juggler from $150), date and a 50% deposit.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Each party costs several emails before any money moves; slow replies lose bookings.</p></div><div class="rc"><small>Goal</small><p>Party and event bookings without a chain of emails.</p></div></div>
+</div></details></div></section><section class="view" id="v-trust" data-v="trust">
+<div class="ah"><div><p class="eyebrow">Audit area</p><h2>Trust &amp; contact</h2></div>
+<div class="acount"><span class="big">4</span><span class="dots" aria-hidden="true"><b class="critical"></b><b class="high"></b><b class="low"></b><b class="low"></b></span><span class="sr">findings in this area</span></div></div>
+<div class="tools"><button class="pill" data-open="1">Open all</button><button class="pill" data-open="0">Close all</button></div>
+<div class="cards"><details class="fc" id="f-04">
+<summary><span class="fid">F-04</span><span class="ft">The registration portal shows a different business</span><span class="sev critical"><i aria-hidden="true">◆</i>Critical</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>portal.iclasspro.com/chicagowheeljam/*</span><span><small>Heuristic</small>H2 · Match between system and the real world</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>Portal header reads “Chicago Wheel JAM, 2045 W Grand Ave STE B, Chicago, IL 60612” (client-supplied audit).</li><li>The business is Cirques Experience, 5944 N Magnolia Ave, 60660.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Families leave a branded site for a page with another name and a West Town address. Trust drops at the moment of payment; some may drive to the wrong place.</p></div><div class="rc"><small>Goal</small><p>Families see Cirques Experience, and the right address, at every step.</p></div></div>
+</div></details><details class="fc" id="f-09">
+<summary><span class="fid">F-09</span><span class="ft">Contact details conflict</span><span class="sev high"><i aria-hidden="true">▲</i>High</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Footers site-wide · /camps · event pages · portal · directories</span><span><small>Heuristic</small>H2 · Match between system and the real world</span><span><small>Effort</small>S</span></div>
+  <div class="bars"><p class="cap">Contact details in use</p><div class="bar"><span class="bl">Phone numbers</span><span class="bt"><b style="width:100.0%"></b></span><span class="bv">5</span></div><div class="bar"><span class="bl">Addresses</span><span class="bt"><b style="width:60.0%"></b></span><span class="bv">3</span></div></div>
+  <ul class="ev"><li>Phones: (312) 598-2040 · (847) 305-4404 · (312) 305-4404 · (312) 375-5264 · (773) 430-3084.</li><li>Addresses: 5944 N Magnolia (correct) · “5944 W Magnolia” in many page footers · 2045 W Grand Ave (portal).</li><li>Edgewater Chamber listing still shows 829 W. Gunnison St.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Calls go to the wrong person; maps send families to the wrong side of the city.</p></div><div class="rc"><small>Goal</small><p>One phone number and one address families can trust.</p></div></div>
+</div></details><details class="fc" id="f-18">
+<summary><span class="fid">F-18</span><span class="ft">Reviews are hidden and the review link is fragile</span><span class="sev low"><i aria-hidden="true">○</i>Low</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Home · party page · past camp pages</span><span><small>Heuristic</small>H8 · Aesthetic and minimalist design</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>One testimonial on the home page; others spread across party and old camp pages.</li><li>“Leave us a review” opens a Google search session, not the review form.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Strong parent feedback isn’t doing its job.</p></div><div class="rc"><small>Goal</small><p>Parent reviews where new families can see them.</p></div></div>
+</div></details><details class="fc" id="f-19">
+<summary><span class="fid">F-19</span><span class="ft">The business name is written three ways</span><span class="sev low"><i aria-hidden="true">○</i>Low</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Site, portal, footer</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>CirquesExperience · Cirques Experience · Chicago Wheel JAM.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Confuses search, receipts and bank statements.</p></div><div class="rc"><small>Goal</small><p>One name, everywhere.</p></div></div>
+</div></details></div></section><section class="view" id="v-navigation" data-v="navigation">
+<div class="ah"><div><p class="eyebrow">Audit area</p><h2>Navigation &amp; content</h2></div>
+<div class="acount"><span class="big">4</span><span class="dots" aria-hidden="true"><b class="high"></b><b class="medium"></b><b class="medium"></b><b class="medium"></b></span><span class="sr">findings in this area</span></div></div>
+<div class="tools"><button class="pill" data-open="1">Open all</button><button class="pill" data-open="0">Close all</button></div>
+<div class="cards"><details class="fc" id="f-10">
+<summary><span class="fid">F-10</span><span class="ft">Key links go nowhere</span><span class="sev high"><i aria-hidden="true">▲</i>High</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Header “Contact Us” · Home “Plan an Event” · footer</span><span><small>Heuristic</small>H3 · User control and freedom</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>“Contact Us” in the header and “Contact us” under Plan an Event have no link.</li><li>Hero “Learn more” opens the portal login dashboard, not information.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>The highest-value inquiries (parties, performances) hit a dead click.</p></div><div class="rc"><small>Goal</small><p>Every button leads somewhere useful.</p></div></div>
+</div></details><details class="fc" id="f-12">
+<summary><span class="fid">F-12</span><span class="ft">Out-of-date content is still live</span><span class="sev medium"><i aria-hidden="true">●</i>Medium</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>/copy-of-template (Scholarships) · 2024/2025 camp pages · event pages</span><span><small>Heuristic</small>H1 · Visibility of system status</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>Scholarships: “Applications for the 2024–2025 season are closed.”</li><li>Live pages for 2024 and 2025 summer camps; an expired April 2026 promo code; event pages from 2023–2026.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Families can’t tell what is current, and Google keeps sending them to old pages.</p></div><div class="rc"><small>Goal</small><p>Only current programs, prices and dates on the site.</p></div></div>
+</div></details><details class="fc" id="f-14">
+<summary><span class="fid">F-14</span><span class="ft">Menus route to the wrong places</span><span class="sev medium"><i aria-hidden="true">●</i>Medium</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Main navigation</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>Both “See classes” buttons (Kids, Adults) go to the same unfiltered portal list.</li><li>After School is split across portal /camps/9, the Events calendar and /afterschool-programs.</li><li>Template addresses: copy-of-template-3, copy-of-template-4; Parades &amp; Performances lives at copy-of-birthday-parties.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Visitors lose their place and their audience choice.</p></div><div class="rc"><small>Goal</small><p>Every menu item lands where families expect.</p></div></div>
+</div></details><details class="fc" id="f-15">
+<summary><span class="fid">F-15</span><span class="ft">Placeholders, typos and file names are visible</span><span class="sev medium"><i aria-hidden="true">●</i>Medium</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Unicycle, Summer Camp, Kids &amp; Teens, In-house Services pages</span><span><small>Heuristic</small>H8 · Aesthetic and minimalist design</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>“call us at [Your Phone Number]”, “LINK”, “Blue Skies”.</li><li>“Cyrc Wheel”, “Businness”, “Scholarship’s”, “$162.5”, “$2,887.5”.</li><li>Image names shown as text: “Screenshot 2025-08-24 at 6.04.41 PM”, “Copy of IMG_6273”.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Reads as unfinished at the exact point a parent is deciding to trust you with their child.</p></div><div class="rc"><small>Goal</small><p>Copy that reads as finished and professional.</p></div></div>
+</div></details></div></section><section class="view" id="v-search" data-v="search">
+<div class="ah"><div><p class="eyebrow">Audit area</p><h2>Search &amp; accessibility</h2></div>
+<div class="acount"><span class="big">2</span><span class="dots" aria-hidden="true"><b class="medium"></b><b class="low"></b></span><span class="sr">findings in this area</span></div></div>
+<div class="tools"><button class="pill" data-open="1">Open all</button><button class="pill" data-open="0">Close all</button></div>
+<div class="cards"><details class="fc" id="f-16">
+<summary><span class="fid">F-16</span><span class="ft">Images lack useful descriptions</span><span class="sev medium"><i aria-hidden="true">●</i>Medium</span><span class="fx">New site</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Home and gallery pages</span><span><small>Heuristic</small>WCAG · WCAG 2.1 · 1.1.1 Non-text content</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>Empty alt text on a main image; “gymnast graphic” and “our logo” used twice; “Group 34”.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Screen-reader users hear nothing useful; search engines learn nothing from the images.</p></div><div class="rc"><small>Goal</small><p>Images that work for screen readers and search.</p></div></div>
+</div></details><details class="fc" id="f-17">
+<summary><span class="fid">F-17</span><span class="ft">Search listing is cut off and unfocused</span><span class="sev low"><i aria-hidden="true">○</i>Low</span><span class="fx">Quick win</span><span class="chev" aria-hidden="true"></span></summary>
+<div class="fb">
+  <div class="fmeta"><span><small>Where</small>Home page metadata</span><span><small>Heuristic</small>H4 · Consistency and standards</span><span><small>Effort</small>S</span></div>
+  
+  <ul class="ev"><li>Description ends mid-sentence: “…creating avenues for performance, education,”.</li><li>Title about 124 characters; every section heading marked as a main (H1) heading.</li><li>cirquesexperience.com shows in results with no title instead of pointing to .org.</li></ul>
+  <div class="ir"><div><small>Impact</small><p>Weaker, less clickable search results.</p></div><div class="rc"><small>Goal</small><p>A complete, clickable search listing.</p></div></div>
+</div></details></div></section>
+
+<section class="view" id="v-plan" data-v="plan">
+  <div class="greet">
+    <p class="eyebrow">The plan</p>
+    <h1>One path for every family<span class="pd">.</span><br><span>Built for how you run.</span></h1>
+  </div>
+  <div class="sh" style="margin-top:0"><h2>A parent’s journey today</h2><span class="cap">Signing up a child for a kids class</span></div>
+  <ol class="journey">
+    <li><b>Taps “See classes”</b><span>No price or schedule on the site.</span><em>“How much is it?”</em><a class="fid" href="#f-07">F-07</a></li>
+    <li><b>Lands on the portal</b><span>It says Chicago Wheel JAM, with a West Town address.</span><em>“Is this the right place?”</em><a class="fid" href="#f-04">F-04</a></li>
+    <li><b>Has to make an account</b><span>Verify email and accept policies before seeing anything.</span><em>“I just wanted the times.”</em><a class="fid" href="#f-06">F-06</a></li>
+    <li><b>Hunts for the class</b><span>Kids and adults share one unfiltered list.</span><em>“Which one is for my kid?”</em><a class="fid" href="#f-14">F-14</a></li>
+    <li><b>Pays after 10 steps</b><span>Waivers and forms aren’t on the site.</span><em>“Did I sign everything?”</em><a class="fid" href="#f-03">F-03</a></li>
+  </ol>
+  <div class="sh"><h2>The same parent, on the new site</h2><a class="cap" href="/cirques-experience/proposal#plan">See each step with the website concept →</a></div>
+  <div class="flow">
+    <div><b>Find a class</b><span>Age, day, discipline, price shown. No account needed to look.</span></div>
+    <div><b>Choose how to book</b><span>A single class, a class pass, camp days or a semester.</span></div>
+    <div><b>Who’s coming + forms</b><span>Waiver, medical, pickup, signed once per child. Checkout waits until they’re done.</span></div>
+    <div><b>Pay + confirmed</b><span>Account made at checkout with just an email. One policy, receipt, what to bring. Online payments switch on after launch, quoted separately.</span></div>
+  </div>
+  <div class="sh"><h2>Sign-in and forms</h2><span class="cap">How families get in, and how you know they’re ready</span></div>
+  <div class="bento">
+    <div class="tile"><p class="eyebrow">New families</p><h3>Sign up while they pay</h3><p class="cap">No account wall. They browse first, then add just an email at checkout. That becomes their family account.</p></div>
+    <div class="tile"><p class="eyebrow">Returning families</p><h3>Sign in with an email link</h3><p class="cap">No password to forget. Their kids, forms and past bookings are already there, so the next sign-up is faster.</p></div>
+    <div class="tile"><p class="eyebrow">For you</p><h3>Forms status in your Room</h3><p class="cap">Every child on a roster shows Forms ✓ or exactly what’s missing. Families get a reminder before forms expire for the new season.</p></div>
+    <div class="tile s2 famdb">
+      <p class="eyebrow" style="color:var(--signal)">Family database</p>
+      <h3>Every family’s info in one place</h3>
+      <p class="cap">One private database: parents, kids, emergency contacts, medical and allergy notes, signed forms, bookings and payments. The site, forms and your Room all read from it. Only your team can see it.</p>
+      <label class="sr" for="famq">Search families</label>
+      <div class="famsearch"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m14 14 4 4"/></svg><input id="famq" type="search" placeholder="Search a family, child or class…" autocomplete="off"></div>
+      <div class="famgrid">
+        <div class="fam"><b>Garcia family</b><span>Mia, 8</span><span>Aerial Silks · Tuesdays</span><i class="ok">✓ Forms on file</i></div>
+        <div class="fam"><b>Johnson family</b><span>Leo, 6 · Ava, 10</span><span>Juggling · Saturdays</span><i class="no">▲ Medical form missing</i></div>
+        <div class="fam"><b>Nguyen family</b><span>Kai, 12</span><span>Summer camp · Week 2</span><i class="ok">✓ Forms on file</i></div>
+      </div>
+      <p class="famnone" hidden>No families match that search.</p>
+      <p class="famnote">Sample families for illustration</p>
+    </div>
+    <div class="tile tex"><p class="eyebrow" style="color:var(--signal)">Phase 2 · Smart Scheduler</p><h3>Then iClassPro goes away</h3><p class="cap" style="color:rgba(255,255,255,.9)">Your season, levels, capacity, waitlists and coach rosters in one scheduler built for circus arts. It flags conflicts and suggests changes. You approve.</p></div>
+  </div>
+  <div class="tile hero ember close"><p class="cap">Next step · FLOW</p><h2>We design and build the fixes with you<span class="pd">.</span></h2><p class="cap">What are you making room for?</p><a href="/cirques-experience/proposal#proposal" class="btnp" style="align-self:flex-start">Read the proposal →</a><p class="cap">marcoscuellar@elipangroup.com · makingcuepa.com</p></div>
+</section>
+
+<footer>Source: live pages on cirquesexperience.org and the iClassPro portal, November 13, 2026. The full UX Audit report, with method, evidence and sources, is available on request.<br>CUEPA by ELIPAN GROUP · © 2026 ELIPAN GROUP LLC</footer>
+</main>
+
+<script>
+(function(){
+  var views=[].slice.call(document.querySelectorAll('.view'));
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(){
+    var h=(location.hash||'#overview').slice(1), target=null, card=null;
+    if(/^f-\d+$/.test(h)){ card=document.getElementById(h); if(card){ target=card.closest('.view').dataset.v; } }
+    else target=h;
+    if(!views.some(function(v){return v.dataset.v===target})) target='overview';
+    views.forEach(function(v){v.classList.toggle('on',v.dataset.v===target)});
+    tabs.forEach(function(t){ if(t.dataset.t===target) t.setAttribute('aria-current','page'); else t.removeAttribute('aria-current'); });
+    if(card){ card.open=true; card.scrollIntoView({block:'center'}); } else window.scrollTo(0,0);
+    var v=document.getElementById('v-'+target); if(v) play(v);
+  }
+  var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(v){
+    if(calm) return;
+    v.querySelectorAll('.tile,.fc,.flow>div,.checks li,.sv').forEach(function(el,i){el.style.setProperty('--i',Math.min(i,12))});
+    v.classList.remove('anim'); void v.offsetWidth; v.classList.add('anim');
+    v.querySelectorAll('.svn,.big').forEach(function(el){
+      var end=parseFloat(el.textContent); if(isNaN(end)||el.dataset.done) return;
+      el.dataset.done=1; var t0=null, d=700;
+      function step(t){ if(!t0)t0=t; var k=Math.min(1,(t-t0)/d), ease=1-Math.pow(1-k,3);
+        el.textContent=Math.round(end*ease); if(k<1) requestAnimationFrame(step); else el.textContent=end; }
+      requestAnimationFrame(step);
+    });
+  }
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var o=b.dataset.open==='1';
+      b.closest('.view').querySelectorAll('details').forEach(function(d){d.open=o});
+    });
+  });
+  var sevBtns=[].slice.call(document.querySelectorAll('button.sv')), sevList=document.getElementById('sevlist');
+  sevBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')==='true';
+      sevBtns.forEach(function(x){x.setAttribute('aria-expanded','false')});
+      if(open){ sevList.hidden=true; return; }
+      b.setAttribute('aria-expanded','true');
+      sevList.innerHTML='';
+      document.querySelectorAll('details.fc').forEach(function(d){
+        if(!d.querySelector('.sev.'+b.dataset.sev)) return;
+        var c=d.cloneNode(true); c.removeAttribute('id'); c.open=false;
+        sevList.appendChild(c);
+      });
+      sevList.hidden=false;
+    });
+  });
+  var famq=document.getElementById('famq');
+  if(famq){ famq.addEventListener('input',function(){
+    var q=famq.value.trim().toLowerCase(), any=false;
+    document.querySelectorAll('.fam').forEach(function(c){ var hit=!q||c.textContent.toLowerCase().indexOf(q)>-1; c.hidden=!hit; if(hit) any=true; });
+    document.querySelector('.famnone').hidden=any;
+  }); }
+  var cyc=document.querySelector('.greet .cyc');
+  if(cyc){
+    if(calm){ cyc.textContent='classes, parades and families.'; }
+    else {
+      var words=['classes.','parades.','students.','parents.','teachers.','trainers.'], wi=0;
+      words.push('classes.');
+      var timer=setInterval(function(){
+        cyc.classList.add('out');
+        setTimeout(function(){ wi++; cyc.textContent=words[wi]; cyc.classList.remove('out'); },350);
+        if(wi>=words.length-2) clearInterval(timer);
+      },2200);
+    }
+  }
+  window.addEventListener('hashchange',show); show();
+})();
+</script>
+</body>
+</html>

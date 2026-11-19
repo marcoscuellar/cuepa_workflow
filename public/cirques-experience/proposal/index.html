@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cirques Experience · Making Room</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
 <style>
 :root{
-  --bg:#0A0C0F; --fg:#FFFFFF; --mute:#8E979B; --soft:#C3C9CB;
+  --bg:#080B0F; --fg:#FFFFFF; --mute:#8E979B; --soft:#C3C9CB;
   --tile:rgba(255,255,255,.055); --tile-fg:#FFFFFF;
-  --light:#EEF1F0; --light-fg:#0A0C0F; --light-mute:#5E6670;
+  --light:#EEF1F0; --light-fg:#080B0F; --light-mute:#5E6670;
   --signal:#2DD4BF; --accent:#0E7490; --amber:#E8B857;
   --glow:radial-gradient(60% 50% at 0% 70%, rgba(15,118,110,.38) 0%, rgba(10,12,15,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(14,116,144,.34) 0%, rgba(10,12,15,0) 70%),radial-gradient(40% 30% at 55% 0%, rgba(45,212,191,.08) 0%, rgba(10,12,15,0) 70%);
   --shadow:0 10px 30px rgba(0,0,0,.35);
 }
 body.light{
-  --bg:#F7F8F8; --fg:#0A0C0F; --mute:#6B7276; --soft:#3A4148;
-  --tile:#FFFFFF; --tile-fg:#0A0C0F;
+  --bg:#F7F8F8; --fg:#080B0F; --mute:#6B7276; --soft:#3A4148;
+  --tile:#FFFFFF; --tile-fg:#080B0F;
   --light:#151A20; --light-fg:#FFFFFF; --light-mute:#9AA4A4;
   --glow:radial-gradient(60% 50% at 0% 70%, rgba(14,116,144,.22) 0%, rgba(247,248,248,0) 70%),radial-gradient(50% 45% at 100% 30%, rgba(45,212,191,.22) 0%, rgba(247,248,248,0) 70%);
   --shadow:0 2px 4px rgba(0,0,0,.05),0 12px 28px rgba(0,0,0,.10);
@@ -41,6 +41,18 @@ body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 .tabs{display:flex;gap:4px;overflow-x:auto}
 .tab{padding:9px 16px;border-radius:999px;font-size:14px;font-weight:500;color:var(--mute);background:transparent;white-space:nowrap;min-height:40px}
 .tab[aria-selected="true"]{background:var(--fg);color:var(--bg);font-weight:600}
+.dd{display:inline-flex}
+.ddt{display:inline-flex;align-items:center;gap:6px}
+.ddt svg{width:10px;height:10px;transition:transform .15s}
+.ddt[aria-expanded="true"] svg{transform:rotate(180deg)}
+.ddm{position:fixed;z-index:30;min-width:240px;padding:6px;border-radius:18px;background:var(--bg);box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 1px rgba(127,127,127,.22);display:grid;gap:2px}
+.ddm[hidden]{display:none}
+.ddm .tab{text-align:left;border-radius:12px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;color:var(--fg);padding:10px 14px}
+.ddm .tab:hover{background:var(--tile)}
+.ddm .tab small{font-size:12px;font-weight:500;color:var(--mute)}
+.ddm .tab[aria-selected="true"]{background:var(--fg);color:var(--bg)}
+.ddm .tab[aria-selected="true"] small{color:inherit;opacity:.7}
+.xlinks{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
 .right{display:flex;justify-content:flex-end;gap:8px}
 .pill{padding:9px 14px;border-radius:999px;font-size:13px;font-weight:600;background:var(--tile);min-height:40px}
 @media(max-width:860px){.top .wrap{grid-template-columns:1fr auto}.tabs{grid-column:1/-1;order:3;padding-bottom:10px}}
@@ -70,7 +82,7 @@ body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 .ic svg{width:16px;height:16px}
 .go{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--fg);color:var(--bg);flex:none}
 .tile.light .go{background:var(--light-fg);color:var(--light)}
-.tile.hero .go{background:#0A0C0F;color:#fff}
+.tile.hero .go{background:#080B0F;color:#fff}
 .go svg{width:16px;height:16px}
 .big{font-size:64px;font-weight:300;letter-spacing:-.05em;line-height:.9}
 .hero h2{font-size:34px;font-weight:700;letter-spacing:-.035em;line-height:1.05}
@@ -80,7 +92,7 @@ body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 
 /* pipeline */
 .pipe{display:grid;gap:10px;margin-top:6px}
-.pl{display:grid;grid-template-columns:150px 40px 1fr;align-items:center;gap:12px;font-size:14px}
+.pl{display:grid;grid-template-columns:190px 40px 1fr;align-items:center;gap:12px;font-size:14px}
 .pl .n{color:var(--mute);text-align:right;font-variant-numeric:tabular-nums}
 .track{height:14px;border-bottom:1px dashed rgba(127,127,127,.35);position:relative}
 .track.full{border-bottom:none}
@@ -91,8 +103,8 @@ body.light .logo img.w{display:none} body:not(.light) .logo img.k{display:none}
 /* list rows on light tile */
 .list{display:grid;gap:8px}
 .li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(127,127,127,.12);font-size:14px;font-weight:600;text-align:left;width:100%}
-.tile.light .li{background:#FFFFFF;color:#0A0C0F;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-body.light .tile.light .li{background:#FFFFFF;color:#0A0C0F;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.tile.light .li{background:#FFFFFF;color:#080B0F;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+body.light .tile.light .li{background:#FFFFFF;color:#080B0F;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .li small{font-weight:500;color:var(--mute);font-size:13px}
 .tile.light .li small{color:#5E6670}
 body.light .tile.light .li small{color:#5E6670}
@@ -101,8 +113,8 @@ body.light .tile.light .li.on small,.li.on small{color:var(--signal)}
 .tile.light .li.on small{color:#0F766E}
 body.light .tile.light .li.on small{color:var(--signal)}
 
-.fpop{background:radial-gradient(70% 90% at 100% 0%,rgba(14,116,144,.55) 0%,rgba(14,116,144,0) 70%),#0A0C0F;color:#fff;border-radius:18px;padding:16px 18px;display:grid;gap:12px;box-shadow:0 14px 34px rgba(0,0,0,.28);position:relative;margin-top:4px}
-.fpop::before{content:"";position:absolute;top:-7px;left:28px;width:14px;height:14px;background:#0A0C0F;transform:rotate(45deg);border-radius:3px}
+.fpop{background:radial-gradient(70% 90% at 100% 0%,rgba(14,116,144,.55) 0%,rgba(14,116,144,0) 70%),#080B0F;color:#fff;border-radius:18px;padding:16px 18px;display:grid;gap:12px;box-shadow:0 14px 34px rgba(0,0,0,.28);position:relative;margin-top:4px}
+.fpop::before{content:"";position:absolute;top:-7px;left:28px;width:14px;height:14px;background:#080B0F;transform:rotate(45deg);border-radius:3px}
 .fpop span{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
 .fpop p{margin:0;font-size:14px;line-height:1.45}
 .fpop .ff span{color:#E8B857}.fpop .ff p{color:rgba(255,255,255,.82)}
@@ -117,7 +129,7 @@ body.light .tile.light .li.on small{color:var(--signal)}
 .donegrid p{font-size:14px;margin:0}
 .path{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:pt}
 .path li{counter-increment:pt;display:grid;grid-template-columns:28px 1fr;column-gap:10px;font-size:13px;color:rgba(255,255,255,.75)}
-.path li::before{content:counter(pt);grid-row:span 2;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#2DD4BF;color:#0A0C0F;font-weight:800;font-size:12px}
+.path li::before{content:counter(pt);grid-row:span 2;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#2DD4BF;color:#080B0F;font-weight:800;font-size:12px}
 .path li b{color:#fff;font-size:15px}
 /* views */
 .view{padding-bottom:64px}
@@ -141,7 +153,7 @@ body.light .sec .eb{color:#0F766E}
 .badge.ok{background:rgba(45,212,191,.16);color:var(--signal)}
 .badge.miss{background:rgba(232,184,87,.16);color:var(--amber)}
 body.light .badge.ok{background:#E1F2EE;color:#0F766E}
-body.light .badge.miss{background:#FBF0D9;color:#8F6208}
+body.light .badge.miss{background:#FBF0D9;color:#9A6B00}
 .badge svg{width:13px;height:13px}
 .pri{font-size:10px;font-weight:800;letter-spacing:.08em;background:var(--fg);color:var(--bg);border-radius:6px;padding:2px 7px;margin-left:8px;vertical-align:2px}
 .count{color:var(--mute);font-size:13px;margin:6px 0 12px}
@@ -167,7 +179,7 @@ details[open] summary::after{content:"–"}
 .g2{background:var(--tile)}
 .g3{background:var(--tile)}
 .d0{background:#0E7490}.d1{background:#0F766E}.d2{background:#080B0F}.d3{background:#9AA4A4}
-.abtn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:999px;background:#2DD4BF;color:#0A0C0F;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(45,212,191,.45)}
+.abtn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:999px;background:#2DD4BF;color:#080B0F;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 6px 20px rgba(45,212,191,.45)}
 .abtn:hover{background:#5EEAD4}
 .abtn svg{width:18px;height:18px}
 .athanks{display:none;font-size:14px;font-weight:600;color:#2DD4BF}
@@ -199,7 +211,7 @@ details[open] summary::after{content:"–"}
 @media(max-width:860px){.propsteps{grid-template-columns:1fr}}
 .propsteps li{counter-increment:ps;background:var(--tile);border-radius:20px;padding:18px;box-shadow:var(--shadow);display:grid;gap:6px}
 .propsteps li::before{content:counter(ps);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--fg);color:var(--bg);font-weight:800;font-size:13px}
-.propsteps li:first-child::before{background:#2DD4BF;color:#0A0C0F}
+.propsteps li:first-child::before{background:#2DD4BF;color:#080B0F}
 .propsteps b{font-size:16px}
 .propsteps span{color:var(--mute);font-size:14px;line-height:1.45}
 .morelink{display:inline-flex;align-items:center;min-height:40px;font-size:14px;font-weight:700;color:#0F766E;text-decoration:none}
@@ -218,7 +230,7 @@ body:not(.light) .morelink{color:#2DD4BF}
 .invest summary::-webkit-details-marker{display:none}
 .invest summary::after{display:none}
 .invest summary span{font-size:18px;font-weight:800;display:inline-flex;align-items:center;gap:10px}
-.invest summary span::after{content:"+";width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#2DD4BF;color:#0A0C0F;font-size:18px}
+.invest summary span::after{content:"+";width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#2DD4BF;color:#080B0F;font-size:18px}
 .invest[open] summary span::after{content:"\2013"}
 .invest summary small{color:rgba(255,255,255,.75);font-size:13px}
 .invest-in{padding:0 24px 24px;display:grid;gap:16px}
@@ -235,7 +247,7 @@ body:not(.light) .morelink{color:#2DD4BF}
 @media(max-width:1100px){.wflow{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:640px){.wflow{grid-template-columns:1fr}}
 .wflow li{counter-increment:wf;position:relative;background:var(--tile);border-radius:20px;padding:16px;box-shadow:var(--shadow);display:grid;gap:6px;align-content:start}
-.wflow li::after{content:"\2192";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:#2DD4BF;color:#0A0C0F;font-size:11px;font-weight:800;display:grid;place-items:center;z-index:1}
+.wflow li::after{content:"\2192";position:absolute;right:-9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;background:#2DD4BF;color:#080B0F;font-size:11px;font-weight:800;display:grid;place-items:center;z-index:1}
 .wflow li:last-child::after{display:none}
 @media(max-width:1100px){.wflow li:nth-child(3n)::after{display:none}}
 @media(max-width:640px){.wflow li::after{display:none}}
@@ -265,7 +277,7 @@ body.light .tile.light .li small{color:#5E6670}
 .whycard dl div{display:grid;gap:2px}
 .whycard dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .whycard dd{margin:0;font-size:15px;line-height:1.5;color:var(--soft)}
-.whycard .fix{background:#0A0C0F;border-radius:14px;padding:14px 16px;margin-top:4px}
+.whycard .fix{background:#080B0F;border-radius:14px;padding:14px 16px;margin-top:4px}
 .whycard .fix dt{color:#2DD4BF}
 .whycard .fix dd{color:#FFFFFF;font-weight:600}
 .whycta{margin-top:20px;min-height:0!important;display:flex!important;flex-direction:row!important;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
@@ -289,7 +301,7 @@ footer .flogo .lg{display:block;width:96px;height:auto}
 .step .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:rgba(127,127,127,.2);font-weight:700;font-size:14px}
 .step b{font-size:15px}
 .step[aria-pressed="true"]{background:var(--light);color:var(--light-fg)}
-.step[aria-pressed="true"] .n{background:var(--signal);color:#0A0C0F}
+.step[aria-pressed="true"] .n{background:var(--signal);color:#080B0F}
 .panel{margin-top:0}
 .stepwrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;margin-top:10px;align-items:stretch}
 @media(max-width:860px){.stepwrap{grid-template-columns:1fr}}
@@ -300,7 +312,7 @@ footer .flogo .lg{display:block;width:96px;height:auto}
 .wr{border-radius:14px;padding:12px 14px;display:grid;gap:3px}
 .wr span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .wr p{margin:0;font-size:14px;line-height:1.45}
-.wr.b{background:rgba(232,184,87,.16)}.wr.b span{color:#8F6208}
+.wr.b{background:rgba(232,184,87,.16)}.wr.b span{color:#9A6B00}
 .wr.n{background:rgba(45,212,191,.16)}.wr.n span{color:#0F766E}.wr.n p{font-weight:600}
 .wr.t{background:rgba(14,116,144,.12)}.wr.t span{color:#0E7490}
 body:not(.light) .wr.b span{color:var(--amber)}body:not(.light) .wr.n span{color:var(--signal)}body:not(.light) .wr.t span{color:#5FB8CF}
@@ -309,14 +321,14 @@ body:not(.light) .wr.b span{color:var(--amber)}body:not(.light) .wr.n span{color
 .stepnav button.pr{background:var(--fg);color:var(--bg)}
 .stepnav button[disabled]{opacity:.35;cursor:default}
 .mocks{border-radius:26px;padding:24px;display:grid;place-items:center;background:radial-gradient(60% 60% at 85% 15%,rgba(14,116,144,.55) 0%,rgba(14,116,144,0) 70%),radial-gradient(70% 70% at 10% 100%,rgba(14,116,144,.85) 0%,rgba(14,116,144,0) 70%),#1B2A31;box-shadow:var(--shadow)}
-.mocks{grid-template-rows:1fr auto;gap:12px}
+.mocks{grid-template-rows:1fr auto;gap:12px;background:linear-gradient(180deg,rgba(8,11,15,.35) 0%,rgba(8,11,15,.6) 100%),url(/cirques-experience/proposal/assets/family.jpg) 55% 40%/cover no-repeat,#1B2A31}
 .shot{margin:0;width:100%;display:grid;place-items:center}
 .shot[hidden]{display:none}
 .shot img{max-width:100%;max-height:520px;width:auto;height:auto;display:block;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.4);background:#fff}
 .shotcap{font-size:12px;font-weight:600;color:rgba(255,255,255,.85);background:rgba(10,12,15,.55);padding:6px 12px;border-radius:999px}
 .panel ul{margin:6px 0 0;padding-left:20px;color:var(--soft)}
 .tile.light .panel ul,.tile.light ul{color:var(--light-mute)}
-.done{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#0A0C0F;background:var(--signal);border-radius:999px;padding:4px 10px;width:fit-content}
+.done{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#080B0F;background:var(--signal);border-radius:999px;padding:4px 10px;width:fit-content}
 .done svg{width:12px;height:12px}
 ul.clean{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--soft)}
 .tile.light ul.clean{color:var(--light-mute)}
@@ -376,6 +388,35 @@ footer p{font-size:13px!important}
 footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 footer h2{font-size:clamp(26px,3.6vw,40px);font-weight:700;letter-spacing:-.04em}
 footer p{color:rgba(255,255,255,.75);font-size:14px}
+
+/* Brand Book alignment · Nov 15 audit */
+.whysum{gap:16px}
+.top3{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.top3 li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding:14px 0;box-shadow:inset 0 -1px 0 rgba(127,127,127,.18)}
+.top3 li:last-child{box-shadow:none;padding-bottom:0}
+.top3 b{display:block;font-size:18px;letter-spacing:-.01em}
+.top3 span:not(.whyn){display:block;color:var(--soft);font-size:15px;line-height:1.5;margin-top:4px}
+.top3 em{font-style:normal;font-weight:600;color:var(--fg)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.allwork{margin-top:10px}
+.dbtn{display:inline-flex;align-items:center;min-height:48px;padding:12px 22px;border-radius:8px;color:#fff;font-size:16px;font-weight:700;text-decoration:none;position:relative;isolation:isolate;overflow:hidden;background:#080B0F;box-shadow:0 1px 2px rgba(8,11,15,.25),0 6px 14px rgba(8,11,15,.25)}
+.dbtn:hover{background:#151A20}
+.dbtn::after{content:"";position:absolute;inset:0;border-radius:inherit;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.16;mix-blend-mode:overlay;pointer-events:none;z-index:-1}
+.tile.hero.ember{background:radial-gradient(55% 60% at 88% 8%,rgba(196,122,62,.9) 0%,rgba(196,122,62,0) 100%),radial-gradient(65% 70% at 4% 100%,rgba(14,116,144,.6) 0%,rgba(14,116,144,0) 100%),#1A2127}
+.abtn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:8px;color:#fff;font-size:16px;font-weight:700;text-decoration:none;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(70% 140% at 92% 0%,rgba(196,122,62,.55) 0%,rgba(196,122,62,0) 100%),radial-gradient(80% 160% at 0% 100%,rgba(15,118,110,.9) 0%,rgba(15,118,110,0) 100%),#0E7490;box-shadow:0 1px 2px rgba(8,11,15,.18),0 6px 14px rgba(8,11,15,.18)}.abtn:hover{background:radial-gradient(70% 140% at 92% 0%,rgba(196,122,62,.65) 0%,rgba(196,122,62,0) 100%),radial-gradient(80% 160% at 0% 100%,rgba(15,118,110,.95) 0%,rgba(15,118,110,0) 100%),#0B5F76}.abtn::after{content:"";position:absolute;inset:0;border-radius:inherit;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.16;mix-blend-mode:overlay;pointer-events:none;z-index:-1}
+.abtn svg{width:18px;height:18px}
+.greet h1,.sec h2{font-weight:800}
+.sec .eb{font-weight:700}
+.propsteps li:first-child::before{background:#0E7490;color:#fff}
+.check input{accent-color:#0E7490}
+body.light .bar i{background:#0E7490}
+body.light .done{background:#0F766E;color:#fff}
+body.light .wflow li::after{background:#0E7490;color:#fff}
+body.light .mini b{background:linear-gradient(180deg,#0F766E,#0E7490)}
+body.light .tile:not(.hero) .dot{background:#0E7490;box-shadow:none}
+body.light .tile:not(.hero) .track.full::before{background:linear-gradient(90deg,rgba(14,116,144,.3),#0E7490);box-shadow:none}
+body.light :focus-visible{outline-color:#0E7490}
+@media(max-width:640px){.pl{grid-template-columns:140px 36px 1fr;font-size:13px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -396,11 +437,16 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <nav class="tabs" role="tablist" aria-label="Sections">
       <button class="tab" role="tab" data-view="overview">Overview</button>
       <button class="tab" role="tab" data-view="why">Why</button>
-      <button class="tab" role="tab" data-view="proposal">The proposal</button>
-      <button class="tab" role="tab" data-view="plan">For families</button>
+      <div class="dd"><button class="tab ddt" id="propDD" aria-haspopup="true" aria-expanded="false" aria-controls="propMenu">The proposal <svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
       <button class="tab" role="tab" data-view="roadmap">What's next</button>
     </nav>
-    <div class="right"><button class="pill" id="mode" aria-pressed="false">Light</button></div>
+    <div class="ddm" id="propMenu" role="menu" aria-label="The proposal" hidden>
+      <button class="tab" role="menuitem" data-view="proposal">Website proposal<small>Scope, timing + investment</small></button>
+      <button class="tab" role="menuitem" data-view="plan">For families<small>How booking works</small></button>
+      <button class="tab" role="menuitem" data-view="coaches">For coaches<small>Next · roll call + event forms</small></button>
+      <button class="tab" role="menuitem" data-view="leaders">For leaders<small>Your Room + approvals</small></button>
+    </div>
+    <div class="right"><button class="pill" id="mode" aria-pressed="false">Dark mode</button></div>
   </div>
 </header>
 
@@ -411,20 +457,21 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <div class="greet">
     <h1><span>Let's make room,</span> Cirques Experience<span class="pd">.</span></h1>
     <p>What we found, what we propose, and how it works for your families. Prepared by CUEPA for Christian Ochsner &amp; Wolfgang Bientzle, Cirques Experience · November 2026.</p>
+    <a class="morelink allwork" href="/cirques-experience/website-audit">See all the work we did →</a>
   </div>
   <div class="bento">
-    <div class="tile hero">
+    <div class="tile hero ember">
       <div class="ic"><i><svg><use href="#i-loop"/></svg></i>Your decision</div>
       <h2>Read the proposal.</h2>
       <div class="row"><p class="k-mute" style="font-size:14px">What we'll build, the order of work, your investment and one button to approve.</p><button class="go" data-go="proposal" aria-label="Go to the website proposal"><svg><use href="#i-arrow"/></svg></button></div>
     </div>
     <div class="tile photo span2">
-      <img src="/cirques-experience/audit-review/assets/room.png" alt="Approved Cirques Experience Room: Waiting on you, Inbox, Your week and Ask CUEPA">
+      <img src="/cirques-experience/proposal/assets/room.png" alt="Approved Cirques Experience Room: Waiting on you, Inbox, Your week and Ask CUEPA">
       <div class="cap"><svg width="12" height="12"><use href="#i-ok"/></svg>Your Room · approved</div>
     </div>
 
     <div class="tile">
-      <div class="th"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>The full audit</div><button class="go" data-go="audit" aria-label="Open the full audit"><svg><use href="#i-arrow"/></svg></button></div>
+      <div class="th"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Paperwork audit</div><button class="go" data-go="audit" aria-label="Open the paperwork audit"><svg><use href="#i-arrow"/></svg></button></div>
       <div class="row"><div><div class="mini" aria-hidden="true"><b style="height:60%"></b><b style="height:90%"></b><b style="height:45%"></b><b style="height:45%"></b></div><p class="k-mute" style="font-size:13px;margin-top:6px">Missing documents</p></div><div class="big" id="missBig">12</div></div>
     </div>
     <div class="tile light">
@@ -440,19 +487,19 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
       <div class="th"><h3 style="font-size:26px;font-weight:700;letter-spacing:-.03em">How we make room</h3><span class="k-mute" style="font-size:13px">FIND → FLOW → PROVE → GROW</span></div>
       <div class="pipe">
         <div class="pl"><span>Find · Room Map</span><span class="n">done</span><div class="track full"><span class="dot" style="left:calc(100% - 16px)"></span></div></div>
-        <div class="pl"><span>Flow · build</span><span class="n">next</span><div class="track"><span class="dot o" style="left:0"></span></div></div>
-        <div class="pl"><span>Prove · Report</span><span class="n">—</span><div class="track"></div></div>
-        <div class="pl"><span>Grow · next</span><span class="n">—</span><div class="track"></div></div>
+        <div class="pl"><span>Flow · Working System</span><span class="n">next</span><div class="track"><span class="dot o" style="left:0"></span></div></div>
+        <div class="pl"><span>Prove · Room Report</span><span class="n">—</span><div class="track"></div></div>
+        <div class="pl"><span>Grow · Next Opportunity</span><span class="n">—</span><div class="track"></div></div>
       </div>
       <p class="k-mute" style="font-size:13px">Human in the Middle: CUEPA prepares and flags. Sending, paying and approving stay with you.</p>
     </div>
     <div class="tile light">
       <div class="th"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>What we found</div></div>
       <div class="list">
-        <button class="li" data-go="overview-found">Built for cheer gyms <small>iClassPro</small></button>
-        <button class="li" data-go="overview-found">Paper on the road <small>Mileage</small></button>
-        <button class="li" data-go="overview-found">Clunky camp passes <small>Camps</small></button>
-        <button class="li" data-go="overview-found">Nothing written down <small>Refunds</small></button>
+        <button class="li" data-go="overview-found" aria-pressed="false">Built for cheer gyms <small>iClassPro</small></button>
+        <button class="li" data-go="overview-found" aria-pressed="false">Paper on the road <small>Mileage</small></button>
+        <button class="li" data-go="overview-found" aria-pressed="false">Clunky camp passes <small>Camps</small></button>
+        <button class="li" data-go="overview-found" aria-pressed="false">Nothing written down <small>Refunds</small></button>
       </div>
       <div class="fpop" id="foundNote" aria-live="polite"></div>
       <a class="morelink" href="#why" data-go="why">Why it matters →</a>
@@ -462,7 +509,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
 <!-- AUDIT -->
 <section class="view" id="v-audit" hidden>
-  <div class="sec"><a class="morelink" href="#overview" data-go="overview">← Back</a><div class="eb">The full audit</div><h2>What's on file, what's missing<span class="pd">.</span></h2><p>Every document in your Drive, mapped by who uses it. The gaps below are what put you at risk with CPS, your insurer and refund disputes, and they're what the proposal fixes first.</p></div>
+  <div class="sec"><a class="morelink" href="#overview" data-go="overview">← Back</a><div class="eb">Paperwork audit</div><h2>What's on file, what's missing<span class="pd">.</span></h2><p>Every document in your Drive, mapped by who uses it. The gaps below are what put you at risk with CPS, your insurer and refund disputes, and they're what the proposal fixes first.</p></div>
   <div class="filters" role="group" aria-label="Filter by group" id="fGroup">
     <button class="fb" aria-pressed="true" data-g="all">Everyone</button>
     <button class="fb" aria-pressed="false" data-g="Parents">Parents</button>
@@ -484,7 +531,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13202A"/><stop offset=".65" stop-color="#1B3540"/><stop offset="1" stop-color="#0E7490"/></linearGradient>
         <radialGradient id="sun" cx=".78" cy=".55" r=".45"><stop offset="0" stop-color="#2DD4BF" stop-opacity=".75"/><stop offset=".5" stop-color="#0E7490" stop-opacity=".3"/><stop offset="1" stop-color="#0E7490" stop-opacity="0"/></radialGradient>
-        <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#0A0C0F"/></linearGradient>
+        <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#080B0F"/></linearGradient>
       </defs>
       <rect width="1000" height="280" fill="url(#sky)"/>
       <rect width="1000" height="280" fill="url(#sun)"/>
@@ -519,7 +566,6 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 <!-- PLAN -->
 <section class="view" id="v-plan" hidden>
   <div class="sec"><div class="eb">For families</div><h2>How booking works, step by step<span class="pd">.</span></h2><p>Tap each step to see what a parent sees and what changes for your team.</p></div>
-  <figure class="famban"><img src="/cirques-experience/audit-review/assets/family.jpg" alt="A parent at the kitchen table booking a class on a laptop with a card in hand"><figcaption>Booked from the kitchen table, in one visit.</figcaption></figure>
   <div class="steps" role="group" aria-label="Booking steps">
     <button class="step" aria-pressed="true" data-step="0"><span class="n">1</span><b>Find a class</b></button>
     <button class="step" aria-pressed="false" data-step="1"><span class="n">2</span><b>Pick how to book</b></button>
@@ -529,57 +575,75 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <div class="stepwrap">
   <div class="tile panel" id="stepPanel" aria-live="polite"></div>
   <div class="mocks" aria-label="Your new website, step by step">
-    <figure class="shot" data-m="0"><img src="/cirques-experience/audit-review/assets/web-1.jpg" alt="Website concept: class cards for Aerial Arts, Gym and Cyr Wheel, and Circus Explorers"></figure>
-    <figure class="shot" data-m="1" hidden><img src="/cirques-experience/audit-review/assets/web-2.jpg" alt="Website concept: choose how to book, from a single class to two semesters"></figure>
-    <figure class="shot" data-m="2" hidden><img src="/cirques-experience/audit-review/assets/web-3.jpg" alt="Website concept: family details and event forms before payment"></figure>
-    <figure class="shot" data-m="3" hidden><img src="/cirques-experience/audit-review/assets/web-4.jpg" alt="Website concept: booking complete confirmation"></figure>
-    <span class="shotcap">Website concept preview · for your approval</span>
+    <figure class="shot" data-m="0"><img src="/cirques-experience/proposal/assets/web-1.jpg" alt="Website concept: class cards for Aerial Arts, Gym and Cyr Wheel, and Circus Explorers"></figure>
+    <figure class="shot" data-m="1" hidden><img src="/cirques-experience/proposal/assets/web-2.jpg" alt="Website concept: choose how to book, from a single class to two semesters"></figure>
+    <figure class="shot" data-m="2" hidden><img src="/cirques-experience/proposal/assets/web-3.jpg" alt="Website concept: family details and event forms before payment"></figure>
+    <figure class="shot" data-m="3" hidden><img src="/cirques-experience/proposal/assets/web-4.jpg" alt="Website concept: booking complete confirmation"></figure>
+    <span class="shotcap">Booked from the kitchen table · website concept for your approval</span>
   </div>
   </div>
 
-  <div class="sec"><div class="eb">Your Room</div><h2>One place to run the day<span class="pd">.</span></h2><p>Everything the website collects lands here. You approve, CUEPA handles the rest.</p></div>
+  <div class="xlinks"><a class="morelink" href="#coaches" data-go="coaches">For coaches →</a><a class="morelink" href="#leaders" data-go="leaders">For leaders →</a></div>
+</section>
+
+<!-- COACHES -->
+<section class="view" id="v-coaches" hidden>
+  <div class="sec"><div class="eb">For coaches · next, after the website</div><h2>Less paper on the floor<span class="pd">.</span></h2><p>What families fill out on the website shows up on your coaches' phones. These come right after the website is live.</p></div>
   <div class="bento">
-    <div class="tile photo span2" style="min-height:360px"><img src="/cirques-experience/audit-review/assets/room.png" alt="Approved Cirques Experience Room"><div class="cap"><svg width="12" height="12"><use href="#i-ok"/></svg>Approved</div></div>
+    <div class="tile hero span2"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>Step 1 · Roll call</div><div><h3 style="font-size:28px;font-weight:700;letter-spacing:-.03em">Roll call in three taps.</h3><p class="k-mute" style="margin-top:6px">Paid + waiver status on every kid, right on the coach's phone.</p></div></div>
+    <div class="tile light"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>Step 2 · Pickup</div><h3 style="font-size:20px;font-weight:700">Pickup check-off</h3><p class="k-mute">Check each kid out against the approved pickup list families signed online.</p></div>
+    <div class="tile"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>Step 3 · Leaving early</div><h3 style="font-size:20px;font-weight:700">Early-departure receipt</h3><p class="k-mute">Parent gets a receipt with the camp policy. No more refund arguments months later.</p></div>
+    <div class="tile light span2"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Step 4 · On the road</div><h3 style="font-size:20px;font-weight:700">Event + mileage log</h3><p class="k-mute">Parades and school shows: the 2-page paper form becomes 60 seconds on a phone, and it lands in your hub for payroll.</p></div>
+  </div>
+  <div class="xlinks"><a class="morelink" href="#plan" data-go="plan">← For families</a><a class="morelink" href="#leaders" data-go="leaders">For leaders →</a></div>
+</section>
+
+<!-- LEADERS -->
+<section class="view" id="v-leaders" hidden>
+  <div class="sec"><div class="eb">For leaders · your Room</div><h2>One place to run the day<span class="pd">.</span></h2><p>Everything the website collects lands here. You approve, CUEPA handles the rest.</p></div>
+  <div class="bento">
+    <div class="tile photo span2" style="min-height:360px"><img src="/cirques-experience/proposal/assets/room.png" alt="Approved Cirques Experience Room"><div class="cap"><svg width="12" height="12"><use href="#i-ok"/></svg>Approved</div></div>
     <div class="tile light">
       <h3 style="font-size:20px;font-weight:700">In your Room</h3>
       <ul class="clean"><li>Waiting on you: approve in one tap</li><li>Inbox sorted by your Gmail folders</li><li>Your week + live processes</li><li>Ask CUEPA when an idea hits</li></ul>
     </div>
-    <div class="tile"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Coach roster</h3><p class="k-mute">Roll call in three taps. Paid + waiver status on every kid. Pickup check-off.</p></div>
-    <div class="tile light" style="min-height:0"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Early-departure receipt</h3><p class="k-mute">Parent gets a receipt with the camp policy. No more refund arguments months later.</p></div>
-    <div class="tile"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Next · after the website</div><h3 style="font-size:20px;font-weight:700">Event + mileage log</h3><p class="k-mute">The 2-page paper form becomes 60 seconds on a phone.</p></div>
+    <div class="tile"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>Every booking</div><h3 style="font-size:20px;font-weight:700">Bookings, forms + payments together</h3><p class="k-mute">Paid + waiver status on every kid. Passes and camp days tracked for you. Every payment tied to its booking, ready for QuickBooks.</p></div>
+    <div class="tile light"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>With the website</div><h3 style="font-size:20px;font-weight:700">Refunds in writing</h3><p class="k-mute">Every booking sends a receipt with your refund policy. Same-day early-departure receipts come next.</p></div>
+    <div class="tile"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>Human in the Middle</div><h3 style="font-size:20px;font-weight:700">You stay in charge</h3><p class="k-mute">Nothing goes out to a family, and nothing gets paid, without your OK.</p></div>
   </div>
+  <div class="xlinks"><a class="morelink" href="#plan" data-go="plan">← For families</a><a class="morelink" href="#coaches" data-go="coaches">← For coaches</a></div>
 </section>
 
 <!-- WHY -->
 <section class="view" id="v-why" hidden>
-  <div class="sec"><div class="eb">Why · what's happening today</div><h2>Cirques runs on tools built for someone else<span class="pd">.</span></h2><p>We sat with how your team works today. These are the problems we found, what each one costs you, and what we'll do about it.</p></div>
-  <div class="whygrid">
-    <div class="tile whycard"><div class="whyhead"><span class="whyn">01</span><h3>Built for cheer gyms</h3></div><dl><div><dt>Today</dt><dd>iClassPro's skill levels and menus are made for cheer, not wheel, aerial or circus arts.</dd></div><div><dt>What it costs you</dt><dd>Families work to find the right class, and your levels don't match the system you pay for.</dd></div><div class="fix"><dt>What we'll do</dt><dd>A sign-up built around how Cirques actually teaches, with your own levels.</dd></div></dl></div>
-    <div class="tile whycard"><div class="whyhead"><span class="whyn">02</span><h3>Paperwork has no home</h3></div><dl><div><dt>Today</dt><dd>There's no single waiver, medical or pickup form. The audit found 12 documents missing.</dd></div><div><dt>What it costs you</dt><dd>On CPS property and with your insurer, missing waivers, medical info and pickup lists are a real risk.</dd></div><div class="fix"><dt>What we'll do</dt><dd>Every form signed online before anyone pays, filed where your team can find it.</dd></div></dl></div>
-    <div class="tile whycard"><div class="whyhead"><span class="whyn">03</span><h3>Clunky camp passes</h3></div><dl><div><dt>Today</dt><dd>Day passes sit next to 11-week packages in a checkout that wasn't made for both.</dd></div><div><dt>What it costs you</dt><dd>Hard to sell, hard to redeem, and tracked by hand.</dd></div><div class="fix"><dt>What we'll do</dt><dd>One checkout for a class, a pass, camp days or a semester, tracked for you.</dd></div></dl></div>
-    <div class="tile whycard"><div class="whyhead"><span class="whyn">04</span><h3>Paper on the road</h3></div><dl><div><dt>Today</dt><dd>Parades and school shows run on a 2-page paper time and mileage form.</dd></div><div><dt>What it costs you</dt><dd>Time spent on paper after every event, and nothing in one place for payroll.</dd></div><div class="fix"><dt>What we'll do</dt><dd>A 60-second phone form that lands in your hub.</dd></div></dl></div>
-    <div class="tile whycard"><div class="whyhead"><span class="whyn">05</span><h3>Nothing written down</h3></div><dl><div><dt>Today</dt><dd>Refund promises happen in texts and hallway talks.</dd></div><div><dt>What it costs you</dt><dd>Arguments months later, with nothing in writing to point to.</dd></div><div class="fix"><dt>What we'll do</dt><dd>Every booking sends a receipt with your refund policy, the same day.</dd></div></dl></div>
-    <div class="tile whycard"><div class="whyhead"><span class="whyn">06</span><h3>Too many tools</h3></div><dl><div><dt>Today</dt><dd>iClassPro, Webconnex, QuickBooks, paper and texts all hold a piece of the business.</dd></div><div><dt>What it costs you</dt><dd>No one place shows you the full picture of your day.</dd></div><div class="fix"><dt>What we'll do</dt><dd>One Room that pulls it together, with you approving what matters.</dd></div></dl></div>
+  <div class="sec"><div class="eb">Why · what's happening today</div><h2>Cirques runs on tools built for someone else<span class="pd">.</span></h2><p>We sat with how your team works today. Here are the three that cost you the most, and what we'll do about each.</p></div>
+  <div class="tile whysum">
+    <div class="ic"><i><svg><use href="#i-doc"/></svg></i>The top 3</div>
+    <ol class="top3">
+      <li><span class="whyn">01</span><div><b>Sign-up is built for cheer gyms</b><span>iClassPro's levels and menus don't fit wheel, aerial or circus arts. <em>We'll build sign-up around how Cirques teaches.</em></span></div></li>
+      <li><span class="whyn">02</span><div><b>Paperwork has no home</b><span>No single waiver, medical or pickup form, and 12 documents missing. <em>Every form gets signed online before anyone pays.</em></span></div></li>
+      <li><span class="whyn">03</span><div><b>Too many tools, nothing in writing</b><span>Sign-ups live in four systems and refund promises live in texts. <em>One Room, and every booking carries your refund policy.</em></span></div></li>
+    </ol>
   </div>
-  <div class="tile hero whycta">
-    <div><div class="ic"><i><svg><use href="#i-loop"/></svg></i>What it adds up to</div><h2>Every one of these lands on you or your team to fix by hand.</h2><p class="k-mute" style="font-size:15px;max-width:56ch">That's the room we're here to make. The proposal shows how we fix them, in what order, and what it costs.</p></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="abtn" href="#proposal" data-go="proposal">Read the proposal →</a><a class="morelink" style="color:#fff" href="#audit" data-go="audit">See the full audit →</a></div>
+  <div class="tile hero ember whycta">
+    <div><div class="ic"><i><svg><use href="#i-loop"/></svg></i>What it adds up to</div><h2>Every one of these lands on you or your team to fix by hand<span class="pd">.</span></h2><p class="k-mute" style="font-size:15px;max-width:56ch">That's the room we're here to make. Want every detail? The full audit has all 20 website findings and the evidence behind each one.</p></div>
+    <div class="ctas"><a class="abtn" href="#proposal" data-go="proposal">Read the proposal →</a><a class="dbtn" href="/cirques-experience/website-audit">See all the work we did →</a></div>
   </div>
 </section>
 
 <!-- PROPOSAL -->
 <section class="view" id="v-proposal" hidden>
-  <div class="sec"><div class="eb">Proposal · Cirques Experience website</div><h2>Your new website. Sign up, sign, book. One visit<span class="pd">.</span></h2><p>Prepared for Christian Ochsner &amp; Wolfgang Bientzle · November 2026. Everything you need to decide is on this page.</p></div>
+  <div class="sec"><div class="eb">Proposal · Phase 1 of moving off iClassPro</div><h2>Your new website. Sign up, sign, book. One visit<span class="pd">.</span></h2><p>Phase 1 moves sign-up and paperwork off iClassPro and onto your own site. Phase 2, the Smart Scheduler, retires iClassPro for good. Prepared for Christian Ochsner &amp; Wolfgang Bientzle · November 2026. Everything you need to decide is on this page.</p></div>
 
   <div class="bento">
-    <div class="tile photo span2 propshot"><img src="/cirques-experience/audit-review/assets/wheel.jpg" alt="Kids and a Cirques Experience coach on the German Wheel outdoors"><div class="cap">Cirques Experience · German Wheel</div></div>
-    <div class="tile light" style="justify-content:flex-start"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>The situation</div><ul class="clean"><li>iClassPro is built for cheer gyms, not wheel, aerial or circus arts.</li><li>Waivers, medical info and pickup lists have no single form.</li><li>Day passes and 11-week packages are hard to sell and redeem.</li><li>Refund promises live in texts and hallway talks.</li></ul><a class="morelink" href="#audit" data-go="audit">See the full audit →</a></div>
+    <div class="tile photo span2 propshot"><img src="/cirques-experience/proposal/assets/wheel.jpg" alt="Kids and a Cirques Experience coach on the German Wheel outdoors"><div class="cap">Cirques Experience · German Wheel</div></div>
+    <div class="tile light" style="justify-content:flex-start"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>The situation</div><p class="k-mute" style="font-size:15px">Two audits, one picture: the <b>website audit</b> found 20 issues on cirquesexperience.org, and the <b>paperwork audit</b> found 12 missing documents. This proposal fixes the biggest ones first.</p><a class="morelink" href="/cirques-experience/website-audit">See all the work we did →</a><a class="morelink" href="#audit" data-go="audit" style="margin-top:0">See the paperwork audit →</a></div>
   </div>
 
   <div class="sec" style="padding-top:40px"><div class="eb">What you get</div><h2>What changes when it's live<span class="pd">.</span></h2></div>
   <div class="grid3">
     <div class="card"><div class="ic"><i><svg><use href="#i-wheel"/></svg></i>For families</div><p>Find a class, pick how to book and sign every form from their phone in one visit. Nothing to print, nothing to bring on day one.</p></div>
-    <div class="card"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>For your team</div><p>Bookings, passes and signed forms in one place instead of five tools, ready in your Room before class starts.</p></div>
+    <div class="card"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>For your team</div><p>Bookings, passes and signed forms in one place instead of spread across iClassPro, Wix and RegFox, ready in your Room before class starts.</p></div>
     <div class="card"><div class="ic"><i><svg><use href="#i-bell"/></svg></i>For you</div><p>Every booking carries your refund policy in writing, so disputes stop showing up months later.</p></div>
   </div>
   <div class="tile prove"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>How we'll prove it</div><p>Before we start, we record a week-one baseline of how sign-ups, paperwork and refund questions run today. After launch, your <b>Room Report</b> shows the before and after, so you see what changed in your own numbers.</p></div>
@@ -613,7 +677,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   </ol>
   <div class="tile wreuse"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>Built once, reused</div><p>The same pattern (trigger, send, collect, review, done) then runs <b>new family enrollment</b>, <b>performer contracts</b> before a parade, and the <b>event + mileage log</b>. We'll set what goes in the coach packet with you during step 2.</p></div>
 
-  <div class="tile notinc"><div class="ic"><i><svg><use href="#i-miss"/></svg></i>Not included · quoted separately</div><ul class="clean"><li>Online tuition payments (step 6 above)</li><li>A full class scheduling backend to replace iClassPro</li></ul><p class="k-mute" style="font-size:13px">We'll scope these with you once the site is live, so you only pay for what you need.</p></div>
+  <div class="tile notinc"><div class="ic"><i><svg><use href="#i-miss"/></svg></i>Phase 2 · quoted separately</div><ul class="clean"><li><b>Smart Scheduler:</b> your season, levels, capacity, waitlists, coach rosters and time clock, built for circus arts. It flags conflicts and suggests changes; you approve. This is what retires iClassPro.</li><li>Online tuition payments (step 6 above)</li></ul><p class="k-mute" style="font-size:13px">We'll scope these with you once the site is live, so you only pay for what you need.</p></div>
 
   <div class="tile addonbox">
     <span class="addon"><svg aria-hidden="true"><use href="#i-doc"/></svg>Optional add-on</span>
@@ -631,7 +695,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     <div class="invest-in">
       <div class="inv-top"><div><span class="k-l">Website + class sign-up + online paperwork</span><div class="inv-big">$4,500</div><span class="k-l">$6,000, less your $1,500 first-clients credit</span></div></div>
       <div class="inv-pay"><div><b>50%</b><span>$2,250 to start</span></div><div><b>30%</b><span>$1,350</span></div><div><b>20%</b><span>$900 at launch</span></div></div>
-      <p class="k-l">Online tuition payments and a scheduling backend are not included and are quoted separately.</p>
+      <p class="k-l">Phase 1 of moving off iClassPro. The Smart Scheduler (Phase 2) and online tuition payments are quoted separately.</p>
     </div>
   </details>
 
@@ -639,7 +703,7 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <div class="bar" aria-hidden="true"><i id="bar"></i></div>
   <p class="count" id="checkCount" aria-live="polite"></p>
   <div class="nextgrid">
-    <div class="tile photo nextphoto"><img src="/cirques-experience/audit-review/assets/hallway.jpg" alt="Students walking through a sunlit school hallway"><div class="cap">Families move fast. The paperwork should too.</div></div>
+    <div class="tile photo nextphoto"><img src="/cirques-experience/proposal/assets/hallway.jpg" alt="Students walking through a sunlit school hallway"><div class="cap">Families move fast. The paperwork should too.</div></div>
     <div class="checkgrid" id="checks">
       <label class="check g0"><input type="checkbox" data-k="forms"><span><em>01</em>Current waiver, medical or pickup forms<small>Whatever you use today, even paper.</small></span></label>
       <label class="check g1"><input type="checkbox" data-k="venues"><span><em>02</em>Which venues are active<small>Broadway Armory, Chase Park, or both.</small></span></label>
@@ -649,11 +713,11 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
     </div>
   </div>
 
-  <div class="tile hero decide">
+  <div class="tile hero ember decide">
     <div><div class="ic"><i><svg><use href="#i-ok"/></svg></i>Your decision</div><h2>Ready to make room?</h2><p class="k-mute" style="font-size:15px;max-width:52ch">Approve the proposal and we'll send your first invoice and start on your forms right away. If you want the document add-on, just say so in your reply.</p></div>
     <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
-      <a class="abtn" id="approveBtn" target="_blank" rel="noopener" href="mailto:marcoscuellar@elipangroup.com?subject=Approved%3A%20Cirques%20Experience%20website%20proposal&amp;body=Hi%20Marcos%2C%0A%0AWe%20approve%20the%20website%20proposal%20(Estimate%20%23113).%20Please%20send%20the%20first%20invoice%20so%20we%20can%20get%20started.%0A%0AAdd%20the%20document%20add-on%3F%20(yes%20%2F%20no)%3A%20%0A%0AThanks%2C%0AChristian"><svg aria-hidden="true"><use href="#i-ok"/></svg>Approve the proposal</a>
-      <span class="athanks" id="approveThanks" aria-live="polite">Thank you! We'll confirm and send your first invoice.</span>
+      <a class="abtn" id="approveBtn" target="_blank" rel="noopener" href="mailto:marcoscuellar@elipangroup.com?subject=Approved%3A%20Cirques%20Experience%20website%20proposal&amp;body=Hi%20Marcos%2C%0A%0AWe%20approve%20the%20website%20proposal%20(Estimate%20%23113).%20Please%20send%20the%20first%20invoice%20so%20we%20can%20get%20started.%0A%0AAdd%20the%20document%20add-on%3F%20(yes%20%2F%20no)%3A%20%0A%0AThanks%2C%0A"><svg aria-hidden="true"><use href="#i-ok"/></svg>Approve the proposal</a>
+      <span class="athanks" id="approveThanks" aria-live="polite">Your email is ready. Hit send and we'll confirm and send your first invoice.</span>
     </div>
   </div>
 </section>
@@ -663,9 +727,9 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   <div class="sec"><div class="eb">What's next</div><h2>Now, next, later<span class="pd">.</span></h2><p>We build in the order that gives you the most room first.</p></div>
   <div class="bento">
     <div class="tile span3 donebar"><div class="ic"><i><svg><use href="#i-ok"/></svg></i>Done</div><div class="donegrid"><div><span class="done"><svg aria-hidden="true"><use href="#i-ok"/></svg>Complete</span><b>Your Room platform</b><p class="k-mute">Designed and approved: Waiting on you, Inbox, Your week, Ask CUEPA.</p></div><div><span class="done"><svg aria-hidden="true"><use href="#i-ok"/></svg>Complete</span><b>Operations audit</b><p class="k-mute">Every document mapped by who uses it, plus what applies on CPS property.</p></div></div></div>
-    <div class="tile hero" style="justify-content:flex-start"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>Now · in this order</div><ol class="path"><li><b>You approve</b>The website and these next steps</li><li><b>Compliance forms + onboarding</b>Waiver, medical + pickup · about one week</li><li><b>Finalize the website</b>Sign up, sign and book in one visit</li><li><b>Online payments</b>Stripe, or whichever processor connects to your QuickBooks</li></ol></div>
-    <div class="tile light"><div class="ic"><i><svg><use href="#i-arrow"/></svg></i>Next</div><ul class="clean"><li>Coach roster: paid + waiver</li><li>Early-departure receipt</li><li>Digital event + mileage form</li><li>Camp day-pass punchcard</li><li>Automatic 20% cancel math</li><li>Payment reminders</li><li>Pickup check-out + injury log</li><li>Staff guides in the hub</li></ul></div>
-    <div class="tile"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Later</div><ul class="clean"><li>CPS + insurance expiry tracker</li><li>Performer call sheets</li><li>Contractor invoices + time log</li><li>Waitlist + capacity rules</li><li>Retire iClassPro for good</li></ul></div>
+    <div class="tile hero" style="justify-content:flex-start"><div class="ic"><i><svg><use href="#i-loop"/></svg></i>Now · in this order</div><ol class="path"><li><b>You approve</b>The website and these next steps</li><li><b>Compliance forms + onboarding</b>Waiver, medical + pickup · about one week</li><li><b>Finalize the website</b>Sign up, sign and book in one visit</li><li><b>Online payments</b>Quoted with you once the site is live</li></ol></div>
+    <div class="tile light"><div class="ic"><i><svg><use href="#i-arrow"/></svg></i>Next · Phase 2</div><ul class="clean"><li><b>Smart Scheduler: retire iClassPro</b></li><li>Coach roster: paid + waiver</li><li>Early-departure receipt</li><li>Digital event + mileage form</li><li>Camp day-pass punchcard</li><li>Automatic 20% cancel math</li><li>Payment reminders</li><li>Pickup check-out + injury log</li><li>Staff guides in the hub</li></ul></div>
+    <div class="tile"><div class="ic"><i><svg><use href="#i-doc"/></svg></i>Later</div><ul class="clean"><li>CPS + insurance expiry tracker</li><li>Performer call sheets</li><li>Contractor invoices + time log</li><li>Waitlist + capacity rules</li></ul></div>
   </div>
 </section>
 
@@ -684,16 +748,24 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
   var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
   // light/dark
   var mode=document.getElementById('mode');
-  function setMode(l){document.body.classList.toggle('light',l);mode.setAttribute('aria-pressed',String(l));mode.textContent=l?'Dark':'Light';store.set('cirq-mode',l?'light':'dark')}
+  function setMode(l){document.body.classList.toggle('light',l);mode.setAttribute('aria-pressed',String(!l));store.set('cirq-mode',l?'light':'dark')}
   setMode(store.get('cirq-mode')!=='dark');
   mode.addEventListener('click',function(){setMode(!document.body.classList.contains('light'))});
 
   // tabs
-  var views=['overview','why','proposal','plan','roadmap','audit'],tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var views=['overview','why','proposal','plan','coaches','leaders','roadmap','audit'],tabs=[].slice.call(document.querySelectorAll('.tab[data-view]'));
+  var dd=document.getElementById('propDD'),ddm=document.getElementById('propMenu'),grp=['proposal','plan','coaches','leaders'];
+  function closeDD(){ddm.hidden=true;dd.setAttribute('aria-expanded','false')}
+  function openDD(){ddm.hidden=false;dd.setAttribute('aria-expanded','true');var r=dd.getBoundingClientRect();ddm.style.top=(r.bottom+8)+'px';ddm.style.left=Math.max(12,Math.min(r.left,window.innerWidth-ddm.offsetWidth-12))+'px'}
+  dd.addEventListener('click',function(e){e.stopPropagation();ddm.hidden?openDD():closeDD()});
+  document.addEventListener('click',function(e){if(!ddm.hidden&&!ddm.contains(e.target))closeDD()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ddm.hidden){closeDD();dd.focus()}});
+  window.addEventListener('resize',closeDD);window.addEventListener('scroll',closeDD,{passive:true});
   function show(v,scroll){
     if(views.indexOf(v)<0)v='overview';
     views.forEach(function(x){document.getElementById('v-'+x).hidden=(x!==v)});
     tabs.forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.view===v))});
+    dd.setAttribute('aria-selected',String(grp.indexOf(v)>-1));closeDD();
     if(location.hash!=='#'+v){try{history.replaceState(null,'','#'+v)}catch(e){}}
     if(scroll)window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -772,14 +844,14 @@ footer p{color:rgba(255,255,255,.75);font-size:14px}
 
   // steps
   var steps=[
-    ['Find a class','Families browse by who it\'s for: kids + teens, adults, camps and parties.',['Every class shows age, day, time and level','Camps and break weeks in the same place','Parties and school shows have their own way in'],['Families dig through iClassPro menus built for cheer gyms.','Pick who\'s coming and see age, day, time and level at a glance. Booking from the couch takes a minute.','Fewer "which class is right for my kid?" calls and emails.']],
+    ['Find a class','Families browse by who it\'s for: kids + teens, adults, camps and parties.',['Every class shows age, day, time and level','Camps and break weeks in the same place','Parties and school shows have their own way in'],['Families dig through menus that weren\'t made for circus classes.','Pick who\'s coming and see age, day, time and level at a glance. Booking from the couch takes a minute.','Fewer "which class is right for my kid?" calls and emails.']],
     ['Pick how to book','One checkout that fits how Cirques sells.',['Single class or a class pass','Camp day pass or full week','One semester or Fall + Spring together'],['Day passes next to 11-week packages are hard to sell and hard to redeem.','One checkout for a single class, a pass, camp days or a full semester.','Passes and camp days are tracked for you, not by hand.']],
     ['Who\'s coming + forms','Paperwork happens before payment, so nobody starts without it.',['Wheel + aerial waiver and photo release','Medical, allergies and emergency contact','Approved pickup list for after-school'],['There\'s no single waiver, medical or pickup form today.','Everything gets signed on their phone before they pay. Nothing to print, nothing to bring on day one.','Coaches see paid + waiver status on every kid at roll call.']],
-    ['Pay + confirmed','Families pay online in the same visit and get everything in writing.',['Card, Apple Pay or Google Pay, right on their phone','Receipt and your refund policy land in their inbox','Every payment matches its booking, ready for QuickBooks'],['Payments, passes and refund promises live in different places, so disputes show up months later.','Pay in a few taps. The receipt and your policy are in their inbox before they leave the page.','Every payment is tied to its booking, so refund questions take seconds, not months.'],'Online payments switch on right after the website is final: Stripe, or whichever processor connects to your QuickBooks. Quoted with you.']
+    ['Pay + confirmed','Families pay online in the same visit and get everything in writing.',['Card, Apple Pay or Google Pay, right on their phone','Receipt and your refund policy land in their inbox','Every payment matches its booking, ready for QuickBooks'],['Payments, passes and refund promises live in different places, so disputes show up months later.','Pay in a few taps. The receipt and your policy are in their inbox before they leave the page.','Every payment is tied to its booking, so refund questions take seconds, not months.'],'Online payments switch on right after the website is final, quoted with you.']
   ];
   var panel=document.getElementById('stepPanel'),sb=[].slice.call(document.querySelectorAll('.step'));
   var mocks=[].slice.call(document.querySelectorAll('.shot'));
-  function renderStep(n){sb.forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.step===n))});mocks.forEach(function(m){m.hidden=(+m.dataset.m!==n)});var st=steps[n];panel.innerHTML='';var eb=document.createElement('div');eb.className='eb';eb.style.cssText='font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)';eb.textContent='Step '+(n+1)+' of 4';var h=document.createElement('h3');h.style.cssText='font-size:26px;font-weight:700;letter-spacing:-.03em';h.textContent=st[0];var p=document.createElement('p');p.className='k-mute';p.textContent=st[1];var sub=document.createElement('b');sub.style.fontSize='14px';sub.textContent='How it works';var ol=document.createElement('ol');ol.className='howlist';st[2].forEach(function(t){var li=document.createElement('li');li.textContent=t;ol.appendChild(li)});var nav=document.createElement('div');nav.className='stepnav';var bk=document.createElement('button');bk.textContent='Back';bk.disabled=n===0;bk.addEventListener('click',function(){renderStep(n-1)});var nx=document.createElement('button');nx.className='pr';nx.textContent=n===3?'Start over':'Next step';nx.addEventListener('click',function(){renderStep(n===3?0:n+1)});nav.appendChild(bk);nav.appendChild(nx);panel.appendChild(eb);panel.appendChild(h);panel.appendChild(p);panel.appendChild(sub);panel.appendChild(ol);var w=st[3];var win=document.createElement('div');win.className='win';[['Today',w[0],'b'],['With the new site',w[1],'n'],['For your team',w[2],'t']].forEach(function(r){var d=document.createElement('div');d.className='wr '+r[2];var l=document.createElement('span');l.textContent=r[0];var t=document.createElement('p');t.textContent=r[1];d.appendChild(l);d.appendChild(t);win.appendChild(d)});panel.appendChild(win);if(st[4]){var nt=document.createElement('p');nt.className='k-mute';nt.style.fontSize='13px';nt.textContent=st[4];panel.appendChild(nt)}panel.appendChild(nav)}
+  function renderStep(n){sb.forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.step===n))});mocks.forEach(function(m){m.hidden=(+m.dataset.m!==n)});var st=steps[n];panel.innerHTML='';var eb=document.createElement('div');eb.className='eb';eb.style.cssText='font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)';eb.textContent='Step '+(n+1)+' of 4';var h=document.createElement('h3');h.style.cssText='font-size:26px;font-weight:700;letter-spacing:-.03em';h.textContent=st[0];var p=document.createElement('p');p.className='k-mute';p.textContent=st[1];var sub=document.createElement('b');sub.style.fontSize='14px';sub.textContent='How it works';var ol=document.createElement('ol');ol.className='howlist';st[2].forEach(function(t){var li=document.createElement('li');li.textContent=t;ol.appendChild(li)});var nav=document.createElement('div');nav.className='stepnav';var bk=document.createElement('button');bk.textContent='Back';bk.disabled=n===0;bk.addEventListener('click',function(){renderStep(n-1);var f=panel.querySelector('.stepnav button:not([disabled])');if(f)f.focus()});var nx=document.createElement('button');nx.className='pr';nx.textContent=n===3?'Start over':'Next step';nx.addEventListener('click',function(){renderStep(n===3?0:n+1);var f=panel.querySelector('.stepnav .pr');if(f)f.focus()});nav.appendChild(bk);nav.appendChild(nx);panel.appendChild(eb);panel.appendChild(h);panel.appendChild(p);panel.appendChild(sub);panel.appendChild(ol);var w=st[3];var win=document.createElement('div');win.className='win';[['Today',w[0],'b'],['With the new site',w[1],'n'],['For your team',w[2],'t']].forEach(function(r){var d=document.createElement('div');d.className='wr '+r[2];var l=document.createElement('span');l.textContent=r[0];var t=document.createElement('p');t.textContent=r[1];d.appendChild(l);d.appendChild(t);win.appendChild(d)});panel.appendChild(win);if(st[4]){var nt=document.createElement('p');nt.className='k-mute';nt.style.fontSize='13px';nt.textContent=st[4];panel.appendChild(nt)}panel.appendChild(nav)}
   sb.forEach(function(b){b.addEventListener('click',function(){renderStep(+b.dataset.step)})});renderStep(0);
 
   var ab=document.getElementById('approveBtn');if(ab)ab.addEventListener('click',function(){document.getElementById('approveThanks').classList.add('on')});
