@@ -2,6 +2,7 @@
 import ReturnMark from "./ReturnMark";
 
 import Image from "next/image";
+import AnimatedLogo from "./AnimatedLogo";
 import {useEffect, useRef, useState} from "react";
 
 // External research findings (not CUEPA client results). Wording follows what each source reports.
@@ -80,18 +81,19 @@ export default function AnimatedIntro(){
         <div className="hero4-photo" aria-hidden="true">
           <Image src="/hero-meeting.jpg" alt="" width={2000} height={1117} sizes="100vw" priority fetchPriority="high"/>
         </div>
+        <div className="hero4-glow hero4-glow--a" aria-hidden="true"/>
+        <div className="hero4-glow hero4-glow--b" aria-hidden="true"/>
         <div className="relative z-[3] flex w-full max-w-4xl flex-col items-center text-center">
-          <img style={rise(0)} src="/brand/cuepa-logo-white.svg" alt="CUEPA" width={1127} height={314} fetchPriority="high"
-            className="hero4-rise h-auto w-[min(640px,82vw)]"/>
-          <h1 style={rise(1)}
+          <AnimatedLogo className="h-auto w-[min(640px,82vw)]"/>
+          <h1 style={rise(5)}
             className="hero4-rise hero4-h1 mt-8 text-balance text-4xl font-semibold tracking-tight text-white sm:mt-12 sm:text-5xl lg:mt-14 lg:text-[56px]">
             Making room for more.
           </h1>
-          <p style={rise(2)}
-            className="hero4-rise hero4-sub mt-5 max-w-[34rem] text-balance text-lg font-medium leading-relaxed text-white/90 sm:mt-6 sm:max-w-[44rem] sm:text-[22px] lg:text-2xl">
-            We find where AI creates value, build it into how you work, and measure the results. With people at the center.
+          <p style={rise(6)}
+            className="hero4-rise hero4-sub mt-5 max-w-[34rem] text-balance text-lg font-medium leading-relaxed text-white sm:mt-6 sm:max-w-[44rem] sm:text-[22px] lg:text-2xl">
+            We find where AI creates value and put it to work inside your operations, so your people can focus on what matters. With people at the center.
           </p>
-          <div style={rise(3)}
+          <div style={rise(7)}
             className="hero4-rise mt-10 flex w-full flex-col items-center justify-center gap-3 sm:mt-12 sm:w-auto sm:flex-row sm:gap-4">
             <a href="#conversation"
               className="hero4-cta inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-white px-4 text-center text-[15px] font-bold leading-tight shadow-[0_10px_28px_rgba(8,11,15,.3)] transition hover:-translate-y-px focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-white sm:w-auto sm:px-7 sm:text-base">
