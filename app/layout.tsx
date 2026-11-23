@@ -1,13 +1,13 @@
 import type {Metadata} from "next";import "./globals.css";import "./humans.css";import "./motion-refine.css";import "./original-demo.css";import "./ecosystem.css";import "./intro-motion.css";import "./roommap.css";import "./roomworth.css";import "./howitworks.css";import "./practice.css";import "./refresh.css";import "./brand-nov.css";
-const title="CUEPA — Human-Governed AI Workflows for Small Business";
-const description="CUEPA helps small businesses find operational gaps and design practical, human-governed AI workflows. We start with your business goal, not the technology. You keep the decisions.";
+const title="CUEPA — AI Transformation & Workflow Implementation";
+const description="We put AI to work inside your operations, so your people can focus on what matters. AI transformation and workflow implementation for growing businesses.";
 // Structured data: only facts Marcos has stated. No address, hours, prices or ratings.
 const jsonLd={
   "@context":"https://schema.org",
   "@graph":[
     {"@type":"ProfessionalService","@id":"https://www.makingcuepa.com/#business","name":"CUEPA","url":"https://www.makingcuepa.com/","logo":"https://www.makingcuepa.com/icon-512.png","image":"https://www.makingcuepa.com/og.jpg",
      "email":"marcoscuellar@elipangroup.com","slogan":"Make room for what's next.",
-     "description":"CUEPA helps small businesses identify operational gaps and design practical, human-governed AI workflows. The work starts with the business goal, then maps how work actually gets done, and puts AI only where it pays off. A person approves before anything goes out.",
+     "description":"AI transformation and workflow implementation for businesses that want more capacity, led by a founder who has implemented change inside Fortune 100 organizations. We put AI to work inside your operations, so your people can focus on what matters.",
      "parentOrganization":{"@type":"Organization","name":"ELIPAN GROUP"},
      "founder":{"@id":"https://www.makingcuepa.com/#marcos"},
      "knowsAbout":["AI workflow design","Operational gap analysis","Workflow automation for small business","Human-in-the-loop AI","Business process improvement","Operational strategy"],

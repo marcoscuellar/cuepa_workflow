@@ -153,7 +153,7 @@ export default function AnimatedIntro(){
         <p className="reality-note reality-reveal" style={{"--stat-order":5} as React.CSSProperties}>Independent research findings, not CUEPA client results.</p>
         <div className="reality-next reality-reveal" style={{"--stat-order":6} as React.CSSProperties}>
           <p>Here&rsquo;s how we make that room.</p>
-          <a href="#worth">See what your room could be worth <span aria-hidden="true">&rarr;</span></a>
+          <a href="#where-ai">See where AI meets the work <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ import {motion} from "motion/react";
 import Logo from "./Logo";
 
 const items=[
-  {key:"room",label:"Making room",href:"#top",sections:["top","reality","worth"]},
+  {key:"room",label:"Making room",href:"#top",sections:["top","reality","where-ai"]},
   {key:"how",label:"The Practice",href:"#method",sections:["method","find","flow","prove","grow"]},
   {key:"dashboard",label:"Dashboard",href:"#product",sections:["product"]},
   {key:"trust",label:"Trust",href:"#trust",sections:["trust","next","conversation"]},

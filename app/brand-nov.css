@@ -219,7 +219,7 @@
 }
 /* Copy is first in the source; on desktop the photo still sits on the left. */
 @media (min-width:901px){.reality-stage{order:-1}}
-#worth{scroll-margin-top:92px}
+#where-ai{scroll-margin-top:100px}
 
 /* Supporting copy: a little wider so the longer paragraph stays at a comfortable 4–5 lines */
 .site .reality-copy .reality-sub{max-width:54ch;line-height:1.55}
