@@ -1,9 +1,9 @@
 export default function OwnerControl(){return (
   <section className="report-showcase" id="product">
     <div className="report-intro">
-      <p className="lbl">SEE WHAT YOU GET</p>
+      <p className="lbl">THE DASHBOARD · SEE WHAT YOU GET</p>
       <h3>YOUR ROOM,<br/>ON ONE SCREEN.</h3>
-      <p>Not a promise — a diagnostic. Your baseline, what the system handled, what it found, and the few things that need you. This is the screen we stand behind.</p>
+      <p>Not a promise. A measurement. Your baseline, the work the system handled on its own, what it found, and the few things that need you. This is the screen we stand behind.</p>
     </div>
 
     <div className="rrStage rrStage--ops">
