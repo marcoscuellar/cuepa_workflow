@@ -55,7 +55,7 @@ export default function HowItWorks() {
               <ReturnMark size={22}/>
               <span><b>Marcos Cuellar</b> · Founder, CUEPA</span>
             </div>
-            <p className="hw-how">I lead CUEPA, where we help businesses identify operational gaps and design practical, <b>human-governed AI workflows.</b> My background is in business development, staffing and operational strategy, so my approach starts with the human business outcome rather than the technology.</p>
+            <p className="hw-how">I lead CUEPA, where we help businesses bring AI into how the work gets done: <b>AI transformation and workflow implementation,</b> led by someone who has implemented change inside Fortune 100 organizations. My background is in go-to-market leadership, staffing and operational strategy, so we start with the business outcome, not the technology. I also recently completed IBM&rsquo;s &ldquo;Lead AI Change: Workforce Enablement and Adoption.&rdquo;</p>
             <p className="hw-north">Human foreground. Intelligence background.</p>
           </aside>
         </div>

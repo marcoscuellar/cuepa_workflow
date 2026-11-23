@@ -6,7 +6,7 @@ import Testimonial from "./Testimonial";
 import Trust from "./Trust";
 import Conversation from "./Conversation";
 import Logo from "./Logo";
-import RoomWorth from "./RoomWorth";
+import WhereAiMeetsWork from "./WhereAiMeetsWork";
 import NextLines from "./NextLines";
 
 export default function Home(){return <main className="site">
@@ -15,8 +15,9 @@ export default function Home(){return <main className="site">
   {/* Act 1 — Hero (football) + Act 2 — Reality (dark stats): both in AnimatedIntro */}
   <AnimatedIntro/>
 
-  {/* "How much time and money is this costing us?" — the manager's first question */}
-  <RoomWorth/>
+  {/* Act 3 — Where AI meets the work: the bridge from The Reality into The Practice.
+      ("Your Room Worth" calculator is archived: see docs/ARCHIVED_ROOM_WORTH_CALCULATOR.md) */}
+  <WhereAiMeetsWork/>
 
   {/* Act 3 — The CUEPA Practice: CHIMAL band, how we work, the four turns, the 5 calls */}
   <PracticeHeader/>
