@@ -1,17 +1,16 @@
-import type {Metadata} from "next";
 import Nav from "../Nav";
-import Logo from "../Logo";
 import ContactForm from "../ContactForm";
+import {pageMeta,SiteFooter} from "../PageShell";
 
-export const metadata:Metadata={
-  title:"Contact — CUEPA",
-  description:"See how we can make room for you. Leave your email and a real person comes back to you.",
-  alternates:{canonical:"/contact"}
-};
+export const metadata=pageMeta(
+  "/contact",
+  "Book a 20-Minute Room Conversation | CUEPA",
+  "See how CUEPA can make room in your week. Leave your email and a real person replies. No deck, no sales call."
+);
 
 export default function ContactPage(){
   return (<main>
-    <Nav/>
+    <Nav current="contact"/>
     <section className="contact-page">
       <div className="shell contact-grid">
         <figure className="contact-photo">
@@ -20,14 +19,10 @@ export default function ContactPage(){
         <div className="contact-copy">
           <h1>SEE HOW WE<br/>CAN MAKE<br/>ROOM FOR<br/>YOU</h1>
           <ContactForm/>
+          <p className="contact-mail">Prefer email? <a href="mailto:marcoscuellar@elipangroup.com">marcoscuellar@elipangroup.com</a></p>
         </div>
       </div>
     </section>
-    <footer className="site-footer">
-      <p className="wordmark"><Logo lockup size={26}/></p>
-      <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
-      <p>© 2026 CUEPA</p>
-      <p className="footer-ollin">CUEPA · An ELIPAN GROUP company</p>
-    </footer>
+    <SiteFooter/>
   </main>);
 }

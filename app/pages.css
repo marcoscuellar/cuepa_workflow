@@ -1,0 +1,24 @@
+/* Content pages (/practice, /room-report, /trust, /faq). Builds on help.css. */
+.page-copy{max-width:760px}
+.page-copy p{margin:0 0 18px;font-size:17px;line-height:1.65;color:rgba(8,11,15,.78)}
+.help-band.dark .page-copy p{color:rgba(255,255,255,.78)}
+.page-copy h3{margin:36px 0 10px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.01em}
+.page-copy ul,.page-copy ol{margin:0 0 18px;padding-left:22px;display:grid;gap:10px;font-size:17px;line-height:1.6;color:rgba(8,11,15,.78)}
+.help-band.dark .page-copy ul,.help-band.dark .page-copy ol{color:rgba(255,255,255,.78)}
+.page-copy b{color:inherit;font-weight:700}
+.page-copy a,.help-card a{color:#0E7490;font-weight:600;text-underline-offset:3px}
+.help-band.dark .page-copy a{color:#2dd4bf}
+.page-steps{display:grid;gap:0;border-top:1px solid rgba(8,11,15,.14);margin-top:8px}
+.page-steps>div{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(8,11,15,.14)}
+.page-steps .num{font:700 11px/1.4 'JetBrains Mono',monospace;letter-spacing:.16em;color:#0F766E;text-transform:uppercase;padding-top:6px}
+.page-steps h3{margin:0 0 10px;font-family:'Archivo Black',sans-serif;font-weight:400;font-size:24px}
+.page-steps p{margin:0 0 12px;font-size:16.5px;line-height:1.65;color:rgba(8,11,15,.75)}
+.page-steps ul{margin:0 0 12px;padding-left:20px;display:grid;gap:6px;color:rgba(8,11,15,.75)}
+.help-faq a{color:#0E7490;font-weight:600}
+@media(max-width:700px){.page-steps>div{grid-template-columns:1fr;gap:6px}}
+.help-split.three{grid-template-columns:repeat(3,1fr);margin-top:28px}
+.help-cards.four{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.help-split.three{grid-template-columns:1fr}.help-cards.four{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.help-cards.four{grid-template-columns:1fr}}
+.contact-mail{margin:18px 0 0;font-size:15px;opacity:.8}
+.contact-mail a{color:inherit;text-decoration:underline;text-underline-offset:3px}
