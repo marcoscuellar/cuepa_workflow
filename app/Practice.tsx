@@ -1,11 +1,13 @@
 "use client";
+import Image from "next/image";
 import ReturnMark from "./ReturnMark";
 
 // The CUEPA Practice: four turns, told once, always in order (FIND → FLOW → PROVE → GROW ↻).
 // Each turn pairs a business moment (photo, with see-through CUEPA notes on it) with an iPhone
 // showing the work getting done at that moment. One company goal runs through all four, so the
 // story is: we start with the goal, then put AI only where it pays off.
-// All numbers are labeled Sample. Nothing here is a real client result.
+// Everything here is an illustrative example (a composite scenario), labelled as such: nothing is a real client result.
+// Copy rule: "AI executes. People govern." Routine work runs inside limits the owner sets; people keep the decisions that matter.
 // Motion (motion.dev): each turn plays as it scrolls in. Head rises, the photo settles, notes arrive
 // one by one, the teal line draws to the phone, the phone rises and its rows tick in. Plays once.
 // Off entirely when the visitor prefers reduced motion.
@@ -49,7 +51,7 @@ const turns: Turn[] = [
         {title: "Weekly status report", hrs: "2.5 hrs", act: "Eliminate", why: "Nobody reads it. Stop making it"},
         {title: "Client relationships", act: "Stays human", why: "This is how you win the second location", human: true}
       ],
-      foot: <><span className="pr-sample"><i aria-hidden="true"/>Sample</span><br/><b>Every call ties back to your goal.</b> Nothing is built until you approve it.</>
+      foot: <><span className="pr-sample"><i aria-hidden="true"/>Sample</span><br/><b>Every call ties back to your goal.</b> You approve the plan and set the limits before anything runs.</>
     }
   },
   {
@@ -63,11 +65,11 @@ const turns: Turn[] = [
       {time: "1:48 PM", tag: "Needs a look", body: "Invoice #1048 nudged politely. Third late one this month, flagged.", warn: true}
     ],
     phone: {
-      time: "7:58", app: "Today", title: "Good morning.", sub: "Tuesday · first meeting in 48 min", goal: true,
+      time: "7:58", app: "Today", sample: "Sample · illustrative", title: "Good morning.", sub: "Tuesday · first meeting in 48 min", goal: true,
       rows: [
         {title: "Approve Lakeshore estimate", sub: "2 minutes", act: "Decision"},
         {title: "Rivera brief", sub: "Ready for the 10:30", act: "Prepared"},
-        {title: "Invoice #1048", sub: "Drafted, waiting on your OK", act: "Handled"},
+        {title: "Invoice #1048", sub: "Nudge sent. Third late one this month, flagged", act: "Handled"},
         {title: "Samples review with the team", sub: "Protected until 3:00 PM", act: "Room", human: true},
         {title: "Focus: finish the proposal", sub: "9:00 to 11:00, no meetings", act: "Protected", hideSm: true}
       ],
@@ -103,7 +105,7 @@ const turns: Turn[] = [
       {time: "4:20 PM", tag: "Found", body: "Work that was never billed, across 4 clients. Invoices drafted for your review."}
     ],
     phone: {
-      time: "4:31", app: "Found", title: "Room for what’s next.", sub: "Drafts only. Nothing goes out without you.", goal: true,
+      time: "4:31", app: "Found", title: "Room for what’s next.", sub: "Routine work runs on its own. Anything new waits for your OK.", goal: true,
       rows: [
         {title: "Room for 1 new hire", sub: "Job description drafted from your Room Map", act: "Review"},
         {title: "Unbilled work", sub: "4 clients · invoices drafted", act: "Review"},
@@ -120,7 +122,7 @@ function Mark({size=14}:{size?:number}){
 
 function Phone({p,reduce}:{p:Turn["phone"];reduce:boolean}){
   return (
-    <motion.div className="pr-phone" role="img" aria-label={`CUEPA on a phone: ${p.app}`}
+    <motion.div className="pr-phone" role="group" aria-label={`Example CUEPA screen: ${p.app}`}
       initial={reduce?false:{opacity:0,y:60}} whileInView={{opacity:1,y:0}} viewport={VIEW}
       transition={{duration:.85,delay:.35,ease:EASE}}>
       <motion.div className="pr-screen" variants={stagger(.09,.75)} initial={reduce?false:"hidden"} whileInView="show" viewport={VIEW}>
@@ -150,11 +152,14 @@ export default function Practice(){
   const init=reduce?false:"hidden";
   return (
     <div className="pr">
+      {/* Without JavaScript the entrance animations never run, so show everything as-is. */}
+      <noscript><style>{`.pr [style*="opacity"]{opacity:1!important;filter:none!important}.pr [style*="transform"]{transform:none!important}.pr-route path{stroke-dasharray:none!important;stroke-dashoffset:0!important}`}</style></noscript>
       <section className="pr-way" aria-labelledby="pr-way-h">
         <div className="pr-shell">
           <p className="pr-eyebrow">The CUEPA way</p>
           <h2 id="pr-way-h">Work gets done. Life keeps going.</h2>
-          <p className="pr-lead">Four turns, always in order. While you run the business, CUEPA carries the work, and you keep every decision.</p>
+          <p className="pr-lead">Four turns, always in order. While you run the business, CUEPA carries the work inside the limits you set, and you keep the decisions that matter.</p>
+          <p className="pr-example-note">The scenes below are an illustrative example, not a real client.</p>
           <motion.ol className="pr-rail" variants={stagger(.14,.15)} initial={init} whileInView="show" viewport={VIEW}>
             <motion.li className="pr-rail-line" aria-hidden="true" initial={reduce?false:{scaleX:0}} whileInView={{scaleX:1}} viewport={VIEW} transition={{duration:1.2,ease:EASE}}/>
             {turns.map(t=>(
@@ -185,9 +190,12 @@ export default function Practice(){
                     initial={reduce?false:{pathLength:0}} whileInView={{pathLength:1}} viewport={VIEW} transition={{duration:1.1,delay:.55,ease:"easeInOut"}}/>
                 </svg>
                 <motion.div className="pr-life" initial={reduce?false:{opacity:0,x:-40}} whileInView={{opacity:1,x:0}} viewport={VIEW} transition={{duration:.8,ease:EASE}}>
-                  <motion.img src={t.img} alt={t.alt} loading="lazy" initial={reduce?false:{scale:1.08}} whileInView={{scale:1}} viewport={VIEW} transition={{duration:1.4,ease:EASE}}/>
+                  <motion.div className="pr-img" initial={reduce?false:{scale:1.08}} whileInView={{scale:1}} viewport={VIEW} transition={{duration:1.4,ease:EASE}}>
+                    <Image src={t.img} alt={t.alt} fill sizes="(max-width: 900px) 100vw, 56vw"/>
+                  </motion.div>
                   <span className="pr-cap"><i aria-hidden="true"/>{t.caption}</span>
-                  <motion.ul className="pr-notes" aria-label="CUEPA notifications" variants={stagger(.28,.6)} initial={init} whileInView="show" viewport={VIEW}>
+                  <span className="pr-example">Example</span>
+                  <motion.ul className="pr-notes" aria-label="Example CUEPA notifications (illustrative only)" variants={stagger(.28,.6)} initial={init} whileInView="show" viewport={VIEW}>
                     {t.notes.map(n=>(
                       <motion.li variants={note} key={n.time+n.tag} className="pr-note">
                         <span className="pr-note-top"><Mark/>CUEPA <em>· {n.time}</em><span className={`pr-tag${n.warn?" is-warn":""}`}><i aria-hidden="true"/>{n.tag}</span></span>
