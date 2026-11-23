@@ -1,13 +1,20 @@
-import type {Metadata} from "next";
 import Nav from "../Nav";
-import Logo from "../Logo";
+import {pageMeta,JsonLd,SiteFooter} from "../PageShell";
 import "./help.css";
 
-export const metadata:Metadata={
-  title:"Help — CUEPA",
-  description:"How CUEPA supports its members: a hub that sets up in about 5 minutes, and a real person behind it.",
-  alternates:{canonical:"/help"}
-};
+export const metadata=pageMeta(
+  "/help",
+  "Help and Support for CUEPA Members | CUEPA",
+  "Set up your CUEPA hub in about 5 minutes, find your timecard link, and reach a real person who knows your business."
+);
+
+const faqs:[string,string][]=[
+  ["I can't sign in.","Email us from the address you use for CUEPA and we'll get you back in."],
+  ["I lost my timecard link.","Ask your account owner. They can find it for you in the hub."],
+  ["Does CUEPA run payroll or send invoices for me?","No. Those stay with you. CUEPA prepares the work; you make the call."],
+  ["Can CUEPA see my passwords?","No. You sign in to Google and QuickBooks on their own pages."]
+];
+const faqSchema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}))};
 
 const MAIL="marcoscuellar@elipangroup.com";
 const BOOK=`mailto:${MAIL}?subject=Book%20a%20setup%20call&body=Business%20name%3A%0ATimes%20that%20work%20for%20me%3A%0A`;
@@ -15,6 +22,7 @@ const BOOK=`mailto:${MAIL}?subject=Book%20a%20setup%20call&body=Business%20name%
 export default function HelpPage(){
   return (<main>
     <Nav current="help"/>
+    <JsonLd data={faqSchema}/>
 
     <section className="help-band light first">
       <div className="shell">
@@ -62,11 +70,9 @@ export default function HelpPage(){
       <div className="shell">
         <h2>Common questions</h2>
         <div className="help-faq">
-          <div><b>I can&rsquo;t sign in.</b><span>Email us from the address you use for CUEPA and we&rsquo;ll get you back in.</span></div>
-          <div><b>I lost my timecard link.</b><span>Ask your account owner. They can find it for you in the hub.</span></div>
-          <div><b>Does CUEPA run payroll or send invoices for me?</b><span>No. Those stay with you. CUEPA prepares the work; you make the call.</span></div>
-          <div><b>Can CUEPA see my passwords?</b><span>No. You sign in to Google and QuickBooks on their own pages.</span></div>
+          {faqs.map(([q,a])=>(<div key={q}><b>{q}</b><span>{a}</span></div>))}
         </div>
+        <p className="help-lead">Questions before you start? <a href="/faq">See the FAQ</a>.</p>
       </div>
     </section>
 
@@ -80,11 +86,6 @@ export default function HelpPage(){
       </div>
     </section>
 
-    <footer className="site-footer">
-      <p className="wordmark"><Logo lockup size={26}/></p>
-      <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
-      <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a></p>
-      <p className="footer-ollin">CUEPA · An ELIPAN GROUP company</p>
-    </footer>
+    <SiteFooter/>
   </main>);
 }

@@ -130,3 +130,6 @@
 @media (hover:hover) and (prefers-reduced-motion:reduce){
   .site :is(.reality .stat-card,.nx-list li,.rrStat,.rrCard,.rrFound,.rrApprove,.hw-note,.hw-panel,.tr-card,.rs-card):hover{translate:none;box-shadow:0 2px 4px rgba(8,11,15,.08),0 12px 28px rgba(8,11,15,.10)}
 }
+/* Nov 23: both sections are white now, so their paddings stacked into a ~300px empty gap. */
+.site .nx{padding-bottom:clamp(40px,4vw,56px)}
+.site .convo-sec{padding-top:clamp(40px,4vw,72px)}

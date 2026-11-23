@@ -17,8 +17,8 @@ const jsonLd={
        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Prove: The Room Report","description":"Before-and-after measurement against the week-one baseline."}},
        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Grow: The Next Opportunity","description":"The running system surfaces opportunities as drafts for review, never as automatic actions."}}]}},
     {"@type":"Person","@id":"https://www.makingcuepa.com/#marcos","name":"Marcos Cuellar","jobTitle":"Leads CUEPA","worksFor":{"@id":"https://www.makingcuepa.com/#business"},
-     "description":"Leads CUEPA. Background in business development, staffing and operational strategy, so the approach starts with the human business outcome rather than the technology.",
-     "knowsAbout":["Business development","Staffing","Operational strategy","AI workflow design"]},
+     "description":"Leads CUEPA. Background in go-to-market leadership, staffing and operational strategy, so the approach starts with the human business outcome rather than the technology.",
+     "knowsAbout":["Go-to-market leadership","Staffing","Operational strategy","AI workflow design"]},
     {"@type":"WebSite","@id":"https://www.makingcuepa.com/#site","url":"https://www.makingcuepa.com/","name":"CUEPA","publisher":{"@id":"https://www.makingcuepa.com/#business"}}
   ]
 };

@@ -39,7 +39,7 @@ export default function Home(){return <main className="site">
   <footer className="site-footer">
     <p className="wordmark"><Logo lockup dark size={26}/></p>
     <p>MAKE ROOM FOR WHAT&rsquo;S NEXT.</p>
-    <p className="footer-links">© 2026 CUEPA · <a href="/help">Help</a> · <a href="https://you.makingcuepa.com/">CUEPA for You: AI help for everyday life</a></p>
+    <p className="footer-links">© 2026 CUEPA · <a href="/practice">Practice</a> · <a href="/room-report">Room Report</a> · <a href="/trust">Trust</a> · <a href="/faq">FAQ</a> · <a href="/help">Help</a> · <a href="https://you.makingcuepa.com/">CUEPA for You: AI help for everyday life</a></p>
     <p className="footer-ollin">CUEPA · An ELIPAN GROUP company.</p>
   </footer>
 </main>}

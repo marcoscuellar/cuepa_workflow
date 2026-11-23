@@ -23,6 +23,17 @@ Four turns, always in order: FIND, FLOW, PROVE, GROW, and back to FIND.
 
 Protect, Challenge, Verify. Workflows check their own output against approved sources, a second layer watches for outliers, and a person is notified whenever review is required. Human in the Middle.
 
+## Pricing
+
+It starts with the Room Map: a full operational workflow audit, including a full, detailed findings report, for $1,500, credited toward the first phase. The Room Map is ready in about one week. Every phase after that gets a fixed price and timeline before any work starts.
+
+## Key pages
+
+- The Practice (Find, Flow, Prove, Grow): https://www.makingcuepa.com/practice
+- The Room Report: https://www.makingcuepa.com/room-report
+- Trust and CHIMAL: https://www.makingcuepa.com/trust
+- FAQ: https://www.makingcuepa.com/faq
+
 ## Contact
 
 - Website: https://www.makingcuepa.com/
