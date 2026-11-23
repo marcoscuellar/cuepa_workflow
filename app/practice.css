@@ -46,7 +46,10 @@
 .pr-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(120px,14vw,220px);align-items:center;min-height:680px}
 .pr-route{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .pr-life{position:relative;z-index:1;border-radius:20px;overflow:hidden;height:640px;box-shadow:0 40px 90px -40px rgba(8,11,15,.45)}
+.pr-img{position:absolute;inset:0}
 .pr-life img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.pr-example{position:absolute;z-index:3;right:20px;top:20px;padding:7px 12px;border-radius:999px;background:rgba(8,11,15,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:600;line-height:1;letter-spacing:.12em;text-transform:uppercase}
+.pr-example-note{margin-top:10px!important;font-size:14px;color:var(--pr-muted)}
 .pr-cap{position:absolute;left:20px;top:20px;display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:10px 16px;font-size:14px;font-weight:600;color:var(--pr-ink);box-shadow:var(--pr-lift)}
 .pr-cap i,.pr-tag i,.pr-sample i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--pr-teal)}
 .pr-notes{position:absolute;z-index:2;left:20px;bottom:20px;list-style:none;padding:0;display:grid;gap:10px;width:min(330px,calc(100% - 40px))}
@@ -87,10 +90,10 @@
   .pr-stage{grid-template-columns:minmax(0,1fr);gap:0;min-height:0;justify-items:center}
   .pr-route{display:none}
   .pr-life{height:440px;width:100%}
-  .pr-notes{bottom:156px}
-  .pr-note:nth-child(n+2){display:none}
-  .pr-phone{width:300px;height:620px;margin-top:-140px;border-radius:50px;padding:10px;z-index:2}
-  .pr-screen{border-radius:40px;padding:54px 14px 16px}
+  .pr-notes{bottom:20px}
+  .pr-phone{width:300px;height:auto;margin-top:28px;border-radius:50px;padding:10px;z-index:2}
+  .pr-screen{height:auto;border-radius:40px;padding:54px 14px 16px;gap:9px}
+  .pr-foot{margin-top:6px!important}
   .pr-row.hide-sm{display:none}
   .pr-row{padding:9px 10px}
 }
@@ -99,3 +102,10 @@
 /* Per-turn note placement so faces stay clear (Flow: right side; no notes on phones). */
 .pr-life.notes-right .pr-notes{left:auto;right:20px}
 @media(max-width:900px){.pr-life.notes-off-sm .pr-notes{display:none}}
+
+/* Reduced motion: no entrance animation at all. Show every scene as-is (motion starts them hidden). */
+@media (prefers-reduced-motion:reduce){
+  .pr [style*="opacity"]{opacity:1!important;filter:none!important}
+  .pr [style*="transform"]{transform:none!important}
+  .pr-route path{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+}
